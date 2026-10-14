@@ -1,0 +1,94 @@
+--- a/common/arg.cpp
++++ b/common/arg.cpp
+@@ -44,6 +44,8 @@
+ #   endif
+ #elif defined(_AIX)
+ #include <sys/limits.h>
++#elif defined(__HAIKU__)
++#include <limits.h>
+ #else
+ #include <sys/syslimits.h>
+ #endif
+--- a/common/download.cpp
++++ b/common/download.cpp
+@@ -32,6 +32,8 @@
+ #   endif
+ #elif defined(_AIX)
+ #include <sys/limits.h>
++#elif defined(__HAIKU__)
++#include <limits.h>
+ #else
+ #include <sys/syslimits.h>
+ #endif
+--- a/common/common.cpp
++++ b/common/common.cpp
+@@ -949,7 +949,7 @@
+         cache_directory = std::getenv("LLAMA_CACHE");
+     } else {
+ #if defined(__linux__) || defined(__FreeBSD__) || defined(_AIX) || \
+-        defined(__OpenBSD__) || defined(__NetBSD__)
++        defined(__OpenBSD__) || defined(__NetBSD__) || defined(__HAIKU__)
+         if (std::getenv("XDG_CACHE_HOME")) {
+             cache_directory = std::getenv("XDG_CACHE_HOME");
+         } else if (std::getenv("HOME")) {
+--- a/tools/rpc/rpc-server.cpp
++++ b/tools/rpc/rpc-server.cpp
+@@ -136,7 +136,7 @@
+         cache_directory = std::getenv("LLAMA_CACHE");
+     } else {
+ #if defined(__linux__) || defined(__FreeBSD__) || defined(_AIX) || \
+-    defined(__OpenBSD__) || defined(__NetBSD__)
++    defined(__OpenBSD__) || defined(__NetBSD__) || defined(__HAIKU__)
+         if (std::getenv("XDG_CACHE_HOME")) {
+             cache_directory = std::getenv("XDG_CACHE_HOME");
+         } else if (std::getenv("HOME")) {
+--- a/tools/server/CMakeLists.txt
++++ b/tools/server/CMakeLists.txt
+@@ -71,3 +71,7 @@
+ target_link_libraries(${TARGET} PRIVATE server-context PUBLIC llama-common cpp-httplib ${CMAKE_THREAD_LIBS_INIT})
+ 
+ target_compile_features(${TARGET} PRIVATE cxx_std_17)
++
++if (CMAKE_SYSTEM_NAME STREQUAL "Haiku")
++    target_link_libraries(llama-server PRIVATE network)
++endif()
+--- a/vendor/cpp-httplib/CMakeLists.txt
++++ b/vendor/cpp-httplib/CMakeLists.txt
+@@ -181,3 +181,7 @@
+         target_link_libraries(${TARGET} PUBLIC crypt32)
+     endif()
+ endif()
++
++if (CMAKE_SYSTEM_NAME STREQUAL "Haiku")
++    target_link_libraries(cpp-httplib PUBLIC network)
++endif()
+--- a/ggml/src/ggml-rpc/CMakeLists.txt
++++ b/ggml/src/ggml-rpc/CMakeLists.txt
+@@ -31,3 +31,7 @@
+ else()
+     message(STATUS "  RDMA transport disabled")
+ endif()
++
++if (CMAKE_SYSTEM_NAME STREQUAL "Haiku")
++    target_link_libraries(ggml-rpc PRIVATE network)
++endif()
+--- a/vendor/miniaudio/miniaudio.h
++++ b/vendor/miniaudio/miniaudio.h
+@@ -17656,7 +17656,7 @@
+ 
+                 /* I'm not treating a failure of setting the priority as a critical error so not aborting on failure here. */
+                 if (pthread_attr_setschedparam(&attr, &sched) == 0) {
+-                    #if !defined(MA_ANDROID) || (defined(__ANDROID_API__) && __ANDROID_API__ >= 28)
++                    #if (!defined(MA_ANDROID) || (defined(__ANDROID_API__) && __ANDROID_API__ >= 28)) && !defined(__HAIKU__)
+                     {
+                         pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
+                     }
+@@ -19399,7 +19399,7 @@
+         #else
+         {
+             /* Hack for Android bug (see https://github.com/android/ndk/issues/360). Calling dlclose() pre-API 28 may segfault. */
+-            #if !defined(MA_ANDROID) || (defined(__ANDROID_API__) && __ANDROID_API__ >= 28)
++            #if (!defined(MA_ANDROID) || (defined(__ANDROID_API__) && __ANDROID_API__ >= 28)) && !defined(__HAIKU__)
+             {
+                 dlclose((void*)handle);
+             }

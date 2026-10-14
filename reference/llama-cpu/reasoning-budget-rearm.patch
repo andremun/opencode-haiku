@@ -1,0 +1,97 @@
+diff --git a/common/reasoning-budget.cpp b/common/reasoning-budget.cpp
+index cc408a686..6cd55ab06 100644
+--- a/common/reasoning-budget.cpp
++++ b/common/reasoning-budget.cpp
+@@ -122,6 +122,20 @@ static void common_reasoning_budget_accept(struct llama_sampler * smpl, llama_to
+             }
+             break;
+         case REASONING_BUDGET_DONE:
++            // The sampler is also fed the prompt. A conversation with tool
++            // calls has finished thinking blocks of earlier assistant turns
++            // in it, and without this the budget would be spent before the
++            // reply starts. Arm it again at every new start tag.
++            if (ctx->start_matcher.advance(token)) {
++                ctx->state = REASONING_BUDGET_COUNTING;
++                ctx->remaining = ctx->budget;
++                ctx->end_matcher.reset();
++                LOG_INF("reasoning-budget: activated again, budget=%d tokens\n", ctx->budget);
++                if (ctx->remaining <= 0) {
++                    ctx->state = REASONING_BUDGET_FORCING;
++                    ctx->force_pos = 0;
++                }
++            }
+             break;
+     }
+ }
+diff --git a/tests/test-reasoning-budget.cpp b/tests/test-reasoning-budget.cpp
+index 3028fb4d8..1d559b702 100644
+--- a/tests/test-reasoning-budget.cpp
++++ b/tests/test-reasoning-budget.cpp
+@@ -227,7 +227,66 @@ int main(void) {
+             3);     // forcing continues through i=3
+     }
+ 
+-    printf("OK (5 tests passed)\n");
++    // Tests 6 to 9: the sampler is also fed the prompt. In a conversation
++    // with tool calls the prompt has finished thinking blocks of earlier
++    // assistant turns. The budget must apply again to each new block.
++    // Without the re-arm in REASONING_BUDGET_DONE, tests 6, 7 and 9 see no
++    // forcing at all.
++
++    // Test 6: one finished block in the prompt, then a new block that
++    // goes over the budget.
++    // Flow: i=0..2 first block ends naturally -> DONE; i=4 start -> COUNTING;
++    // i=5,6,7 deplete the budget -> FORCING; apply at i=8 and i=9 forces.
++    {
++        const std::vector<llama_token> start = {100};
++        const std::vector<llama_token> end = {101};
++        const std::vector<llama_token> forced = {102, 101};
++        const std::vector<llama_token> sequence = {100, 50, 101, 60, 100, 51, 52, 53, 54, 55};
++
++        test_reasoning_budget("new block after a finished block in the prompt", sequence, start, end, forced,
++            3, REASONING_BUDGET_IDLE, 8, 9);
++    }
++
++    // Test 7: two finished blocks (two earlier tool turns), then a third
++    // block that goes over the budget.
++    {
++        const std::vector<llama_token> start = {100};
++        const std::vector<llama_token> end = {101};
++        const std::vector<llama_token> forced = {102, 101};
++        const std::vector<llama_token> sequence = {100, 50, 101, 100, 51, 101, 60, 100, 52, 53, 54, 55, 56};
++
++        test_reasoning_budget("third block after two finished blocks", sequence, start, end, forced,
++            3, REASONING_BUDGET_IDLE, 11, 12);
++    }
++
++    // Test 8: the budget is for each block, not for the conversation. Two
++    // blocks that each stay within the budget are not forced, although
++    // together they have more tokens than the budget.
++    {
++        const std::vector<llama_token> start = {100};
++        const std::vector<llama_token> end = {101};
++        const std::vector<llama_token> forced = {102, 101};
++        const std::vector<llama_token> sequence = {100, 50, 51, 101, 100, 52, 53, 101, 54};
++
++        test_reasoning_budget("two blocks within the budget each", sequence, start, end, forced,
++            3, REASONING_BUDGET_IDLE, SIZE_MAX, SIZE_MAX);
++    }
++
++    // Test 9: a start tag of two tokens. A partial match (first token only)
++    // after a finished block must not arm the budget; the full tag must.
++    // Flow: i=0..3 first block -> DONE; i=4,5 partial match, no effect;
++    // i=6,7 full tag -> COUNTING; i=8,9,10 deplete -> FORCING at i=11,12.
++    {
++        const std::vector<llama_token> start = {100, 99};
++        const std::vector<llama_token> end = {101};
++        const std::vector<llama_token> forced = {102, 101};
++        const std::vector<llama_token> sequence = {100, 99, 50, 101, 100, 60, 100, 99, 51, 52, 53, 54, 55};
++
++        test_reasoning_budget("partial start tag after a finished block", sequence, start, end, forced,
++            3, REASONING_BUDGET_IDLE, 11, 12);
++    }
++
++    printf("OK (9 tests passed)\n");
+ 
+     printf("Testing UTF-8 boundary detection... ");
+     test_utf8_boundary_detection();

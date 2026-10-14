@@ -1,0 +1,23 @@
+{
+  "source_revision": "cf8b0dbda9ac0eac30ee33f87bc6702ead1c4664",
+  "source_url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/cf8b0dbda9ac0eac30ee33f87bc6702ead1c4664",
+  "source_sha256": "6980c77f4ad311bca845848f5b899d1a68b35dec94de849ca1b2ce4bc3ca0a3a",
+  "provenance": "Copies of the recorded supplied/Haiku portability patches in sibling haiku-k40c-llm; CPU build disables CUDA. Apply in listed order.",
+  "patches": [
+    {
+      "path": "reference/llama-cpu/kepler-sm35-ggml-cuda.patch",
+      "sha256": "9b39148362fe4b5698af48c283fa9f16953f7fe6c908d846b498709e3d163662",
+      "bytes": 9849
+    },
+    {
+      "path": "reference/llama-cpu/reasoning-budget-rearm.patch",
+      "sha256": "375d46f15f5e4a0974f4a01a8a36e064919856046ba473186f9bae062594d0d6",
+      "bytes": 4596
+    },
+    {
+      "path": "reference/llama-cpu/haiku-portability.patch",
+      "sha256": "0049126b554289b3f188774dd86f5701c95b63adc3b314875106e41681d77c34",
+      "bytes": 3439
+    }
+  ]
+}
