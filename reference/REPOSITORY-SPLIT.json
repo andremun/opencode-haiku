@@ -2,7 +2,7 @@
   "date": "2026-10-14",
   "origin": "/home/unimelb.edu.au/mariom1/Documents/packages/haiku-k40c-llm",
   "destination": "/home/unimelb.edu.au/mariom1/Documents/packages/opencode-haiku",
-  "vm": "Stopped original, copied installed disk/EFI variables/verified ISO into independent ignored files; boot verification pending",
+  "vm": "Independent disk, EFI variables and ISO copies booted successfully to the Haiku desktop from the new repository; clean shutdown requested.",
   "original_vm_launch": {
     "args": [
       "qemu-system-x86_64",
@@ -48,5 +48,6 @@
     "pid": 2415323,
     "started": 1791972698.8048832
   },
-  "cpu_model_test": "Optional external OpenAI-compatible endpoint. Test used CPU-only llama.cpp from the original repository; OpenCode build/runtime does not depend on it."
+  "cpu_model_test": "Optional external OpenAI-compatible endpoint. Test used CPU-only llama.cpp from the original repository; OpenCode build/runtime does not depend on it.",
+  "post_move_bundle": "--version succeeded; all source, patch, lockfile, Bun and bundle hashes match"
 }

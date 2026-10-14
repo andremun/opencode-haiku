@@ -1,0 +1,3 @@
+# Preserve literal patch context and captured SSE protocol bytes.
+reference/*.patch -whitespace
+results/opencode-local-wire-response.txt -whitespace

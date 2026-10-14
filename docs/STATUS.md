@@ -34,11 +34,12 @@ Bun 1.4.2 builds the bundle; native Haiku runs Node 24.21.0-1.
 - OpenTUI/native PTY and filesystem watching remain unsupported.
 - Source/build wrapper assembled from successful commands has not yet had a
   further clean rebuild; tested archive and launcher passed in a fresh guest.
-- Independent copied VM boot verification is in progress after repository split.
+- Independent copied VM booted successfully from the new repository; moved
+  bundle --version and all recorded input hashes also pass.
 
 ## Resources
 
 Original VM, transfer service, CPU test server and relay are stopped.
-Only this repository's copied cardless VM is running for migration verification.
+The copied cardless VM boot was verified and clean shutdown was requested.
 No physical GPU or running host model service was changed. See
 [the report](OPENCODE-HAIKU-PORT.md) and `reference/REPOSITORY-SPLIT.json`.
