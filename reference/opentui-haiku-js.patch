@@ -1,0 +1,17 @@
+--- a/packages/core/src/node-asset-target.ts
++++ b/packages/core/src/node-asset-target.ts
+@@ -1,5 +1,5 @@
+ export type NodeAssetTarget = {
+-  readonly platform: "darwin" | "linux" | "win32"
++  readonly platform: "darwin" | "linux" | "win32" | "haiku"
+   readonly arch: "arm64" | "x64"
+   readonly libc?: "glibc" | "musl"
+ }
+@@ -13,6 +13,7 @@
+ const NATIVE_FILE_NAMES = {
+   darwin: "libopentui.dylib",
+   linux: "libopentui.so",
++  haiku: "libopentui.so",
+   win32: "opentui.dll",
+ } as const
+ 

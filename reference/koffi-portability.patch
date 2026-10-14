@@ -1,0 +1,103 @@
+--- a/src/koffi/src/uv.cc
++++ b/src/koffi/src/uv.cc
+@@ -85,7 +85,7 @@
+         return;
+     }
+ 
+-    napi_value opts = has_opts ? info[0] : nullptr;
++    napi_value opts = has_opts ? static_cast<napi_value>(info[0]) : nullptr;
+     napi_value func = info[0 + has_opts];
+ 
+     Start(opts, func);
+--- a/lib/native/base/base.cc
++++ b/lib/native/base/base.cc
+@@ -97,6 +97,10 @@
+     #include <pwd.h>
+ 
+     extern char **environ;
++#endif
++#if defined(__HAIKU__)
++    #include <OS.h>
++    #include <image.h>
+ #endif
+ #if defined(__linux__)
+     #include <sys/syscall.h>
+@@ -3984,6 +3988,21 @@
+     }
+ 
+     return executable_path;
++#elif defined(__HAIKU__)
++    static char executable_path[4096];
++    if (!executable_path[0]) {
++        int32 cookie = 0;
++        image_info image;
++        while (get_next_image_info(B_CURRENT_TEAM, &cookie, &image) == B_OK) {
++            if (image.type == B_APP_IMAGE) {
++                K_ASSERT(strlen(image.name) < K_SIZE(executable_path));
++                CopyString(image.name, executable_path);
++                break;
++            }
++        }
++        K_ASSERT(executable_path[0]);
++    }
++    return executable_path;
+ #elif defined(__wasm__)
+     return nullptr;
+ #else
+@@ -4408,6 +4427,14 @@
+ {
+     K_ASSERT(filename);
+ 
++#if defined(__HAIKU__)
++    // Haiku fsync reports EBADF for valid sockets/pipes, unlike POSIX EINVAL.
++    // Standard streams need their user-space buffers flushed, not file durability.
++    struct stat info;
++    if (fstat(fd, &info) == 0 && !S_ISREG(info.st_mode))
++        return true;
++#endif
++
+     HANDLE h = (HANDLE)_get_osfhandle(fd);
+ 
+     if (!FlushFileBuffers(h)) {
+@@ -4779,6 +4806,14 @@
+ bool FlushFile(int fd, const char *filename)
+ {
+     K_ASSERT(filename);
++
++#if defined(__HAIKU__)
++    // Haiku fsync reports EBADF for valid sockets/pipes, unlike POSIX EINVAL.
++    // Standard streams need their user-space buffers flushed, not file durability.
++    struct stat info;
++    if (fstat(fd, &info) == 0 && !S_ISREG(info.st_mode))
++        return true;
++#endif
+ 
+ #if defined(__APPLE__)
+     if (fsync(fd) < 0 && errno != EINVAL && errno != ENOTSUP) {
+@@ -8233,7 +8268,7 @@
+ {
+ #if defined(__APPLE__)
+     pthread_setname_np(name);
+-#elif defined(__linux__)
++#elif defined(__linux__) || defined(__HAIKU__)
+     pthread_setname_np(pthread_self(), name);
+ #elif !defined(__wasi__)
+     pthread_set_name_np(pthread_self(), name);
+--- a/cnoke.cjs
++++ b/cnoke.cjs
+@@ -363,9 +363,13 @@
+ 
+ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+     if(CMAKE_SYSTEM_PROCESSOR MATCHES "(amd64|x86_64)")
++        set(CNOKE_BASELINE_CPU "x86-64-v2")
++        if(CMAKE_SYSTEM_NAME STREQUAL "Haiku")
++            set(CNOKE_BASELINE_CPU "x86-64")
++        endif()
+         foreach(lang C CXX)
+-            set(CMAKE_\${lang}_FLAGS_RELEASE "\${CMAKE_\${lang}_FLAGS_RELEASE} -march=x86-64-v2")
+-            set(CMAKE_\${lang}_FLAGS_RELWITHDEBINFO "\${CMAKE_\${lang}_FLAGS_RELWITHDEBINFO} -march=x86-64-v2")
++            set(CMAKE_\${lang}_FLAGS_RELEASE "\${CMAKE_\${lang}_FLAGS_RELEASE} -march=\${CNOKE_BASELINE_CPU}")
++            set(CMAKE_\${lang}_FLAGS_RELWITHDEBINFO "\${CMAKE_\${lang}_FLAGS_RELWITHDEBINFO} -march=\${CNOKE_BASELINE_CPU}")
+         endforeach()
+     endif()
+ endif()

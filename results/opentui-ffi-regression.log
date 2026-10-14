@@ -1,0 +1,31 @@
+bun test v1.4.2 (744846f84)
+
+src/platform/ffi.test.ts:
+(pass) trims fresh Node FFI output buffers without copying [0.35ms]
+(pass) platform/ffi > converts JavaScript booleans to numeric FFI booleans [0.02ms]
+(pass) platform/ffi > closes the native library before auto-closing managed callbacks [0.40ms]
+(pass) platform/ffi > removes explicitly closed callbacks from library-owned cleanup [0.08ms]
+(pass) platform/ffi > throws when creating a callback after library close [0.14ms]
+(pass) platform/ffi > normalizes safe bigint pointers at the Bun backend boundary [0.17ms]
+(pass) platform/ffi > rejects unsafe bigint pointer narrowing [0.13ms]
+(pass) platform/ffi > converts file: URLs to filesystem paths at Node dlopen [0.64ms]
+(pass) platform/ffi > normalizes Node integer, char, bool, and void FFIType aliases [0.39ms]
+(pass) platform/ffi > normalizes Node float FFIType aliases [0.05ms]
+(pass) platform/ffi > normalizes Node pointer-like FFIType aliases [0.17ms]
+(pass) platform/ffi > uses Node pointer and toArrayBuffer memory semantics [0.30ms]
+(pass) platform/ffi > preserves Node borrowed pointer arguments and normalizes raw pointers and null [0.53ms]
+(pass) platform/ffi > keeps supported Node pointer wrappers fixed-arity [0.36ms]
+(pass) platform/ffi > normalizes pointers in long fixed-arity Node wrappers [0.18ms]
+(pass) platform/ffi > accepts cross-realm ArrayBuffers and views at Node pointer boundaries [1.13ms]
+(pass) platform/ffi > rejects invalid Node ptr-like arguments deterministically [0.11ms]
+(pass) platform/ffi > validates Node pointer offsets before BigInt arithmetic [0.04ms]
+(pass) platform/ffi > passes dlopen(null) to Node and rejects it in Bun [0.04ms]
+(pass) platform/ffi > manages Node callbacks through the loaded library [0.12ms]
+(pass) platform/ffi > marks Node callbacks closed after library close without unregistering an already closed library [0.06ms]
+(pass) platform/ffi > does not unregister Node callbacks after a throwing library close starts [0.15ms]
+(pass) platform/ffi > rejects Node-only unsupported callback and symbol definitions [0.19ms]
+
+ 23 pass
+ 0 fail
+ 90 expect() calls
+Ran 23 tests across 1 file. [19.00ms]

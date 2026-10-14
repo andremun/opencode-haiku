@@ -1,0 +1,9 @@
+{
+  "archive": "opencode-haiku-tui-2.0.29-haiku.2.tar.gz",
+  "bytes": 42798096,
+  "sha256": "ea12569b53eab9c175e4afe6597ff7f1d35ce25419e21014660c83660ef5220d",
+  "bundle_sha256": "8546394e0acf46c05eb28c477b7fbe258f3459e93137d9df14c05553a08db1b4",
+  "native_sha256": "f40a973504150d3907e3a0fa6cb6afca3ac0c8ce0bc6c71c238ecc53abe2eb72",
+  "koffi_sha256": "cd03766fb6f2084769da320026938e4a085cc381fd12f509bee6ca92fa58bf9d",
+  "acceptance": "verified native TUI/GUI CPU exchange, fresh archive extraction/version/FFI/shutdown/session recovery; license notices added without runtime changes"
+}

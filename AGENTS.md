@@ -1,7 +1,8 @@
 # opencode-haiku
 
 Read docs/STATUS.md first. This independent repository contains the native Haiku
-headless OpenCode port, source pins, build tooling and measured evidence.
+headless/full TUI and browser OpenCode port, source pins, build tooling and
+measured evidence.
 No dependency on the sibling Haiku LLM or llm-server repositories is required
 to build or run OpenCode. A model endpoint is a separately selected service.
 

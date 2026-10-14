@@ -1,0 +1,5 @@
+stderr: timestamp=2026-10-14T13:17:25.116Z level=INFO run=7e69b502 message="cli starting" version=2.0.29-haiku.2 channel=haiku local=false args="[\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+stderr: timestamp=2026-10-14T13:17:27.789Z level=INFO run=7e69b502 message="database schema bootstrap started" migrations=50 role=server
+stderr: timestamp=2026-10-14T13:17:28.490Z level=INFO run=7e69b502 message="database schema bootstrap completed" migrations=50 durationMs=701 role=server
+stdout: {"url":"http://127.0.0.1:53181"}
+exit: 0

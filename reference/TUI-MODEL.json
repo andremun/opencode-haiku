@@ -1,0 +1,10 @@
+{
+  "base_model": "Qwen/Qwen3-1.7B",
+  "gguf_repository": "bartowski/Qwen_Qwen3-1.7B-GGUF",
+  "revision": "dcb19155b962dbb6389f4691a982043a8e651022",
+  "filename": "Qwen_Qwen3-1.7B-Q4_K_M.gguf",
+  "local_file": "cache/Qwen3-1.7B-Q4_K_M.gguf",
+  "size": 1282439584,
+  "sha256": "72c5c3cb38fa32d5256e2fe30d03e7a64c6c79e668ad84057e3bd66e250b24fb",
+  "scope": "CPU-only native Haiku TUI/GUI acceptance; coding results are observations, not acceptance failures"
+}

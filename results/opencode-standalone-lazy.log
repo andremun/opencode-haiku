@@ -1,0 +1,12 @@
+stderr: timestamp=2026-10-14T13:11:06.832Z level=INFO run=6f4c56f3 message="cli starting" version=2.0.29-haiku.2 channel=haiku local=false args="[\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+stderr: timestamp=2026-10-14T13:11:17.370Z level=ERROR run=6f4c56f3 message="cli process failed" cause="Cause([Die(Error: locking protocol)])" args="[\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+stderr: Error: locking protocol
+    at file:///boot/home/opencode-acceptance/tui/opencode.mjs:1738:67858
+    at ServerProcess.start (file:///boot/home/opencode-acceptance/tui/opencode.mjs:767:17841)
+    at ServerProcess.start (definition) (file:///boot/home/opencode-acceptance/tui/opencode.mjs:3456:31998)
+stderr: Error: Failed to sync '<stdout>': Bad file descriptor
+stderr: terminate called after throwing an instance of 'std::system_error'
+  what():  Resource deadlock
+Abort
+probe timeout
+exit: 0

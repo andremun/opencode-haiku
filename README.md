@@ -1,6 +1,20 @@
 # OpenCode on Haiku
 
-Native headless OpenCode CLI port using Haiku Node 24. This repository is
+## Full TUI and browser GUI
+
+The full upstream OpenCode TUI and browser GUI are now tested in native Haiku
+with a native llama.cpp CPU server and Qwen3 1.7B Q4_K_M. Session recovery and
+live updates between the two interfaces work. Coding quality in the small-model
+test was poor; that was not an acceptance failure.
+
+See [the acceptance report](docs/TUI-ACCEPTANCE.md) for measured evidence,
+reproduction and remaining feature limits. The self-contained runtime archive
+is in ignored `share/opencode-haiku-tui-2.0.29-haiku.2.tar.gz`; its exact hashes
+are in `results/opencode-tui-package.json`. The tooling is in `tools/tui-port/`.
+The interface tests use one shared OpenCode backend per Haiku SQLite profile.
+
+
+Native OpenCode headless CLI, full TUI and browser GUI port using Haiku Node 24. This repository is
 independent of `haiku-k40c-llm` and `llm-server`. It builds OpenCode itself; a model
 API is a separately selected endpoint.
 
@@ -17,8 +31,8 @@ isolated private server.
 
 Measured: native launcher, files, fallback file search, shell execution, stored
 session recovery and real local-model text. Model-driven read/shell calls work,
-but the tiny model failed to fix the synthetic coding task. OpenTUI/PTY and
-watching remain unported. OpenCode's anonymous free service rejected both the
+but the tiny model failed to fix the synthetic coding task. The full TUI and nonrecursive polling watches now work; persistent PTY and
+OS clipboard integration remain unsupported. OpenCode's anonymous free service rejected both the
 port and official Linux control. No paid models, physical GPUs, host sudo or
 existing model-service changes were used.
 

@@ -1,0 +1,8 @@
+stage: import
+stage: dlopen
+stage: integer call
+stage: allocation
+stage: shared view
+stage: buffer pointer
+stage: callback
+FFI_PASS: signed widths, BigInt, shared native memory, sliced buffers, callbacks and closed-library rejection

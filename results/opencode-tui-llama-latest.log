@@ -1,0 +1,65 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+build_info: b0-unknown
+system_info: n_threads = 2 (n_threads_batch = 2) / 2 | CPU : LLAMAFILE = 1 | REPACK = 1 | 
+init: using 5 threads for HTTP server
+start: binding port with default address family
+start: couldn't bind HTTP server socket, hostname: 127.0.0.1, port: 18081
+srv    operator(): operator(): cleaning up before exit...
+main: exiting due to HTTP server error
+srv  params_from_: Chat format: peg-native
+slot print_timing: id  0 | task 0 | 
+prompt eval time =   74537.93 ms /    19 tokens ( 3923.05 ms per token,     0.25 tokens per second)
+       eval time =    3474.85 ms /     2 tokens ( 1737.42 ms per token,     0.58 tokens per second)
+      total time =   78012.77 ms /    21 tokens
+slot      release: id  0 | task 0 | stop processing: n_tokens = 20, truncated = 0
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.950
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task 2 | processing task, is_child = 0
+slot update_slots: id  0 | task 2 | new prompt, n_ctx_slot = 4096, n_keep = 0, task.n_tokens = 19
+slot update_slots: id  0 | task 2 | need to evaluate at least 1 token for each active slot (n_past = 19, task.n_tokens() = 19)
+slot update_slots: id  0 | task 2 | n_past was set to 18
+slot update_slots: id  0 | task 2 | n_tokens = 18, memory_seq_rm [18, end)
+slot init_sampler: id  0 | task 2 | init sampler, took 0.06 ms, tokens: text = 19, total = 19
+slot update_slots: id  0 | task 2 | prompt processing done, n_tokens = 19, batch.n_tokens = 1
+srv  log_server_r: done request: POST /v1/chat/completions 127.0.0.1 200
+slot print_timing: id  0 | task 2 | 
+prompt eval time =   10430.04 ms /     1 tokens (10430.04 ms per token,     0.10 tokens per second)
+       eval time =    3456.77 ms /     2 tokens ( 1728.39 ms per token,     0.58 tokens per second)
+      total time =   13886.81 ms /     3 tokens
+slot      release: id  0 | task 2 | stop processing: n_tokens = 20, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: done request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: peg-native
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 0.950
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task 6 | processing task, is_child = 0
+slot update_slots: id  0 | task 6 | new prompt, n_ctx_slot = 4096, n_keep = 0, task.n_tokens = 19
+slot update_slots: id  0 | task 6 | need to evaluate at least 1 token for each active slot (n_past = 19, task.n_tokens() = 19)
+slot update_slots: id  0 | task 6 | n_past was set to 18
+slot update_slots: id  0 | task 6 | n_tokens = 18, memory_seq_rm [18, end)
+slot init_sampler: id  0 | task 6 | init sampler, took 0.04 ms, tokens: text = 19, total = 19
+slot update_slots: id  0 | task 6 | prompt processing done, n_tokens = 19, batch.n_tokens = 1
+slot print_timing: id  0 | task 6 | 
+prompt eval time =    4570.27 ms /     1 tokens ( 4570.27 ms per token,     0.22 tokens per second)
+       eval time =    4816.26 ms /     2 tokens ( 2408.13 ms per token,     0.42 tokens per second)
+      total time =    9386.53 ms /     3 tokens
+slot      release: id  0 | task 6 | stop processing: n_tokens = 20, truncated = 0
+srv  update_slots: all slots are idle
+srv  log_server_r: done request: POST /v1/chat/completions 127.0.0.1 200
+srv  params_from_: Chat format: peg-native
+srv  params_from_: Chat format: peg-native
+slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 3130033751
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 20, total state size = 2.188 MiB
+srv          load:  - looking for better prompt, base f_keep = 0.050, sim = 0.004
+srv        update:  - cache state: 1 prompts, 2.188 MiB (limits: 8192.000 MiB, 4096 tokens, 74868 est)
+srv        update:    - prompt 0x9d47a3f290:      20 tokens, checkpoints:  0,     2.188 MiB
+srv  get_availabl: prompt cache update took 44.08 ms
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task 10 | processing task, is_child = 0
+slot update_slots: id  0 | task 10 | new prompt, n_ctx_slot = 4096, n_keep = 0, task.n_tokens = 230
+slot update_slots: id  0 | task 10 | n_tokens = 1, memory_seq_rm [1, end)
+slot init_sampler: id  0 | task 10 | init sampler, took 0.44 ms, tokens: text = 230, total = 230
+slot update_slots: id  0 | task 10 | prompt processing done, n_tokens = 230, batch.n_tokens = 229

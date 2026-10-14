@@ -1,0 +1,9 @@
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Haiku/R1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15 WebPositive/1.3",
+  "fetch": "function",
+  "abortAny": "function",
+  "abortTimeout": "function",
+  "promiseWithResolvers": "function",
+  "readableStream": "function",
+  "textDecoderStream": "function"
+}

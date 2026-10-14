@@ -1,0 +1,16 @@
+{
+  "reports": [
+    {
+      "file": "logs/opencode-private-crash.report",
+      "sha256": "d9934c8a7e78a805299593a8e69e35bb106a801df4abb8e9ad16d7153bafded4",
+      "bytes": 65478
+    },
+    {
+      "file": "logs/opencode-tui-node-crash.report",
+      "sha256": "4b194549be67522eea082f6584ae4f67d7c8a1d0af51bd5f6c5c0c2968283161",
+      "bytes": 19376
+    }
+  ],
+  "initial_ffi_fault": "koffi.node +0x6705b, SSE4.1 pinsrq unavailable on qemu64",
+  "private_shutdown": "std::system_error Resource deadlock from Koffi finalization following nonregular stdout fsync failure; native private database contention also observed"
+}

@@ -1,0 +1,60 @@
+{
+  "opencode_revision": "34d8ded0c58dd66808c1d60e081e8c66da12a896",
+  "opentui_revision": "6f0efd3330978d696b42db3d7d95d2042008312b",
+  "zig": "0.16.0",
+  "koffi": "3.3.3",
+  "guest": "Haiku hrev60207 x86_64, Node 24.21.0-1",
+  "inputs": [
+    {
+      "path": "cache/opentui-0.5.17.tar.gz",
+      "sha256": "11c7e28872950172bf10a74114fefb08acf3246193c3e55adf50d8481998bc01",
+      "bytes": 30023782
+    },
+    {
+      "path": "cache/zig-0.16.0-linux-x64.tar.xz",
+      "sha256": "70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00",
+      "bytes": 55478392
+    },
+    {
+      "path": "cache/koffi-3.3.3.tgz",
+      "sha256": "c53f8da8e3c916ae8d666256650916768c7c4e8a579f188d794e8371b5773308",
+      "bytes": 299797
+    },
+    {
+      "path": "cache/haiku-sdk.tar.gz",
+      "sha256": "7ed6dec0f8a2a12022fd784e366fe0f3db58a332370cf88d47426acc929bee9c",
+      "bytes": 20655307
+    },
+    {
+      "path": "cache/opencode-haiku-gcc-sdk.tar.gz",
+      "sha256": "59101f89868f9a479095249d2874e730f8fdacea2df7521b19b5fc7628e36eb1",
+      "bytes": 3375742
+    },
+    {
+      "path": "reference/opentui-haiku-native.patch",
+      "sha256": "ef1f6eaa92d6a0b9ff215f3561d58ccb89579c8e02006d2404e116e88c2c93e5",
+      "bytes": 8210
+    },
+    {
+      "path": "reference/opentui-haiku-js.patch",
+      "sha256": "518c3c96b253a1a7281a1392c0ed493d94e0817780122d66d4d18acaab6c1613",
+      "bytes": 495
+    },
+    {
+      "path": "reference/zig-haiku-io.patch",
+      "sha256": "c0917111170e4d36a5881120279e9a637a24104ee99291477f08de2813f6cb1f",
+      "bytes": 3606
+    },
+    {
+      "path": "reference/koffi-portability.patch",
+      "sha256": "e9145dfcf6e9b09c580f28eb37a96f6c53a085ee72008773ded133409ea8767b",
+      "bytes": 3288
+    },
+    {
+      "path": "cache/opencode-final-koffi.node",
+      "sha256": "cd03766fb6f2084769da320026938e4a085cc381fd12f509bee6ca92fa58bf9d",
+      "bytes": 1212712,
+      "provenance": "native Haiku Node24/CMake clean build, final Koffi patch"
+    }
+  ]
+}

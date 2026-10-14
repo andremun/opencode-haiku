@@ -1,0 +1,9 @@
+bun test v1.4.2 (744846f84)
+
+tools/tui-port/haiku-asset-target.test.ts:
+(pass) Haiku resolves its own native renderer without selecting a Linux artifact [0.45ms]
+
+ 1 pass
+ 0 fail
+ 2 expect() calls
+Ran 1 test across 1 file. [73.00ms]

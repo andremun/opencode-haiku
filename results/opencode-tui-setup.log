@@ -1,0 +1,22 @@
+  100% repochecksum-1 [65 bytes]
+Validating checksum for Haiku...done.
+  100% repochecksum-1 [64 bytes]
+Validating checksum for HaikuPorts...done.
+The following changes will be made:
+  in system:
+    install package nodejs24_devel-24.21.0-1 from repository HaikuPorts
+    install package libffi-3.4.6-1 from repository HaikuPorts
+    install package libffi_devel-3.4.6-1 from repository HaikuPorts
+Continue? [yes/no] (yes) : yes
+  100% nodejs24_devel-24.21.0-1-x86_64.hpkg [258.24 KiB]
+Validating checksum for https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/packages/nodejs24_devel-24.21.0-1-x86_64.hpkg...done.
+  100% libffi-3.4.6-1-x86_64.hpkg [19.80 KiB]
+Validating checksum for https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/packages/libffi-3.4.6-1-x86_64.hpkg...done.
+  100% libffi_devel-3.4.6-1-x86_64.hpkg [16.82 KiB]
+Validating checksum for https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/packages/libffi_devel-3.4.6-1-x86_64.hpkg...done.
+[system] Applying changes ...
+[system] Changes applied. Old activation state backed up in "state_2026-10-14_10:53:38"
+[system] Cleaning up ...
+[system] Done.
+user
+uid=0(user) gid=0(root) groups=0(root),101(party)

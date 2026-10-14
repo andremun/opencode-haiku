@@ -1,0 +1,6 @@
+probe timeout
+stderr: Error: Failed to sync '<stdout>': Bad file descriptor
+stderr: terminate called after throwing an instance of 'std::system_error'
+  what():  Resource deadlock
+Abort
+exit: 0

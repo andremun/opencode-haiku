@@ -31,7 +31,8 @@ def key(c):
 def type_line(text, submit=True):
     for c in text:
         monitor('sendkey '+key(c)+' 20');time.sleep(.045)
-    if submit:monitor('sendkey ret')
+    if submit:
+        monitor('sendkey ret');time.sleep(.15)
 def start(installed):
     VM.mkdir(exist_ok=True)
     if (SOCKET).exists():
@@ -75,8 +76,8 @@ def click(text, mode="click"):
         time.sleep(.3)
         if mode=='move':return
         for _ in range(2 if mode=='doubleclick' else 1):
-            request('input-send-event',{'events':[{'type':'btn','data':{'button':'left','down':True}}]});time.sleep(.2)
-            request('input-send-event',{'events':[{'type':'btn','data':{'button':'left','down':False}}]});time.sleep(.3 if mode=='doubleclick' else .8)
+            request('input-send-event',{'events':[{'type':'btn','data':{'button':'left','down':True}}]});time.sleep(.05 if mode=='doubleclick' else .2)
+            request('input-send-event',{'events':[{'type':'btn','data':{'button':'left','down':False}}]});time.sleep(.1 if mode=='doubleclick' else .8)
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('action',choices=['start','status','screen','type','key','command','stop','click','move','doubleclick','write']);ap.add_argument('text',nargs='?',default='');ap.add_argument('--installed',action='store_true');a=ap.parse_args()
     if a.action=='start':start(a.installed)
@@ -90,7 +91,8 @@ def main():
     elif a.action=='screen':screen()
     elif a.action=='type':type_line(a.text)
     elif a.action=='write':type_line(a.text,False)
-    elif a.action=='key':print(monitor('sendkey '+a.text))
+    elif a.action=='key':
+        monitor('sendkey '+a.text);time.sleep(.15)
     elif a.action=='command':
         allowed={'info status','info mice','info pci','info qtree','info version','info block','info name','info cpus'}
         if a.text not in allowed:raise SystemExit('Only read-only monitor inventory commands are allowed')

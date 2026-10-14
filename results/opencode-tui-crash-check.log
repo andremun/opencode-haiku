@@ -1,0 +1,1 @@
+/tmp/native.sh: line 24:   701 Kill Thread                node --require "$work/haiku-loader.cjs" ffi-test.cjs "$work/ffi-fixture.so"

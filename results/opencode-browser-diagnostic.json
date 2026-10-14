@@ -1,0 +1,10 @@
+{
+  "fetch": {
+    "status": 200,
+    "body": "{\"version\":\"2.0.29-haiku.2\",\"pid\":1179,\"urls\":[\"http://127.0.0.1:18083\"],\"paths\":{\"tmp\":\"/boot/system/cache/tmp/opencode\"},\"capabilities\":{\"persistentPty\":false}}"
+  },
+  "xhr": {
+    "status": 200,
+    "body": "{\"version\":\"2.0.29-haiku.2\",\"pid\":1179,\"urls\":[\"http://127.0.0.1:18083\"],\"paths\":{\"tmp\":\"/boot/system/cache/tmp/opencode\"},\"capabilities\":{\"persistentPty\":false}}"
+  }
+}

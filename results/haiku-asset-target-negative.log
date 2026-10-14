@@ -1,0 +1,18 @@
+bun test v1.4.2 (744846f84)
+
+tools/tui-port/haiku-asset-target.test.ts:
+16 |   win32: "opentui.dll",
+17 | } as const
+18 | 
+19 | export function getNativeAssetDescriptor(target: NodeAssetTarget): NativeAssetDescriptor {
+20 |   if (!Object.hasOwn(NATIVE_FILE_NAMES, target.platform) || (target.arch !== "arm64" && target.arch !== "x64")) {
+21 |     throw new Error(`Unsupported OpenTUI Node asset target: ${String(target.platform)}-${String(target.arch)}`)
+                                                                                                                   ^
+error: Unsupported OpenTUI Node asset target: haiku-x64
+      at getNativeAssetDescriptor (/home/unimelb.edu.au/mariom1/Documents/packages/opencode-haiku/source/opentui-6f0efd3330978d696b42db3d7d95d2042008312b/packages/core/src/node-asset-target.ts:21:111)
+      at <anonymous> (/home/unimelb.edu.au/mariom1/Documents/packages/opencode-haiku/tools/tui-port/haiku-asset-target.test.ts:5:10)
+(fail) Haiku resolves its own native renderer without selecting a Linux artifact [1.08ms]
+
+ 0 pass
+ 1 fail
+Ran 1 test across 1 file. [103.00ms]

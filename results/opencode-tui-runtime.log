@@ -1,0 +1,6 @@
+Error: Standalone server exited before reporting readiness
+    at file:///boot/home/opencode-acceptance/tui/opencode.mjs:549:5018
+    at cli.standalone.endpoint (file:///boot/home/opencode-acceptance/tui/opencode.mjs:549:5324)
+    at cli.standalone.endpoint (definition) (file:///boot/home/opencode-acceptance/tui/opencode.mjs:549:4742)
+    at cli.server-connection.resolve (file:///boot/home/opencode-acceptance/tui/opencode.mjs:551:11516)
+    at cli.server-connection.resolve (definition) (file:///boot/home/opencode-acceptance/tui/opencode.mjs:549:5357)

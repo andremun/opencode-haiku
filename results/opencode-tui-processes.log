@@ -1,0 +1,26 @@
+Team                                                  Id #Threads  Gid  Uid 
+kernel_team                                            1       41    0    0 
+/boot/system/servers/launch_daemon                    30        2    0    0 
+/boot/system/servers/debug_server                     35        2    0    0 
+/boot/system/servers/net_server                       37        4    0    0 
+/boot/system/servers/mount_server                     38        1    0    0 
+/boot/system/servers/power_daemon                     39        2    0    0 
+/boot/system/servers/package_daemon                   40        2    0    0 
+/boot/system/servers/registrar                        41        6    0    0 
+/boot/system/servers/syslog_daemon                    42        2    0    0 
+/boot/system/servers/launch_daemon user               52        2    0    0 
+/boot/system/servers/media_server                     68        4    0    0 
+/boot/system/servers/app_server                      109       37    0    0 
+/boot/system/bin/sshd -D                             114        1    0    0 
+/boot/system/Tracker                                 122        9    0    0 
+/boot/system/Deskbar                                 124        5    0    0 
+/boot/system/servers/input_server                    134       10    0    0 
+/boot/system/servers/media_addon_server              162        5    0    0 
+/boot/system/data/deskbar/menu/Applications/Terminal   437        5    0    0 
+/bin/bash -l                                         442        1    0    0 
+/boot/home/haiku-app/build/bin/llama-server -m qwen17.gguf -ngl   767        8    0    0 
+/bin/node /boot/home/opencode-acceptance/tui/opencode.mjs serve  1179       11    0    0 
+/boot/system/apps/WebPositive http://127.0.0.1:18083  1196       12    0    0 
+/boot/system/apps/Terminal -w /boot/home/opencode-acceptance  1421        5    0    0 
+/bin/bash -l                                        1426        1    0    0 
+/bin/ps                                             1447        1    0    0 

@@ -1,0 +1,15 @@
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+No matching packages found.
+Status  Name                Description                              
+---------------------------------------------------------------------
+        texlive_latexextra  TeX Collection: LaTeX additional packages
+Status  Name           Description                                                     
+---------------------------------------------------------------------------------------
+        libffi         A portable, high level programming interface                    
+        libffi_devel   A portable, high level programming interface (development files)
+        libffi_source  A portable, high level programming interface (source files)     
+Status  Name            Description                                                         
+--------------------------------------------------------------------------------------------
+        nodejs24_devel  A JavaScript runtime built on Chrome's V8 Engine (development files)
+/bin/gcc
+/bin/g++

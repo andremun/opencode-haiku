@@ -1,0 +1,68 @@
+/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/include
+/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/libstdc++.so
+Using built-in specs.
+COLLECT_GCC=g++
+Target: x86_64-unknown-haiku
+Configured with: /sources/gcc-13.3.0/configure --build=x86_64-unknown-haiku --prefix=/packages/gcc-13.3.0_2023_08_10-6/.self/develop/tools --libexecdir=/packages/gcc-13.3.0_2023_08_10-6/.self/develop/tools/lib --mandir=/packages/gcc-13.3.0_2023_08_10-6/.self/documentation/man --docdir=/packages/gcc-13.3.0_2023_08_10-6/.self/documentation/packages/gcc --enable-threads=posix --disable-nls --enable-shared --with-gnu-ld --with-gnu-as --enable-version-specific-runtime-libs --enable-languages=c,c++,fortran,jit,objc --enable-lto --enable-frame-pointer --with-pkgversion=2023_08_10 --enable-__cxa-atexit --with-system-zlib --enable-checking=release --with-bug-url=http://dev.haiku-os.org/ --with-default-libstdcxx-abi=gcc4-compatible --enable-libssp --enable-libsanitizer --enable-host-shared --disable-multilib
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 13.3.0 (2023_08_10) 
+COLLECT_GCC_OPTIONS='-E' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/cc1plus -E -quiet -v -iprefix /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/ /dev/null -fPIC -Wno-multichar -fno-omit-frame-pointer -mtune=generic -march=x86-64 -Wno-ctor-dtor-privacy -dumpbase null
+ignoring nonexistent directory "/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/../../../../x86_64-unknown-haiku/include"
+ignoring duplicate directory "/boot/system/develop/tools/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-haiku/13.3.0/include/c++"
+ignoring duplicate directory "/boot/system/develop/tools/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-haiku/13.3.0/include/c++/x86_64-unknown-haiku"
+ignoring duplicate directory "/boot/system/develop/tools/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-haiku/13.3.0/include/c++/backward"
+ignoring duplicate directory "/boot/system/develop/tools/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-haiku/13.3.0/include"
+ignoring duplicate directory "/boot/system/develop/tools/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-haiku/13.3.0/include-fixed"
+ignoring nonexistent directory "/boot/system/develop/tools/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-haiku/13.3.0/../../../../x86_64-unknown-haiku/include"
+ignoring nonexistent directory "/boot/system/non-packaged/develop/headers"
+ignoring nonexistent directory "/boot/system/develop/headers/os/be_apps/Deskbar"
+ignoring nonexistent directory "/boot/system/develop/headers/3rdparty"
+#include "..." search starts here:
+#include <...> search starts here:
+ /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/include/c++
+ /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/include/c++/x86_64-unknown-haiku
+ /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/include/c++/backward
+ /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/include
+ /boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/include-fixed
+ /boot/system/develop/headers/os
+ /boot/system/develop/headers/os/app
+ /boot/system/develop/headers/os/device
+ /boot/system/develop/headers/os/drivers
+ /boot/system/develop/headers/os/game
+ /boot/system/develop/headers/os/interface
+ /boot/system/develop/headers/os/kernel
+ /boot/system/develop/headers/os/locale
+ /boot/system/develop/headers/os/mail
+ /boot/system/develop/headers/os/media
+ /boot/system/develop/headers/os/midi
+ /boot/system/develop/headers/os/midi2
+ /boot/system/develop/headers/os/net
+ /boot/system/develop/headers/os/opengl
+ /boot/system/develop/headers/os/storage
+ /boot/system/develop/headers/os/support
+ /boot/system/develop/headers/os/translation
+ /boot/system/develop/headers/os/add-ons/graphics
+ /boot/system/develop/headers/os/add-ons/input_server
+ /boot/system/develop/headers/os/add-ons/mail_daemon
+ /boot/system/develop/headers/os/add-ons/registrar
+ /boot/system/develop/headers/os/add-ons/screen_saver
+ /boot/system/develop/headers/os/add-ons/tracker
+ /boot/system/develop/headers/os/be_apps/NetPositive
+ /boot/system/develop/headers/os/be_apps/Tracker
+ /boot/system/develop/headers/bsd
+ /boot/system/develop/headers/glibc
+ /boot/system/develop/headers/gnu
+ /boot/system/develop/headers/posix
+ /boot/system/develop/headers
+End of search list.
+# 0 "/dev/null"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "/dev/null"
+COMPILER_PATH=/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/:/boot/system/develop/tools/bin/../lib/gcc/:/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/../../../../x86_64-unknown-haiku/bin/
+BELIBRARIES=/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/:/boot/system/develop/tools/bin/../lib/gcc/:/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/../../../../x86_64-unknown-haiku/lib/:/boot/system/develop/tools/bin/../lib/gcc/x86_64-unknown-haiku/13.3.0/../../../:/boot/system/develop/lib/
+COLLECT_GCC_OPTIONS='-E' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+tar: tools/include: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors

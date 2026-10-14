@@ -1,0 +1,3 @@
+REBUILD_PASS: sh tools/tui-port/build_bundle.sh exits 0; pinned native and JS builds, upstream Node artifact verification, and complete runtime packaging pass.
+Bundle/renderer/addon hashes match the guest-tested runtime exactly.
+Full detailed log remains in ignored logs/final-bundle-wrapper-rebuild.log.

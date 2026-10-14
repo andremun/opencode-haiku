@@ -1,0 +1,85 @@
+--- a/lib/std/Io/Threaded.zig
++++ b/lib/std/Io/Threaded.zig
+@@ -1,3 +1,5 @@
++extern "c" fn opentui_haiku_futex_wait(*const u32, u32, u64) void;
++extern "c" fn opentui_haiku_futex_wake(*const u32) void;
+ const Threaded = @This();
+ 
+ const builtin = @import("builtin");
+@@ -1098,6 +1100,11 @@
+                     else => unreachable,
+                 };
+             },
++            .haiku => {
++                if (!uncancelable) try Thread.checkCancel();
++                opentui_haiku_futex_wait(ptr, expect, timeout_ns orelse std.math.maxInt(u64));
++                if (!uncancelable) try Thread.checkCancel();
++            },
+             else => @compileError("unimplemented: futexWait"),
+         }
+     }
+@@ -1187,6 +1194,7 @@
+                     @min(max_waiters, std.math.maxInt(c_int)),
+                 );
+             },
++            .haiku => opentui_haiku_futex_wake(ptr),
+             else => @compileError("unimplemented: futexWake"),
+         }
+     }
+@@ -1274,6 +1282,7 @@
+ 
+         switch (status.cancelation) {
+             .blocked_canceling => if (std.Thread.use_pthreads) {
++                if (comptime !have_sig_io) return false;
+                 return switch (std.c.pthread_kill(thread.handle, .IO)) {
+                     0 => true,
+                     else => false,
+@@ -5345,7 +5354,7 @@
+                     .NOMEM => return error.SystemResources,
+                     .NOTDIR => return error.NotDir,
+                     .PERM => return error.PermissionDenied,
+-                    .BUSY => return error.DeviceBusy,
++                    .BUSY => return error.AccessDenied,
+                     else => |err| return posix.unexpectedErrno(err),
+                 }
+             },
+@@ -9846,7 +9855,7 @@
+ 
+     const syscall: Syscall = try .start();
+     while (true) {
+-        const rc = posix.pread(file.handle, dest[0].ptr, @intCast(dest[0].len), @bitCast(offset));
++        const rc = posix.system.pread(file.handle, dest[0].base, @intCast(dest[0].len), @bitCast(offset));
+         switch (posix.errno(rc)) {
+             .SUCCESS => {
+                 syscall.finish();
+@@ -10550,7 +10559,9 @@
+ 
+     const syscall: Syscall = try .start();
+     while (true) {
+-        const rc = pwritev_sym(file.handle, &iovecs, @intCast(iovlen), @bitCast(offset));
++        const rc = if (native_os == .haiku)
++            pwrite_sym(file.handle, iovecs[0].base, iovecs[0].len, @bitCast(offset))
++        else pwritev_sym(file.handle, &iovecs, @intCast(iovlen), @bitCast(offset));
+         switch (posix.errno(rc)) {
+             .SUCCESS => {
+                 syscall.finish();
+@@ -14063,7 +14074,7 @@
+             .dgram => posix.SOCK.DGRAM,
+             .seqpacket => posix.SOCK.SEQPACKET,
+             .raw => posix.SOCK.RAW,
+-            .rdm => posix.SOCK.RDM,
++            .rdm => if (@hasDecl(posix.SOCK, "RDM")) posix.SOCK.RDM else return error.ProtocolUnsupportedByAddressFamily,
+         },
+         if (protocol) |p| @intFromEnum(p) else if (is_windows) switch (family) {
+             posix.AF.UNIX => switch (mode) {
+--- a/lib/std/debug/SelfInfo/Elf.zig
++++ b/lib/std/debug/SelfInfo/Elf.zig
+@@ -384,6 +384,8 @@
+ };
+ 
+ fn findModule(si: *SelfInfo, gpa: Allocator, io: Io, address: usize, lock: enum { shared, exclusive }) Error!*Module {
++    // Haiku has no dl_iterate_phdr API. Preserve raw addresses; do not fabricate module metadata.
++    if (comptime builtin.os.tag == .haiku) return error.MissingDebugInfo;
+     // With the requested lock, scan the module ranges looking for `address`.
+     switch (lock) {
+         .shared => si.rwlock.lockSharedUncancelable(io),
