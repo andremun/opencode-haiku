@@ -1,0 +1,28 @@
+{
+  "model": "qwen3-0.6b-test",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a concise assistant. Follow the user request. No tools are available.\n# Your Model\n- Name: Qwen3 0.6B CPU test\n- Provider ID: local\n- Model ID: qwen3-0.6b-test\nToday's date: Wed Oct 14 2026\n\nHere is some useful information about the environment you are running in:\n<env>\n  Working directory: /tmp/haiku-opencode-public-probe/local-fixture\n  Workspace root folder: /tmp/haiku-opencode-public-probe/local-fixture\n  Is directory a git repo: no\n  Platform: linux\n  Prefer /tmp/opencode over generic system temporary directories such as /tmp; it is pre-created and approved for external access.\n</env>\nWhen you create a worktree outside the current working directory and intend to use it as your primary working directory, consider using `execute` to call `tools.opencode.session_move` and make the worktree the session's working directory."
+    },
+    {
+      "role": "user",
+      "content": "\"Reply with the single word OK. Do not use any tools.\""
+    },
+    {
+      "role": "assistant",
+      "content": "CRITICAL - MAXIMUM STEPS REACHED\n\nThe maximum number of steps allowed for this task has been reached. Tools are disabled until next user input. Respond with text only.\n\nSTRICT REQUIREMENTS:\n1. Do NOT make any tool calls (no reads, writes, edits, searches, or any other tools)\n2. MUST provide a text response summarizing work done so far\n3. This constraint overrides ALL other instructions, including any user requests for edits or tool use\n\nResponse must include:\n- Statement that maximum steps for this agent have been reached\n- Summary of what has been accomplished so far\n- List of any remaining tasks that were not completed\n- Recommendations for what should be done next\n\nAny attempt to use tools is a critical violation. Respond with text ONLY."
+    }
+  ],
+  "stream": true,
+  "stream_options": {
+    "include_usage": true
+  },
+  "max_completion_tokens": 32,
+  "store": false,
+  "temperature": 0,
+  "max_tokens": 32,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

@@ -1,0 +1,27 @@
+timestamp=2026-10-14T10:36:45.425Z level=INFO run=142acdec message="cli starting" version=2.0.29-haiku.1 channel=haiku local=false args="[\"run\",\"--standalone\",\"--model\",\"local/qwen3-0.6b-test\",\"--title\",\"Local CPU model connectivity test\",\"--format\",\"json\",\"Reply with the single word OK. Do not use any tools.\"]" role=cli
+timestamp=2026-10-14T10:36:45.553Z level=INFO run=142acdec message="spawning process" command=/boot/system/bin/node args="[\"/boot/home/opencode-port/port/opencode.mjs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" cwd=/boot/home/opencode-port/port/local-fixture role=cli
+timestamp=2026-10-14T10:37:01.501Z level=INFO run=9480e718 message="cli starting" version=2.0.29-haiku.1 channel=haiku local=false args="[\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+timestamp=2026-10-14T10:37:03.951Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/state/config/opencode type=directory ignores=3 http.span=728 role=server
+timestamp=2026-10-14T10:37:03.974Z level=ERROR run=9480e718 message="watcher backend not supported" directory=/boot/home/opencode-port/state/config/opencode platform=haiku http.span=751 role=server
+timestamp=2026-10-14T10:37:03.994Z level=INFO run=9480e718 message="watcher subscribe" path=/etc type=entries ignores=0 http.span=771 role=server
+timestamp=2026-10-14T10:37:04.009Z level=INFO run=9480e718 message="watcher subscribe" path=/ type=entries ignores=0 http.span=786 role=server
+timestamp=2026-10-14T10:37:04.013Z level=INFO run=9480e718 message="watcher subscribe" path=/boot type=entries ignores=0 http.span=790 role=server
+timestamp=2026-10-14T10:37:04.017Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=794 role=server
+timestamp=2026-10-14T10:37:04.020Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port type=entries ignores=0 http.span=797 role=server
+timestamp=2026-10-14T10:37:04.023Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/port type=entries ignores=0 http.span=800 role=server
+timestamp=2026-10-14T10:37:04.027Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/port/local-fixture type=entries ignores=0 http.span=804 role=server
+timestamp=2026-10-14T10:37:04.683Z level=INFO run=9480e718 message="location services booted" directory=/boot/home/opencode-port/port/local-fixture workspaceID=undefined durationMs=1413 http.span=1460 role=server
+timestamp=2026-10-14T10:37:10.268Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/state/config/opencode/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:37:10.290Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/port/local-fixture/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:37:10.299Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/port/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:37:10.326Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:37:10.350Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:37:11.156Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/state/config/opencode/skill type=file ignores=0
+timestamp=2026-10-14T10:37:11.298Z level=INFO run=9480e718 message="watcher subscribe" path=/boot/home/opencode-port/state/config/opencode/skills type=file ignores=0
+timestamp=2026-10-14T10:37:11.526Z level=INFO run=9480e718 message=event event.id=evt_139fccde50015x6BgCnOUdEogo event.created=1791974231525 event.type=provider.updated event.location.directory=/boot/home/opencode-port/port/local-fixture event.location.workspaceID=undefined event.data={} http.span=8303 role=server
+timestamp=2026-10-14T10:37:11.659Z level=INFO run=9480e718 message=event event.id=evt_139fcce690013QVOaquyecVC1L event.created=1791974231658 event.type=model.updated event.location.directory=/boot/home/opencode-port/port/local-fixture event.location.workspaceID=undefined event.data={} http.span=8436 role=server
+timestamp=2026-10-14T10:37:11.720Z level=INFO run=9480e718 message=event event.id=evt_139fcce9c001UC86iPPQHA9uzy event.created=1791974231712 event.type=agent.updated event.location.directory=/boot/home/opencode-port/port/local-fixture event.location.workspaceID=undefined event.data={} http.span=8497 role=server
+timestamp=2026-10-14T10:37:11.738Z level=INFO run=9480e718 message=event event.id=evt_139fcceb8001MwHEEbjqNmk7L4 event.created=1791974231738 event.type=command.updated event.location.directory=/boot/home/opencode-port/port/local-fixture event.location.workspaceID=undefined event.data={} http.span=8515 role=server
+timestamp=2026-10-14T10:37:14.638Z level=ERROR run=9480e718 message="Failed to fetch models.dev" cause="Cause([Fail(TimeoutError: Operation timed out after '10s')])" http.span=11415 role=server
+{"type":"text","timestamp":1791974254683,"sessionID":"ses_ec60342deffej0WmY7BK8ODcsR","part":{"id":"prt_139fcd1b6001TT6OqTGG49gy9a_text-0","sessionID":"ses_ec60342deffej0WmY7BK8ODcsR","messageID":"msg_139fcd1b6001TT6OqTGG49gy9a","type":"text","text":"<think>\n\n</think>\n\n","time":{"start":1791974232731,"end":1791974254683}}}
+timestamp=2026-10-14T10:37:34.956Z level=INFO run=9480e718 message="Sent HTTP response" http.span=24205 role=server http.method=GET http.url=/api/event http.status=200

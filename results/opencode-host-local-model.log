@@ -1,0 +1,46 @@
+timestamp=2026-10-14T10:43:23.270Z level=INFO run=ef860a2b message="cli starting" version=2.0.29-haiku.1 channel=haiku local=false args="[\"run\",\"--agent\",\"probe\",\"--standalone\",\"--model\",\"local/qwen3-0.6b-test\",\"--title\",\"Local CPU model connectivity test\",\"--format\",\"json\",\"Reply with the single word OK. Do not use any tools.\"]" role=cli
+timestamp=2026-10-14T10:43:23.277Z level=INFO run=ef860a2b message="spawning process" command=/home/unimelb.edu.au/mariom1/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node args="[\"/tmp/haiku-opencode-public-probe/opencode.mjs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" cwd=/tmp/haiku-opencode-public-probe/local-fixture role=cli
+timestamp=2026-10-14T10:43:24.142Z level=INFO run=c9fb6125 message="cli starting" version=2.0.29-haiku.1 channel=haiku local=false args="[\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+timestamp=2026-10-14T10:43:24.208Z level=INFO run=c9fb6125 message="spawning process" command=git args="[\"rev-parse\",\"--git-dir\",\"--git-common-dir\",\"--show-toplevel\"]" cwd=/tmp http.span=5 role=server
+timestamp=2026-10-14T10:43:24.252Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe/state/config/opencode type=directory ignores=3 http.span=49 role=server
+timestamp=2026-10-14T10:43:24.255Z level=INFO run=c9fb6125 message="watcher subscribe" path=/etc type=entries ignores=0 http.span=52 role=server
+timestamp=2026-10-14T10:43:24.256Z level=INFO run=c9fb6125 message="watcher started" path=/etc type=entries backend=node ignores=0 http.span=53 role=server
+timestamp=2026-10-14T10:43:24.256Z level=INFO run=c9fb6125 message="watcher subscribe" path=/ type=entries ignores=0 http.span=53 role=server
+timestamp=2026-10-14T10:43:24.256Z level=INFO run=c9fb6125 message="watcher started" path=/ type=entries backend=node ignores=0 http.span=53 role=server
+timestamp=2026-10-14T10:43:24.257Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp type=entries ignores=0 http.span=54 role=server
+timestamp=2026-10-14T10:43:24.258Z level=INFO run=c9fb6125 message="watcher started" path=/tmp type=entries backend=node ignores=0 http.span=55 role=server
+timestamp=2026-10-14T10:43:24.259Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe type=entries ignores=0 http.span=56 role=server
+timestamp=2026-10-14T10:43:24.259Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe type=entries backend=node ignores=0 http.span=56 role=server
+timestamp=2026-10-14T10:43:24.259Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe/local-fixture type=entries ignores=0 http.span=56 role=server
+timestamp=2026-10-14T10:43:24.259Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe/local-fixture type=entries backend=node ignores=0 http.span=56 role=server
+timestamp=2026-10-14T10:43:24.259Z level=INFO run=c9fb6125 message="watcher subscribe" path=/home/unimelb.edu.au/mariom1 type=entries ignores=0 http.span=56 role=server
+timestamp=2026-10-14T10:43:24.259Z level=INFO run=c9fb6125 message="watcher started" path=/home/unimelb.edu.au/mariom1 type=entries backend=node ignores=0 http.span=56 role=server
+timestamp=2026-10-14T10:43:24.356Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe/state/config/opencode type=directory backend=inotify ignores=3 http.span=153 role=server
+timestamp=2026-10-14T10:43:24.366Z level=INFO run=c9fb6125 message="location services booted" directory=/tmp/haiku-opencode-public-probe/local-fixture workspaceID=undefined durationMs=161 http.span=163 role=server
+timestamp=2026-10-14T10:43:24.667Z level=INFO run=c9fb6125 message="spawning process" command=git args="[\"rev-parse\",\"--git-dir\",\"--git-common-dir\",\"--show-toplevel\"]" cwd=/tmp http.span=70 role=server
+timestamp=2026-10-14T10:43:24.688Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe/state/config/opencode/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:43:24.688Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe/state/config/opencode/AGENTS.md type=file backend=node ignores=0 http.span=485 role=server
+timestamp=2026-10-14T10:43:24.688Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe/local-fixture/AGENTS.md type=file ignores=0
+timestamp=2026-10-14T10:43:24.688Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe/local-fixture/AGENTS.md type=file backend=node ignores=0 http.span=485 role=server
+timestamp=2026-10-14T10:43:24.717Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe/state/config/opencode/skill type=file ignores=0
+timestamp=2026-10-14T10:43:24.717Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe/state/config/opencode/skill type=file backend=node ignores=0 http.span=514 role=server
+timestamp=2026-10-14T10:43:24.721Z level=INFO run=c9fb6125 message="watcher subscribe" path=/tmp/haiku-opencode-public-probe/state/config/opencode/skills type=file ignores=0
+timestamp=2026-10-14T10:43:24.721Z level=INFO run=c9fb6125 message="watcher started" path=/tmp/haiku-opencode-public-probe/state/config/opencode/skills type=file backend=node ignores=0 http.span=518 role=server
+timestamp=2026-10-14T10:43:24.741Z level=INFO run=c9fb6125 message=event event.id=evt_13a027fc50013SjJjX4Phw1VEH event.created=1791974604741 event.type=provider.updated event.location.directory=/tmp/haiku-opencode-public-probe/local-fixture event.location.workspaceID=undefined event.data={} http.span=538 role=server
+timestamp=2026-10-14T10:43:24.751Z level=INFO run=c9fb6125 message=event event.id=evt_13a027fcf001SW3wEjlzBQsXnp event.created=1791974604751 event.type=model.updated event.location.directory=/tmp/haiku-opencode-public-probe/local-fixture event.location.workspaceID=undefined event.data={} http.span=548 role=server
+timestamp=2026-10-14T10:43:24.754Z level=INFO run=c9fb6125 message=event event.id=evt_13a027fd1001evRO2wWyYygoGR event.created=1791974604753 event.type=agent.updated event.location.directory=/tmp/haiku-opencode-public-probe/local-fixture event.location.workspaceID=undefined event.data={} http.span=551 role=server
+timestamp=2026-10-14T10:43:24.754Z level=INFO run=c9fb6125 message=event event.id=evt_13a027fd2001LXHUgftmVQ3Ai8 event.created=1791974604754 event.type=command.updated event.location.directory=/tmp/haiku-opencode-public-probe/local-fixture event.location.workspaceID=undefined event.data={} http.span=551 role=server
+{"type":"step_start","timestamp":1791974604952,"sessionID":"ses_ec5fd80c9ffe1F3vbbw9ZfZB8h","part":{"id":"prt_13a028098001hLDL5WjXxb3yBm","sessionID":"ses_ec5fd80c9ffe1F3vbbw9ZfZB8h","messageID":"msg_13a028014001v8pKt4c5NF0kVp","type":"step-start"}}
+{"type":"text","timestamp":1791974605041,"sessionID":"ses_ec5fd80c9ffe1F3vbbw9ZfZB8h","part":{"id":"prt_13a028014001v8pKt4c5NF0kVp_text-0","sessionID":"ses_ec5fd80c9ffe1F3vbbw9ZfZB8h","messageID":"msg_13a028014001v8pKt4c5NF0kVp","type":"text","text":"OK","time":{"start":1791974604832,"end":1791974605041}}}
+timestamp=2026-10-14T10:43:25.058Z level=INFO run=c9fb6125 message="Sent HTTP response" http.span=352 role=server http.method=GET http.url=/api/event http.status=200
+timestamp=2026-10-14T10:43:25.077Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe/state/config/opencode/skill type=file http.span=874 role=server
+timestamp=2026-10-14T10:43:25.078Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe/state/config/opencode/skills type=file http.span=875 role=server
+timestamp=2026-10-14T10:43:25.079Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe/local-fixture/AGENTS.md type=file http.span=876 role=server
+timestamp=2026-10-14T10:43:25.080Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe/state/config/opencode/AGENTS.md type=file http.span=877 role=server
+timestamp=2026-10-14T10:43:25.085Z level=INFO run=c9fb6125 message="watcher stopped" path=/etc type=entries http.span=882 role=server
+timestamp=2026-10-14T10:43:25.085Z level=INFO run=c9fb6125 message="watcher stopped" path=/ type=entries http.span=882 role=server
+timestamp=2026-10-14T10:43:25.085Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp type=entries http.span=882 role=server
+timestamp=2026-10-14T10:43:25.085Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe type=entries http.span=882 role=server
+timestamp=2026-10-14T10:43:25.085Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe/local-fixture type=entries http.span=882 role=server
+timestamp=2026-10-14T10:43:25.085Z level=INFO run=c9fb6125 message="watcher stopped" path=/home/unimelb.edu.au/mariom1 type=entries http.span=882 role=server
+timestamp=2026-10-14T10:43:25.086Z level=INFO run=c9fb6125 message="watcher stopped" path=/tmp/haiku-opencode-public-probe/state/config/opencode type=directory http.span=883 role=server

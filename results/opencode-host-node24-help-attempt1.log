@@ -1,0 +1,7 @@
+PlatformError: Unknown: FileSystem.open (/home/unimelb.edu.au/mariom1/.local/share/opencode/log/opencode.log)
+    at systemError (file:///home/unimelb.edu.au/mariom1/Documents/packages/haiku-k40c-llm/source/opencode-34d8ded0c58dd66808c1d60e081e8c66da12a896/packages/cli/dist-node/opencode.mjs:60:3658)
+    at file:///home/unimelb.edu.au/mariom1/Documents/packages/haiku-k40c-llm/source/opencode-34d8ded0c58dd66808c1d60e081e8c66da12a896/packages/cli/dist-node/opencode.mjs:64:1112
+    at file:///home/unimelb.edu.au/mariom1/Documents/packages/haiku-k40c-llm/source/opencode-34d8ded0c58dd66808c1d60e081e8c66da12a896/packages/cli/dist-node/opencode.mjs:53:70203
+    at FSReqCallback.oncomplete (node:fs:188:23) {
+  [cause]: Error: EROFS: read-only file system, open '/home/unimelb.edu.au/mariom1/.local/share/opencode/log/opencode.log'
+}

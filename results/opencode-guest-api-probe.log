@@ -1,0 +1,7 @@
+{"event":"server-ready","data":{"url":"http://127.0.0.1:41233"}}
+{"event":"file-write-read","data":"passed"}
+{"event":"shell-result","data":{"shell":{"id":"sh_139fa5b47001m43LK5adHQSDeP","status":"exited","command":"node test.mjs","cwd":"/boot/home/opencode-port/port/api-fixture","shell":"/bin/bash","file":"/boot/home/opencode-port/state/data/opencode/shell/043f700f1ae2b534ad9eb66460c495a253138538/sh_139fa5b47001m43LK5adHQSDeP.out","pid":584,"exit":0,"metadata":{},"time":{"started":1791974071117,"completed":1791974073186}},"output":{"output":"API_SHELL_PASS\n","cursor":15,"size":15,"truncated":false}}}
+{"event":"session-created","data":{"id":"ses_ec6059a76ffe0ZnLEqKSVA7Oc7","title":"Native Haiku persistence probe"}}
+{"event":"server-ready","data":{"url":"http://127.0.0.1:41360"}}
+{"event":"session-after-server-restart","data":"passed"}
+{"event":"result","data":"PASS: actual file read/write, shell execution and stored session survive restart; no LLM inference tested"}

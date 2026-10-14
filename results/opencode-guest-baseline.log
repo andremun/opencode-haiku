@@ -1,0 +1,24 @@
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0 58 35.69M  58 20.92M   0      0 20.69M      0   00:01   00:01         20.88M100 35.69M 100 35.69M   0      0 19.70M      0   00:01   00:01         20.88M100 35.69M 100 35.69M   0      0 19.68M      0   00:01   00:01         20.88M100 35.69M 100 35.69M   0      0 19.66M      0   00:01   00:01         20.88M
+/boot/home/opencode-port/baseline/assets/@lydell/node-pty-linux-x64/lib/utils.js:36
+    throw new Error("Failed to load native module: " + name + ".node, checked: " + dirs.join(', ') + ": " + lastError);
+          ^
+
+Error: Failed to load native module: pty.node, checked: build/Release, build/Debug, prebuilds/haiku-x64: Error: Cannot find module './prebuilds/haiku-x64/pty.node'
+Require stack:
+- /boot/home/opencode-port/baseline/assets/@lydell/node-pty-linux-x64/lib/utils.js
+- /boot/home/opencode-port/baseline/assets/@lydell/node-pty-linux-x64/lib/index.js
+- /boot/home/opencode-port/baseline/opencode.mjs
+    at Object.loadNativeModule (/boot/home/opencode-port/baseline/assets/@lydell/node-pty-linux-x64/lib/utils.js:36:11)
+    at Object.<anonymous> (/boot/home/opencode-port/baseline/assets/@lydell/node-pty-linux-x64/lib/unixTerminal.js:27:22)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1674:12)
+    at require (node:internal/modules/helpers:157:16)
+    at Object.<anonymous> (/boot/home/opencode-port/baseline/assets/@lydell/node-pty-linux-x64/lib/index.js:15:20)
+
+Node.js v24.21.0

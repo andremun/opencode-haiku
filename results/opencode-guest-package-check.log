@@ -1,0 +1,66 @@
+  100% repochecksum-1 [65 bytes]
+Validating checksum for Haiku...done.
+  100% repochecksum-1 [64 bytes]
+Validating checksum for HaikuPorts...done.
+The following changes will be made:
+  in system:
+    install package ripgrep-14.0.1-1 from repository HaikuPorts
+Continue? [yes/no] (yes) : yes
+  100% ripgrep-14.0.1-1-x86_64.hpkg [2.57 MiB]
+Validating checksum for https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/packages/ripgrep-14.0.1-1-x86_64.hpkg...done.
+[system] Applying changes ...
+[system] Changes applied. Old activation state backed up in "state_2026-10-14_10:17:04"
+[system] Cleaning up ...
+[system] Done.
+ripgrep 14.0.1
+
+features:-simd-accel,+pcre2
+simd(compile):+SSE2,-SSSE3,-AVX2
+simd(runtime):+SSE2,-SSSE3,-AVX2
+
+PCRE2 10.42 is available (JIT is available)
+package.tar.gz: OK
+DESCRIPTION
+  OpenCode command line interface
+
+USAGE
+  opencode2-node <subcommand> [flags] [<directory>]
+
+ARGUMENTS
+  directory string    Directory to start OpenCode in (optional)
+
+FLAGS
+  --standalone            Run with a private server instead of the background service
+  --server string         Connect to a server URL instead of the background service
+  --auto                  Auto-approve permissions that are not explicitly denied
+  --continue, -c          Continue the last session
+  --session, -s string    Session ID to continue, or to create if it does not exist
+  --prompt string         Prompt to use
+
+GLOBAL FLAGS
+  --help, -h                                                          Show help information
+  --version, -v                                                       Show version information
+  --wizard                                                            Start wizard mode for a command
+  --completions <bash|zsh|fish|sh>                                    Print shell completion script (choices: bash, zsh, fish, sh)
+  --log-level <all|trace|debug|info|warn|warning|error|fatal|none>    Sets the minimum log level (choices: all, trace, debug, info, warn, warning, error, fatal, none)
+  --print-logs                                                        Print logs to stderr (server logs require --standalone)
+
+SUBCOMMANDS
+  upgrade, update    Upgrade OpenCode to the latest or a specific version
+  uninstall          Uninstall OpenCode, keeping session data, configuration, and state
+  acp                Start an Agent Client Protocol server
+  api                Make a request to the running server
+  debug              Debugging and troubleshooting tools
+  auth               manage integrations and credentials
+  mcp                Manage MCP (Model Context Protocol) servers
+  plugin             Manage plugins
+  models             List all available models
+  stats              Show shareable usage statistics
+  mini               Start the minimal interactive interface
+  run                Run OpenCode with a message
+  session            Manage sessions
+  service            Manage the background server
+  reload             Reload configuration
+  pair               Print one-time links to connect a browser or app
+  serve              Start the v2 API and web server
+opencode2-node v2.0.29-haiku.1
