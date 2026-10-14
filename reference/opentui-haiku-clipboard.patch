@@ -1,0 +1,18 @@
+--- a/packages/core/src/lib/host-clipboard.native.ts
++++ b/packages/core/src/lib/host-clipboard.native.ts
+@@ -1,3 +1,4 @@
++import { createRequire } from "node:module"
+ import {
+   NativeClipboardCopyStatus,
+   NativeClipboardDestroyStatus,
+@@ -340,7 +341,9 @@
+ }
+ 
+ export const createNativeHostClipboardBackend: HostClipboardBackendFactory = (options) =>
+-  new NativeClipboardBackend(
++  (process.platform as string) === "haiku"
++    ? createRequire(import.meta.url)(process.env.OPENCODE_HAIKU_CLIPBOARD!).createBackend()
++    : new NativeClipboardBackend(
+     options.maxImagePixels,
+     options.maxConversionBytes,
+     options.maxConcurrentOperations,

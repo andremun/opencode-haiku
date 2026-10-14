@@ -1,0 +1,6 @@
+{
+  "status": "running",
+  "started": "2026-10-14T17:44:01.262Z",
+  "model": "haiku-qwen17",
+  "port_root": "http-port/opencode"
+}

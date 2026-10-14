@@ -15,13 +15,27 @@ fi
 sh "$root/tools/tui-port/build_native.sh"
 cd "$opentui"
 "$bun" install --frozen-lockfile --ignore-scripts
+if ! patch --dry-run --reverse -p1 < "$root/reference/opentui-haiku-clipboard.patch" >/dev/null 2>&1; then
+    patch -p1 < "$root/reference/opentui-haiku-clipboard.patch"
+fi
 cd packages/core
 "$bun" scripts/build.ts --lib
 cd "$opencode"
 "$bun" install --frozen-lockfile --ignore-scripts
-if ! patch --dry-run --reverse -p1 < "$root/reference/opencode-haiku-headless.patch" >/dev/null 2>&1; then
-    patch -p1 < "$root/reference/opencode-haiku-headless.patch"
-fi
+# Restore only the three pinned files touched by overlapping OpenCode patches.
+# This source checkout is an ignored build input, not a user working repository.
+python3 - "$root" "$opencode" <<'RESTORE'
+from pathlib import Path
+import tarfile,sys,hashlib
+root,source=map(Path,sys.argv[1:]);archive=root/'cache/opencode-34d8ded0.tar.gz'
+assert hashlib.sha256(archive.read_bytes()).hexdigest()=='bc76cf4bbd70e13027b21e56454364c20bbe183fed2f80ba57f4be1ebe573e59'
+with tarfile.open(archive) as tar:
+ prefix=tar.getnames()[0].split('/')[0]
+ for relative in ['packages/core/src/pty/pty.node.ts','packages/core/src/persistent-pty/binary.node.ts','packages/cli/vite.node.config.ts']:
+  (source/relative).write_bytes(tar.extractfile(prefix+'/'+relative).read())
+RESTORE
+patch --batch -p1 < "$root/reference/opencode-haiku-headless.patch"
+patch --batch -p1 < "$root/reference/opencode-haiku-terminals.patch"
 python3 - "$opentui" "$opencode" <<'PY'
 from pathlib import Path
 import sys,shutil
@@ -30,6 +44,6 @@ candidates=list(opencode.glob('node_modules/.bun/@opentui+core@0.5.17+*/node_mod
 if len(candidates)!=1:raise SystemExit('Expected exactly one pinned OpenTUI core dependency')
 shutil.copytree(opentui/'packages/core/dist',candidates[0],dirs_exist_ok=True)
 PY
-OPENCODE_VERSION=2.0.29-haiku.2 OPENCODE_CHANNEL=haiku "$bun" packages/cli/script/build-node.ts --bundle-only --skip-install
+OPENCODE_VERSION=2.0.29-haiku.4 OPENCODE_CHANNEL=haiku "$bun" packages/cli/script/build-node.ts --bundle-only --skip-install
 cd "$root"
 python3 tools/tui-port/package.py

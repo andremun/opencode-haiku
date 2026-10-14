@@ -1,0 +1,44 @@
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.4
+   Compiling typenum v1.20.1
+   Compiling generic-array v0.14.7
+   Compiling getrandom v0.3.4
+   Compiling zerocopy v0.8.56
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_core v0.9.5
+   Compiling thiserror v1.0.69
+   Compiling serde_core v1.0.229
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling bitflags v2.13.1
+   Compiling nix v0.28.0
+   Compiling digest v0.10.7
+   Compiling filedescriptor v0.8.3
+   Compiling rand_chacha v0.9.0
+   Compiling crossbeam-utils v0.8.22
+   Compiling anyhow v1.0.104
+   Compiling zmij v1.0.23
+   Compiling serial2 v0.2.38
+   Compiling memchr v2.8.3
+   Compiling itoa v1.0.18
+   Compiling log v0.4.33
+   Compiling downcast-rs v1.2.1
+   Compiling cpufeatures v0.2.17
+   Compiling shell-words v1.1.1
+   Compiling portable-pty v0.9.0
+   Compiling sha2 v0.10.9
+   Compiling serde_json v1.0.151
+   Compiling crossbeam-channel v0.5.16
+   Compiling rand v0.9.5
+   Compiling serde v1.0.229
+   Compiling fs2 v0.4.3
+   Compiling base64 v0.22.1
+   Compiling opencode-pty v0.2.0 (/boot/home/opencode-acceptance/pty-source)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10m 41s
+  Executable unittests src/lib.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/opencode_pty-b0c5e86b266c7a6d)
+  Executable unittests src/main.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/opencode_pty-dd065b135aeec253)
+  Executable tests/ghostty-effects.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/ghostty_effects-a130c7944e1aa835)
+  Executable tests/ownership.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/ownership-2dde61f5b133991f)
+  Executable tests/playground.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/playground-1e439f867dd15b09)
+  Executable tests/rows.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/rows-12f952910e55b603)
+  Executable tests/service.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/service-3a5a2b640b30d478)

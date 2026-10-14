@@ -1,0 +1,2 @@
+pkgman search -a lists the full catalog; use -D rust_bin for versions.
+        rust_bin                                   Modern and safe systems programming language                                                        

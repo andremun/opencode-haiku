@@ -1,0 +1,8 @@
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     91   0      0 100     91      0   3778                              0100     91   0      0 100     91      0   3451                              0100     91   0      0 100     91      0   3243                              0
+opencode2-node v2.0.29-haiku.3
+Installed in /boot/home/opencode-acceptance/http-port
+Start a shared backend: /boot/home/opencode-acceptance/http-port/opencode serve --hostname 127.0.0.1 --port 18083
+Attach TUI from your project: /boot/home/opencode-acceptance/http-port/opencode --server http://127.0.0.1:18083
+SELFTEST_PASS: native FFI, watcher, clipboard read, clean release

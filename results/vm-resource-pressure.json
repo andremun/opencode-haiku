@@ -1,0 +1,14 @@
+{
+  "guest_memory_mib": 4096,
+  "observed_low_resource_messages": [
+    "low resource pages: critical -> normal",
+    "low resource pages: normal -> note",
+    "low resource pages: note -> normal",
+    "low resource pages: critical -> normal"
+  ],
+  "classification": "Resource-constrained coding/API attempts; no semantic failure conclusion",
+  "recovery": "Native Power off menu requested; planned 8192 MiB, smaller llama batch/ubatch, one isolated API backend at a time",
+  "shutdown": "Native Power off menu stalled; forced only the owned QEMU VM to exit after waiting",
+  "preserved_disk": "ignored vm/system-before-memory-recovery.qcow2 and vars-before-memory-recovery.fd",
+  "relaunch_memory_mib": 8192
+}

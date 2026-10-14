@@ -1,0 +1,11 @@
+Diff in /boot/home/opencode-acceptance/pty-source/src/daemon.rs:893:
+                 "/bin/true"
+             } else {
+                 "/usr/bin/true"
+[31m-            }).spawn().unwrap();
+(B[m[32m+            })
+(B[m[32m+            .spawn()
+(B[m[32m+            .unwrap();
+(B[m             let pid = child.id();
+             child.wait().unwrap();
+             pid

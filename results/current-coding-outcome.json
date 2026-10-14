@@ -1,0 +1,6 @@
+{
+  "exit": 1,
+  "semantic_pass": false,
+  "expired": false,
+  "edited_source": "export const add = (a, b) => a - b;\n"
+}

@@ -1,0 +1,6 @@
+24 80
+NODE_PTY_READY
+HELLO42 100
+UTF8 α β HELLO
+
+NODE_PTY_PASS: native spawn, read/write, UTF-8, resize, child exit

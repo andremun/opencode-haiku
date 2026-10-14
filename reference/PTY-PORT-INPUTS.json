@@ -1,0 +1,75 @@
+{
+  "daemon_version": "0.2.0",
+  "daemon_revision": "878aa26ab1916f8d41a0ccb90d55a372d01abf69",
+  "ghostty_revision": "ab0b9da9e88fcb4b0533a1854e84628f663930af",
+  "zig": "0.16.0 with recorded Haiku I/O patches",
+  "rust": "1.94.1 e408947bfd200af42db322daf0fadfe7e26d3bd1",
+  "llvm": "21.1.8",
+  "target": "x86_64-unknown-haiku",
+  "parser_options": [
+    "emit-lib-vt=true",
+    "emit-xcframework=false",
+    "app-runtime=none",
+    "target=x86_64-haiku",
+    "simd=false",
+    "optimize=ReleaseFast"
+  ],
+  "inputs": [
+    {
+      "path": "cache/opencode-pty-0.2.0.tar.gz",
+      "sha256": "9e2dcb00e3fd5eb714f23c73fdb5fc2cdccf9340fd737d4af34da3d363a37dae",
+      "bytes": 72194
+    },
+    {
+      "path": "cache/ghostty-ab0b9da.tar.gz",
+      "sha256": "651ffa67e98060bc41aac04fcab45f71fb9998eb265957d85a89218ecf94d50b",
+      "bytes": 38024504
+    },
+    {
+      "path": "share/opencode-pty-haiku-source.tar.gz",
+      "sha256": "420249f1d13d71b7bafff4aaef1e8a1aa72978ea6194f9abcc6ac34eafb2c38b",
+      "bytes": 73034
+    },
+    {
+      "path": "cache/ghostty-haiku/lib/libghostty-vt.a",
+      "sha256": "44fd3d15ae62e94315a0ee6aa91b77994a42cb0649573a1d6d42c208e029f2f2",
+      "bytes": 11816730
+    },
+    {
+      "path": "reference/ghostty-haiku-static.patch",
+      "sha256": "fd3b4157045642256f20fa0d259507aa061b0e34f1ec7f9b422db9e376d80e9c",
+      "bytes": 424
+    },
+    {
+      "path": "reference/opencode-pty-haiku-build.patch",
+      "sha256": "1a4df9f916ea5b7c562a7b01d0e6930724c8b55491de83c2df3a9d492cd701a8",
+      "bytes": 926
+    },
+    {
+      "path": "tools/tui-port/build_pty_guest.sh",
+      "sha256": "d821ebcd83bd0d510451e10631e3c8960faf6c6392bdeb1d413bff57b8fc0fed",
+      "bytes": 1090
+    },
+    {
+      "path": "reference/opencode-pty-haiku-tests.patch",
+      "sha256": "99a81f1ac156d74dde1ff84063bc25a8c17cde5bfc3f0269c20c4e0553160bd8",
+      "bytes": 518
+    },
+    {
+      "path": "reference/opencode-pty-haiku-eof.patch",
+      "sha256": "fd1fa6a1b3e13f11d260b734a6b87d7c38c27f8cd0408d10791e9ffcebb65d02",
+      "bytes": 1473
+    },
+    {
+      "path": "reference/node-pty-haiku.patch",
+      "sha256": "25c7fae0be3bd2eb3f6c365bd36d0366d0b46c9824deca44e434962790053474",
+      "bytes": 1395
+    }
+  ],
+  "rust_package": {
+    "version": "1.94.1-1",
+    "sha256": "6eaebd84cb6678b028aebe143cd4c9f45cc3d735b52e3c3269342471e1a2f4c4",
+    "provenance": "native /boot/system/packages/rust_bin-1.94.1-1-x86_64.hpkg; rust-package-sha256.log"
+  },
+  "historical_source_bundle_note": "share source archive predates final test/EOF fixes; apply all three committed daemon patches to pristine pinned source."
+}

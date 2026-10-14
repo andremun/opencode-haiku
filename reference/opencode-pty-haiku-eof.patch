@@ -1,0 +1,31 @@
+--- a/src/service.rs
++++ b/src/service.rs
+@@ -441,6 +441,8 @@
+             .take_writer()
+             .context("failed to take PTY writer")?;
+         drop(pair.slave);
++        #[cfg(target_os = "haiku")]
++        let master_fd = pair.master.as_raw_fd();
+ 
+         let info = Arc::new(RwLock::new(TerminalInfo {
+             id,
+@@ -525,6 +527,19 @@
+                         Err(error) if error.kind() == io::ErrorKind::Interrupted => continue,
+                         #[cfg(unix)]
+                         Err(error) if error.raw_os_error() == Some(libc::EIO) => {
++                            let _ = reader_actor_tx.send(ActorMessage::ReaderEof);
++                            break;
++                        }
++                        #[cfg(target_os = "haiku")]
++                        Err(error)
++                            if error.raw_os_error() == Some(libc::EBADF)
++                                && master_fd.is_some_and(|fd| unsafe {
++                                    libc::fcntl(fd, libc::F_GETFD) != -1
++                                }) =>
++                        {
++                            // Haiku reports a closed PTY slave as EBADF while the
++                            // master descriptor remains valid. A genuinely closed
++                            // master is still a reader failure.
+                             let _ = reader_actor_tx.send(ActorMessage::ReaderEof);
+                             break;
+                         }

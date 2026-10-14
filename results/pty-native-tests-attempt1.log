@@ -1,0 +1,50 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.29s
+     Running unittests src/lib.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/opencode_pty-b0c5e86b266c7a6d)
+
+running 30 tests
+test daemon::unix::tests::runtime_names_are_single_components ... ok
+test daemon::unix::tests::runtime_root_avoids_temporary_directories ... ok
+test daemon::unix::tests::socket_paths_are_short_and_runtime_specific ... ok
+test daemon::unix::tests::sweep_keeps_directories_without_daemon_evidence ... ok
+test daemon::unix::tests::sweep_removes_abandoned_socket ... ok
+test daemon::unix::tests::sweep_removes_only_abandoned_old_runtimes ... ok
+test daemon::unix::tests::sweep_without_lock_file_checks_registered_pid ... FAILED
+test ghostty::tests::callback_panics_are_resumed_outside_the_c_boundary ... ok
+test ghostty::tests::callbacks_survive_moves_and_return_owned_data ... ok
+test ghostty::tests::empty_native_values_and_small_buffers_are_safe ... ok
+test ghostty::tests::formatted_bytes_outlive_the_native_terminal ... ok
+test ownership::tests::acquisition_is_exclusive_and_bounded ... ok
+test ownership::tests::expiry_only_stops_a_disconnected_owner ... ok
+test ownership::tests::handoff_is_nonrenewing_and_consumed_by_claim ... ok
+test ownership::tests::valid_ticket_replaces_live_owner_and_fences_old_connection ... ok
+test protocol::tests::read_rows_accepts_optional_height_and_u16_counts ... ok
+test service::tests::checkpoint_does_not_leave_zsh_partial_line_marker ... ok
+test service::tests::checkpoint_restores_cursor_and_tabstops ... ok
+test service::tests::controller_backpressures_instead_of_disconnecting ... ok
+test service::tests::forwarding_replies_drains_once_and_reports_writer_failure ... ok
+test service::tests::output_is_batched_without_reordering_other_messages ... ok
+test service::tests::replay_reports_truncation_and_offsets ... ok
+test service::tests::rows_do_not_change_viewport_selection_cursor_or_checkpoint ... ok
+test service::tests::rows_follow_resize_and_reflow ... ok
+test service::tests::rows_include_history_only_when_requested ... ok
+test service::tests::rows_include_live_height_and_preserve_blank_rows ... ok
+test service::tests::rows_isolate_alternate_screen_and_restore_primary_history ... ok
+test service::tests::rows_keep_physical_wraps_and_unicode_graphemes ... ok
+test service::tests::rows_reject_zero_and_bound_escaped_payload_by_bytes ... ok
+test service::tests::slow_observer_is_disconnected ... ok
+
+failures:
+
+---- daemon::unix::tests::sweep_without_lock_file_checks_registered_pid stdout ----
+
+thread 'daemon::unix::tests::sweep_without_lock_file_checks_registered_pid' (8) panicked at src/daemon.rs:892:81:
+called `Result::unwrap()` on an `Err` value: Os { code: -2147459069, kind: NotFound, message: "No such file or directory" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    daemon::unix::tests::sweep_without_lock_file_checks_registered_pid
+
+test result: FAILED. 29 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.54s
+
+error: test failed, to rerun pass `--lib`

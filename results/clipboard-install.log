@@ -1,0 +1,16 @@
+opencode2-node v2.0.29-haiku.3
+Installed in /boot/home/opencode-acceptance/clipboard-port
+Start a shared backend: /boot/home/opencode-acceptance/clipboard-port/opencode serve --hostname 127.0.0.1 --port 18083
+Attach TUI from your project: /boot/home/opencode-acceptance/clipboard-port/opencode --server http://127.0.0.1:18083
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(['read','empty'].includes(status.status))
+
+    at /boot/home/opencode-acceptance/clipboard-port/selftest.cjs:18:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

@@ -1,0 +1,22 @@
+--- a/packages/cli/vite.node.config.ts
++++ b/packages/cli/vite.node.config.ts
+@@ -232,7 +232,7 @@
+ }
+ process.env.OPENCODE_NODE_ASSETS_DIR = __ocAssetRoot
+ process.env.OTUI_ASSET_ROOT = __ocAssetRoot
+-process.env.OPENCODE_NODE_PTY_PATH = __ocPath.join(__ocAssetRoot, ${JSON.stringify(input.target.nodePtyEntryAsset)})
++process.env.OPENCODE_NODE_PTY_PATH ??= __ocPath.join(__ocAssetRoot, ${JSON.stringify(input.target.nodePtyEntryAsset)})
+ process.env.OPENCODE_PARCEL_WATCHER_PATH = __ocPath.join(__ocAssetRoot, ${JSON.stringify(input.target.parcelWatcherAsset)})
+ process.env.OPENCODE_PHOTON_WASM_PATH = __ocPath.join(__ocAssetRoot, ${JSON.stringify(photonWasmAsset)})
+ process.env.OPENCODE_TREE_SITTER_WASM_PATH = __ocPath.join(__ocAssetRoot, ${JSON.stringify(shellParserWasmAssets.runtime)})
+--- a/packages/core/src/persistent-pty/binary.node.ts
++++ b/packages/core/src/persistent-pty/binary.node.ts
+@@ -1,5 +1,7 @@
++import { existsSync } from "node:fs"
+ // opencode-pty ships binaries for Linux and macOS only.
+-export const available = process.platform === "linux" || process.platform === "darwin"
++export const available = process.platform === "linux" || process.platform === "darwin" ||
++  ((process.platform as string) === "haiku" && !!process.env.OPENCODE_PTY_BIN && existsSync(process.env.OPENCODE_PTY_BIN))
+ 
+ export async function resolveBinary() {
+   return process.env.OPENCODE_PTY_BIN || "opencode-pty"

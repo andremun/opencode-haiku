@@ -1,0 +1,6 @@
+{
+  "accepted": false,
+  "reason": "Partial pre-recovery capture contains NUL bytes; raw log retained outside Git.",
+  "sha256": "75f5956648b93dc826ce6fd47f8542f4e377133e717adc1f52fcdb198db3347e",
+  "bytes": 29933
+}

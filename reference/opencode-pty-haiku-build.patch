@@ -1,0 +1,20 @@
+--- a/build.rs
++++ b/build.rs
+@@ -16,6 +16,17 @@
+         Some(revision),
+         "regenerate the bindings with script/ghostty-bindings"
+     );
++    println!("cargo:rerun-if-env-changed=OPENCODE_HAIKU_GHOSTTY_LIB");
++    if let Some(library) = env::var_os("OPENCODE_HAIKU_GHOSTTY_LIB") {
++        assert_eq!(env::var("TARGET").expect("TARGET"), "x86_64-unknown-haiku");
++        let library = PathBuf::from(library);
++        assert!(library.join("libghostty-vt.a").is_file());
++        // The caller verifies the pinned archive hash before this native build.
++        println!("cargo:rustc-link-search=native={}", library.display());
++        println!("cargo:rustc-link-lib=static=ghostty-vt");
++        println!("cargo:rustc-link-lib=bsd");
++        return;
++    }
+     let out = PathBuf::from(env::var_os("OUT_DIR").expect("OUT_DIR"));
+     let source = match env::var_os("GHOSTTY_SOURCE_DIR") {
+         Some(path) => {

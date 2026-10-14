@@ -1,0 +1,34 @@
+Status  Name                       Description                                                                    
+------------------------------------------------------------------------------------------------------------------
+        abseil_cpp.2025            C++ Common Libraries                                                           
+        abseil_cpp.2025_debuginfo  C++ Common Libraries (debug info)                                              
+        abseil_cpp.2025_devel      C++ Common Libraries (development files)                                       
+        bindgen                    Automatically generates Rust FFI bindings to C and C++ libraries               
+        bindgen_debuginfo          Automatically generates Rust FFI bindings to C and C++ libraries (debug info)  
+        bindgen_source             Automatically generates Rust FFI bindings to C and C++ libraries (source files)
+        cbindgen                   A tool for generating C binding to Rust code                                   
+        cbindgen_debuginfo         A tool for generating C binding to Rust code (debug info)                      
+        cbindgen_source            A tool for generating C binding to Rust code (source files)                    
+        clamav_devel               An open source antivirus engine (development files)                            
+        corrosion                  Tool for integrating Rust into an existing CMake project                       
+        corrosion_source           Tool for integrating Rust into an existing CMake project (source files)        
+        cxx_rust_cssparser         Library for parsing CSS that uses the Rust cssparser                           
+        cxx_rust_cssparser_devel   Library for parsing CSS that uses the Rust cssparser (development files)       
+        cxx_rust_cssparser_source  Library for parsing CSS that uses the Rust cssparser (source files)            
+        markupsafe                 Safely add untrusted strings to HTML/XML markup                                
+        markupsafe_python310       Safely add untrusted strings to HTML/XML markup                                
+        markupsafe_source          Safely add untrusted strings to HTML/XML markup (source files)                 
+        oxipng                     Multithreaded PNG optimizer written in Rust                                    
+        oxipng_source              Multithreaded PNG optimizer written in Rust (source files)                     
+        p11_kit                    Provides a way to load and enumerate PKCS#11 modules                           
+        p11_kit_debuginfo          Provides a way to load and enumerate PKCS#11 modules (debug info)              
+        rust_bin                   Modern and safe systems programming language                                   
+        rust_wasm_bin              Wasm target for the Rust compiler                                              
+        setuptools_rust            Compile and distribute Python extensions written in Rust                       
+        setuptools_rust_python310  Compile and distribute Python extensions written in Rust                       
+        setuptools_rust_source     Compile and distribute Python extensions written in Rust (source files)        
+        uncrustify                 A highly configurable, easily modifiable source code beautifier                
+        uncrustify_source          A highly configurable, easily modifiable source code beautifier (source files) 
+Status  Name                Description                              
+---------------------------------------------------------------------
+        texlive_latexextra  TeX Collection: LaTeX additional packages

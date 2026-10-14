@@ -1,0 +1,49 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/opencode_pty-1v1b57rz96b2m/s-hn7mxqttsf-01pfsg8-working`
+
+warning: `opencode-pty` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/service-127iz1gb9zvup/s-hn7myasmir-0bniljh-working`
+
+warning: `opencode-pty` (test "service") generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/rows-3gu8674sr2fdd/s-hn7my65asc-0lpuvb7-working`
+
+warning: `opencode-pty` (test "rows") generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/opencode_pty-022rg4n35z8qp/s-hn7myip96l-0zfbqlt-working`
+
+warning: `opencode-pty` (bin "opencode-pty") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.15s
+     Running tests/rows.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/rows-12f952910e55b603)
+
+running 1 test
+test daemon_client_read_rows_roundtrip ... opencode-pty request failed: failed to fill whole buffer
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.53s
+
+     Running tests/service.rs (/boot/home/opencode-acceptance/cargo-target/debug/deps/service-3a5a2b640b30d478)
+
+running 9 tests
+test bursty_output_does_not_disconnect_a_healthy_observer ... ok
+test control_resize_reports_precede_user_input ... ok
+test controller_switches_without_disconnecting_observers ... ok
+test hidden_terminal_output_uses_bounded_replay ... ok
+test read_rows_snapshots_live_state_without_taking_control ... ok
+test repeated_resize_reports_are_delivered_once ... ok
+test resize_reports_reach_a_silent_child ... ok
+test terminals_run_independently_and_one_exit_does_not_stop_service ... FAILED
+test title_changes_update_metadata_and_notify_subscribers ... ok
+
+failures:
+
+---- terminals_run_independently_and_one_exit_does_not_stop_service stdout ----
+
+thread 'terminals_run_independently_and_one_exit_does_not_stop_service' (37) panicked at tests/service.rs:83:5:
+condition did not become true
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    terminals_run_independently_and_one_exit_does_not_stop_service
+
+test result: FAILED. 8 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.49s
+
+error: test failed, to rerun pass `--test service`

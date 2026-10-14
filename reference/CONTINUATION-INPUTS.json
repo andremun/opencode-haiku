@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-15",
+  "pty_revision": "443945a666cad3b0c00da0c1c9f2bcd5bc00e28a",
+  "pty_version": "0.3.1",
+  "required_rust": "1.90 / edition 2024",
+  "ghostty_revision": "ab0b9da9e88fcb4b0533a1854e84628f663930af",
+  "sources": {
+    "pty": "https://github.com/anomalyco/opencode-pty/tree/443945a666cad3b0c00da0c1c9f2bcd5bc00e28a",
+    "rust_recipe": "https://github.com/haikuports/haikuports/blob/master/dev-lang/rust/rust-1.79.0.recipe",
+    "clipboard": "https://github.com/haiku/haiku/blob/master/src/bin/clipboard.cpp"
+  },
+  "inputs": [
+    {
+      "path": "cache/opencode-pty-443945a.tar.gz",
+      "sha256": "1dced8d592df9d9c7baf0a1550bd2f34faac806b83ae0ee50d0acc2e00decef6",
+      "bytes": 108981
+    },
+    {
+      "path": "cache/rust-1.79.0.recipe",
+      "sha256": "c166f7bf985700dce57779b6ffd4d7d7004f880f6bb89f8c59374a413e984676",
+      "bytes": 5066
+    },
+    {
+      "path": "cache/clipboard-upstream.cpp",
+      "sha256": "9a59c238284ae9ada115637dd35cdfb571b5c8763826bc320d7dbf2fe6603a00",
+      "bytes": 6640
+    },
+    {
+      "path": "reference/opentui-haiku-clipboard.patch",
+      "sha256": "fd9cc538751db0f12a1f135823062e9a9439f13671e988465f04860a4e1ee503",
+      "bytes": 659
+    },
+    {
+      "path": "tools/tui-port/haiku-clipboard.cpp",
+      "sha256": "be3f060aa370c9c49c6f2c8202ef7007ccb8d9ee15b2aa6a9aaf77f365c754fb",
+      "bytes": 1499
+    },
+    {
+      "path": "tools/tui-port/haiku-clipboard.cjs",
+      "sha256": "ce10b5a8eee768d6e8ff7f8b2afc4a5b2008de72140a706b933c3eab5e3af86e",
+      "bytes": 2193
+    },
+    {
+      "path": "cache/haiku-clipboard",
+      "sha256": "7e5a11e8ac4e840987a7c5be9216e4f0ddd593a50d48cb7f3b1b0284ed58e9dd",
+      "bytes": 10872
+    },
+    {
+      "path": "tools/tui-port/haiku-http.cjs",
+      "sha256": "a96ba07bd31b2453bf295b7d95a4cb6e7629d33e0a19109be946f5b5d1c4fcf8",
+      "bytes": 556
+    },
+    {
+      "path": "tools/tui-port/haiku-loader.cjs",
+      "sha256": "15b61b5d8561d9330facc9ee2af59939f2557e882bf51f7bb6b6b1e2f8a5dfa1",
+      "bytes": 474
+    },
+    {
+      "path": "tools/tui-port/pty-test.c",
+      "sha256": "539c3395b954eb469bee916b85a77c6e47cf270397197bb01c7827ea8be56302",
+      "bytes": 1920
+    },
+    {
+      "path": "tools/tui-port/coding-workflow.mjs",
+      "sha256": "6b705074f4819bf0eb135b8f76e5342ecb633e542b4a950926af1ee63c9403c4",
+      "bytes": 4556
+    },
+    {
+      "path": "tools/tui-port/start_model_guest.sh",
+      "sha256": "50aae7d0efab7577c962bc890b714ecf59c8f3dca244488d87000eede94ab98c",
+      "bytes": 854
+    },
+    {
+      "path": "tools/app_vm.py",
+      "sha256": "5fdf18bf26e0327f2b033f682b43aa008dc779a11ff37b4019c35c920efe4ac5",
+      "bytes": 6843
+    }
+  ],
+  "undici": {
+    "version": "7.29.0",
+    "integrity": "sha512-IDxfleLmmbSskfWSUATiN1nfn2rDuvnMOqb5CWR92iIfojA0Ud+ulOAAEQ57LPr9rWmsreUyf5lwyao+7GNNVw==",
+    "provenance": "pinned upstream bun.lock, node_modules/.bun/undici@7.29.0/node_modules/undici"
+  }
+}

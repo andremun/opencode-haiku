@@ -1,0 +1,60 @@
+/bin/clipboard
+usage: clipboard [-olcirpd]
+  -s, --save=file	Save clipboard to file (flattened BMessage)
+  -o			the same
+  -l, --load=file	Load clipboard from file (flattened BMessage)
+  -c, --copy=string	Put the given string on the clipboard
+  -i, --stdin		Load clipboard with string from standard input
+
+  -r, --clear		Remove all contents from clipboard
+
+  -p, --print		Print clipboard to standard output
+  -d, --debug		Print clipboard message to stdout
+
+  -h, --help		Display this help and exit
+PTY headers:
+/*
+ * Copyright 2008-2010 Haiku Inc. All Rights Reserved.
+ * Distributed under the terms of the MIT License.
+ */
+#ifndef _BSD_PTY_H_
+#define _BSD_PTY_H_
+
+#include <features.h>
+
+#ifdef _DEFAULT_SOURCE
+
+
+#include <sys/cdefs.h>
+#include <termios.h>
+
+
+__BEGIN_DECLS
+
+extern int		openpty(int* master, int* slave, char* name,
+					struct termios* termAttrs, struct winsize* windowSize);
+extern int		login_tty(int fd);
+extern pid_t	forkpty(int* master, char* name,
+					struct termios* termAttrs, struct winsize* windowSize);
+
+__END_DECLS
+
+
+#endif
+
+
+#endif	/* _BSD_PTY_H_ */
+Existing owned services:
+/boot/home/haiku-app/build/bin/llama-server -m qwen17.gguf -ngl   767        9    0    0 
+/bin/node /boot/home/opencode-acceptance/tui/opencode.mjs serve  1179       11    0    0 
+/boot/system/apps/Terminal -w /boot/home/opencode-acceptance  1421        5    0    0 
+/bin/node /boot/home/opencode-acceptance/inference-compare.cjs  6294        7    0    0 
+/bin/grep -E llama-server|opencode|node             6313        1    0    0 
+Memory:
+max memory:		4287561728
+free memory:		3991502848
+needed memory:		0
+block cache memory:	33030144
+max swap space:		4287561728
+free swap space:	4287561728
+page faults:		9210466

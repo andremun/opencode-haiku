@@ -55,6 +55,11 @@
       "sha256": "cd03766fb6f2084769da320026938e4a085cc381fd12f509bee6ca92fa58bf9d",
       "bytes": 1212712,
       "provenance": "native Haiku Node24/CMake clean build, final Koffi patch"
+    },
+    {
+      "path": "reference/opentui-haiku-clipboard.patch",
+      "sha256": "fd9cc538751db0f12a1f135823062e9a9439f13671e988465f04860a4e1ee503",
+      "bytes": 659
     }
   ]
 }

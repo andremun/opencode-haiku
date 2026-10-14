@@ -1,0 +1,17 @@
+--- a/src/daemon.rs
++++ b/src/daemon.rs
+@@ -889,7 +889,13 @@
+         }
+ 
+         fn dead_pid() -> u32 {
+-            let mut child = std::process::Command::new("/usr/bin/true").spawn().unwrap();
++            let mut child = std::process::Command::new(if cfg!(target_os = "haiku") {
++                "/bin/true"
++            } else {
++                "/usr/bin/true"
++            })
++            .spawn()
++            .unwrap();
+             let pid = child.id();
+             child.wait().unwrap();
+             pid

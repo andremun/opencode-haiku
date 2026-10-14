@@ -1,0 +1,7 @@
+PTY_END read=-1 errno=-2147459072 (Bad file descriptor)
+MASTER_FD_VALID flags=0
+24 80
+PTY_READY
+HELLO42 100
+UTF8 α β HELLO
+PTY_PRIMITIVE_PASS: controlling tty, input/output, UTF-8, resize, EOF and child exit

@@ -1,0 +1,18 @@
+  100% repochecksum-1 [65 bytes]
+Validating checksum for Haiku...done.
+  100% repochecksum-1 [64 bytes]
+Validating checksum for HaikuPorts...done.
+The following changes will be made:
+  in system:
+    install package rust_bin-1.94.1-1 from repository HaikuPorts
+Continue? [yes/no] (yes) : yes
+  100% rust_bin-1.94.1-1-x86_64.hpkg [315.15 MiB]
+Validating checksum for https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/packages/rust_bin-1.94.1-1-x86_64.hpkg...done.
+[system] Applying changes ...
+[system] Changes applied. Old activation state backed up in "state_2026-10-14_11:36:07"
+[system] Cleaning up ...
+[system] Done.
+rustc 1.94.1 (e408947bf 2026-03-25)
+cargo 1.94.1 (29ea6fb6a 2026-03-24)
+i686-unknown-haiku
+x86_64-unknown-haiku

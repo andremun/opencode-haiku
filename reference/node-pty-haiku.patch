@@ -1,0 +1,63 @@
+--- a/src/unix/pty.cc
++++ b/src/unix/pty.cc
+@@ -39,6 +39,10 @@
+ #include <pty.h>
+ #include <dirent.h>
+ #include <sys/syscall.h>
++#elif defined(__HAIKU__)
++#include <bsd/pty.h>
++#include <bsd/unistd.h>
++#include <termios.h>
+ #elif defined(__APPLE__)
+ #include <util.h>
+ #elif defined(__FreeBSD__)
+@@ -143,6 +147,12 @@
+   for (fd = 3; ; fd++)
+     if (SetCloseOnExec(fd) && fd > 15)
+       break;
++}
++#endif
++
++#if defined(__HAIKU__)
++static void pty_close_inherited_fds() {
++  closefrom(3);
+ }
+ #endif
+ 
+@@ -349,7 +359,10 @@
+   // termios
+   struct termios t = termios();
+   struct termios *term = &t;
+-  term->c_iflag = ICRNL | IXON | IXANY | IMAXBEL | BRKINT;
++  term->c_iflag = ICRNL | IXON | IXANY | BRKINT;
++#ifdef IMAXBEL
++  term->c_iflag |= IMAXBEL;
++#endif
+   if (info[8].As<Napi::Boolean>().Value()) {
+ #if defined(IUTF8)
+     term->c_iflag |= IUTF8;
+@@ -363,16 +376,24 @@
+   term->c_cc[VEOL] = -1;
+   term->c_cc[VEOL2] = -1;
+   term->c_cc[VERASE] = 0x7f;
++#ifdef VWERASE
+   term->c_cc[VWERASE] = 23;
++#endif
+   term->c_cc[VKILL] = 21;
++#ifdef VREPRINT
+   term->c_cc[VREPRINT] = 18;
++#endif
+   term->c_cc[VINTR] = 3;
+   term->c_cc[VQUIT] = 0x1c;
+   term->c_cc[VSUSP] = 26;
+   term->c_cc[VSTART] = 17;
+   term->c_cc[VSTOP] = 19;
++#ifdef VLNEXT
+   term->c_cc[VLNEXT] = 22;
++#endif
++#ifdef VDISCARD
+   term->c_cc[VDISCARD] = 15;
++#endif
+   term->c_cc[VMIN] = 1;
+   term->c_cc[VTIME] = 0;
+ 

@@ -1,0 +1,3 @@
+1dced8d592df9d9c7baf0a1550bd2f34faac806b83ae0ee50d0acc2e00decef6  cache/opencode-pty-443945a.tar.gz
+9a59c238284ae9ada115637dd35cdfb571b5c8763826bc320d7dbf2fe6603a00  cache/clipboard-upstream.cpp
+7e5a11e8ac4e840987a7c5be9216e4f0ddd593a50d48cb7f3b1b0284ed58e9dd  cache/haiku-clipboard

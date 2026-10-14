@@ -9,7 +9,7 @@ test was poor; that was not an acceptance failure.
 
 See [the acceptance report](docs/TUI-ACCEPTANCE.md) for measured evidence,
 reproduction and remaining feature limits. The self-contained runtime archive
-is in ignored `share/opencode-haiku-tui-2.0.29-haiku.2.tar.gz`; its exact hashes
+is in ignored `share/opencode-haiku-tui-2.0.29-haiku.4.tar.gz`; its exact hashes
 are in `results/opencode-tui-package.json`. The tooling is in `tools/tui-port/`.
 The interface tests use one shared OpenCode backend per Haiku SQLite profile.
 
@@ -31,8 +31,8 @@ isolated private server.
 
 Measured: native launcher, files, fallback file search, shell execution, stored
 session recovery and real local-model text. Model-driven read/shell calls work,
-but the tiny model failed to fix the synthetic coding task. The full TUI and nonrecursive polling watches now work; persistent PTY and
-OS clipboard integration remain unsupported. OpenCode's anonymous free service rejected both the
+but the tiny model failed to fix the synthetic coding task. The full TUI and nonrecursive polling watches now work; native clipboard now passes, and native PTY backends pass their own tests.
+Combined terminal integration remains pending. OpenCode's anonymous free service rejected both the
 port and official Linux control. No paid models, physical GPUs, host sudo or
 existing model-service changes were used.
 
@@ -40,3 +40,7 @@ existing model-service changes were used.
 source archives, dependencies, models and logs remain ignored by Git. A copied
 installed VM is a local development convenience; source and evidence pins live
 in `reference/` and `results/`.
+
+See [installation](docs/INSTALL.md) and [continuation results](docs/CONTINUATION-OUTCOME.md) for fresh native/Linux controls, text clipboard and remaining terminal work.
+
+Full setup: [T7610 Haiku installation and source build](docs/T7610-HAIKU-SETUP.md).

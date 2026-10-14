@@ -1,0 +1,4 @@
+e0e2e21beab118dd909acf868ca8430a357dff73dbeda3322e7dbdbc59ee91bd  opencode-pty
+4013c7827d1177bcf66571980e46145eb65af90757f468fa2cc9b08950d41c38  node-pty/build/Release/pty.node
+-rwxr-xr-x 1 user 1389220685   65752 Oct 14 18:50 node-pty/build/Release/pty.node
+-rwxr-xr-x 1 user root       6955704 Oct 14 19:04 opencode-pty

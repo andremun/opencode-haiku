@@ -1,0 +1,6 @@
+{
+  "pid": 467,
+  "before": "/boot/home/haiku-app/build/bin/llama-server -m qwen17.gguf -ngl   467        8    0    0 ",
+  "forced": false,
+  "stopped": true
+}

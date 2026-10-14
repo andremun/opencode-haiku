@@ -1,0 +1,12 @@
+--- a/build.zig
++++ b/build.zig
+@@ -128,7 +128,8 @@
+             &mod,
+         );
+     };
+-    libghostty_vt_shared.install(b.getInstallStep());
++    // Native Haiku consumers use the self-contained static VT archive.
++    if (config.target.result.os.tag != .haiku) libghostty_vt_shared.install(b.getInstallStep());
+ 
+     // libghostty-vt static lib
+     const libghostty_vt_static = try buildpkg.GhosttyLibVt.initStatic(

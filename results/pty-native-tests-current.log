@@ -1,0 +1,18 @@
+   Compiling opencode-pty v0.2.0 (/boot/home/opencode-acceptance/pty-source)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/opencode_pty-1v1b57rz96b2m/s-hn7mxqttsf-01pfsg8-working`
+
+warning: `opencode-pty` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/opencode_pty-2osbkb8c8fq99/s-hn7mxxnzkz-0y6htmh-working`
+
+warning: `opencode-pty` (bin "opencode-pty" test) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/ownership-0t6q8majqbjbx/s-hn7mxz84c4-086e09a-working`
+
+warning: `opencode-pty` (test "ownership") generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/playground-33pj012d63tfv/s-hn7my3xcsp-06znnms-working`
+
+warning: `opencode-pty` (test "playground") generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/rows-3gu8674sr2fdd/s-hn7my65asc-0lpuvb7-working`
+
+warning: `opencode-pty` (test "rows") generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `/boot/home/opencode-acceptance/cargo-target/debug/incremental/service-127iz1gb9zvup/s-hn7myasmir-0bniljh-working`
+

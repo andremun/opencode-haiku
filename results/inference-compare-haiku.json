@@ -1,0 +1,171 @@
+{
+  "platform": "haiku",
+  "endpoint": "http://127.0.0.1:18081",
+  "requests": [
+    {
+      "body": {
+        "model": "haiku-qwen17",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Reply with the single word OK."
+          }
+        ],
+        "max_tokens": 64,
+        "temperature": 0,
+        "seed": 1234,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 9008,
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "OK"
+            }
+          }
+        ],
+        "created": 1791996935,
+        "model": "haiku-qwen17",
+        "system_fingerprint": "b0-unknown",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 19,
+          "total_tokens": 21,
+          "prompt_tokens_details": {
+            "cached_tokens": 18
+          }
+        },
+        "id": "chatcmpl-X3oAvHJwcyPulAEmDf5hMbjROTk7MuFH",
+        "timings": {
+          "cache_n": 18,
+          "prompt_n": 1,
+          "prompt_ms": 3909.776,
+          "prompt_per_token_ms": 3909.776,
+          "prompt_per_second": 0.2557691284615794,
+          "predicted_n": 2,
+          "predicted_ms": 3444.512,
+          "predicted_per_token_ms": 1722.256,
+          "predicted_per_second": 0.5806337733763157
+        }
+      }
+    },
+    {
+      "body": {
+        "model": "haiku-qwen17",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Write a Python function add(a, b) that returns their sum. Output only the code."
+          }
+        ],
+        "max_tokens": 64,
+        "temperature": 0,
+        "seed": 1234,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 125591,
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "```python\ndef add(a, b):\n    return a + b\n```"
+            }
+          }
+        ],
+        "created": 1791997060,
+        "model": "haiku-qwen17",
+        "system_fingerprint": "b0-unknown",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 17,
+          "prompt_tokens": 31,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 3
+          }
+        },
+        "id": "chatcmpl-I64FLRylZTobJVdw98uYOWeKdVqFjDjp",
+        "timings": {
+          "cache_n": 3,
+          "prompt_n": 28,
+          "prompt_ms": 70747.691,
+          "prompt_per_token_ms": 2526.70325,
+          "prompt_per_second": 0.3957726337669451,
+          "predicted_n": 17,
+          "predicted_ms": 54647.06,
+          "predicted_per_token_ms": 3214.5329411764706,
+          "predicted_per_second": 0.3110871838302006
+        }
+      }
+    },
+    {
+      "body": {
+        "model": "haiku-qwen17",
+        "messages": [
+          {
+            "role": "user",
+            "content": "What is 7 plus 5? Reply with only the number."
+          }
+        ],
+        "max_tokens": 64,
+        "temperature": 0,
+        "seed": 1234,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 79416,
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "12"
+            }
+          }
+        ],
+        "created": 1791997140,
+        "model": "haiku-qwen17",
+        "system_fingerprint": "b0-unknown",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 26,
+          "total_tokens": 29,
+          "prompt_tokens_details": {
+            "cached_tokens": 3
+          }
+        },
+        "id": "chatcmpl-TcxyebvoptNvcJxGxqBAXmeVDawYNUti",
+        "timings": {
+          "cache_n": 3,
+          "prompt_n": 23,
+          "prompt_ms": 71954.14,
+          "prompt_per_token_ms": 3128.4408695652173,
+          "prompt_per_second": 0.3196480424892856,
+          "predicted_n": 3,
+          "predicted_ms": 7264.229,
+          "predicted_per_token_ms": 2421.409666666667,
+          "predicted_per_second": 0.41298257530152194
+        }
+      }
+    }
+  ]
+}
