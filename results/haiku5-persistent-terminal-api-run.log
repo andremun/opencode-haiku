@@ -1,0 +1,13 @@
+{"event":"server-info","data":{"version":"2.0.29-haiku.5","capabilities":{"persistentPty":true}}}
+{"event":"terminal-created","data":{"id":"pty_persistent_4030393345147501","size":{"cols":80,"rows":24},"status":"running"}}
+{"event":"first-attachment","data":{"text":"24 80\r\nPERSIST_READY é€\r\nHELLO42 100\r\nPERSIST_RESULT HELLO\r\n","control":["attached","replay_complete","controller_changed","resized"]}}
+{"event":"live-info","data":{"status":"running","size":{"cols":100,"rows":42},"output":{"head":0,"tail":63},"foreground":null}}
+{"event":"snapshot","data":{"text":"24 80\nPERSIST_READY é€\nHELLO42 100\nPERSIST_RESULT HELLO","cursor":{"x":0,"y":4}}}
+{"event":"listed","data":[{"id":"pty_persistent_4030393345147501","status":"running"}]}
+{"event":"read","data":{"rows":42,"cols":100,"tail":["PERSIST_READY é€","HELLO42 100","PERSIST_RESULT HELLO"]}}
+{"event":"reconnect-replay","data":{"replayedText":"24 80\r\nPERSIST_READY é€\r\nHELLO42 100\r\nPERSIST_RESULT HELLO\r\n","control":[{"type":"attached","truncated":false},{"type":"replay_complete"},{"type":"controller_changed"},{"type":"exited"}]}}
+{"event":"exit-event","data":{"type":"exited","exitCode":5,"finalOffset":63}}
+{"event":"after-exit-lookup","data":{"httpStatus":404}}
+{"event":"cleanup","data":"no terminals remain"}
+{"event":"daemon-shutdown","data":"ok"}
+{"event":"result","data":"PASS"}

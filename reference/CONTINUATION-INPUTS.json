@@ -62,8 +62,8 @@
     },
     {
       "path": "tools/tui-port/coding-workflow.mjs",
-      "sha256": "6b705074f4819bf0eb135b8f76e5342ecb633e542b4a950926af1ee63c9403c4",
-      "bytes": 4556
+      "sha256": "2be4d47272a5581dbdc62a401f53511e6d4690364367586a3872c5e96f994feb",
+      "bytes": 5631
     },
     {
       "path": "tools/tui-port/start_model_guest.sh",
@@ -72,8 +72,8 @@
     },
     {
       "path": "tools/app_vm.py",
-      "sha256": "5fdf18bf26e0327f2b033f682b43aa008dc779a11ff37b4019c35c920efe4ac5",
-      "bytes": 6843
+      "sha256": "2a873fecb7594254b8a1401b849954b932bf42ddf52ea7ccf4d91655cfc669e1",
+      "bytes": 7038
     }
   ],
   "undici": {

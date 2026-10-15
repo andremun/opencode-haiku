@@ -17,7 +17,7 @@ const record = (event,data) => {logs += JSON.stringify({event,data})+'\n';writeF
 const watchdog=setTimeout(()=>{record('timeout',240000);server?.kill('SIGKILL');process.exit(124);},600000);
 async function start() {
  const password=randomBytes(32).toString('base64url');
- server=spawn(resolve(root,'http-port/opencode'),['serve','--stdio','--port','0'],{cwd:fixture,env:{...env,OPENCODE_PASSWORD:password},stdio:['pipe','pipe','pipe']});
+ server=spawn(resolve(process.env.OPENCODE_TEST_RUNTIME_ROOT||resolve(root,'http-port'),'opencode'),['serve','--stdio','--port','0'],{cwd:fixture,env:{...env,OPENCODE_PASSWORD:password},stdio:['pipe','pipe','pipe']});
  server.stderr.on('data',chunk=>{logs+=chunk;writeFileSync(resolve(root,'api-probe.log'),logs);});
  const url=await new Promise((done,fail)=>{
   let output='';

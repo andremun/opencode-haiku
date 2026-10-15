@@ -65,10 +65,39 @@ exit 0''')
             self.assertEqual(result.returncode,expected,result.stdout+result.stderr)
             self.assertIn('persistent-terminal-api exit='+code,result.stdout)
     def test_services_refuse_existing_listener_before_writing_configuration(self):
+        self.stub('uname','echo Haiku')
         self.stub('curl','exit 0')
         result=self.run_script('tools/kvm-run/services.sh')
         self.assertEqual(result.returncode,1)
         self.assertIn('refusing duplicate services',result.stderr)
+    def test_coding_acceptance_requires_agent_test_and_an_unchanged_passing_fixture(self):
+        for index,(reported,tampered,expected) in enumerate([(False,False,False),(True,False,True),(True,True,False)]):
+            root=self.root/('coding-'+str(index));root.mkdir()
+            launcher=self.root/('fake-opencode-'+str(index))
+            launcher.write_text('#!'+NODE+'\n'+"const fs=require('node:fs');fs.writeFileSync('add.mjs','export const add=(a,b)=>a+b;');"+
+                ("fs.writeFileSync('test.mjs','console.log(\"AGENT_TEST_PASS\")');" if tampered else '')+
+                ("console.log(JSON.stringify({type:'tool_use',part:{tool:'shell',state:{status:'completed',input:{command:'node test.mjs'},output:'AGENT_TEST_PASS'}}}));" if reported else ''))
+            launcher.chmod(0o755)
+            result=subprocess.run([NODE,str(ROOT/'tools/tui-port/coding-workflow.mjs'),str(root)],env={**os.environ,'OPENCODE_TEST_PORT_ROOT':str(launcher)},capture_output=True,text=True,timeout=15)
+            self.assertEqual(result.returncode,0,result.stderr)
+            outcome=json.loads((root/'coding-outcome.json').read_text())
+            self.assertEqual(outcome['semantic_pass'],expected)
+            self.assertEqual(outcome['test_unchanged'],not tampered)
+            self.assertEqual(outcome['steps'],8)
+            if not tampered:self.assertTrue(outcome['independent_test_pass'])
+    def test_cpu_experiments_refuse_the_host_platform(self):
+        if os.uname().sysname=='Haiku':self.skipTest('This guard control is intended for the Linux host')
+        for name in ['build-cpu-profile.sh','benchmark-cpu.sh','services.sh']:
+            result=self.run_script('tools/kvm-run/'+name)
+            self.assertEqual(result.returncode,2,result.stderr)
+            self.assertIn('Haiku guest',result.stderr)
+    def test_missing_coding_launcher_records_a_terminal_error(self):
+        root=self.root/'missing-launcher';root.mkdir()
+        result=subprocess.run([NODE,str(ROOT/'tools/tui-port/coding-workflow.mjs'),str(root)],env={**os.environ,'OPENCODE_TEST_PORT_ROOT':str(self.root/'does-not-exist')},capture_output=True,text=True,timeout=15)
+        self.assertEqual(result.returncode,1,result.stderr)
+        outcome=json.loads((root/'coding-outcome.json').read_text())
+        self.assertIn('ENOENT',outcome['launch_error'])
+        self.assertFalse(outcome['semantic_pass'])
     def test_transfer_publishes_only_complete_results(self):
         spec=importlib.util.spec_from_file_location('t7610_transfer',ROOT/'tools/transfer_server.py')
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)

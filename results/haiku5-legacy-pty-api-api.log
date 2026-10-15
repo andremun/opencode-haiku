@@ -1,0 +1,85 @@
+timestamp=2026-10-15T10:58:59.098Z level=INFO run=2ac65ac4 message="cli starting" version=2.0.29-haiku.5 channel=haiku local=false args="[\"--print-logs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+timestamp=2026-10-15T10:58:59.412Z level=INFO run=2ac65ac4 message="database schema bootstrap started" migrations=50 role=server
+timestamp=2026-10-15T10:58:59.579Z level=INFO run=2ac65ac4 message="database schema bootstrap completed" migrations=50 durationMs=166 role=server
+{"event":"server-ready","data":{"url":"http://127.0.0.1:53491"}}
+timestamp=2026-10-15T10:59:01.619Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode type=directory ignores=3 http.span=856 role=server
+timestamp=2026-10-15T10:59:01.641Z level=ERROR run=2ac65ac4 message="watcher backend not supported" directory=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode platform=haiku http.span=878 role=server
+timestamp=2026-10-15T10:59:01.656Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/etc type=entries ignores=0 http.span=893 role=server
+timestamp=2026-10-15T10:59:01.664Z level=INFO run=2ac65ac4 message="watcher started" path=/etc type=entries backend=node ignores=0 http.span=901 role=server
+timestamp=2026-10-15T10:59:01.668Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/ type=entries ignores=0 http.span=905 role=server
+timestamp=2026-10-15T10:59:01.672Z level=INFO run=2ac65ac4 message="watcher started" path=/ type=entries backend=node ignores=0 http.span=909 role=server
+timestamp=2026-10-15T10:59:01.676Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot type=entries ignores=0 http.span=913 role=server
+timestamp=2026-10-15T10:59:01.686Z level=INFO run=2ac65ac4 message="watcher started" path=/boot type=entries backend=node ignores=0 http.span=923 role=server
+timestamp=2026-10-15T10:59:01.689Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=926 role=server
+timestamp=2026-10-15T10:59:01.694Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home type=entries backend=node ignores=0 http.span=931 role=server
+timestamp=2026-10-15T10:59:01.698Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance type=entries ignores=0 http.span=935 role=server
+timestamp=2026-10-15T10:59:01.702Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance type=entries backend=node ignores=0 http.span=939 role=server
+timestamp=2026-10-15T10:59:01.703Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/api-fixture type=entries ignores=0 http.span=940 role=server
+timestamp=2026-10-15T10:59:01.715Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance/api-fixture type=entries backend=node ignores=0 http.span=952 role=server
+timestamp=2026-10-15T10:59:02.008Z level=INFO run=2ac65ac4 message="location services booted" directory=/boot/home/haiku5-acceptance/api-fixture workspaceID=undefined durationMs=1112 http.span=1245 role=server
+timestamp=2026-10-15T10:59:02.032Z level=INFO run=2ac65ac4 message="creating session" id=pty_13f37290d001TtDtY5wOx3xeGo cmd=/bin/sh args="[\"-c\",\"stty size; printf 'LEGACY_PTY_READY\\\\n'; read line; stty size; printf 'LEGACY_RESULT %s\\\\n' \\\"$line\\\"; exit 7\",\"-l\"]" cwd=/boot/home/haiku5-acceptance/api-fixture http.span=1269 role=server
+timestamp=2026-10-15T10:59:08.609Z level=INFO run=2ac65ac4 message="client attached to session" id=pty_13f37290d001TtDtY5wOx3xeGo directory=/boot/home/haiku5-acceptance/api-fixture http.span=20 role=server
+timestamp=2026-10-15T10:59:08.687Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T10:59:08.702Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/AGENTS.md type=file backend=node ignores=0 http.span=7939 role=server
+timestamp=2026-10-15T10:59:08.705Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/api-fixture/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T10:59:08.709Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance/api-fixture/AGENTS.md type=file backend=node ignores=0 http.span=7946 role=server
+timestamp=2026-10-15T10:59:08.710Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T10:59:08.713Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance/AGENTS.md type=file backend=node ignores=0 http.span=7950 role=server
+timestamp=2026-10-15T10:59:08.714Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T10:59:08.718Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/AGENTS.md type=file backend=node ignores=0 http.span=7955 role=server
+{"event":"native-browser-pty","data":{"id":"pty_13f37290d001TtDtY5wOx3xeGo","output":"24 80\r\nLEGACY_PTY_READY\r\nHELLO42 100\r\nLEGACY_RESULT HELLO\r\n"}}
+timestamp=2026-10-15T10:59:09.142Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/skill type=file ignores=0
+timestamp=2026-10-15T10:59:09.150Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/skill type=file backend=node ignores=0 http.span=8387 role=server
+timestamp=2026-10-15T10:59:09.175Z level=INFO run=2ac65ac4 message="session exited" id=pty_13f37290d001TtDtY5wOx3xeGo exitCode=7 http.span=8412 role=server
+timestamp=2026-10-15T10:59:09.199Z level=INFO run=2ac65ac4 message="removing session" id=pty_13f37290d001TtDtY5wOx3xeGo http.span=9 role=server
+timestamp=2026-10-15T10:59:09.310Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/skills type=file ignores=0
+timestamp=2026-10-15T10:59:09.332Z level=INFO run=2ac65ac4 message="watcher started" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/skills type=file backend=node ignores=0 http.span=8569 role=server
+timestamp=2026-10-15T10:59:09.562Z level=INFO run=2ac65ac4 message=event event.id=evt_13f374679001Qn5yYxoDmahXOi event.created=1792061949562 event.type=provider.updated event.location.directory=/boot/home/haiku5-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=8799 role=server
+timestamp=2026-10-15T10:59:09.667Z level=INFO run=2ac65ac4 message=event event.id=evt_13f3746e1001guK31psXn6qlAE event.created=1792061949667 event.type=model.updated event.location.directory=/boot/home/haiku5-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=8904 role=server
+timestamp=2026-10-15T10:59:09.693Z level=INFO run=2ac65ac4 message=event event.id=evt_13f3746fb001SA86cx5pvErqs6 event.created=1792061949692 event.type=agent.updated event.location.directory=/boot/home/haiku5-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=8930 role=server
+timestamp=2026-10-15T10:59:09.703Z level=INFO run=2ac65ac4 message=event event.id=evt_13f374705001PoQsYHeCpfqSWT event.created=1792061949702 event.type=command.updated event.location.directory=/boot/home/haiku5-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=8940 role=server
+{"event":"file-write-read","data":"passed"}
+timestamp=2026-10-15T10:59:10.244Z level=INFO run=2ac65ac4 message="spawning process" command=/bin/rg args="[\"--no-config\",\"--files\",\"--glob=!**/.git/**\",\".\"]" cwd=/boot/home/haiku5-acceptance/api-fixture http.span=57 role=server
+{"event":"portable-file-search","data":"passed"}
+timestamp=2026-10-15T10:59:10.775Z level=INFO run=2ac65ac4 message="spawning process" command=/bin/sh args="[\"-c\",\"node test.mjs\"]" cwd=/boot/home/haiku5-acceptance/api-fixture http.span=10012 role=server
+timestamp=2026-10-15T10:59:11.083Z level=INFO run=2ac65ac4 message="watcher subscribe" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode type=directory ignores=3 http.span=10320 role=server
+timestamp=2026-10-15T10:59:11.086Z level=ERROR run=2ac65ac4 message="watcher backend not supported" directory=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode platform=haiku http.span=10323 role=server
+{"event":"shell-result","data":{"shell":{"id":"sh_13f374b300015YaD7u2d4JiGZX","status":"exited","command":"node test.mjs","cwd":"/boot/home/haiku5-acceptance/api-fixture","shell":"/bin/sh","file":"/boot/home/haiku5-acceptance/legacy-pty-state2/data/opencode/shell/4959954266659ef9bf5da474468f6e203211cc61/sh_13f374b300015YaD7u2d4JiGZX.out","pid":6321,"exit":0,"metadata":{},"time":{"started":1792061950770,"completed":1792061953061}},"output":{"output":"API_SHELL_PASS\n","cursor":15,"size":15,"truncated":false}}}
+{"event":"session-created","data":{"id":"ses_ec0c8ab86ffe0fiNf9vcd0LuaE","title":"Native Haiku persistence probe"}}
+timestamp=2026-10-15T10:59:13.624Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/skill type=file http.span=12861 role=server
+timestamp=2026-10-15T10:59:13.627Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/skills type=file http.span=12864 role=server
+timestamp=2026-10-15T10:59:13.665Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/AGENTS.md type=file http.span=12902 role=server
+timestamp=2026-10-15T10:59:13.669Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance/AGENTS.md type=file http.span=12906 role=server
+timestamp=2026-10-15T10:59:13.671Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance/api-fixture/AGENTS.md type=file http.span=12908 role=server
+timestamp=2026-10-15T10:59:13.675Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode/AGENTS.md type=file http.span=12912 role=server
+timestamp=2026-10-15T10:59:13.778Z level=INFO run=2ac65ac4 message="watcher stopped" path=/etc type=entries http.span=13015 role=server
+timestamp=2026-10-15T10:59:13.780Z level=INFO run=2ac65ac4 message="watcher stopped" path=/ type=entries http.span=13017 role=server
+timestamp=2026-10-15T10:59:13.781Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot type=entries http.span=13018 role=server
+timestamp=2026-10-15T10:59:13.783Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home type=entries http.span=13020 role=server
+timestamp=2026-10-15T10:59:13.784Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance type=entries http.span=13021 role=server
+timestamp=2026-10-15T10:59:13.785Z level=INFO run=2ac65ac4 message="watcher stopped" path=/boot/home/haiku5-acceptance/api-fixture type=entries http.span=13022 role=server
+timestamp=2026-10-15T10:59:30.720Z level=INFO run=860f9d92 message="cli starting" version=2.0.29-haiku.5 channel=haiku local=false args="[\"--print-logs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+{"event":"server-ready","data":{"url":"http://127.0.0.1:53653"}}
+timestamp=2026-10-15T10:59:33.043Z level=INFO run=860f9d92 message="watcher subscribe" path=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode type=directory ignores=3 http.span=1426 role=server
+timestamp=2026-10-15T10:59:33.057Z level=ERROR run=860f9d92 message="watcher backend not supported" directory=/boot/home/haiku5-acceptance/legacy-pty-state2/config/opencode platform=haiku http.span=1440 role=server
+timestamp=2026-10-15T10:59:33.071Z level=INFO run=860f9d92 message="watcher subscribe" path=/etc type=entries ignores=0 http.span=1454 role=server
+timestamp=2026-10-15T10:59:33.081Z level=INFO run=860f9d92 message="watcher started" path=/etc type=entries backend=node ignores=0 http.span=1464 role=server
+timestamp=2026-10-15T10:59:33.084Z level=INFO run=860f9d92 message="watcher subscribe" path=/ type=entries ignores=0 http.span=1467 role=server
+timestamp=2026-10-15T10:59:33.089Z level=INFO run=860f9d92 message="watcher started" path=/ type=entries backend=node ignores=0 http.span=1472 role=server
+timestamp=2026-10-15T10:59:33.093Z level=INFO run=860f9d92 message="watcher subscribe" path=/boot type=entries ignores=0 http.span=1476 role=server
+timestamp=2026-10-15T10:59:33.099Z level=INFO run=860f9d92 message="watcher started" path=/boot type=entries backend=node ignores=0 http.span=1482 role=server
+timestamp=2026-10-15T10:59:33.102Z level=INFO run=860f9d92 message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=1485 role=server
+timestamp=2026-10-15T10:59:33.105Z level=INFO run=860f9d92 message="watcher started" path=/boot/home type=entries backend=node ignores=0 http.span=1488 role=server
+timestamp=2026-10-15T10:59:33.106Z level=INFO run=860f9d92 message="watcher subscribe" path=/boot/home/haiku5-acceptance type=entries ignores=0 http.span=1489 role=server
+timestamp=2026-10-15T10:59:33.109Z level=INFO run=860f9d92 message="watcher started" path=/boot/home/haiku5-acceptance type=entries backend=node ignores=0 http.span=1492 role=server
+timestamp=2026-10-15T10:59:33.111Z level=INFO run=860f9d92 message="watcher subscribe" path=/boot/home/haiku5-acceptance/api-fixture type=entries ignores=0 http.span=1494 role=server
+timestamp=2026-10-15T10:59:33.113Z level=INFO run=860f9d92 message="watcher started" path=/boot/home/haiku5-acceptance/api-fixture type=entries backend=node ignores=0 http.span=1496 role=server
+timestamp=2026-10-15T10:59:33.398Z level=INFO run=860f9d92 message="location services booted" directory=/boot/home/haiku5-acceptance/api-fixture workspaceID=undefined durationMs=1768 http.span=1781 role=server
+{"event":"session-after-server-restart","data":"passed"}
+{"event":"result","data":"PASS: actual file read/write, shell execution and stored session survive restart; no LLM inference tested"}
+timestamp=2026-10-15T10:59:37.493Z level=INFO run=860f9d92 message="watcher stopped" path=/etc type=entries http.span=5876 role=server
+timestamp=2026-10-15T10:59:37.495Z level=INFO run=860f9d92 message="watcher stopped" path=/ type=entries http.span=5878 role=server
+timestamp=2026-10-15T10:59:37.496Z level=INFO run=860f9d92 message="watcher stopped" path=/boot type=entries http.span=5879 role=server
+timestamp=2026-10-15T10:59:37.497Z level=INFO run=860f9d92 message="watcher stopped" path=/boot/home type=entries http.span=5880 role=server
+timestamp=2026-10-15T10:59:37.498Z level=INFO run=860f9d92 message="watcher stopped" path=/boot/home/haiku5-acceptance type=entries http.span=5881 role=server
+timestamp=2026-10-15T10:59:37.499Z level=INFO run=860f9d92 message="watcher stopped" path=/boot/home/haiku5-acceptance/api-fixture type=entries http.span=5882 role=server

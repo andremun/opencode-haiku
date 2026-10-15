@@ -1,0 +1,107 @@
+{
+  "platform": "Haiku hrev60207 x86_64, TCG qemu64, 2 vCPU, 8192 MiB",
+  "scope": "Native functional controls; UI observations documented in docs/HAIKU5-ACCEPTANCE.md; no new model inference or performance claim.",
+  "archive": "b9970cd8592ad48050c9340579c6d3e4d3d7c326e7e603cb921afbea481cf8f2",
+  "artifacts": {
+    "haiku5-api-tests.log": {
+      "sha256": "5a7890ba86501bade598d9219b3b440512dedb17363ecb955bf57e69ad714eb8",
+      "bytes": 1385
+    },
+    "haiku5-api-workflow-api.log": {
+      "sha256": "85b0c2ca7155f2c1f8c702ecef34bb95d1ac31213d0a7ce23e3e787e6865ea17",
+      "bytes": 1038
+    },
+    "haiku5-api-workflow-run.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "haiku5-browser-child-exit.log": {
+      "sha256": "04cd220fa984c2999030f34584d2fae44a5d6d30811fdb3fd0f9e50ebf61fa0b",
+      "bytes": 261
+    },
+    "haiku5-browser-cleanup.log": {
+      "sha256": "44f1b535e4b698616eb89188a0748d3e48c787ab80159454352e74248ca744ee",
+      "bytes": 75
+    },
+    "haiku5-browser-terminal-child-exit.png": {
+      "sha256": "a2624b5816043db8f3ef2c1c8fed922056f4c93207e0563d312e837201257334",
+      "bytes": 133992
+    },
+    "haiku5-browser-terminal-created.log": {
+      "sha256": "d1c1ab766dfa506159528e01bf4297d8ac3858309f4c8fcdd7791dbd498fe1b4",
+      "bytes": 238
+    },
+    "haiku5-browser-terminal-io.png": {
+      "sha256": "d9412e4f550a3be3f17b86329b78947df586ac2c821b5c3c5d072dc714027c06",
+      "bytes": 101658
+    },
+    "haiku5-browser-terminal-reload.png": {
+      "sha256": "8c4bd28ad7f5b1d68e37206a6a352fd2e305f7430abcded23109349e43186456",
+      "bytes": 166106
+    },
+    "haiku5-browser-terminal-resize.png": {
+      "sha256": "6010e04cdea003366ea9b4c393086b3f7bb34e996bf57cc1b2f937c2ca239cd6",
+      "bytes": 151160
+    },
+    "haiku5-build.log": {
+      "sha256": "78661eca71f749aaf72fa53b475048780d1cf56274ca70d3235b369188b022c0",
+      "bytes": 199200
+    },
+    "haiku5-host-regressions.log": {
+      "sha256": "bdeba2387e1879be184e9ff103d9df0d6f09b3a0056787f1a1dfdd764839364a",
+      "bytes": 1464
+    },
+    "haiku5-install-selftest.log": {
+      "sha256": "1727e7d84a20009952b3322ec5b38fcf699438bb85525dc0b217b952d4cc2b4e",
+      "bytes": 343
+    },
+    "haiku5-legacy-pty-api-api.log": {
+      "sha256": "bb4e8d3603c081c670d6179ff56e928317361158cb331b3f608fd0bc247ded71",
+      "bytes": 15087
+    },
+    "haiku5-legacy-pty-api-run.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "haiku5-native-terminal-suite.log": {
+      "sha256": "b0b439a178457ae8dd279389d026c57028ba22eed39291ec24b8a05a16bff174",
+      "bytes": 6785
+    },
+    "haiku5-owned-cleanup.json": {
+      "sha256": "3981c74b5eb353253198a87a5361c0df877b3b6b9fe63171fb248fe0467b68b4",
+      "bytes": 248
+    },
+    "haiku5-persistent-terminal-api-run.log": {
+      "sha256": "95e220c2cd382a0e36689e026f809db47a5a8bd5c8d7a797fb8652580478faec",
+      "bytes": 1377
+    },
+    "haiku5-tui-child-exit-clipboard.png": {
+      "sha256": "677ff783037c6b0f3edc6af57f0396e6e301e2bf03b2c5816fb7b886c9573fd8",
+      "bytes": 111804
+    },
+    "haiku5-tui-terminal-cleanup.log": {
+      "sha256": "d67a20b076951c9567e3e667981d26be47fe38c2ab8471ca8f64a35ef8cec322",
+      "bytes": 38
+    },
+    "haiku5-tui-terminal-io.png": {
+      "sha256": "054bc45aaf88d8997add77a2ffa8e4051672b70e673e4e5404e4e6f17cce387f",
+      "bytes": 127874
+    },
+    "haiku5-tui-terminal-reconnect.png": {
+      "sha256": "b5553f2da12452861502002e23ca814c67d1421ca658278167335407d4471a67",
+      "bytes": 121673
+    },
+    "haiku5-tui-terminal-resize.png": {
+      "sha256": "26ae84966aeeea9a20ddc9905a0d84864e9b6d0ac6b74d5d519b74e3deed884e",
+      "bytes": 75167
+    },
+    "haiku5-tui.exit": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "haiku5-tui.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

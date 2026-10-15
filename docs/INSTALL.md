@@ -31,18 +31,13 @@ In another Terminal, enter the same project directory and attach:
 /boot/home/opencode-haiku/opencode --server http://127.0.0.1:18083
 ```
 
-Use `opencode pair --help` for the supported one-time browser pairing command;
-open its link in WebPositive. Both interfaces use the same backend and sessions.
-Do not start two backends against one SQLite state profile. Ctrl-C closes the
-TUI; stop the backend separately when finished.
+Issue a one-time browser pairing code through `POST /api/pair` on this same
+backend, as shown in section 9 of T7610-HAIKU-SETUP.md. Open that link in
+WebPositive. Avoid starting a second background service against the same profile.
+Ctrl-C closes the TUI; stop the backend separately when finished.
 
-Text clipboard is native. Clipboard images and recursive watching remain
-unavailable. Native terminal backends pass their own tests; combined Haiku.4
-embedded terminal API checks pass on the T7610, but the packaged TUI pane
-crashes without the experimental Ghostty renderer patch. Browser panel visual
-acceptance remains pending. See T7610-COMMIT-REVIEW.md. Ordinary file and bounded shell tools
-are separate from embedded terminal support. The earlier acceptance report
-records tested browser/session behaviours and environment limits.
-
-For the complete llama.cpp, dependencies, model and mixed-platform source-build
-procedure, read [the T7610 setup guide](T7610-HAIKU-SETUP.md).
+Text clipboard paste and packaged TUI/browser terminal controls pass in
+Haiku.5. Clipboard images/primary selection and recursive watching remain
+unavailable. See [Haiku.5 acceptance](HAIKU5-ACCEPTANCE.md) for measured coverage
+and limitations, and [the complete guide](T7610-HAIKU-SETUP.md) for llama.cpp,
+dependencies, model download and source rebuilding.

@@ -1,0 +1,15 @@
+test_api_failure_is_not_replaced_by_successful_upload (__main__.RunnerTests.test_api_failure_is_not_replaced_by_successful_upload) ... ok
+test_cargo_test_and_clippy_failures_are_not_hidden_by_tail (__main__.RunnerTests.test_cargo_test_and_clippy_failures_are_not_hidden_by_tail) ... ok
+test_coding_acceptance_requires_agent_test_and_an_unchanged_passing_fixture (__main__.RunnerTests.test_coding_acceptance_requires_agent_test_and_an_unchanged_passing_fixture) ... ok
+test_cpu_experiments_refuse_the_host_platform (__main__.RunnerTests.test_cpu_experiments_refuse_the_host_platform) ... ok
+test_guest_failure_reaches_host_and_missing_status_rejected (__main__.RunnerTests.test_guest_failure_reaches_host_and_missing_status_rejected) ... ok
+test_http_error_and_invalid_completion_fail_the_inference_runner (__main__.RunnerTests.test_http_error_and_invalid_completion_fail_the_inference_runner) ... ok
+test_missing_coding_launcher_records_a_terminal_error (__main__.RunnerTests.test_missing_coding_launcher_records_a_terminal_error) ... ok
+test_services_refuse_existing_listener_before_writing_configuration (__main__.RunnerTests.test_services_refuse_existing_listener_before_writing_configuration) ... ok
+test_transfer_publishes_only_complete_results (__main__.RunnerTests.test_transfer_publishes_only_complete_results) ... 22:32:14 "PUT /job1.out HTTP/1.1" 201 -
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.709s
+
+OK

@@ -2,7 +2,7 @@
 # Native full logs and real statuses: never pipe a verifier into tail.
 set -eu
 W=${OPENCODE_NATIVE_WORK:-/boot/home/native-build}
-cd "$W/pty"
+cd "${OPENCODE_PTY_SOURCE:-$W/pty}"
 unset LIBRARY_PATH
 export CARGO_HOME="$W/cargo-cache" CARGO_TARGET_DIR="$W/cargo-target" OPENCODE_HAIKU_GHOSTTY_LIB="$W/pty-lib" CARGO_INCREMENTAL=0
 date

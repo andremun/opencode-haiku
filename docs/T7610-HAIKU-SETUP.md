@@ -14,8 +14,8 @@ file/shell operations, session persistence and native clipboard have passed.
 The new persistent terminal daemon passes all 54 native upstream tests; the
 separate Node PTY binding passes native I/O, resize and exit checks.
 
-The current combined runtime is **2.0.29-haiku.4**. Its build completed, but its
-combined TUI/browser terminal integration tests are still pending. Earlier
+The current combined runtime is **2.0.29-haiku.5**. Its build, fresh native installation, API checks and visual TUI/browser
+terminal controls pass on the local TCG VM. See HAIKU5-ACCEPTANCE.md. Earlier
 Haiku.2/Haiku.3 GUI/TUI evidence does not establish those new terminal panels.
 See [status](STATUS.md) and [continuation results](CONTINUATION-OUTCOME.md).
 
@@ -236,21 +236,21 @@ fields and server logs, not only wall-clock duration.
 
 ## 8. Install OpenCode from the repository's prepared runtime
 
-On Linux, locate `share/opencode-haiku-tui-2.0.29-haiku.4.tar.gz` and read
+On Linux, locate `share/opencode-haiku-tui-2.0.29-haiku.5.tar.gz` and read
 `results/opencode-tui-package.json`. Transfer the archive, the repository's
 `tools/tui-port/install.sh`, and the example config below to Haiku.
 
-The current archive is 52,361,351 bytes, SHA-256:
-`a7bd488db054c84fe839079e68af410c9b0598b1ff1108715709b7e8c56a1d4b`.
+The current archive is 53,682,981 bytes, SHA-256:
+`b9970cd8592ad48050c9340579c6d3e4d3d7c326e7e603cb921afbea481cf8f2`.
 After any rebuild, use the newly generated manifest rather than this snapshot.
 
 **Haiku, from the directory containing the transferred files:**
 
 ```sh
-sh install.sh opencode-haiku-tui-2.0.29-haiku.4.tar.gz \
-  a7bd488db054c84fe839079e68af410c9b0598b1ff1108715709b7e8c56a1d4b \
-  /boot/home/opencode-haiku-2.0.29-haiku.4
-OC=/boot/home/opencode-haiku-2.0.29-haiku.4
+sh install.sh opencode-haiku-tui-2.0.29-haiku.5.tar.gz \
+  b9970cd8592ad48050c9340579c6d3e4d3d7c326e7e603cb921afbea481cf8f2 \
+  /boot/home/opencode-haiku-2.0.29-haiku.5
+OC=/boot/home/opencode-haiku-2.0.29-haiku.5
 "$OC/opencode" --version
 export OPENCODE_HAIKU_KOFFI="$OC/koffi"
 export NODE_OPTIONS="--require=$OC/haiku-loader.cjs"
@@ -284,7 +284,7 @@ mkdir -p /boot/home/opencode-profile/data /boot/home/opencode-profile/config \
 In **each OpenCode Terminal**, set the same profile and backend credential:
 
 ```sh
-OC=/boot/home/opencode-haiku-2.0.29-haiku.4
+OC=/boot/home/opencode-haiku-2.0.29-haiku.5
 export XDG_DATA_HOME=/boot/home/opencode-profile/data
 export XDG_CONFIG_HOME=/boot/home/opencode-profile/config
 export XDG_CACHE_HOME=/boot/home/opencode-profile/cache
@@ -510,7 +510,7 @@ Haiku node-pty/         -> cache/pty-runtime/node-pty/
 ```sh
 sh tools/tui-port/build_bundle.sh > logs/full-build.log 2>&1
 cat results/opencode-tui-package.json
-sha256sum share/opencode-haiku-tui-2.0.29-haiku.4.tar.gz
+sha256sum share/opencode-haiku-tui-2.0.29-haiku.5.tar.gz
 ```
 
 Create `logs/` and `share/` first. This command builds OpenTUI with Bun, installs
@@ -545,8 +545,7 @@ Run sequentially, with compilation and other inference jobs stopped:
 6. Pass TUI prompt/response, clean exit, session restore, GUI pairing, and
    shared-session live updates. Test Haiku text clipboard paste separately.
 7. Test terminal panels separately through the combined runtime: command I/O,
-   UTF-8, resize, child exit, reconnect and cleanup. Their integration is still
-   pending in the current development record.
+   UTF-8, resize, child exit, reconnect and cleanup. These controls now pass locally in Haiku.5; repeat them on the T7610.
 8. Attempt a disposable coding fixture: read a broken add function, change it,
    run its immutable test, record all tool calls and outcomes. Use a fixed
    deadline and retain the unchanged fixture if no edits occur. The TCG attempt
@@ -581,3 +580,6 @@ kill an unrelated host model service or reset a GPU. Native clipboard images,
 primary selection and recursive watching are not implemented. Browser GUI
 support does not imply a native Electron desktop port. These are CPU results
 and make no claim about K40c compute support.
+
+For a concise manual pull/build/stage workflow and new CPU/coding experiments,
+read [T7610-NEXT-RUN.md](T7610-NEXT-RUN.md).

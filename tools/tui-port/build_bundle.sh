@@ -44,6 +44,6 @@ candidates=list(opencode.glob('node_modules/.bun/@opentui+core@0.5.17+*/node_mod
 if len(candidates)!=1:raise SystemExit('Expected exactly one pinned OpenTUI core dependency')
 shutil.copytree(opentui/'packages/core/dist',candidates[0],dirs_exist_ok=True)
 PY
-OPENCODE_VERSION=2.0.29-haiku.4 OPENCODE_CHANNEL=haiku "$bun" packages/cli/script/build-node.ts --bundle-only --skip-install
+OPENCODE_VERSION=2.0.29-haiku.5 OPENCODE_CHANNEL=haiku "$bun" packages/cli/script/build-node.ts --bundle-only --skip-install
 cd "$root"
 python3 tools/tui-port/package.py

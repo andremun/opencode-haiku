@@ -1,38 +1,15 @@
-# Persistent terminal progress and remaining acceptance
+# Persistent terminal status
 
-15 October 2026. The compiler/parser/daemon portability stage is complete.
-The earlier proposed compiler bootstrap is unnecessary: native Rust 1.94.1
-supports the required edition and target.
+15 October 2026. The portability and packaged functional acceptance stages
+are complete in the local cardless TCG VM. Standard Haiku.5 builds apply the
+Ghostty VT renderer patch, resolving the packaged Haiku.4 TUI crash.
 
-The matching daemon 0.2.0 revision and Ghostty parser are pinned in
-reference/PTY-PORT-INPUTS.json. Native tests pass: 30 library, 5 parser-effects,
-6 ownership, 3 observer, 1 rows and 9 service tests (54 total). Formatting and
-Clippy pass. Haiku EOF reports EBADF even while the master descriptor remains
-valid; the narrow Haiku correction checks descriptor validity before publishing
-EOF. Child-exit and EOF events remain separate.
+Both terminal APIs and both real UI renderers pass I/O, UTF-8, resize,
+reconnect/reload and child exit controls. The TUI also passes native clipboard
+paste. Full 54-test daemon, formatting and Clippy output is saved. See
+[HAIKU5-ACCEPTANCE.md](HAIKU5-ACCEPTANCE.md) for exact coverage and limitations.
 
-Browser terminals use a separate Node PTY binding. Its native input/output,
-UTF-8, resize and exit controls pass. Haiku.4 includes both native backends,
-preserves OPENCODE_NODE_PTY_PATH and enables the daemon only with an existing
-native binary. See T7610-HAIKU-SETUP.md for full clean-source build instructions.
-Historical generated daemon source archives predate the final test/EOF patches;
-apply the three committed patches to pristine source for a final rebuild.
-
-Remaining acceptance:
-
-1. Install/checksum/self-test the combined Haiku.4 archive in a fresh directory.
-2. Test the legacy browser PTY API with its actual native binding override.
-3. Test persistent daemon integration through the bundled server and TUI.
-4. Test browser terminal rendering, I/O, resize, exit, reconnect and cleanup.
-5. Record the runtime/session recovery outcomes and any browser limitations.
-
-Passing primitive or upstream daemon tests does not establish these UI results.
-No host sudo, physical GPU or scope decision is required for the present work.
-
-
-T7610 update, reviewed 15 October: checksum/self-test and both server API paths
-now have passing evidence. The packaged TUI pane crashes; a manually replaced
-renderer using opentui-haiku-ghostty-vt.patch works. Integrating/rebuilding that
-patch and browser visual acceptance remain necessary. The T7610 full 54-test
-claim needs a new complete Cargo capture; its old shell pipeline hid status.
-See T7610-COMMIT-REVIEW.md and the current STATUS.md.
+The T7610 result has separate evidence and a full-suite capture gap; the new
+TCG result does not fill it. Repeat the improved tests on that machine using
+[T7610-NEXT-RUN.md](T7610-NEXT-RUN.md). Native source/build and artifact pins
+remain in reference/ and results/. No GPU or host sudo is involved.

@@ -2,7 +2,7 @@
 # Run independent probes and retain their actual Node status before any upload.
 set -eu
 W=${OPENCODE_ACCEPTANCE_WORK:-/boot/home/opencode-acceptance}
-OC=${OPENCODE_PORT_ROOT:-/boot/home/opencode-haiku-2.0.29-haiku.4}
+OC=${OPENCODE_PORT_ROOT:-/boot/home/opencode-haiku-2.0.29-haiku.5}
 mkdir -p "$W/t"
 cd "$W/t"
 for f in api-workflow.mjs legacy-pty-api.mjs persistent-terminal-api.mjs; do curl -fsS --max-time 60 "http://10.0.2.2:18080/$f" -o "$f"; done

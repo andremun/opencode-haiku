@@ -65,6 +65,12 @@
       "path": "reference/opentui-haiku-clipboard.patch",
       "sha256": "fd9cc538751db0f12a1f135823062e9a9439f13671e988465f04860a4e1ee503",
       "bytes": 659
+    },
+    {
+      "path": "reference/opentui-haiku-ghostty-vt.patch",
+      "sha256": "d0c1290f3fe5d8fd2ac11d297c8ec4a23f487fb321e954fa9d2d81fdfe6be264",
+      "bytes": 293,
+      "purpose": "Enable Ghostty VT in the Haiku renderer; adopted for Haiku.5."
     }
   ]
 }

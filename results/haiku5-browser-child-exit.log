@@ -1,0 +1,2 @@
+{"location":{"directory":"/boot/home/haiku5-ui/fixture"},"data":[{"id":"pty_13f47c000001tc0IjQrGSXc13f","title":"Terminal 1","command":"/bin/bash","args":["-l"],"cwd":"/boot/home/haiku5-ui/fixture","status":"exited","pid":8023,"exitCode":7}]}{"data":[]}
+exit=0

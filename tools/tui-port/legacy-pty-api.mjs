@@ -20,7 +20,7 @@ const record = (event,data) => {logs += JSON.stringify({event,data})+'\n';writeF
 const watchdog=setTimeout(()=>{record('timeout',240000);server?.kill('SIGKILL');process.exit(124);},600000);
 async function start() {
  const password=randomBytes(32).toString('base64url');
- server=spawn(resolve(root,'http-port/opencode'),['--print-logs','serve','--stdio','--port','0'],{cwd:fixture,env:{...env,OPENCODE_PASSWORD:password},stdio:['pipe','pipe','pipe']});
+ server=spawn(resolve(process.env.OPENCODE_TEST_RUNTIME_ROOT||resolve(root,'http-port'),'opencode'),['--print-logs','serve','--stdio','--port','0'],{cwd:fixture,env:{...env,OPENCODE_PASSWORD:password},stdio:['pipe','pipe','pipe']});
  server.stderr.on('data',chunk=>{logs+=chunk;writeFileSync(resolve(root,'api-probe.log'),logs);});
  const url=await new Promise((done,fail)=>{
   let output='';
@@ -44,7 +44,8 @@ async function stop() {
 }
 try {
  let api=await start();
- const terminal=(await api('/api/pty',{method:'POST',body:{command:'/bin/sh',args:['-c',"stty size; printf 'LEGACY_PTY_READY\\n'; read line; stty size; printf 'LEGACY_RESULT %s\\n' \"$line\"; exit 7"],cwd:fixture,title:'Native browser PTY'}})).data;
+ const script="stty size; printf 'LEGACY_PTY_READY\\n'; read line; stty size; printf 'LEGACY_RESULT %s\\n' \"$line\"; exit 7";
+ const terminal=(await api('/api/pty',{method:'POST',body:{command:'/bin/sh',args:['-c',script],cwd:fixture,title:'Native browser PTY'}})).data;
  const issued=(await api('/api/pty/'+terminal.id+'/connect-token',{method:'POST',extraHeaders:{'x-opencode-ticket':'1'}})).data;
  const url=new URL(endpointURL.replace(/^http/,'ws')+'/api/pty/'+terminal.id+'/connect');url.searchParams.set('ticket',issued.ticket);url.searchParams.set('cursor','0');
  const socket=new WebSocket(url);socket.binaryType='arraybuffer';
