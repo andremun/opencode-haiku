@@ -38,7 +38,9 @@ TUI; stop the backend separately when finished.
 
 Text clipboard is native. Clipboard images and recursive watching remain
 unavailable. Native terminal backends pass their own tests; combined Haiku.4
-embedded terminal integration is still pending. Ordinary file and bounded shell tools
+embedded terminal API checks pass on the T7610, but the packaged TUI pane
+crashes without the experimental Ghostty renderer patch. Browser panel visual
+acceptance remains pending. See T7610-COMMIT-REVIEW.md. Ordinary file and bounded shell tools
 are separate from embedded terminal support. The earlier acceptance report
 records tested browser/session behaviours and environment limits.
 

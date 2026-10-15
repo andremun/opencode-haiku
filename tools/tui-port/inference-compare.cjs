@@ -13,8 +13,10 @@ const prompts=['Reply with the single word OK.','Write a Python function add(a, 
   try{
    const response=await fetch(endpoint+'/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(1800000)});
    const text=await response.text();
-   result.requests.push({body,status:response.status,elapsed_ms:Date.now()-start,response:JSON.parse(text)});
-  }catch(error){result.requests.push({body,elapsed_ms:Date.now()-start,error:String(error)});}
+   const parsed=JSON.parse(text);
+   result.requests.push({body,status:response.status,elapsed_ms:Date.now()-start,response:parsed});
+   if(!response.ok || !Array.isArray(parsed.choices) || parsed.choices.length===0)process.exitCode=1;
+  }catch(error){result.requests.push({body,elapsed_ms:Date.now()-start,error:String(error)});process.exitCode=1;}
   fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
   if(process.platform==='haiku') await fetch('http://10.0.2.2:18080/'+uploadName,{method:'PUT',body:JSON.stringify(result,null,2),signal:AbortSignal.timeout(10000)}).catch(()=>{});
  }

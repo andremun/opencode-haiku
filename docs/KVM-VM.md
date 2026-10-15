@@ -35,7 +35,7 @@ python3 tools/app_vm.py type 'text'                 # type a line (US keymap onl
 python3 tools/app_vm.py key ctrl-x                  # one key or chord
 python3 tools/app_vm.py click X,Y                   # coordinates in vm/screen.ppm pixels
 python3 tools/app_vm.py stop                        # quit QEMU (no ACPI shutdown)
-vm/start-transfer.sh                                # localhost transfer service on 127.0.0.1:18080
+python3 tools/transfer_server.py                    # localhost transfer service (separate host terminal)
 ```
 
 Practical notes:
@@ -77,7 +77,9 @@ driven by a localhost job runner instead:
 - `tools/kvm-run/agent.sh` (copy it to `share/` to serve it) runs in a guest Terminal (`curl http://10.0.2.2:18080/agent.sh -o /tmp/agent.sh; sh /tmp/agent.sh N &`).
   It fetches `jobN.sh`, runs it and uploads `jobN.out`.
 - `tools/job.sh N 'commands' [timeout_s]` writes `share/jobN.sh` and prints the
-  output. Use a fresh N each time. The agent is **not** started automatically at boot.
+  output, returning the guest exit code. Use a fresh N each time; reused numbers
+  are rejected. Request/result publication is atomic. A host wait timeout
+  returns 124 and does not cancel guest execution. The agent is **not** started automatically at boot.
 - Long work: start it with `nohup sh script > log 2>&1 &` inside a job and poll.
 
 No transfer service or guest process is exposed beyond localhost.
@@ -101,11 +103,13 @@ Disk use after the work in `docs/T7610-KVM-RESULTS-20261015.md`: about 3.3 GiB.
 ## Scripts used for the 2026-10-15 run (`tools/kvm-run/`)
 
 Copy them into `share/` (ignored by Git) to serve them to the guest, then run
-each with a job: `agent.sh` (job runner), `llama.sh` (fetch the repo, patch and
+each with a job (the full-log/status corrections added after the original
+run require a native rerun): `agent.sh` (job runner), `llama.sh` (fetch the repo, patch and
 build llama.cpp), `model.sh`, `native.sh` (Koffi, clipboard, node-pty, SDKs),
 `pty.sh` (daemon build, tests, Clippy), `inf.sh` (cold/warm/cold controls),
 `api.sh` (file/shell/session, browser PTY and persistent terminal API tests),
-`services.sh` (model and OpenCode backend; set a local password first),
+`services.sh` (model and OpenCode backend; preserves existing configuration,
+otherwise generates a private local password and refuses duplicate listeners),
 `pair.sh` (browser pairing link), `coding.sh`. They assume the guest paths
 `/boot/home/...` used in the T7610 guide. Host side: `share/opencode-haiku-src.tar.gz`
 (repository files), `share/guest-stage.tar.gz` (patched Koffi, node-pty, PTY

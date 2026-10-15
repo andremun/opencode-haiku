@@ -28,3 +28,11 @@ Remaining acceptance:
 
 Passing primitive or upstream daemon tests does not establish these UI results.
 No host sudo, physical GPU or scope decision is required for the present work.
+
+
+T7610 update, reviewed 15 October: checksum/self-test and both server API paths
+now have passing evidence. The packaged TUI pane crashes; a manually replaced
+renderer using opentui-haiku-ghostty-vt.patch works. Integrating/rebuilding that
+patch and browser visual acceptance remain necessary. The T7610 full 54-test
+claim needs a new complete Cargo capture; its old shell pipeline hid status.
+See T7610-COMMIT-REVIEW.md and the current STATUS.md.

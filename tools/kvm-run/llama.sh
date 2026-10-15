@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 # Guest: fetch repo, patch + build llama.cpp CPU baseline per T7610 guide sections 4-5.
 set -x
 mkdir -p /boot/home/opencode-haiku-src /boot/home/haiku-llm

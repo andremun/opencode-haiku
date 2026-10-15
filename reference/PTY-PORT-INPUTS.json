@@ -36,7 +36,7 @@
       "bytes": 11816730,
       "rebuilt_2026-10-15": {
         "sha256": "9182565a75720c8273a1be632b1d421dab754b812fdba68fcdece8df9f2e23e5",
-        "note": "Same pinned source, patch, Zig 0.16.0 + zig-haiku-io.patch and options, rebuilt on a Linux x86_64 host (Python 3.10, different path). Not byte-identical to the original; 54 daemon tests, fmt and Clippy pass against it."
+        "note": "Same pinned source, patch, Zig 0.16.0 + zig-haiku-io.patch and options, rebuilt on T7610 Linux x86_64 (Python 3.10, different path). Not byte-identical to original. Native daemon/API evidence is recorded; the claimed full 54-test rerun needs full logs and a reliable Cargo status because only the final nine service tests were retained and the old pipeline masked failures. See docs/T7610-COMMIT-REVIEW.md."
       }
     },
     {

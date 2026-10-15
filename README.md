@@ -48,3 +48,5 @@ in `reference/` and `results/`.
 See [installation](docs/INSTALL.md) and [continuation results](docs/CONTINUATION-OUTCOME.md) for fresh native/Linux controls, text clipboard and remaining terminal work.
 
 Full setup: [T7610 Haiku installation and source build](docs/T7610-HAIKU-SETUP.md).
+
+Review of the T7610 results and runner corrections: [commit review](docs/T7610-COMMIT-REVIEW.md).
