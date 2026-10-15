@@ -78,3 +78,21 @@ The private Haiku.5 backend and both TUI test clients stopped after PID/command
 verification; the browser was closed, its terminal records removed, and the guest
 clipboard restored. The owned guest job agent and host localhost transfer service were stopped. The cardless VM is
 left running for inspection. Push is explicitly requested; it is not yet confirmed.
+
+## Push/handoff blocker
+
+Implementation and evidence were committed as `27ebd52`. The staged source
+archive and generated deployment script were validated from that committed HEAD.
+The requested `git push origin main` was attempted on 15 October 2026, but
+**automatic approval review rejected it before Git executed**. The stated reason
+was that the trusted conversation did not explicitly authorise this payload's
+export to the specific GitHub destination and did not establish destination trust.
+No alternate transport or indirect push was attempted.
+
+To retry, the user must explicitly confirm pushing this repository's committed
+code, patches, documentation and synthetic test evidence to
+`https://github.com/andremun/opencode-haiku.git`, branch `main`. Models, runtime
+archives, source/dependency caches, SDKs and VM disks are excluded from Git.
+An earlier HTTPS remote check also lacked GitHub credentials; that may require
+local authentication after the approval block is resolved. Nothing was pushed
+by this continuation. T7610 manual measurements remain pending.
