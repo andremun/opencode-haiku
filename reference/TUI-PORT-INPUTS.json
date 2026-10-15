@@ -22,8 +22,11 @@
     },
     {
       "path": "cache/haiku-sdk.tar.gz",
-      "sha256": "7ed6dec0f8a2a12022fd784e366fe0f3db58a332370cf88d47426acc929bee9c",
-      "bytes": 20655307
+      "sha256": "cab6ca552151969b73814962d2c5fd4992197d4255c5eb709294380db7b8d2f5",
+      "bytes": 19937763,
+      "previous_sha256": "7ed6dec0f8a2a12022fd784e366fe0f3db58a332370cf88d47426acc929bee9c",
+      "previous_bytes": 20655307,
+      "provenance": "regenerated 2026-10-15 in persistent KVM Haiku hrev60207 VM (T7610 guide s10.2); differs from original"
     },
     {
       "path": "cache/opencode-haiku-gcc-sdk.tar.gz",
@@ -52,9 +55,11 @@
     },
     {
       "path": "cache/opencode-final-koffi.node",
-      "sha256": "cd03766fb6f2084769da320026938e4a085cc381fd12f509bee6ca92fa58bf9d",
+      "sha256": "36b37419683ada69d80bac59058431675be9f1e3b53e778b145337cd843e1482",
       "bytes": 1212712,
-      "provenance": "native Haiku Node24/CMake clean build, final Koffi patch"
+      "provenance": "regenerated 2026-10-15 in persistent KVM Haiku hrev60207 VM (T7610 guide s10.2); differs from original",
+      "previous_sha256": "cd03766fb6f2084769da320026938e4a085cc381fd12f509bee6ca92fa58bf9d",
+      "previous_bytes": 1212712
     },
     {
       "path": "reference/opentui-haiku-clipboard.patch",

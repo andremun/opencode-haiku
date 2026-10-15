@@ -4,6 +4,31 @@ Updated 15 October 2026 (Australia/Melbourne).
 Independent repository: `opencode-haiku`. No sibling repository is needed to
 run the installed runtime or follow the self-contained T7610 guide.
 
+## 2026-10-15 update: persistent KVM VM and T7610 run
+
+A persistent, cardless **KVM** Haiku VM now exists on this Dell Precision T7610
+(`vm/system.qcow2`, 2 vCPU, 8 GiB, `-cpu host`, two E5-2620 v2). See
+[KVM-VM.md](KVM-VM.md). The complete rebuild from pinned sources and the guide's
+tests are recorded in [T7610-KVM-RESULTS-20261015.md](T7610-KVM-RESULTS-20261015.md)
+with evidence in `results/t7610-20261015-kvm-e5-2620v2/`.
+
+- Rebuilt: llama.cpp b8861 CPU (tests pass), Koffi, clipboard helper, node-pty
+  binding, PTY daemon 0.2.0 (54 tests, fmt, Clippy pass), Ghostty parser,
+  OpenTUI renderer and the `2.0.29-haiku.4` archive (52,365,590 bytes,
+  SHA-256 `131d42be...`). Several native hashes differ from the originals and are annotated.
+- Fresh controls match the Linux and TCG outputs; KVM is about 3 times faster on
+  the three direct requests. The first OpenCode TUI exchange still took 15 m 51 s
+  (530-token system prompt at 0.74 tok/s), so no speed-up there is claimed.
+- TUI prompt, clean exit, session restore, GUI pairing and live sharing in both
+  directions pass. File, shell, session-persistence, browser-PTY and persistent
+  daemon API tests pass.
+- **The TUI embedded terminal pane fails as built** (renderer lacks Ghostty VT on
+  Haiku). A one-line experimental patch, `reference/opentui-haiku-ghostty-vt.patch`,
+  makes it work in a manual test; it is not yet in the build or archive.
+- Not done: AVX or batch-size variants, TUI paste in the UI, browser terminal
+  panel visually. Coding fixture: the model edited the source correctly (`a + b`) in 44 min 25 s but did not run the shell test, so the runner's semantic check is false.
+- Nothing is committed or pushed. This run is a CPU/cardless result.
+
 ## Current outcome
 
 Native Haiku full OpenCode TUI and browser GUI have run with native llama.cpp

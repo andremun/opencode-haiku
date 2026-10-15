@@ -1,0 +1,160 @@
+=== fetch Thu Oct 15 00:01:46 GMT 2026
+libghostty-vt.a: OK
+=== clipboard Thu Oct 15 00:01:53 GMT 2026
+clipboard=0
+=== koffi Thu Oct 15 00:01:55 GMT 2026
+>> Using CMake binary: cmake
+>> Node: 24.21.0
+>> Toolchain: native
+>> Using local node-api headers
+>> Running configuration
+The --no-warn-unused-cli option is deprecated.  Use -Wno-unused-cli instead.
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /bin/cc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test use_no_finite_loops
+-- Performing Test use_no_finite_loops - Success
+-- Configuring done (2.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /boot/home/native-build/koffi/build/koffi/haiku_x64/v24.21.0_native/Release
+>> Running build
+[ 25%] Generate trampoline macros
+[ 50%] Building CXX object CMakeFiles/koffi.dir/koffi_unity.cpp.o
+[ 75%] Building ASM object CMakeFiles/koffi.dir/src/abi/x64sysv_asm.S.o
+In file included from /boot/home/native-build/koffi/build/koffi/haiku_x64/v24.21.0_native/Release/koffi_unity.cpp:9:
+/boot/home/native-build/koffi/src/koffi/../../lib/native/base/base.cc:1238:10: warning: #warning Cannot format floating point values correctly without Dragonbox [-Wcpp]
+ 1238 |         #warning Cannot format floating point values correctly without Dragonbox
+      |          ^~~~~~~
+cc1plus: note: unrecognized command-line option '-Wno-maybe-musttail-local-addr' may have been intended to silence earlier diagnostics
+cc1plus: note: unrecognized command-line option '-Wno-c99-designator' may have been intended to silence earlier diagnostics
+[100%] Linking CXX shared library Output/koffi.node
+[100%] Built target koffi
+>> Copy target files
+koffi=0
+build/koffi/haiku_x64/koffi.node
+build/koffi/haiku_x64/v24.21.0_native/Release/Output/koffi.node
+=== nodepty Thu Oct 15 00:03:55 GMT 2026
+nodepty=0
+=== sdk Thu Oct 15 00:04:05 GMT 2026
+sdk=0
+gccsdk=0
+-rw-r--r-- 1 user 1389220685  3375742 Oct 15 00:04 gcc-sdk.tar.gz
+-rw-r--r-- 1 user 1389220685 19937763 Oct 15 00:04 haiku-sdk.tar.gz
+-rw-r--r-- 1 user root        7430426 Oct 15 00:01 stage.tar.gz
+cab6ca552151969b73814962d2c5fd4992197d4255c5eb709294380db7b8d2f5  haiku-sdk.tar.gz
+59101f89868f9a479095249d2874e730f8fdacea2df7521b19b5fc7628e36eb1  gcc-sdk.tar.gz
+36b37419683ada69d80bac59058431675be9f1e3b53e778b145337cd843e1482  koffi/build/koffi/haiku_x64/koffi.node
+7e5a11e8ac4e840987a7c5be9216e4f0ddd593a50d48cb7f3b1b0284ed58e9dd  haiku-clipboard
+4013c7827d1177bcf66571980e46145eb65af90757f468fa2cc9b08950d41c38  node-pty/build/Release/pty.node
+=== pty Thu Oct 15 00:04:15 GMT 2026
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded anyhow v1.0.104
+  Downloaded block-buffer v0.10.4
+  Downloaded crypto-common v0.1.7
+  Downloaded getrandom v0.3.4
+  Downloaded itoa v1.0.18
+  Downloaded generic-array v0.14.7
+  Downloaded fs2 v0.4.3
+  Downloaded filedescriptor v0.8.3
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded quote v1.0.47
+  Downloaded rand_core v0.9.5
+  Downloaded rand_chacha v0.9.0
+  Downloaded serde_core v1.0.229
+  Downloaded proc-macro2 v1.0.107
+  Downloaded shell-words v1.1.1
+  Downloaded zmij v1.0.23
+  Downloaded thiserror-impl v1.0.69
+  Downloaded unicode-ident v1.0.24
+  Downloaded serial2 v0.2.38
+  Downloaded crossbeam-channel v0.5.16
+  Downloaded base64 v0.22.1
+  Downloaded thiserror v1.0.69
+  Downloaded version_check v0.9.5
+  Downloaded sha2 v0.10.9
+  Downloaded serde_derive v1.0.229
+  Downloaded portable-pty v0.9.0
+  Downloaded log v0.4.33
+  Downloaded memchr v2.8.3
+  Downloaded downcast-rs v1.2.1
+  Downloaded digest v0.10.7
+  Downloaded crossbeam-utils v0.8.22
+  Downloaded libc v0.2.189
+  Downloaded cpufeatures v0.2.17
+  Downloaded cfg_aliases v0.1.1
+  Downloaded rand v0.9.5
+  Downloaded serde_json v1.0.151
+  Downloaded serde v1.0.229
+  Downloaded typenum v1.20.1
+  Downloaded nix v0.28.0
+  Downloaded cfg-if v1.0.4
+  Downloaded bitflags v2.13.1
+  Downloaded zerocopy v0.8.56
+  Downloaded syn v3.0.3
+  Downloaded syn v2.0.119
+   Compiling proc-macro2 v1.0.107
+   Compiling libc v0.2.189
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling cfg-if v1.0.4
+   Compiling version_check v0.9.5
+   Compiling generic-array v0.14.7
+   Compiling typenum v1.20.1
+   Compiling zerocopy v0.8.56
+   Compiling getrandom v0.3.4
+   Compiling syn v2.0.119
+   Compiling serde_core v1.0.229
+   Compiling cfg_aliases v0.1.1
+   Compiling thiserror v1.0.69
+   Compiling nix v0.28.0
+   Compiling thiserror-impl v1.0.69
+   Compiling zmij v1.0.23
+   Compiling anyhow v1.0.104
+   Compiling crossbeam-utils v0.8.22
+   Compiling rand_core v0.9.5
+   Compiling ppv-lite86 v0.2.21
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling syn v3.0.3
+   Compiling serde_json v1.0.151
+   Compiling bitflags v2.13.1
+   Compiling serde v1.0.229
+   Compiling serde_derive v1.0.229
+   Compiling digest v0.10.7
+   Compiling filedescriptor v0.8.3
+   Compiling rand_chacha v0.9.0
+   Compiling serial2 v0.2.38
+   Compiling memchr v2.8.3
+   Compiling shell-words v1.1.1
+   Compiling log v0.4.33
+   Compiling itoa v1.0.18
+   Compiling downcast-rs v1.2.1
+   Compiling cpufeatures v0.2.17
+   Compiling opencode-pty v0.2.0 (/boot/home/native-build/pty)
+   Compiling sha2 v0.10.9
+   Compiling portable-pty v0.9.0
+   Compiling crossbeam-channel v0.5.16
+   Compiling rand v0.9.5
+   Compiling fs2 v0.4.3
+   Compiling base64 v0.22.1
+error: failed to build archive at `/boot/home/native-build/cargo-target/debug/deps/libopencode_pty-c3cb56a420d19966.rlib`: Bad address (os error -2147478783)
+
+error: could not compile `opencode-pty` (lib) due to 1 previous error
+pty-test=101
+cp: cannot stat '/boot/home/native-build/cargo-target/debug/opencode-pty': No such file or directory
+ls: cannot access '/boot/home/native-build/opencode-pty-bin': No such file or directory
+sha256sum: /boot/home/native-build/opencode-pty-bin: No such file or directory
+=== done Thu Oct 15 00:10:02 GMT 2026
+NATIVE-BUILD-DONE

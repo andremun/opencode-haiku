@@ -1,0 +1,20 @@
+# SHA-256 of inputs and outputs of the 2026-10-15 KVM rebuild (host: Dell Precision T7610)
+bc76cf4bbd70e13027b21e56454364c20bbe183fed2f80ba57f4be1ebe573e59  cache/opencode-34d8ded0.tar.gz 79706871
+11c7e28872950172bf10a74114fefb08acf3246193c3e55adf50d8481998bc01  cache/opentui-0.5.17.tar.gz 30023782
+36368faef7527875d5ffa52e53cd48021741f2a83eb6208a8dd64068d422a913  cache/bun-linux-x64-1.4.2.zip 36646985
+70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00  cache/zig-0.16.0-linux-x64.tar.xz 55478392
+c53f8da8e3c916ae8d666256650916768c7c4e8a579f188d794e8371b5773308  cache/koffi-3.3.3.tgz 299797
+9e2dcb00e3fd5eb714f23c73fdb5fc2cdccf9340fd737d4af34da3d363a37dae  cache/opencode-pty-0.2.0.tar.gz 72194
+651ffa67e98060bc41aac04fcab45f71fb9998eb265957d85a89218ecf94d50b  cache/ghostty-ab0b9da.tar.gz 38024504
+45a012e37699bb70c9050cbf2e06e71b0b842de4cda58e938e3de973f6d5a36a  cache/node-pty-1.2.0-beta.12.tgz 7064703
+8e621f150678b183225c394c0faca7338396eb4fa620b447b88995f8990af522  cache/node-addon-api-7.1.0.tgz 60055
+cab6ca552151969b73814962d2c5fd4992197d4255c5eb709294380db7b8d2f5  cache/haiku-sdk.tar.gz 19937763
+59101f89868f9a479095249d2874e730f8fdacea2df7521b19b5fc7628e36eb1  cache/opencode-haiku-gcc-sdk.tar.gz 3375742
+36b37419683ada69d80bac59058431675be9f1e3b53e778b145337cd843e1482  cache/opencode-final-koffi.node 1212712
+7e5a11e8ac4e840987a7c5be9216e4f0ddd593a50d48cb7f3b1b0284ed58e9dd  cache/haiku-clipboard 10872
+d2fd803fb447c6ef8cdbade3bae05c61e02985a39402d55e99ba0850feab4620  cache/pty-runtime/opencode-pty 6952608
+4013c7827d1177bcf66571980e46145eb65af90757f468fa2cc9b08950d41c38  cache/pty-runtime/node-pty/build/Release/pty.node 65752
+9182565a75720c8273a1be632b1d421dab754b812fdba68fcdece8df9f2e23e5  cache/ghostty-haiku/lib/libghostty-vt.a 11815914
+b26a3b24c3a9652759a215d817b5852670a832ad99e5504697a382cb98a02835  source/opentui-6f0efd3330978d696b42db3d7d95d2042008312b/packages/native/lib/x86_64-haiku/libopentui.so 17241368
+e928da3125e1862e64cf02278d1caa723d5ce530ecff17e40e91baea69c37689  source/exp/opentui-ghostty-haiku/packages/native/lib/x86_64-haiku/libopentui.so 22321712
+131d42bebf1470754c7573c6e5518bfcae6750906e7144f2dc7d28b6322a876b  share/opencode-haiku-tui-2.0.29-haiku.4.tar.gz 52365590

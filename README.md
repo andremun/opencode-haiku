@@ -13,6 +13,10 @@ is in ignored `share/opencode-haiku-tui-2.0.29-haiku.4.tar.gz`; its exact hashes
 are in `results/opencode-tui-package.json`. The tooling is in `tools/tui-port/`.
 The interface tests use one shared OpenCode backend per Haiku SQLite profile.
 
+A persistent cardless KVM Haiku VM and the complete T7610 rebuild/test run are
+described in [docs/KVM-VM.md](docs/KVM-VM.md) and
+[docs/T7610-KVM-RESULTS-20261015.md](docs/T7610-KVM-RESULTS-20261015.md).
+
 
 Native OpenCode headless CLI, full TUI and browser GUI port using Haiku Node 24. This repository is
 independent of `haiku-k40c-llm` and `llm-server`. It builds OpenCode itself; a model

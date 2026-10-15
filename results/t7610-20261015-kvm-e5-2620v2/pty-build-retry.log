@@ -1,0 +1,31 @@
+Thu Oct 15 00:15:46 GMT 2026
+   Compiling opencode-pty v0.2.0 (/boot/home/native-build/pty)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 23.20s
+build=0
+Thu Oct 15 00:16:09 GMT 2026
+test resize_reports_reach_a_silent_child ... ok
+test terminals_run_independently_and_one_exit_does_not_stop_service ... ok
+test title_changes_update_metadata_and_notify_subscribers ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.85s
+
+   Doc-tests opencode_pty
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+test-done
+fmt=0
+    Checking crossbeam-channel v0.5.16
+    Checking serde v1.0.229
+    Checking fs2 v0.4.3
+    Checking base64 v0.22.1
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 47.42s
+clippy=0
+-rwxr-xr-x 1 user 1389220685 6952608 Oct 15 00:17 /boot/home/native-build/opencode-pty-bin
+d2fd803fb447c6ef8cdbade3bae05c61e02985a39402d55e99ba0850feab4620  /boot/home/native-build/opencode-pty-bin
+rustc 1.94.1 (e408947bf 2026-03-25)
+binary: rustc
+commit-hash: e408947bfd200af42db322daf0fadfe7e26d3bd1
+PTY-DONE

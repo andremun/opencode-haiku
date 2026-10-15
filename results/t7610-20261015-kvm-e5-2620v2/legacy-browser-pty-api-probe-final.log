@@ -1,0 +1,83 @@
+timestamp=2026-10-15T01:56:38.888Z level=INFO run=852f0ecf message="cli starting" version=2.0.29-haiku.4 channel=haiku local=false args="[\"--print-logs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+{"event":"server-ready","data":{"url":"http://127.0.0.1:62444"}}
+timestamp=2026-10-15T01:56:39.477Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode type=directory ignores=3 http.span=111 role=server
+timestamp=2026-10-15T01:56:39.486Z level=ERROR run=852f0ecf message="watcher backend not supported" directory=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode platform=haiku http.span=120 role=server
+timestamp=2026-10-15T01:56:39.490Z level=INFO run=852f0ecf message="watcher subscribe" path=/etc type=entries ignores=0 http.span=124 role=server
+timestamp=2026-10-15T01:56:39.492Z level=INFO run=852f0ecf message="watcher started" path=/etc type=entries backend=node ignores=0 http.span=126 role=server
+timestamp=2026-10-15T01:56:39.493Z level=INFO run=852f0ecf message="watcher subscribe" path=/ type=entries ignores=0 http.span=127 role=server
+timestamp=2026-10-15T01:56:39.494Z level=INFO run=852f0ecf message="watcher started" path=/ type=entries backend=node ignores=0 http.span=128 role=server
+timestamp=2026-10-15T01:56:39.495Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot type=entries ignores=0 http.span=129 role=server
+timestamp=2026-10-15T01:56:39.496Z level=INFO run=852f0ecf message="watcher started" path=/boot type=entries backend=node ignores=0 http.span=130 role=server
+timestamp=2026-10-15T01:56:39.497Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=131 role=server
+timestamp=2026-10-15T01:56:39.498Z level=INFO run=852f0ecf message="watcher started" path=/boot/home type=entries backend=node ignores=0 http.span=132 role=server
+timestamp=2026-10-15T01:56:39.499Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance type=entries ignores=0 http.span=133 role=server
+timestamp=2026-10-15T01:56:39.500Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance type=entries backend=node ignores=0 http.span=134 role=server
+timestamp=2026-10-15T01:56:39.501Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/api-fixture type=entries ignores=0 http.span=135 role=server
+timestamp=2026-10-15T01:56:39.502Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance/api-fixture type=entries backend=node ignores=0 http.span=136 role=server
+timestamp=2026-10-15T01:56:39.578Z level=INFO run=852f0ecf message="location services booted" directory=/boot/home/opencode-acceptance/api-fixture workspaceID=undefined durationMs=205 http.span=212 role=server
+timestamp=2026-10-15T01:56:39.584Z level=INFO run=852f0ecf message="creating session" id=pty_13d469a1f001hycYLaZ4wGYjrp cmd=/bin/sh args="[\"-c\",\"stty size; printf 'LEGACY_PTY_READY\\\\n'; read line; stty size; printf 'LEGACY_RESULT %s\\\\n' \\\"$line\\\"; exit 7\",\"-l\"]" cwd=/boot/home/opencode-acceptance/api-fixture http.span=218 role=server
+timestamp=2026-10-15T01:56:40.755Z level=INFO run=852f0ecf message="client attached to session" id=pty_13d469a1f001hycYLaZ4wGYjrp directory=/boot/home/opencode-acceptance/api-fixture http.span=15 role=server
+timestamp=2026-10-15T01:56:41.041Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T01:56:41.042Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/AGENTS.md type=file backend=node ignores=0 http.span=1676 role=server
+timestamp=2026-10-15T01:56:41.043Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/api-fixture/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T01:56:41.045Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance/api-fixture/AGENTS.md type=file backend=node ignores=0 http.span=1679 role=server
+timestamp=2026-10-15T01:56:41.045Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T01:56:41.047Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance/AGENTS.md type=file backend=node ignores=0 http.span=1681 role=server
+timestamp=2026-10-15T01:56:41.047Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/AGENTS.md type=file ignores=0
+timestamp=2026-10-15T01:56:41.049Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/AGENTS.md type=file backend=node ignores=0 http.span=1683 role=server
+{"event":"native-browser-pty","data":{"id":"pty_13d469a1f001hycYLaZ4wGYjrp","output":"24 80\r\nLEGACY_PTY_READY\r\nHELLO42 100\r\nLEGACY_RESULT HELLO\r\n"}}
+timestamp=2026-10-15T01:56:41.084Z level=INFO run=852f0ecf message="session exited" id=pty_13d469a1f001hycYLaZ4wGYjrp exitCode=7 http.span=1718 role=server
+timestamp=2026-10-15T01:56:41.091Z level=INFO run=852f0ecf message="removing session" id=pty_13d469a1f001hycYLaZ4wGYjrp http.span=2 role=server
+{"event":"file-write-read","data":"passed"}
+timestamp=2026-10-15T01:56:41.150Z level=INFO run=852f0ecf message="spawning process" command=/bin/rg args="[\"--no-config\",\"--files\",\"--glob=!**/.git/**\",\".\"]" cwd=/boot/home/opencode-acceptance/api-fixture http.span=8 role=server
+timestamp=2026-10-15T01:56:41.206Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/skill type=file ignores=0
+timestamp=2026-10-15T01:56:41.207Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/skill type=file backend=node ignores=0 http.span=1841 role=server
+{"event":"portable-file-search","data":"passed"}
+timestamp=2026-10-15T01:56:41.242Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/skills type=file ignores=0
+timestamp=2026-10-15T01:56:41.243Z level=INFO run=852f0ecf message="watcher started" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/skills type=file backend=node ignores=0 http.span=1877 role=server
+timestamp=2026-10-15T01:56:41.333Z level=INFO run=852f0ecf message=event event.id=evt_13d46a0f50011P4lwO6nzsLstG event.created=1792029401333 event.type=provider.updated event.location.directory=/boot/home/opencode-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=1967 role=server
+timestamp=2026-10-15T01:56:41.378Z level=INFO run=852f0ecf message=event event.id=evt_13d46a1220016EZNo4biTKEB7C event.created=1792029401378 event.type=model.updated event.location.directory=/boot/home/opencode-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=2012 role=server
+timestamp=2026-10-15T01:56:41.388Z level=INFO run=852f0ecf message=event event.id=evt_13d46a12b001FU272E0jH27TWa event.created=1792029401388 event.type=agent.updated event.location.directory=/boot/home/opencode-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=2022 role=server
+timestamp=2026-10-15T01:56:41.391Z level=INFO run=852f0ecf message=event event.id=evt_13d46a12f00114TLgTNueKNqmH event.created=1792029401391 event.type=command.updated event.location.directory=/boot/home/opencode-acceptance/api-fixture event.location.workspaceID=undefined event.data={} http.span=2025 role=server
+timestamp=2026-10-15T01:56:41.541Z level=INFO run=852f0ecf message="spawning process" command=/bin/sh args="[\"-c\",\"node test.mjs\"]" cwd=/boot/home/opencode-acceptance/api-fixture http.span=2175 role=server
+timestamp=2026-10-15T01:56:41.675Z level=INFO run=852f0ecf message="watcher subscribe" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode type=directory ignores=3 http.span=2309 role=server
+timestamp=2026-10-15T01:56:41.676Z level=ERROR run=852f0ecf message="watcher backend not supported" directory=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode platform=haiku http.span=2310 role=server
+{"event":"shell-result","data":{"shell":{"id":"sh_13d46a0a8001AicKoZbqneEYwP","status":"exited","command":"node test.mjs","cwd":"/boot/home/opencode-acceptance/api-fixture","shell":"/bin/sh","file":"/boot/home/opencode-acceptance/legacy-pty-state2/data/opencode/shell/2e7034eb153fd7aa2b81124e148b275dfd5fcc2c/sh_13d46a0a8001AicKoZbqneEYwP.out","pid":21571,"exit":0,"metadata":{},"time":{"started":1792029401257,"completed":1792029401971}},"output":{"output":"API_SHELL_PASS\n","cursor":15,"size":15,"truncated":false}}}
+{"event":"session-created","data":{"id":"ses_ec2b95bd6ffePSdh3AuF9Gpfqa","title":"Native Haiku persistence probe"}}
+timestamp=2026-10-15T01:56:42.322Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/skill type=file http.span=2956 role=server
+timestamp=2026-10-15T01:56:42.323Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/skills type=file http.span=2957 role=server
+timestamp=2026-10-15T01:56:42.338Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/AGENTS.md type=file http.span=2972 role=server
+timestamp=2026-10-15T01:56:42.339Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance/AGENTS.md type=file http.span=2973 role=server
+timestamp=2026-10-15T01:56:42.340Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance/api-fixture/AGENTS.md type=file http.span=2974 role=server
+timestamp=2026-10-15T01:56:42.341Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode/AGENTS.md type=file http.span=2975 role=server
+timestamp=2026-10-15T01:56:42.489Z level=INFO run=852f0ecf message="watcher stopped" path=/etc type=entries http.span=3123 role=server
+timestamp=2026-10-15T01:56:42.490Z level=INFO run=852f0ecf message="watcher stopped" path=/ type=entries http.span=3124 role=server
+timestamp=2026-10-15T01:56:42.490Z level=INFO run=852f0ecf message="watcher stopped" path=/boot type=entries http.span=3124 role=server
+timestamp=2026-10-15T01:56:42.491Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home type=entries http.span=3125 role=server
+timestamp=2026-10-15T01:56:42.491Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance type=entries http.span=3125 role=server
+timestamp=2026-10-15T01:56:42.492Z level=INFO run=852f0ecf message="watcher stopped" path=/boot/home/opencode-acceptance/api-fixture type=entries http.span=3126 role=server
+timestamp=2026-10-15T01:56:50.705Z level=INFO run=6f7dcaf5 message="cli starting" version=2.0.29-haiku.4 channel=haiku local=false args="[\"--print-logs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+{"event":"server-ready","data":{"url":"http://127.0.0.1:62802"}}
+timestamp=2026-10-15T01:56:51.310Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode type=directory ignores=3 http.span=131 role=server
+timestamp=2026-10-15T01:56:51.321Z level=ERROR run=6f7dcaf5 message="watcher backend not supported" directory=/boot/home/opencode-acceptance/legacy-pty-state2/config/opencode platform=haiku http.span=142 role=server
+timestamp=2026-10-15T01:56:51.324Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/etc type=entries ignores=0 http.span=145 role=server
+timestamp=2026-10-15T01:56:51.326Z level=INFO run=6f7dcaf5 message="watcher started" path=/etc type=entries backend=node ignores=0 http.span=147 role=server
+timestamp=2026-10-15T01:56:51.327Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/ type=entries ignores=0 http.span=148 role=server
+timestamp=2026-10-15T01:56:51.329Z level=INFO run=6f7dcaf5 message="watcher started" path=/ type=entries backend=node ignores=0 http.span=150 role=server
+timestamp=2026-10-15T01:56:51.330Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot type=entries ignores=0 http.span=151 role=server
+timestamp=2026-10-15T01:56:51.331Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot type=entries backend=node ignores=0 http.span=152 role=server
+timestamp=2026-10-15T01:56:51.331Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=152 role=server
+timestamp=2026-10-15T01:56:51.335Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot/home type=entries backend=node ignores=0 http.span=156 role=server
+timestamp=2026-10-15T01:56:51.336Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home/opencode-acceptance type=entries ignores=0 http.span=157 role=server
+timestamp=2026-10-15T01:56:51.337Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot/home/opencode-acceptance type=entries backend=node ignores=0 http.span=158 role=server
+timestamp=2026-10-15T01:56:51.338Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home/opencode-acceptance/api-fixture type=entries ignores=0 http.span=159 role=server
+timestamp=2026-10-15T01:56:51.338Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot/home/opencode-acceptance/api-fixture type=entries backend=node ignores=0 http.span=159 role=server
+timestamp=2026-10-15T01:56:51.446Z level=INFO run=6f7dcaf5 message="location services booted" directory=/boot/home/opencode-acceptance/api-fixture workspaceID=undefined durationMs=263 http.span=267 role=server
+{"event":"session-after-server-restart","data":"passed"}
+{"event":"result","data":"PASS: actual file read/write, shell execution and stored session survive restart; no LLM inference tested"}
+timestamp=2026-10-15T01:56:52.960Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/etc type=entries http.span=1781 role=server
+timestamp=2026-10-15T01:56:52.961Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/ type=entries http.span=1782 role=server
+timestamp=2026-10-15T01:56:52.961Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot type=entries http.span=1782 role=server
+timestamp=2026-10-15T01:56:52.962Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot/home type=entries http.span=1783 role=server
+timestamp=2026-10-15T01:56:52.962Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot/home/opencode-acceptance type=entries http.span=1783 role=server
+timestamp=2026-10-15T01:56:52.962Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot/home/opencode-acceptance/api-fixture type=entries http.span=1783 role=server

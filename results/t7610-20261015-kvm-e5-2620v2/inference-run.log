@@ -1,0 +1,9 @@
+ 00:24:13  up   0:42,  0 users,  load average: 0.03, 0.56, 1.32
+cold1 server ready after 14 s (health attempts 7)
+{"models":[{"name":"haiku-qwen17","model":"haiku-qwen17","modified_at":"","size":"","digest":"","type":"model","description":"","tags":[""],"capabilities":["completion"],"parameters":"","details":{"parent_model":"","format":"gguf","family":"","families":[""],"parameter_size":"","quantization_level":
+smoke curl=0
+cold1 wall 71 s
+warm1 wall 27 s
+cold2 server ready after 15 s (health attempts 7)
+cold2 wall 79 s
+INF-DONE

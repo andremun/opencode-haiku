@@ -1,0 +1,13 @@
+cmake-4.4.4-1-x86_64.hpkg
+gcc-13.3.0_2023_08_10-6-x86_64.hpkg
+git-2.54.0-1-x86_64.hpkg
+haiku-r1~beta6_hrev60207-1-x86_64.hpkg
+make-4.4.1-1-x86_64.hpkg
+nodejs24-24.21.0-1-x86_64.hpkg
+patch-2.7.6-2-x86_64.hpkg
+ripgrep-14.0.1-1-x86_64.hpkg
+rust_bin-1.94.1-1-x86_64.hpkg
+g++ (2023_08_10) 13.3.0
+cmake version 4.4.4
+144
+exit=0

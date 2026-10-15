@@ -1,0 +1,51 @@
+### api-workflow (files, shell, session persistence)
+Thu Oct 15 01:56:22 GMT 2026
+exit=0
+{"event":"server-ready","data":{"url":"http://127.0.0.1:62160"}}
+{"event":"file-write-read","data":"passed"}
+{"event":"portable-file-search","data":"passed"}
+{"event":"shell-result","data":{"shell":{"id":"sh_13d466f43001zrz9X4B7k55Wbd","status":"exited","command":"node test.mjs","cwd":"/boot/home/opencode-acceptance/api-fixture","shell":"/bin/sh","file":"/boot/home/opencode-acceptance/api-state4/data/opencode/shell/2e7034eb153fd7aa2b81124e148b275dfd5fcc2c/sh_13d466f43001zrz9X4B7k55Wbd.out","pid":21506,"exit":0,"metadata":{},"time":{"started":1792029388611,"completed":1792029389208}},"output":{"output":"API_SHELL_PASS\n","cursor":15,"size":15,"truncated":false}}}
+{"event":"session-created","data":{"id":"ses_ec2b98d9bffeuryFjteEfaLFCw","title":"Native Haiku persistence probe"}}
+{"event":"server-ready","data":{"url":"http://127.0.0.1:62330"}}
+{"event":"session-after-server-restart","data":"passed"}
+{"event":"result","data":"PASS: actual file read/write, shell execution and stored session survive restart; no LLM inference tested"}
+
+### legacy browser PTY (node-pty binding)
+Thu Oct 15 01:56:35 GMT 2026
+exit=0
+1 role=server
+timestamp=2026-10-15T01:56:51.331Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot type=entries backend=node ignores=0 http.span=152 role=server
+timestamp=2026-10-15T01:56:51.331Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=152 role=server
+timestamp=2026-10-15T01:56:51.335Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot/home type=entries backend=node ignores=0 http.span=156 role=server
+timestamp=2026-10-15T01:56:51.336Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home/opencode-acceptance type=entries ignores=0 http.span=157 role=server
+timestamp=2026-10-15T01:56:51.337Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot/home/opencode-acceptance type=entries backend=node ignores=0 http.span=158 role=server
+timestamp=2026-10-15T01:56:51.338Z level=INFO run=6f7dcaf5 message="watcher subscribe" path=/boot/home/opencode-acceptance/api-fixture type=entries ignores=0 http.span=159 role=server
+timestamp=2026-10-15T01:56:51.338Z level=INFO run=6f7dcaf5 message="watcher started" path=/boot/home/opencode-acceptance/api-fixture type=entries backend=node ignores=0 http.span=159 role=server
+timestamp=2026-10-15T01:56:51.446Z level=INFO run=6f7dcaf5 message="location services booted" directory=/boot/home/opencode-acceptance/api-fixture workspaceID=undefined durationMs=263 http.span=267 role=server
+{"event":"session-after-server-restart","data":"passed"}
+{"event":"result","data":"PASS: actual file read/write, shell execution and stored session survive restart; no LLM inference tested"}
+timestamp=2026-10-15T01:56:52.960Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/etc type=entries http.span=1781 role=server
+timestamp=2026-10-15T01:56:52.961Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/ type=entries http.span=1782 role=server
+timestamp=2026-10-15T01:56:52.961Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot type=entries http.span=1782 role=server
+timestamp=2026-10-15T01:56:52.962Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot/home type=entries http.span=1783 role=server
+timestamp=2026-10-15T01:56:52.962Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot/home/opencode-acceptance type=entries http.span=1783 role=server
+timestamp=2026-10-15T01:56:52.962Z level=INFO run=6f7dcaf5 message="watcher stopped" path=/boot/home/opencode-acceptance/api-fixture type=entries http.span=1783 role=server
+
+### persistent daemon terminals
+Thu Oct 15 01:56:53 GMT 2026
+{"event":"server-info","data":{"version":"2.0.29-haiku.4","capabilities":{"persistentPty":true}}}
+{"event":"terminal-created","data":{"id":"pty_persistent_4833187942220295","size":{"cols":80,"rows":24},"status":"running"}}
+{"event":"first-attachment","data":{"text":"24 80\r\nPERSIST_READY é€\r\nHELLO42 100\r\nPERSIST_RESULT HELLO\r\n","control":["attached","replay_complete","controller_changed","resized"]}}
+{"event":"live-info","data":{"status":"running","size":{"cols":100,"rows":42},"output":{"head":0,"tail":63},"foreground":null}}
+{"event":"snapshot","data":{"text":"24 80\nPERSIST_READY é€\nHELLO42 100\nPERSIST_RESULT HELLO","cursor":{"x":0,"y":4}}}
+{"event":"listed","data":[{"id":"pty_persistent_4833187942220295","status":"running"}]}
+{"event":"read","data":{"rows":42,"cols":100,"tail":["PERSIST_READY é€","HELLO42 100","PERSIST_RESULT HELLO"]}}
+{"event":"reconnect-replay","data":{"replayedText":"24 80\r\nPERSIST_READY é€\r\nHELLO42 100\r\nPERSIST_RESULT HELLO\r\n","control":[{"type":"attached","truncated":false},{"type":"replay_complete"},{"type":"controller_changed"},{"type":"exited"}]}}
+{"event":"exit-event","data":{"type":"exited","exitCode":5,"finalOffset":63}}
+{"event":"after-exit-lookup","data":{"httpStatus":404}}
+{"event":"cleanup","data":"no terminals remain"}
+{"event":"daemon-shutdown","data":"ok"}
+{"event":"result","data":"PASS"}
+exit=0
+Thu Oct 15 01:57:15 GMT 2026
+API-TESTS-DONE

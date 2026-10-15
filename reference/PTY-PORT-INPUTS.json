@@ -33,7 +33,11 @@
     {
       "path": "cache/ghostty-haiku/lib/libghostty-vt.a",
       "sha256": "44fd3d15ae62e94315a0ee6aa91b77994a42cb0649573a1d6d42c208e029f2f2",
-      "bytes": 11816730
+      "bytes": 11816730,
+      "rebuilt_2026-10-15": {
+        "sha256": "9182565a75720c8273a1be632b1d421dab754b812fdba68fcdece8df9f2e23e5",
+        "note": "Same pinned source, patch, Zig 0.16.0 + zig-haiku-io.patch and options, rebuilt on a Linux x86_64 host (Python 3.10, different path). Not byte-identical to the original; 54 daemon tests, fmt and Clippy pass against it."
+      }
     },
     {
       "path": "reference/ghostty-haiku-static.patch",

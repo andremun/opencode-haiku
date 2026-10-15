@@ -14,7 +14,7 @@ class Handler(SimpleHTTPRequestHandler):
         if not 0<=n<=64*1024*1024:self.send_error(413);return
         data=self.rfile.read(n)
         if len(data)!=n:self.send_error(400,'Incomplete upload');return
-        (ROOT/'results'/name).write_bytes(data)
+        out=ROOT/('logs' if name.startswith('job') else 'results');out.mkdir(exist_ok=True);(out/name).write_bytes(data)
         self.send_response(201);self.end_headers()
     def log_message(self,fmt,*args):print(time.strftime('%H:%M:%S'),fmt%args,flush=True)
 ThreadingHTTPServer(('127.0.0.1',18080),Handler).serve_forever()

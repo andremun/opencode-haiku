@@ -1,0 +1,10 @@
+--- a/packages/native/build.zig
++++ b/packages/native/build.zig
+@@ -405,6 +405,7 @@
+         .linux => target.result.abi.isMusl() or target.result.abi == .gnu,
+         .macos => true,
+         .windows => target.result.abi == .gnu,
++        .haiku => true,
+         else => false,
+     };
+ }

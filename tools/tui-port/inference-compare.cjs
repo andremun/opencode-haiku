@@ -3,6 +3,7 @@
 const fs=require('node:fs');
 const endpoint=process.argv[2]||'http://127.0.0.1:18081';
 const output=process.argv[3]||'/boot/home/opencode-acceptance/inference-compare.json';
+const uploadName=process.argv[4]||'inference-compare-haiku.json';
 const prompts=['Reply with the single word OK.','Write a Python function add(a, b) that returns their sum. Output only the code.','What is 7 plus 5? Reply with only the number.'];
 (async()=>{
  const result={platform:process.platform,endpoint,requests:[]};
@@ -15,6 +16,6 @@ const prompts=['Reply with the single word OK.','Write a Python function add(a, 
    result.requests.push({body,status:response.status,elapsed_ms:Date.now()-start,response:JSON.parse(text)});
   }catch(error){result.requests.push({body,elapsed_ms:Date.now()-start,error:String(error)});}
   fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');
-  if(process.platform==='haiku') await fetch('http://10.0.2.2:18080/inference-compare-haiku.json',{method:'PUT',body:JSON.stringify(result,null,2),signal:AbortSignal.timeout(10000)}).catch(()=>{});
+  if(process.platform==='haiku') await fetch('http://10.0.2.2:18080/'+uploadName,{method:'PUT',body:JSON.stringify(result,null,2),signal:AbortSignal.timeout(10000)}).catch(()=>{});
  }
 })();

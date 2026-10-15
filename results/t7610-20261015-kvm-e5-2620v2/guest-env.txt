@@ -1,0 +1,18 @@
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+Kernel name: kernel_x86_64 built on: Oct  5 2026 07:12:07 version 0xa01
+2 Intel Xeon® E5-2620 v2, revision 306e4 running at 2095MHz
+
+CPU #0: "Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz"
+	Frequency: 2095.080
+	Signature: 0x0306e4; Type 0, family 6, model 62, stepping 4
+	Features: 0x1f8bfbff
+		FPU, VME, DE, PSE, TSC, MSR, PAE, MCE, CX8, APIC, SEP, MTRR, PGE, MCA, CMOV, PAT
+		PSE36, CFLUSH, MMX, FXSTR, SSE, SSE2, SS, HTT
+	Extended Features (0x00000001): 0xffbaa223
+		SSE3, PCLMULDQ, VMX, SSSE3, CX16, PDCM, PCID, SSE4.1, SSE4.2, x2APIC, POPCNT, TSC-DEADLINE, AES, XSAVE, OSXSAVE, AVX
+		F16C, RDRND, HYPERVISOR
+
+
+version: 0 (unknown)
+built with GNU 13.3.0 for Haiku x86_64
+v24.21.0

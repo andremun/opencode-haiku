@@ -33,7 +33,7 @@ def type_line(text, submit=True):
         monitor('sendkey '+key(c)+' 20');time.sleep(.045)
     if submit:
         monitor('sendkey ret');time.sleep(.15)
-def start(installed,memory_mib):
+def start(installed,memory_mib,kvm=False):
     VM.mkdir(exist_ok=True)
     if (SOCKET).exists():
         try:monitor('info status')
@@ -43,7 +43,7 @@ def start(installed,memory_mib):
     disk=VM/'system.qcow2'
     if not disk.exists():subprocess.run(['qemu-img','create','-f','qcow2',str(disk),'32G'],check=True)
     if not (VM/'vars.fd').exists():shutil.copyfile('/usr/share/OVMF/OVMF_VARS_4M.fd',VM/'vars.fd')
-    args=['qemu-system-x86_64','-name','haiku-app','-machine','q35','-accel','tcg,thread=multi','-cpu','qemu64','-smp','2','-m',str(memory_mib),'-drive','if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd','-drive','if=pflash,format=raw,file='+str(VM/'vars.fd'),'-drive','file='+str(disk)+',format=qcow2,if=none,id=system','-device','ide-hd,drive=system,bus=ide.0'+(',bootindex=1' if installed else ''),'-device','qemu-xhci','-device','usb-tablet','-qmp','unix:'+str(SOCKET)+'.qmp,server,nowait','-vga','std','-netdev','user,id=n0,hostfwd=tcp:127.0.0.1:2233-:22','-device','e1000,netdev=n0','-display','none','-serial','file:'+str(VM/'serial.log'),'-monitor','unix:'+str(SOCKET)+',server,nowait']
+    args=['qemu-system-x86_64','-name','haiku-app','-machine','q35',*(['-accel','kvm','-cpu','host'] if kvm else ['-accel','tcg,thread=multi','-cpu','qemu64']),'-smp','2','-m',str(memory_mib),'-drive','if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd','-drive','if=pflash,format=raw,file='+str(VM/'vars.fd'),'-drive','file='+str(disk)+',format=qcow2,if=none,id=system','-device','ide-hd,drive=system,bus=ide.0'+(',bootindex=1' if installed else ''),'-device','qemu-xhci','-device','usb-tablet','-qmp','unix:'+str(SOCKET)+'.qmp,server,nowait','-vga','std','-netdev','user,id=n0,hostfwd=tcp:127.0.0.1:2233-:22','-device','e1000,netdev=n0','-display','none','-serial','file:'+str(VM/'serial.log'),'-monitor','unix:'+str(SOCKET)+',server,nowait']
     if not installed:
         boot=VM/'boot.qcow2'
         if not boot.exists():subprocess.run(['qemu-img','create','-f','qcow2','-F','raw','-b',str(ISO),str(boot)],check=True)
@@ -79,8 +79,8 @@ def click(text, mode="click"):
             request('input-send-event',{'events':[{'type':'btn','data':{'button':'left','down':True}}]});time.sleep(.05 if mode=='doubleclick' else .2)
             request('input-send-event',{'events':[{'type':'btn','data':{'button':'left','down':False}}]});time.sleep(.1 if mode=='doubleclick' else .8)
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('action',choices=['start','status','screen','type','key','command','stop','click','move','doubleclick','write']);ap.add_argument('text',nargs='?',default='');ap.add_argument('--installed',action='store_true');ap.add_argument('--memory-mib',type=int,choices=[4096,8192],default=4096);a=ap.parse_args()
-    if a.action=='start':start(a.installed,a.memory_mib)
+    ap=argparse.ArgumentParser();ap.add_argument('action',choices=['start','status','screen','type','key','command','stop','click','move','doubleclick','write']);ap.add_argument('text',nargs='?',default='');ap.add_argument('--installed',action='store_true');ap.add_argument('--memory-mib',type=int,choices=[4096,8192],default=None);ap.add_argument('--kvm',action='store_true',help='explicit KVM with -cpu host; fails if unavailable');a=ap.parse_args()
+    if a.action=='start':start(a.installed,a.memory_mib or (8192 if a.kvm else 4096),a.kvm)
     elif a.action=='status':
         try: result=monitor('info status')
         except (FileNotFoundError,ConnectionRefusedError):print('VM status: stopped')
