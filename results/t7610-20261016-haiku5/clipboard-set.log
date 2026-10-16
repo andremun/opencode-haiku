@@ -1,0 +1,5 @@
+write rc=0
+CLIP_MARKER_T7610_KVM
+read rc=0
+
+exit=0

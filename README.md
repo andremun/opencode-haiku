@@ -8,7 +8,7 @@ This repository is independent of the sibling driver and LLM repositories.
 **Current port: 2.0.29-haiku.5.** Its packaged TUI terminal pane and WebPositive
 terminal panel pass native functional checks, including resize, reconnect,
 UTF-8, child exit and cleanup. Native clipboard paste also works. See
-[Haiku.5 acceptance](docs/HAIKU5-ACCEPTANCE.md) and [current status](docs/STATUS.md).
+[Haiku.5 acceptance](docs/HAIKU5-ACCEPTANCE.md) and [current status](docs/STATUS.md), [T7610 KVM Haiku.5 results](docs/T7610-KVM-HAIKU5-RESULTS-20261016.md).
 
 - [Complete installation and source build](docs/T7610-HAIKU-SETUP.md)
 - [Install a prepared runtime](docs/INSTALL.md)

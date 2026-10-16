@@ -1,0 +1,127 @@
+Fri Oct 16 02:41:35 GMT 2026
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.29s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.24s
+     Running unittests src/lib.rs (/boot/home/native-build/cargo-target/debug/deps/opencode_pty-7500e3459ec809ce)
+
+running 30 tests
+test daemon::unix::tests::runtime_names_are_single_components ... ok
+test daemon::unix::tests::runtime_root_avoids_temporary_directories ... ok
+test daemon::unix::tests::socket_paths_are_short_and_runtime_specific ... ok
+test daemon::unix::tests::sweep_keeps_directories_without_daemon_evidence ... ok
+test daemon::unix::tests::sweep_removes_abandoned_socket ... ok
+test daemon::unix::tests::sweep_removes_only_abandoned_old_runtimes ... ok
+test daemon::unix::tests::sweep_without_lock_file_checks_registered_pid ... ok
+test ghostty::tests::callback_panics_are_resumed_outside_the_c_boundary ... ok
+test ghostty::tests::callbacks_survive_moves_and_return_owned_data ... ok
+test ghostty::tests::empty_native_values_and_small_buffers_are_safe ... ok
+test ghostty::tests::formatted_bytes_outlive_the_native_terminal ... ok
+test ownership::tests::acquisition_is_exclusive_and_bounded ... ok
+test ownership::tests::expiry_only_stops_a_disconnected_owner ... ok
+test ownership::tests::handoff_is_nonrenewing_and_consumed_by_claim ... ok
+test ownership::tests::valid_ticket_replaces_live_owner_and_fences_old_connection ... ok
+test protocol::tests::read_rows_accepts_optional_height_and_u16_counts ... ok
+test service::tests::checkpoint_does_not_leave_zsh_partial_line_marker ... ok
+test service::tests::checkpoint_restores_cursor_and_tabstops ... ok
+test service::tests::controller_backpressures_instead_of_disconnecting ... ok
+test service::tests::forwarding_replies_drains_once_and_reports_writer_failure ... ok
+test service::tests::output_is_batched_without_reordering_other_messages ... ok
+test service::tests::replay_reports_truncation_and_offsets ... ok
+test service::tests::rows_do_not_change_viewport_selection_cursor_or_checkpoint ... ok
+test service::tests::rows_follow_resize_and_reflow ... ok
+test service::tests::rows_include_history_only_when_requested ... ok
+test service::tests::rows_include_live_height_and_preserve_blank_rows ... ok
+test service::tests::rows_isolate_alternate_screen_and_restore_primary_history ... ok
+test service::tests::rows_keep_physical_wraps_and_unicode_graphemes ... ok
+test service::tests::rows_reject_zero_and_bound_escaped_payload_by_bytes ... ok
+test service::tests::slow_observer_is_disconnected ... ok
+
+test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.51s
+
+     Running unittests src/main.rs (/boot/home/native-build/cargo-target/debug/deps/opencode_pty-96d0df3ae36d2372)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/ghostty-effects.rs (/boot/home/native-build/cargo-target/debug/deps/ghostty_effects-10521466f227d478)
+
+running 5 tests
+test callback_bytes_are_owned_after_the_source_buffer_is_gone ... ok
+test callback_panics_return_to_the_caller_before_resuming ... ok
+test empty_callback_does_not_dereference_a_null_buffer ... ok
+test retained_userdata_is_live_during_native_teardown ... ok
+test retained_userdata_survives_moves_and_repeated_drains ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/ownership.rs (/boot/home/native-build/cargo-target/debug/deps/ownership-5257ced23f98df48)
+
+running 6 tests
+test handoff_preserves_daemon_and_terminal_and_shutdown_overrides_it ... opencode-pty request failed: failed to fill whole buffer
+opencode-pty request failed: failed to fill whole buffer
+ok
+test handoff_ticket_has_only_one_winner ... opencode-pty request failed: failed to fill whole buffer
+opencode-pty request failed: failed to fill whole buffer
+ok
+test owner_loss_stops_terminals_despite_blocked_clients ... opencode-pty request failed: failed to fill whole buffer
+opencode-pty request failed: failed to fill whole buffer
+opencode-pty request failed: Broken pipe (os error -2147459059)
+ok
+test shutdown_keeps_a_replaced_socket ... ok
+test superseded_owner_cannot_prepare_handoff_or_shutdown ... ok
+test unclaimed_daemon_times_out ... opencode-pty request failed: failed to fill whole buffer
+ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.69s
+
+     Running tests/playground.rs (/boot/home/native-build/cargo-target/debug/deps/playground-812784ea794f1db3)
+
+running 3 tests
+test observer_stream_replays_and_follows_until_exit ... ok
+test playground_exit_stops_all_terminals_and_observers_do_not_start_daemons ... ok
+test playground_proves_authoritative_query_response ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.80s
+
+     Running tests/rows.rs (/boot/home/native-build/cargo-target/debug/deps/rows-9cdbf3e0ec8643f4)
+
+running 1 test
+test daemon_client_read_rows_roundtrip ... opencode-pty request failed: failed to fill whole buffer
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
+     Running tests/service.rs (/boot/home/native-build/cargo-target/debug/deps/service-fd48a6f07d769b73)
+
+running 9 tests
+test bursty_output_does_not_disconnect_a_healthy_observer ... ok
+test control_resize_reports_precede_user_input ... ok
+test controller_switches_without_disconnecting_observers ... ok
+test hidden_terminal_output_uses_bounded_replay ... ok
+test read_rows_snapshots_live_state_without_taking_control ... ok
+test repeated_resize_reports_are_delivered_once ... ok
+test resize_reports_reach_a_silent_child ... ok
+test terminals_run_independently_and_one_exit_does_not_stop_service ... ok
+test title_changes_update_metadata_and_notify_subscribers ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.83s
+
+   Doc-tests opencode_pty
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.76s
+-rwxr-xr-x 1 user 1389220685 6952608 Oct 16 02:41 /boot/home/native-build/opencode-pty-bin
+d2fd803fb447c6ef8cdbade3bae05c61e02985a39402d55e99ba0850feab4620  /boot/home/native-build/opencode-pty-bin
+rustc 1.94.1 (e408947bf 2026-03-25)
+binary: rustc
+commit-hash: e408947bfd200af42db322daf0fadfe7e26d3bd1
+commit-date: 2026-03-25
+host: x86_64-unknown-haiku
+release: 1.94.1
+LLVM version: 21.1.8
+PTY-DONE
+
+exit=0

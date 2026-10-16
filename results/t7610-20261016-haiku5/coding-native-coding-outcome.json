@@ -1,0 +1,11 @@
+{
+  "exit": 0,
+  "semantic_pass": true,
+  "expired": false,
+  "steps": 8,
+  "fixture": "/boot/home/haiku5-coding/coding-1792138133003/agent-fixture",
+  "test_unchanged": true,
+  "independent_test_pass": true,
+  "independent_test_output": "AGENT_TEST_PASS\n",
+  "edited_source": "export const add = (a, b) => a + b;"
+}

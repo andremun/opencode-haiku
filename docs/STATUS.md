@@ -2,6 +2,18 @@
 
 Updated 15 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
 
+## 16 October 2026: Haiku.5 on the persistent KVM VM (T7610)
+
+Haiku.5 was rebuilt on this host (archive `9cbd07c5...`, not byte-identical to the
+recorded `b9970cd8...`: different SDK/Koffi/renderer inputs) and run in the cardless
+KVM VM. Pass: install and self-test, 54 native daemon tests with fmt/Clippy,
+API probes, baseline and Ivy Bridge llama.cpp builds, direct inference, 8-step
+coding fixture (`semantic_pass` true), TUI terminal pane, child exit, clipboard
+paste and cleanup. Ivy Bridge build is much faster than baseline in the 3-repetition
+synthetic benchmark (prompt 11.0 vs 0.83 tok/s at 512/128). Not tested here:
+WebPositive terminal panel, TUI resize/reconnect visuals, TUI latency per profile.
+Details, hashes and limits: [T7610-KVM-HAIKU5-RESULTS-20261016.md](T7610-KVM-HAIKU5-RESULTS-20261016.md).
+
 ## Current result: packaged Haiku.5 terminal acceptance
 
 **The packaged TUI terminal crash is fixed.** Standard builds now apply the

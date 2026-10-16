@@ -1,0 +1,9 @@
+repo-next.tar.gz: OK
+opencode2-node v2.0.29-haiku.5
+Installed in /boot/home/opencode-haiku-2.0.29-haiku.5
+Start a shared backend: /boot/home/opencode-haiku-2.0.29-haiku.5/opencode serve --hostname 127.0.0.1 --port 18083
+Attach TUI from your project: /boot/home/opencode-haiku-2.0.29-haiku.5/opencode --server http://127.0.0.1:18083
+Committed source installed: d648a06d3bf5d6f3900e7313b2d3d225a0644d01
+Runtime installed: /boot/home/opencode-haiku-2.0.29-haiku.5
+
+exit=0
