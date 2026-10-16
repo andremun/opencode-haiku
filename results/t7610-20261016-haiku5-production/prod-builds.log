@@ -1,0 +1,45 @@
+production exit=0
+noomp exit=0
+== production
+
+OK: All tests passed successfully.
+CPU_PROFILE_PASS production (performance not yet measured)
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+AVX/F16C/SSE4.2 usable in this guest
+gcc (2023_08_10) 13.3.0
+BUILD_SHARED_LIBS:BOOL=ON
+GGML_AVX2:BOOL=OFF
+GGML_BMI2:BOOL=OFF
+GGML_CPU_REPACK:BOOL=ON
+GGML_FMA:BOOL=OFF
+GGML_LLAMAFILE:BOOL=ON
+GGML_NATIVE:BOOL=ON
+GGML_OPENMP:BOOL=ON
+      2 -fopenmp
+      2 -march=native
+7589a40458d54d408f4d7db4a42d58cacbf1c5bd3e21999abe67692d136233bc  /boot/home/haiku-llm/build-cpu-production/bin/llama-server
+6582af0dea0890973d01e8dd507e192575d6769f76231bd742056ebbeb9bdde3  /boot/home/haiku-llm/build-cpu-production/bin/llama-bench
+be7ecb26ba2d29f413246b5d54b83f31d817ac6f4cda758c49c1dada327075ca  /boot/home/haiku-llm/build-cpu-production/CMakeCache.txt
+4eff69e54ecc43c3eb2831a1867571c7ec488cacc81685d17e7a5b6bd24a1216  /boot/home/haiku-llm/build-cpu-production/compile_commands.json
+== production-noomp
+
+OK: All tests passed successfully.
+CPU_PROFILE_PASS production-noomp (performance not yet measured)
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+AVX/F16C/SSE4.2 usable in this guest
+gcc (2023_08_10) 13.3.0
+BUILD_SHARED_LIBS:BOOL=ON
+GGML_AVX2:BOOL=OFF
+GGML_BMI2:BOOL=OFF
+GGML_CPU_REPACK:BOOL=ON
+GGML_FMA:BOOL=OFF
+GGML_LLAMAFILE:BOOL=ON
+GGML_NATIVE:BOOL=ON
+GGML_OPENMP:BOOL=OFF
+      2 -march=native
+d7b1c9646c9d3b25493ff0136a3e1161347ed1d3ff25e143cdc180919601387b  /boot/home/haiku-llm/build-cpu-production-noomp/bin/llama-server
+030e07da110c10052c0726d7a95d22885b3a6cd70a109e25bffa14bddc8b836d  /boot/home/haiku-llm/build-cpu-production-noomp/bin/llama-bench
+158d663340b08750b41bc6f23075495531b798ed5da93f6fb0edfc5bb6ae2cf5  /boot/home/haiku-llm/build-cpu-production-noomp/CMakeCache.txt
+ab518a5776db815033b53ff36d9d5c0a2acd2c430f9e27fc95b30e9e21b5f4b3  /boot/home/haiku-llm/build-cpu-production-noomp/compile_commands.json
+
+exit=1

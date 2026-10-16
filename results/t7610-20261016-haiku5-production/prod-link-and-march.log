@@ -1,0 +1,55 @@
+== production
+-- /boot/home/haiku-llm/build-cpu-production/bin/libggml-cpu.so
+ NEEDED libggml-base.so.0; NEEDED libgomp.so.1; NEEDED libstdc++.so.6; NEEDED libgcc_s.so.1; NEEDED libroot.so;
+-- /boot/home/haiku-llm/build-cpu-production/bin/llama-bench
+ NEEDED libllama-common.so.0; NEEDED libllama.so.0; NEEDED libggml.so.0; NEEDED libggml-cpu.so.0; NEEDED libggml-base.so.0; NEEDED libstdc++.so.6; NEEDED libgcc_s.so.1; NEEDED libroot.so;
+-- /boot/home/haiku-llm/build-cpu-production/bin/llama-server
+ NEEDED libllama-common.so.0; NEEDED libnetwork.so; NEEDED libmtmd.so.0; NEEDED libllama.so.0; NEEDED libggml.so.0; NEEDED libggml-cpu.so.0; NEEDED libggml-base.so.0; NEEDED libstdc++.so.6; NEEDED libgcc_s.so.1; NEEDED libroot.so;
+3
+== production-noomp
+-- /boot/home/haiku-llm/build-cpu-production-noomp/bin/libggml-cpu.so
+ NEEDED libggml-base.so.0; NEEDED libstdc++.so.6; NEEDED libgcc_s.so.1; NEEDED libroot.so;
+-- /boot/home/haiku-llm/build-cpu-production-noomp/bin/llama-bench
+ NEEDED libllama-common.so.0; NEEDED libllama.so.0; NEEDED libggml.so.0; NEEDED libggml-cpu.so.0; NEEDED libggml-base.so.0; NEEDED libstdc++.so.6; NEEDED libgcc_s.so.1; NEEDED libroot.so;
+-- /boot/home/haiku-llm/build-cpu-production-noomp/bin/llama-server
+ NEEDED libllama-common.so.0; NEEDED libnetwork.so; NEEDED libmtmd.so.0; NEEDED libllama.so.0; NEEDED libggml.so.0; NEEDED libggml-cpu.so.0; NEEDED libggml-base.so.0; NEEDED libstdc++.so.6; NEEDED libgcc_s.so.1; NEEDED libroot.so;
+0
+== march native in guest
+ -maes 		[enabled]
+ -march= 		ivybridge
+ -mavx 		[enabled]
+ -mavx2 		[disabled]
+ -mavx256-split-unaligned-load 	[enabled]
+ -mavx256-split-unaligned-store 	[enabled]
+ -mavx5124fmaps 		[disabled]
+ -mavx5124vnniw 		[disabled]
+ -mavx512bf16 		[disabled]
+ -mavx512bitalg 		[disabled]
+ -mavx512bw 		[disabled]
+ -mavx512cd 		[disabled]
+ -mavx512dq 		[disabled]
+ -mavx512er 		[disabled]
+ -mavx512f 		[disabled]
+ -mavx512fp16 		[disabled]
+ -mavx512ifma 		[disabled]
+ -mavx512pf 		[disabled]
+ -mavx512vbmi 		[disabled]
+ -mavx512vbmi2 		[disabled]
+ -mavx512vl 		[disabled]
+ -mavx512vnni 		[disabled]
+ -mavx512vp2intersect 		[disabled]
+ -mavx512vpopcntdq 		[disabled]
+ -mavxifma 		[disabled]
+ -mavxneconvert 		[disabled]
+ -mavxvnni 		[disabled]
+ -mavxvnniint8 		[disabled]
+ -mbmi2 		[disabled]
+ -mf16c 		[enabled]
+ -mfma 		[disabled]
+ -mfma4 		[disabled]
+ -mpclmul 		[enabled]
+ -mpopcnt 		[enabled]
+ -msse4.2 		[enabled]
+ -mtune= 		ivybridge
+
+exit=0

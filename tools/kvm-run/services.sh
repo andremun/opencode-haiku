@@ -39,7 +39,7 @@ H=${OPENCODE_LLAMA_WORK:-/boot/home/haiku-llm}
 profile=${OPENCODE_LLAMA_PROFILE:-installed}
 case "$profile" in
  installed) binary=$H/build/bin/llama-server;;
- baseline|ivybridge) binary=$H/build-cpu-$profile/bin/llama-server;;
+ baseline|ivybridge|production|production-noomp) binary=$H/build-cpu-$profile/bin/llama-server;;
  *) echo 'Unknown CPU profile.' >&2; exit 2;;
 esac
 batch=${OPENCODE_LLAMA_BATCH:-128}

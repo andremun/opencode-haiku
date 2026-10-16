@@ -14,6 +14,13 @@ synthetic benchmark (prompt 11.0 vs 0.83 tok/s at 512/128). Not tested here:
 WebPositive terminal panel, TUI resize/reconnect visuals, TUI latency per profile.
 Details, hashes and limits: [T7610-KVM-HAIKU5-RESULTS-20261016.md](T7610-KVM-HAIKU5-RESULTS-20261016.md).
 
+### 17 October 2026 addendum: production-matching CPU build
+
+A guest build matching the host llm-server CPU configuration (`GGML_NATIVE=ON`,
+OpenMP) passes the same builds, benchmark, inference and coding fixture. Without
+OpenMP it passes too and decodes about 40% faster in this 2-vCPU guest. See the
+addendum in [T7610-KVM-HAIKU5-RESULTS-20261016.md](T7610-KVM-HAIKU5-RESULTS-20261016.md).
+
 ## Current result: packaged Haiku.5 terminal acceptance
 
 **The packaged TUI terminal crash is fixed.** Standard builds now apply the

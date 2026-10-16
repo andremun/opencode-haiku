@@ -40,7 +40,7 @@ fixed it. The tracked `results/opencode-tui-package.json` and
 | API probes (`api.sh`) | Exit 0: file/shell/session, legacy PTY, persistent terminal (UTF-8, resize, replay, exit 5) | `api-full.log` |
 | llama.cpp baseline and Ivy Bridge builds | Both `CPU_PROFILE_PASS`; AVX/F16C/SSE4.2 usable in guest | `cpu-builds.log` (hashes, platform) |
 | Benchmark, 3 repetitions | Table below | `bench-3rep.log` |
-| Direct inference, Ivy Bridge 512/128 | HTTP 200 x3; outputs `OK`, add function, `12` (same as earlier recorded) | `profile-inference.log`, `jobinf-haiku5-profile.json` |
+| Direct inference, Ivy Bridge 512/128 | HTTP 200 x3; outputs `OK.`, add function, `12`. **Correction:** the first output is `OK.`, whereas the SSE2 installed build gave `OK` (see production section) | `profile-inference.log`, `jobinf-haiku5-profile.json` |
 | 8-step coding fixture | `semantic_pass` true: agent ran `node test.mjs`, test unchanged, independent run passed; about 5 min, no deadline | `coding-job.log`, `coding-native-*` |
 | TUI terminal pane | Opens (no crash), shell I/O, UTF-8 (`PANE_OK é€`), child `exit 3` closes pane | `screens/tui-*.png` |
 | TUI clipboard paste | Alt-V inserted the exact marker into the prompt; not submitted; clipboard cleared after | `clipboard-set.log`, `screens/tui-clipboard-paste.png` |
@@ -83,3 +83,68 @@ latency, and says nothing about the K40c.
   `native-agent-model.log`). They were restored with `git checkout`; this run's
   copies are in the dated directory. Use distinct upload names next time.
 - VM left shut down cleanly (`qemu-img check`: no errors); transfer service stopped.
+
+## Addendum 17 October 2026: production-matching build and the same without OpenMP
+
+Request: verify, in this machine's VM, the CPU configuration of the host
+`llm-server` llama.cpp (same source, commit `cf8b0dbd`, b8861), then repeat without
+OpenMP. Evidence: `results/t7610-20261016-haiku5-production/`.
+
+**Deployed configuration read (read-only):** `GGML_NATIVE=ON` (so `-march=native`),
+`GGML_OPENMP=ON`, `GGML_LLAMAFILE=ON`, `GGML_CPU_REPACK=ON`, shared libraries,
+CUDA on (arch 35), GCC 10.5. On this E5-2620 v2, `-march=native` resolves to
+`ivybridge`: AVX, F16C, SSE4.2, AES, PCLMUL, POPCNT on; AVX2, FMA, BMI2 off.
+
+**Profiles added** (`tools/kvm-run/build-cpu-profile.sh`, `benchmark-cpu.sh`, `services.sh`,
+`prodrun.sh`): `production` = `GGML_NATIVE=ON`, `GGML_OPENMP=ON`; `production-noomp` = same
+with OpenMP off. Both use CUDA off, OpenSSL and WebUI off (Haiku portability),
+same pinned source and three patches as the earlier profiles. Differences from the
+deployed build: no CUDA, GCC 13.3 (Haiku) instead of 10.5, no OpenSSL/WebUI.
+
+**Verified in the guest** (`prod-builds.log`, `prod-link-and-march.log`):
+both builds pass `test-reasoning-budget` and `test-chat-template`
+(`CPU_PROFILE_PASS`); compile flags contain `-march=native` (and `-fopenmp` only in
+`production`); guest `-march=native` resolves to `ivybridge` with the same enabled
+and disabled flags as the host; `libggml-cpu.so` links `libgomp.so.1` (3 GOMP symbols)
+only in `production`.
+
+**Benchmark** (`llama-bench`, Qwen3 1.7B Q4_K_M, `-t 2`, 512-token prompt, 64-token
+decode, 3 repetitions, tokens/s mean (sd); `bench-prod.log`; same session; the
+Ivy Bridge profile is a control):
+
+| Profile | Prompt 128/32 | Prompt 512/128 | Decode 128/32 | Decode 512/128 |
+|---|---|---|---|---|
+| ivybridge (explicit flags, no OpenMP) | 10.83 (0.11) | 10.07 (1.34) | 6.91 (0.03) | 6.75 (0.03) |
+| production (native, OpenMP) | 9.95 (0.09) | 10.98 (0.02) | 4.10 (0.00) | 4.07 (0.02) |
+| production-noomp (native, no OpenMP) | 10.77 (0.10) | 9.50 (2.94) | 6.69 (0.12) | 6.76 (0.04) |
+
+**Direct inference and coding** (`run-production.log`, `run-production-noomp.log`,
+`inference-both.log`; service batch 512/128, `-t 2`): every request HTTP 200 and
+the same outputs (`OK.`, add function, `12`) for both. Both profiles pass the 8-step
+coding fixture (`semantic_pass` true, test unchanged, independent test pass), in
+about 4.5 min (`production`) and 4.2 min (`production-noomp`) including service
+startup and inference. Direct decode speed from the requests: `production`
+4.5-6.5 tokens/s; `production-noomp` 6.6-9.8 tokens/s.
+
+**Findings**
+
+- The production-matching CPU build works in the VM and matches the deployed
+  instruction set, so the earlier explicit-flag Ivy Bridge profile is equivalent in
+  CPU code; this validates the VM's build and test infrastructure against the host
+  configuration (build, unit tests, benchmark, service, coding fixture).
+- **OpenMP hurts decode here:** about 40% slower (4.1 vs 6.7-6.9 tokens/s) on the
+  2-vCPU guest, with no prompt-throughput benefit. This is a result for this VM and
+  model, not for the host's 6-thread GPU-offload service.
+- **Corrects the earlier table:** the Ivy Bridge 128/32 prompt figure of 2.10
+  (sd 0.36) and the baseline comparisons were taken in a different session; in this
+  session the same profile gives 10.83. Prompt results vary between sessions and
+  have at times a slow repetition (8.52 and 6.11 in the 512/128 cases), so treat
+  prompt differences below about 15% as noise. Decode numbers are stable.
+- The first inference output is `OK.` on all AVX builds but `OK` on the SSE2
+  installed build: the instruction set changes floating-point results slightly.
+  This was not investigated; the other two outputs are identical.
+
+**Not done:** TUI/browser terminal checks were not repeated for these profiles;
+the baseline was not re-run in this session; no measurement of the deployed host
+binary (the host service was untouched). VM shut down cleanly, transfer service
+stopped.

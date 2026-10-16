@@ -1,0 +1,4 @@
+e39092f71770bec5c9340dc753060ea646c1e27d7fdc36e37b8310075f9aa748  tools/kvm-run/build-cpu-profile.sh
+7b2687a0a040110e9bd841c08c82584e5af93f9ab09be983f3f773da1b121842  tools/kvm-run/benchmark-cpu.sh
+6fa008c443bbe7e266cdbd92a370538a6a5d630c564c883d6ab9393678235b40  tools/kvm-run/services.sh
+cc9fb19accd11c595286b2faab6aa74e2d00a7f2071f3e5d5c9a29c184fe2507  tools/kvm-run/prodrun.sh

@@ -3,7 +3,7 @@
 set -eu
 [ "$(uname -s)" = Haiku ] || { echo "Run this script in the Haiku guest." >&2; exit 2; }
 profile=${1:-baseline}
-case "$profile" in baseline|ivybridge) ;; *) echo 'Usage: build-cpu-profile.sh baseline|ivybridge' >&2; exit 2;; esac
+case "$profile" in baseline|ivybridge|production|production-noomp) ;; *) echo 'Usage: build-cpu-profile.sh baseline|ivybridge|production|production-noomp' >&2; exit 2;; esac
 H=${OPENCODE_LLAMA_WORK:-/boot/home/haiku-llm}
 PORT=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)
 cd "$H"
@@ -14,7 +14,15 @@ done
 build=$H/build-cpu-$profile
 mkdir -p "$build"
 uname -a > "$build/platform.txt"
-if [ "$profile" = ivybridge ]; then
+case "$profile" in
+ baseline) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=OFF -DGGML_AVX=OFF -DGGML_F16C=OFF'; omp=OFF;;
+ ivybridge) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=ON -DGGML_AVX=ON -DGGML_F16C=ON'; omp=OFF;;
+ # production*: the host llm-server CPU configuration (GGML_NATIVE=ON, OpenMP on), CUDA off.
+ production) isa='-DGGML_NATIVE=ON'; omp=ON;;
+ production-noomp) isa='-DGGML_NATIVE=ON'; omp=OFF;;
+esac
+uname -a > "$build/platform.txt"
+if [ "$profile" != baseline ]; then
  cat > "$build/check-avx.c" <<'C'
 #include <stdio.h>
 int main(void) {
@@ -29,12 +37,12 @@ int main(void) {
 C
  gcc "$build/check-avx.c" -o "$build/check-avx"
  "$build/check-avx" >> "$build/platform.txt"
- avx=ON
-else avx=OFF; fi
-cmake -S llama -B "$build" -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
- -DGGML_NATIVE=OFF -DGGML_SSE42="$avx" -DGGML_AVX="$avx" -DGGML_F16C="$avx" \
+fi
+gcc --version | head -1 >> "$build/platform.txt"
+# shellcheck disable=SC2086
+cmake -S llama -B "$build" -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON $isa \
  -DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_BMI2=OFF -DGGML_AVX512=OFF -DGGML_AVX_VNNI=OFF \
- -DGGML_CUDA=OFF -DGGML_OPENMP=OFF -DLLAMA_OPENSSL=OFF -DLLAMA_BUILD_WEBUI=OFF -DLLAMA_BUILD_TESTS=ON
+ -DGGML_CUDA=OFF -DGGML_OPENMP="$omp" -DLLAMA_OPENSSL=OFF -DLLAMA_BUILD_WEBUI=OFF -DLLAMA_BUILD_TESTS=ON
 cmake --build "$build" --parallel 2 --target llama-server llama-bench test-reasoning-budget test-chat-template
 export LIBRARY_PATH="$build/bin:/boot/system/lib"
 "$build/bin/test-reasoning-budget"

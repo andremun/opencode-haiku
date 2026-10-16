@@ -1,0 +1,31 @@
+services rc=0
+curl: (7) Failed to connect to 127.0.0.1:18081 after 0 ms: Could not connect to server
+curl: (22) The requested URL returned error: 503
+curl: (22) The requested URL returned error: 503
+curl: (22) The requested URL returned error: 503
+curl: (22) The requested URL returned error: 503
+curl: (22) The requested URL returned error: 503
+curl: (22) The requested URL returned error: 503
+curl: (7) Failed to connect to 127.0.0.1:18083 after 0 ms: Could not connect to server
+curl: (7) Failed to connect to 127.0.0.1:18083 after 0 ms: Could not connect to server
+Model and shared OpenCode backend are ready; credentials preserved in /boot/home/opencode-env.sh.
+inference rc=0
+coding rc=0
+{
+  "exit": 0,
+  "semantic_pass": true,
+  "expired": false,
+  "steps": 8,
+  "fixture": "/boot/home/coding-production-noomp/coding-1792179492924/agent-fixture",
+  "test_unchanged": true,
+  "independent_test_pass": true,
+  "independent_test_output": "AGENT_TEST_PASS\n",
+  "edited_source": "export const add = (a, b) => a + b;"
+}
+stopped
+e=server
+timestamp=2026-10-16T19:41:53.081Z level=INFO run=95578b6f message="watcher stopped" path=/boot/home/coding-production-noomp/coding-1792179492924 type=entries http.span=212880 role=server
+timestamp=2026-10-16T19:41:53.082Z level=INFO run=95578b6f message="watcher stopped" path=/boot/home/coding-production-noomp/coding-1792179492924/agent-fixture type=entries http.span=212881 role=server
+
+
+exit=0
