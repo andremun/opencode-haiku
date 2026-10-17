@@ -27,8 +27,10 @@ An external static audit was checked: eight findings were valid and fixed (trans
 names, split ghostty pin, probe spawn errors, runner log upload, stale default, personal path,
 diagnostic guard, missing-archive error), four were not changed, two were incorrect. See
 [AUDIT-2026-10-18-DISPOSITION.md](AUDIT-2026-10-18-DISPOSITION.md). Free cloud models still reject
-anonymous requests (403 FreeTierError); a real multi-file coding task and runner are ready but
-have not run because no authorised session exists: [FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md).
+anonymous requests (403 FreeTierError). With a user-supplied key, a real multi-file coding task
+passes with the free `glm-5.3-flash-free` model through the Haiku.5 port inside the Haiku VM (15/15
+tests, 430 s) and through the official client; the key was never stored in the repository:
+[FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md).
 
 ## Current result: packaged Haiku.5 terminal acceptance
 

@@ -1,0 +1,37 @@
+rc=0
+{
+  "model": "opencode/glm-5.3-flash-free",
+  "runID": "cloud-1792245141627",
+  "fixture": "/boot/home/cloud-haiku/cloud-1792245141627/fixture",
+  "exit": 0,
+  "expired": false,
+  "seconds": 430,
+  "steps": 20,
+  "tests_unchanged": true,
+  "agent_ran_tests": 2,
+  "tool_calls": [
+    "read",
+    "shell",
+    "shell",
+    "shell",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "write",
+    "write",
+    "shell"
+  ],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 15,
+    "fail": 0
+  },
+  "semantic_pass": true,
+  "independent_test_pass": true,
+  "error_text": ""
+}
+
+exit=0

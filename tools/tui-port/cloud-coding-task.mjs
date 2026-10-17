@@ -16,7 +16,7 @@ const root = resolve(process.argv[2] ?? '.');
 const launcher = process.env.OPENCODE_TEST_PORT_ROOT;
 const model = process.env.OPENCODE_CLOUD_MODEL;
 if (!launcher || !model || !model.includes('/')) throw new Error('Set OPENCODE_TEST_PORT_ROOT and OPENCODE_CLOUD_MODEL (provider/model, for example opencode/glm-5.3-flash-free)');
-const steps = Number(process.env.OPENCODE_TEST_STEPS ?? 12);
+const steps = Number(process.env.OPENCODE_TEST_STEPS ?? 20);
 if (!Number.isInteger(steps) || steps < 4 || steps > 32) throw new Error('OPENCODE_TEST_STEPS must be an integer from 4 to 32');
 const runID = 'cloud-' + Date.now();
 const fixture = resolve(root, runID, 'fixture');
@@ -24,12 +24,15 @@ mkdirSync(fixture, { recursive: true });
 cpSync(startDir, fixture, { recursive: true });
 writeFileSync(resolve(fixture, 'opencode.json'), JSON.stringify({
   model, update: 'disable', share: 'disabled', snapshots: false, formatter: false, lsp: false,
-  // Scoped allow-list, not a blanket deny: read anywhere, edit only src/, run only `node --test`.
+  // Scoped allow-list, not a blanket deny: read anywhere, edit only src/, run `node --test` (with any suffix such as a pipe to tail).
   permissions: [
     { action: '*', resource: '*', effect: 'deny' },
     { action: 'read', resource: '*', effect: 'allow' },
     { action: 'edit', resource: 'src/*', effect: 'allow' },
-    { action: 'shell', resource: 'node --test', effect: 'allow' },
+    { action: 'shell', resource: 'node --test*', effect: 'allow' },
+    // Piped commands are checked part by part, so allow the usual output trimmers too.
+    { action: 'shell', resource: 'tail *', effect: 'allow' },
+    { action: 'shell', resource: 'head *', effect: 'allow' },
   ],
   agents: { probe: { mode: 'primary', model, steps, system: 'You are a careful coding assistant. Work only in the current project directory.' } },
 }));
@@ -41,15 +44,22 @@ const testsHash = () => {
 const before = testsHash();
 const prompt = 'The tests in this project fail. Run `node --test` to see them, then implement parseCSV in src/csv.mjs and summarize in src/report.mjs so that every test passes. Do not edit anything under test/. Run `node --test` again after your changes and, when all tests pass, reply with the single word DONE.';
 const env = Object.fromEntries(Object.entries(process.env).filter(([name]) => /^(PATH|HOME|LANG|LC_[A-Z_]+|SSL_CERT_FILE|SSL_CERT_DIR)$/.test(name)));
-env.OPENCODE_DISABLE_MODELS_FETCH = '1';
+// The agent's shell must find `node --test`: put the runner's own Node first on PATH.
+env.PATH = dirname(process.execPath) + ':' + (env.PATH ?? '');
+// The cloud model catalogue must be fetched; set OPENCODE_CLOUD_OFFLINE=1 only for host controls.
+if (process.env.OPENCODE_CLOUD_OFFLINE === '1') env.OPENCODE_DISABLE_MODELS_FETCH = '1';
 for (const name of ['DATA', 'CONFIG', 'CACHE', 'STATE']) env['XDG_' + name + '_HOME'] = resolve(root, runID, 'state', name.toLowerCase());
+// Explicit opt-in: the key is passed to the child only, and redacted from every saved log.
+const apiKey = process.env.OPENCODE_CLOUD_PASS_API_KEY === '1' ? process.env.OPENCODE_API_KEY : undefined;
+if (apiKey) env.OPENCODE_API_KEY = apiKey;
+const redact = (text) => (apiKey ? text.split(apiKey).join('[REDACTED]') : text);
 if (process.env.OPENCODE_CLOUD_DATA_HOME) env.XDG_DATA_HOME = resolve(process.env.OPENCODE_CLOUD_DATA_HOME);
 const log = resolve(root, runID, 'agent.log');
 writeFileSync(log, '');
 const started = Date.now();
 const child = spawn(resolve(launcher), ['run', '--agent', 'probe', '--standalone', '--model', model, '--title', 'CSV report task', '--format', 'json', prompt], { cwd: fixture, env, stdio: ['ignore', 'pipe', 'pipe'] });
 let output = '';
-for (const stream of [child.stdout, child.stderr]) stream.on('data', (chunk) => { output += chunk; writeFileSync(log, output); });
+for (const stream of [child.stdout, child.stderr]) stream.on('data', (chunk) => { output += chunk; writeFileSync(log, redact(output)); });
 let expired = false;
 const timer = setTimeout(() => { expired = true; child.kill('SIGTERM'); setTimeout(() => child.kill('SIGKILL'), 5000).unref(); }, Number(process.env.OPENCODE_TEST_TIMEOUT_MS ?? 1200000));
 let launchError;
@@ -66,7 +76,7 @@ const outcome = {
   tests_unchanged: unchanged, agent_ran_tests: shellRuns.length, tool_calls: toolCalls, independent_tests: summary,
   semantic_pass: unchanged && shellRuns.length > 0 && independent?.status === 0,
   independent_test_pass: independent?.status === 0,
-  error_text: (output.match(/FreeTierError[^"\n]*|UpgradeRequired[^"\n]*|"statusCode":\s*\d+[^\n]{0,160}/) ?? [])[0],
+  error_text: redact((output.match(/FreeTierError[^"\n]*|UpgradeRequired[^"\n]*|"statusCode":\s*\d+[^\n]{0,160}/) ?? [])[0] ?? ''),
 };
 writeFileSync(resolve(root, runID, 'outcome.json'), JSON.stringify(outcome, null, 2) + '\n');
 console.log(JSON.stringify(outcome, null, 2));

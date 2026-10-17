@@ -1,0 +1,39 @@
+{
+  "model": "opencode/glm-5.3-flash-free",
+  "runID": "cloud-1792243869096",
+  "fixture": "/tmp/claude-cloud-official/cloud-1792243869096/fixture",
+  "exit": 0,
+  "expired": false,
+  "seconds": 420,
+  "steps": 12,
+  "tests_unchanged": true,
+  "agent_ran_tests": 2,
+  "tool_calls": [
+    "shell",
+    "shell",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "shell",
+    "shell",
+    "read",
+    "read",
+    "shell",
+    "write",
+    "write",
+    "shell"
+  ],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 14,
+    "fail": 1
+  },
+  "semantic_pass": false,
+  "independent_test_pass": false,
+  "error_text": ""
+}

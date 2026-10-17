@@ -1,8 +1,10 @@
 # Free cloud models and a real cloud coding task
 
-18 October 2026 (Australia/Melbourne). Nothing here was run with credentials. No account
-was created, no login performed, no existing credential store read, and no client
-headers were spoofed.
+18 October 2026 (Australia/Melbourne). The first part (measurements, documentation) used no
+credentials. Later runs used one Console API key supplied by the user in chat for this test
+(`OPENCODE_API_KEY`, passed to the client process only, redacted from saved logs, never written
+to the repository; the user deletes it afterwards). No account was created, no credential store
+read, and no client headers were spoofed.
 
 ## Measured today
 
@@ -60,7 +62,35 @@ independent `node --test` passes. The outcome JSON also records tool calls, timi
 Host controls (no network, no model): solved, did-not-run-tests, tampered-tests and unsolved
 launchers give pass, fail, fail, fail (`tools/test_t7610_runners.py`).
 
+## Results with an authorised key (model `opencode/glm-5.3-flash-free`, synthetic task)
+
+A raw `curl` with the key still got the free-tier 403 ("only from within OpenCode"); the key lists
+models but only an OpenCode client could use the free tier. With a client, the model solved the task.
+
+| Run | Client | Steps | Agent ran tests | Independent tests | Accepted | Time |
+|---|---|---|---|---|---|---|
+| official-first | official v2.0.29 (host) | 12 | 2 (both "node: command not found") | 14/15 | no (harness defect) | 420 s |
+| official-rerun2 | official v2.0.29 | 12 | 0 (piped command denied) | 15/15 | no (harness defect) | 185 s |
+| official-rerun3 | official v2.0.29 | 12 | 1 | 15/15 | yes | 62 s |
+| haiku5-bundle-host-first | Haiku.5 bundle on Linux | 12 | 0 (piped command denied) | 15/15 | no (harness defect) | 127 s |
+| haiku5-bundle-host-final | Haiku.5 bundle on Linux | 20 | 2 | 15/15 | yes | 237 s |
+| official-final | official v2.0.29 | 20 | 3 | 15/15 | yes | 93 s |
+| **haiku-vm-run** | **Haiku.5 port inside the KVM Haiku VM** | 20 | 2 | **15/15** | **yes** | 430 s |
+
+Evidence: `results/t7610-20261018-cloud/` (outcome JSON and redacted agent logs; no key).
+
+The harness defects were mine and are fixed in `cloud-coding-task.mjs`: the model catalogue fetch
+was disabled (client reported "Model unavailable"); `node` was not on the agent's PATH; the
+shell permission matched only the exact string `node --test`; and piped commands are checked part by
+part, so `tail`/`head` needed allow rules. In the rerun3 and rerun2 logs the model reported honestly
+that it could not run the tests rather than claiming success.
+
+What this shows: the Haiku.5 port in the Haiku VM can drive a real free cloud model through a
+multi-file edit-and-test loop (read, write, edit, shell) and the result passes an independent
+test run. What it does not show: model quality in general (one task, one model, a few runs),
+behaviour with paid models, other free models, the TUI/GUI paths, or anything about the K40c.
+The free model's data terms were not relevant here because the project is synthetic.
+
 ## Status
 
-Task, runner and controls ready; **no cloud model has run the task** because no authorised session
-exists. Results from a free model would say nothing about the Haiku VM's local model or the K40c.
+Runner, task and controls validated; run succeeded in the Haiku VM with the user-supplied key.
