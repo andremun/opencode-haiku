@@ -33,16 +33,21 @@ session id shape, `stream: true`, lowercase tool names) and a ban on deny-all pe
 These come from outside write-ups and issue threads; none was tested here. The earlier port
 probes used deny-all permissions, so that combination is untested rather than disproved.
 
-## What is needed to run the task
+## How the key was supplied
 
-A signed-in session of an OpenCode client, supplied by the user. Suggested split that keeps
-credentials out of the agent's hands and out of Git:
+A Console API key supplied by the user, never stored in the repository:
 
-1. The user runs `opencode auth login` for the `opencode` provider (or the equivalent official
-   flow) with `XDG_DATA_HOME` set to a private directory, for example `~/opencode-cloud-auth`.
-2. The agent runs the task with `OPENCODE_CLOUD_DATA_HOME` pointing at that directory; the runner
-   passes it through and never reads or prints it. Use the official release or the Haiku.5 port
-   (`2.0.29-haiku.5`, version above 1.18.0).
+1. The key is set as `OPENCODE_API_KEY` in the environment of the single command that runs the task,
+   with `OPENCODE_CLOUD_PASS_API_KEY=1` as an explicit opt-in. The runner passes it to the client
+   process only and redacts it from the saved logs and outcome.
+2. For the VM run, the key was carried in a one-off job script that was deleted afterwards (the
+   guest's temporary copy was overwritten by the next job). The repository, results, commit and guest
+   were scanned for the key and the user revokes it.
+3. An alternative that keeps the key out of the agent's hands entirely: the user logs in with
+   `opencode auth login` using a private `XDG_DATA_HOME` and the runner reads
+   `OPENCODE_CLOUD_DATA_HOME` (not used in this run).
+
+Use the official release or the Haiku.5 port (`2.0.29-haiku.5`, above the 1.18.0 minimum).
 
 ## The task
 
@@ -53,8 +58,11 @@ passes 3 and fails 12; a reference solution passes 15/15.
 
 Runner: `tools/tui-port/cloud-coding-task.mjs OUTPUT_DIR` with `OPENCODE_TEST_PORT_ROOT`
 (launcher), `OPENCODE_CLOUD_MODEL` (for example `opencode/glm-5.3-flash-free`) and optional
-`OPENCODE_CLOUD_DATA_HOME`, `OPENCODE_TEST_STEPS` (default 12), `OPENCODE_TEST_TIMEOUT_MS`
-(default 20 min). Permissions: read anywhere, edit `src/*`, run `node --test` only.
+`OPENCODE_CLOUD_PASS_API_KEY=1` with `OPENCODE_API_KEY`, `OPENCODE_CLOUD_DATA_HOME`,
+`OPENCODE_TEST_STEPS` (default 20), `OPENCODE_TEST_TIMEOUT_MS` (default 20 min) and
+`OPENCODE_CLOUD_OFFLINE=1` (host controls only: disables the model catalogue fetch).
+Permissions: read anywhere, edit `src/*`, run `node --test*`, plus `tail *` and `head *` for piped
+output. The runner puts its own Node first on the agent's PATH.
 Acceptance: tests unchanged, the agent ran `node --test` successfully at least once, and an
 independent `node --test` passes. The outcome JSON also records tool calls, timing and any
 `FreeTierError`/`UpgradeRequired` text, so a rejected run is distinguishable from a wrong answer.
@@ -93,4 +101,6 @@ The free model's data terms were not relevant here because the project is synthe
 
 ## Status
 
-Runner, task and controls validated; run succeeded in the Haiku VM with the user-supplied key.
+Runner, task and controls validated; the run succeeded in the Haiku VM with the user-supplied key
+(`results/t7610-20261018-cloud/haiku-vm-run.log`). Not covered: other models, paid models, repeated
+runs for variance, TUI/GUI paths.
