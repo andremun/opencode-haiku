@@ -1,7 +1,7 @@
 'use strict';
 // Temporary localhost diagnostic: compares WebPositive fetch/XHR on the same origin.
 const http=require('node:http'),fs=require('node:fs');
-const password=fs.readFileSync('/boot/home/opencode-acceptance/gui-server.log','utf8').split('\n').find(x=>x.startsWith('server password ')).slice(16);
+const password=fs.readFileSync('/boot/home/opencode-acceptance/gui-server.log','utf8').split('\n').find(x=>x.startsWith('server password '))?.slice(16);
 const html=`<!doctype html><meta charset="utf-8"><pre id="out">checking</pre><script>
 (async function(){var result={};var auth='Basic '+btoa('opencode:'+${JSON.stringify(password)});
 try{var r=await fetch('/api/info',{headers:{Authorization:auth}});result.fetch={status:r.status,body:await r.text()};}catch(e){result.fetch={error:e.message,stack:e.stack};}

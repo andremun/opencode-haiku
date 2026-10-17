@@ -95,7 +95,9 @@ version resolved that version error, but the service then returned HTTP 403,
 again saying free access is restricted to OpenCode. The unmodified, checksum-
 verified official Linux v1.19.0 release returned the same restriction. We did
 not spoof a different client or channel, change accounts, or use a paid model.
-The cause of that service rejection remains unknown.
+On 18 October an anonymous `curl` request to a free model returned the same 403, and the
+public documentation describes signing in and using an API key; the detailed header/entitlement
+rules reported elsewhere are unverified. See [FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md).
 
 A host probe was initially rejected by automatic approval review because it
 could inherit an existing API key. The probe now forwards an explicit allow-list

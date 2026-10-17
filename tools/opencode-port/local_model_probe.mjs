@@ -23,7 +23,7 @@ let output='';
 for (const stream of [child.stdout,child.stderr]) stream.on('data',chunk=>{output+=chunk;writeFileSync(log,output);});
 let expired=false;
 const timer=setTimeout(()=>{expired=true;child.kill('SIGTERM');setTimeout(()=>child.kill('SIGKILL'),5000).unref();},180000);
-const code=await new Promise(resolve=>child.on('close',code=>resolve(code)));
+const code=await new Promise(resolve=>{child.on('error',error=>{output+=`spawn error: ${error.message}\n`;writeFileSync(log,output);resolve(127);});child.on('close',code=>resolve(code));});
 clearTimeout(timer);
 writeFileSync(resolve(root,'local-model.exit'),String(expired?124:(code===0&&!output.split('\n').some(line=>{try{const event=JSON.parse(line);return event.type==='text'&&/\bOK\b/.test(event.part?.text??'');}catch{return false;}})?2:code))+'\n');
 console.log(output);

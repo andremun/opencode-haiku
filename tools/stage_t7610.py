@@ -12,6 +12,7 @@ manifest=json.loads((root/'results/opencode-tui-package.json').read_text())
 name=manifest['archive']
 if Path(name).name!=name:raise SystemExit('Invalid archive name')
 runtime=share/name
+if not runtime.is_file():raise SystemExit('Runtime archive missing: build it with tools/tui-port/build_bundle.sh (see docs/T7610-NEXT-RUN.md section 1)')
 if hashlib.sha256(runtime.read_bytes()).hexdigest()!=manifest['sha256']:raise SystemExit('Rebuild the runtime: archive does not match package manifest')
 revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
 source=share/'repo-next.tar.gz'

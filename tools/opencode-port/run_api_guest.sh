@@ -9,6 +9,7 @@ curl -fsS http://10.0.2.2:18080/opencode-port.mjs -o opencode.mjs || exit 1
 curl -fsS http://10.0.2.2:18080/opencode-api-probe.mjs -o api_probe.mjs || exit 1
 node api_probe.mjs . > api-probe-runner.log 2>&1
 rc=$?
+curl -fsS -T api-probe-runner.log http://10.0.2.2:18080/opencode-guest-api-probe-runner.log || true
 curl -fsS -T api-probe.log http://10.0.2.2:18080/opencode-guest-api-probe.log
 curl -fsS -T api-probe.exit http://10.0.2.2:18080/opencode-guest-api-probe.exit
 exit "$rc"

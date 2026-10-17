@@ -21,6 +21,15 @@ OpenMP) passes the same builds, benchmark, inference and coding fixture. Without
 OpenMP it passes too and decodes about 40% faster in this 2-vCPU guest. See the
 addendum in [T7610-KVM-HAIKU5-RESULTS-20261016.md](T7610-KVM-HAIKU5-RESULTS-20261016.md).
 
+### 18 October 2026: audit disposition and cloud task
+
+An external static audit was checked: eight findings were valid and fixed (transfer-server dot
+names, split ghostty pin, probe spawn errors, runner log upload, stale default, personal path,
+diagnostic guard, missing-archive error), four were not changed, two were incorrect. See
+[AUDIT-2026-10-18-DISPOSITION.md](AUDIT-2026-10-18-DISPOSITION.md). Free cloud models still reject
+anonymous requests (403 FreeTierError); a real multi-file coding task and runner are ready but
+have not run because no authorised session exists: [FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md).
+
 ## Current result: packaged Haiku.5 terminal acceptance
 
 **The packaged TUI terminal crash is fixed.** Standard builds now apply the

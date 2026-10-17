@@ -6,7 +6,9 @@ log(){ echo "=== $1 $(date)"; }
 log fetch
 curl -fsS http://10.0.2.2:18080/guest-stage.tar.gz -o stage.tar.gz && tar -xzf stage.tar.gz || exit 1
 curl -fsS http://10.0.2.2:18080/libghostty-vt.a -o libghostty-vt.a
-echo '9182565a75720c8273a1be632b1d421dab754b812fdba68fcdece8df9f2e23e5  libghostty-vt.a' | sha256sum -c || exit 2
+# Accept the original pin or the 2026-10-15 rebuild (reference/PTY-PORT-INPUTS.json records both).
+sum=$(sha256sum libghostty-vt.a | cut -d' ' -f1)
+case "$sum" in 44fd3d15ae62e94315a0ee6aa91b77994a42cb0649573a1d6d42c208e029f2f2|9182565a75720c8273a1be632b1d421dab754b812fdba68fcdece8df9f2e23e5) ;; *) echo "libghostty-vt.a checksum mismatch: $sum" >&2; exit 2;; esac
 mkdir -p pty-lib && mv libghostty-vt.a pty-lib/
 log clipboard
 g++ -O2 haiku-clipboard.cpp -lbe -o haiku-clipboard; echo clipboard=$?

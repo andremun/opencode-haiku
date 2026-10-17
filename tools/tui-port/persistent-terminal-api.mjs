@@ -6,7 +6,7 @@ import { resolve } from 'node:path';
 import { randomBytes } from 'node:crypto';
 import assert from 'node:assert/strict';
 const root = resolve(process.argv[2] ?? '/boot/home/opencode-acceptance');
-const launcher = resolve(process.argv[3] ?? '/boot/home/opencode-haiku-2.0.29-haiku.4/opencode');
+const launcher = resolve(process.argv[3] ?? '/boot/home/opencode-haiku-2.0.29-haiku.5/opencode');
 const fixture = resolve(root, 'terminal-fixture');
 mkdirSync(fixture, { recursive: true });
 writeFileSync(resolve(fixture, 'opencode.json'), JSON.stringify({ update: 'disable', share: 'disabled', snapshots: false, shell: '/bin/sh', permissions: [{ action: '*', resource: '*', effect: 'deny' }] }));

@@ -5,7 +5,8 @@ import http.client, importlib.util, json, os, shutil, subprocess, tempfile, thre
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
-NODE = shutil.which('node') or '/home/unimelb.edu.au/mariom1/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node'
+NODE = os.environ.get('NODE') or shutil.which('node')
+if NODE is None:raise SystemExit('Node.js is required: put node on PATH or set NODE')
 
 class RunnerTests(unittest.TestCase):
     def setUp(self):
@@ -136,5 +137,52 @@ exit 0''')
                 self.assertEqual(result.returncode,expected,result.stderr)
                 self.assertEqual(len(json.loads(output.read_text())['requests']),3)
         finally:server.shutdown();server.server_close();thread.join()
+
+    def test_transfer_rejects_dot_names(self):
+        spec=importlib.util.spec_from_file_location('t7610_transfer_names',ROOT/'tools/transfer_server.py')
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        module.ROOT=self.root;(self.root/'share').mkdir()
+        server=ThreadingHTTPServer(('127.0.0.1',0),module.Handler)
+        thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+        try:
+            for name,expected in [('..',400),('.',400),('.hidden',400),('ok-name.txt',201)]:
+                conn=http.client.HTTPConnection(*server.server_address,timeout=3)
+                conn.request('PUT','/'+name,body=b'x');response=conn.getresponse();response.read();conn.close()
+                self.assertEqual(response.status,expected,name)
+            self.assertFalse(any((self.root/'results').glob('.*')) if (self.root/'results').exists() else False)
+        finally:server.shutdown();server.server_close();thread.join()
+    def test_stage_reports_a_missing_runtime_archive(self):
+        # Run the staging helper from a copy of the repo layout with a manifest but no archive.
+        work=self.root/'stage';(work/'tools').mkdir(parents=True);(work/'results').mkdir()
+        shutil.copy(ROOT/'tools/stage_t7610.py',work/'tools/stage_t7610.py')
+        (work/'results/opencode-tui-package.json').write_text(json.dumps({'archive':'missing.tar.gz','sha256':'0'*64}))
+        subprocess.run(['git','init','-q'],cwd=work,check=True)
+        subprocess.run(['git','add','-A'],cwd=work,check=True)
+        subprocess.run(['git','-c','user.name=t','-c','user.email=t@example.invalid','commit','-q','-m','fixture'],cwd=work,check=True)
+        result=subprocess.run(['python3',str(work/'tools/stage_t7610.py')],cwd=work,capture_output=True,text=True,timeout=10)
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('Runtime archive missing',result.stderr)
+        self.assertNotIn('Traceback',result.stderr)
+
+    def test_cloud_task_fixture_and_acceptance_controls(self):
+        ref=ROOT/'examples/cloud-task/reference/src'
+        scenarios=[('solved',True,False,True),('no-test-run',False,False,False),('tampered-tests',True,True,False),('unsolved',None,False,False)]
+        for name,ran,tamper,expected in scenarios:
+            out=self.root/('cloud-'+name);out.mkdir()
+            body=("const fs=require('node:fs');"+
+                  ("fs.cpSync(process.env.LC_REF,'src',{recursive:true});" if ran is not None else '')+
+                  ("fs.appendFileSync('test/csv.test.mjs','//x');" if tamper else '')+
+                  ("console.log(JSON.stringify({type:'tool_use',part:{tool:'shell',state:{status:'completed',input:{command:'node --test'},output:'ok'}}}));" if ran else ''))
+            if name=='no-test-run':body=body.replace("console.log","//")
+            launcher=self.root/('cloud-launcher-'+name);launcher.write_text('#!'+NODE+'\n'+body);launcher.chmod(0o755)
+            result=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(out)],env={**os.environ,'LC_REF':str(ref),'OPENCODE_TEST_PORT_ROOT':str(launcher),'OPENCODE_CLOUD_MODEL':'opencode/test-model'},capture_output=True,text=True,timeout=60)
+            outcome=json.loads(next((out/d/'outcome.json' for d in os.listdir(out))).read_text())
+            self.assertEqual(outcome['semantic_pass'],expected,(name,result.stdout,result.stderr))
+            if name=='solved':self.assertEqual(outcome['independent_tests'],{'tests':15,'pass':15,'fail':0})
+            if name=='unsolved':self.assertEqual(outcome['independent_tests']['fail'],12)
+    def test_cloud_task_requires_a_model_and_launcher(self):
+        result=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(self.root)],env={k:v for k,v in os.environ.items() if not k.startswith('OPENCODE_')},capture_output=True,text=True,timeout=20)
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('OPENCODE_CLOUD_MODEL',result.stderr)
 
 if __name__=='__main__': unittest.main(verbosity=2)

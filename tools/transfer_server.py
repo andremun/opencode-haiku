@@ -8,7 +8,7 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**k):super().__init__(*a,directory=str(ROOT/'share'),**k)
     def do_PUT(self):
         name=self.path.lstrip('/')
-        if not re.fullmatch(r'[A-Za-z0-9_.-]+',name):self.send_error(400);return
+        if not re.fullmatch(r'[A-Za-z0-9_][A-Za-z0-9_.-]*',name):self.send_error(400);return
         try:n=int(self.headers.get('Content-Length','-1'))
         except ValueError:self.send_error(400);return
         if not 0<=n<=64*1024*1024:self.send_error(413);return

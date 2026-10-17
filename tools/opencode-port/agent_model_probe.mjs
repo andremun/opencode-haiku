@@ -26,7 +26,7 @@ const progress=setInterval(()=>{if(process.platform==='haiku')fetch('http://10.0
 for (const stream of [child.stdout,child.stderr]) stream.on('data',chunk=>{output+=chunk;writeFileSync(log,output);});
 let expired=false;
 const timer=setTimeout(()=>{expired=true;child.kill('SIGTERM');setTimeout(()=>child.kill('SIGKILL'),5000).unref();},300000);
-const code=await new Promise(resolve=>child.on('close',code=>resolve(code)));
+const code=await new Promise(resolve=>{child.on('error',error=>{output+=`spawn error: ${error.message}\n`;writeFileSync(log,output);resolve(127);});child.on('close',code=>resolve(code));});
 clearTimeout(timer);clearInterval(progress);
 const valid = /a\s*\+\s*b/.test(readFileSync(resolve(fixture,'add.mjs'),'utf8')) && output.split('\n').some(line=>{try{const event=JSON.parse(line);return event.type==='tool_use'&&event.part?.tool==='shell'&&JSON.stringify(event).includes('AGENT_TEST_PASS');}catch{return false;}});
 const result=expired?124:(code===0&&!valid?2:(code??1));
