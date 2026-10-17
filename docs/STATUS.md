@@ -30,7 +30,8 @@ diagnostic guard, missing-archive error), four were not changed, two were incorr
 anonymous requests (403 FreeTierError). With a user-supplied key, a real multi-file coding task
 passes with the free `glm-5.3-flash-free` model through the Haiku.5 port inside the Haiku VM (15/15
 tests, 430 s) and through the official client; the key was never stored in the repository:
-[FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md).
+[FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md). Key handling for future runs (out-of-repo key file, wrapper, one-shot
+server for the VM, secret scan, free-model guard): [SECRETS.md](SECRETS.md).
 
 ## Current result: packaged Haiku.5 terminal acceptance
 

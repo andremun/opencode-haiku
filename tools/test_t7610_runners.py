@@ -175,7 +175,7 @@ exit 0''')
                   ("console.log(JSON.stringify({type:'tool_use',part:{tool:'shell',state:{status:'completed',input:{command:'node --test'},output:'ok'}}}));" if ran else ''))
             if name=='no-test-run':body=body.replace("console.log","//")
             launcher=self.root/('cloud-launcher-'+name);launcher.write_text('#!'+NODE+'\n'+body);launcher.chmod(0o755)
-            result=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(out)],env={**os.environ,'LC_REF':str(ref),'OPENCODE_TEST_PORT_ROOT':str(launcher),'OPENCODE_CLOUD_MODEL':'opencode/test-model'},capture_output=True,text=True,timeout=60)
+            result=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(out)],env={**os.environ,'LC_REF':str(ref),'OPENCODE_TEST_PORT_ROOT':str(launcher),'OPENCODE_CLOUD_MODEL':'opencode/test-model-free'},capture_output=True,text=True,timeout=60)
             outcome=json.loads(next((out/d/'outcome.json' for d in os.listdir(out))).read_text())
             self.assertEqual(outcome['semantic_pass'],expected,(name,result.stdout,result.stderr))
             if name=='solved':self.assertEqual(outcome['independent_tests'],{'tests':15,'pass':15,'fail':0})
@@ -184,5 +184,75 @@ exit 0''')
         result=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(self.root)],env={k:v for k,v in os.environ.items() if not k.startswith('OPENCODE_')},capture_output=True,text=True,timeout=20)
         self.assertNotEqual(result.returncode,0)
         self.assertIn('OPENCODE_CLOUD_MODEL',result.stderr)
+
+    # --- secrets handling (fake keys are assembled at run time so this file never contains key-shaped text)
+    def fake_key(self):return 'oc_sk_'+'a1b2c3d4e5f6'+'_'+'Zz9'*8
+    def key_file(self,mode=0o600,directory=None,name='cloud.env'):
+        path=Path(directory or self.root)/name;path.write_text('OPENCODE_API_KEY='+self.fake_key()+'\n');path.chmod(mode);return path
+    def test_key_wrapper_exports_the_key_without_printing_it(self):
+        import hashlib
+        wrapper=ROOT/'tools/secrets/with-cloud-key.sh';key=self.fake_key()
+        child=['sh','-c','printf %s "$OPENCODE_API_KEY" | sha256sum | cut -c1-16; echo pass=$OPENCODE_CLOUD_PASS_API_KEY']
+        good=subprocess.run(['sh',str(wrapper),*child],env={**os.environ,'OPENCODE_CLOUD_ENV_FILE':str(self.key_file())},capture_output=True,text=True,timeout=10)
+        self.assertEqual(good.returncode,0,good.stderr)
+        self.assertIn(hashlib.sha256(key.encode()).hexdigest()[:16],good.stdout);self.assertIn('pass=1',good.stdout)
+        self.assertNotIn(key,good.stdout+good.stderr)
+        def refused(file,expect):
+            r=subprocess.run(['sh',str(wrapper),'true'],env={**os.environ,'OPENCODE_CLOUD_ENV_FILE':str(file)},capture_output=True,text=True,timeout=10)
+            self.assertEqual(r.returncode,2,(expect,r.stderr));self.assertIn(expect,r.stderr);self.assertNotIn(key,r.stdout+r.stderr)
+        refused(self.key_file(0o644,name='lax.env'),'mode 600')
+        refused(self.root/'missing.env','not found')
+        inside=tempfile.NamedTemporaryFile(dir=ROOT,prefix='.keytest-',suffix='.env',delete=False);inside.close()
+        try:
+            Path(inside.name).write_text('OPENCODE_API_KEY='+key+'\n');Path(inside.name).chmod(0o600)
+            refused(inside.name,'outside the repository')
+        finally:Path(inside.name).unlink(missing_ok=True)
+        empty=self.root/'empty.env';empty.write_text('OTHER=1\n');empty.chmod(0o600);refused(empty,'No OPENCODE_API_KEY')
+    def test_one_shot_key_server_serves_once_to_the_right_token(self):
+        import urllib.request,urllib.error
+        key=self.fake_key()
+        server=subprocess.Popen(['python3',str(ROOT/'tools/secrets/serve-key-once.py'),'--file',str(self.key_file()),'--guest-host','127.0.0.1','--timeout','30'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        try:
+            url=server.stdout.readline().strip().split('=',1)[1];self.assertNotIn(key,url)
+            base,token=url.rsplit('/',1)
+            with self.assertRaises(urllib.error.HTTPError) as bad:urllib.request.urlopen(base+'/wrong-token',timeout=5)
+            self.assertEqual(bad.exception.code,404)
+            with urllib.request.urlopen(url,timeout=5) as ok:self.assertEqual(ok.read().decode(),key)
+            self.assertEqual(server.wait(timeout=10),0)
+            with self.assertRaises(Exception):urllib.request.urlopen(url,timeout=2)
+            self.assertNotIn(key,server.stdout.read()+server.stderr.read())
+        finally:
+            if server.poll() is None:server.kill()
+            server.stdout.close();server.stderr.close()
+    def test_secret_scanner_flags_keys_without_printing_them_and_ignores_placeholders(self):
+        scan=ROOT/'tools/secrets/scan_secrets.py';key=self.fake_key()
+        d=self.root/'scan';d.mkdir()
+        (d/'clean.txt').write_text('OPENCODE_API_KEY=%s\nexport OPENCODE_API_KEY="$K"\nprefix oc_sk_ only\n')
+        self.assertEqual(subprocess.run(['python3',str(scan),str(d)],capture_output=True,text=True).returncode,0)
+        (d/'leak.log').write_text('line\nrun with OPENCODE_API_KEY='+key+' now\n')
+        (d/'bearer.txt').write_text('Authorization: Bearer '+'x'*30+'\n')
+        r=subprocess.run(['python3',str(scan),str(d)],capture_output=True,text=True)
+        self.assertEqual(r.returncode,1);self.assertNotIn(key,r.stdout+r.stderr)
+        self.assertIn('leak.log:2',r.stdout);self.assertIn('bearer.txt:1',r.stdout)
+    def test_runner_refuses_paid_models_by_default(self):
+        env={k:v for k,v in os.environ.items() if not k.startswith('OPENCODE_')}
+        r=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(self.root)],env={**env,'OPENCODE_TEST_PORT_ROOT':'/bin/true','OPENCODE_CLOUD_MODEL':'opencode/some-paid-model'},capture_output=True,text=True,timeout=20)
+        self.assertNotEqual(r.returncode,0);self.assertIn('non-free',r.stderr)
+
+    def test_guest_wrapper_fetches_the_key_into_memory_once(self):
+        import hashlib
+        key=self.fake_key()
+        server=subprocess.Popen(['python3',str(ROOT/'tools/secrets/serve-key-once.py'),'--file',str(self.key_file()),'--guest-host','127.0.0.1','--timeout','30'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        try:
+            url=server.stdout.readline().strip().split('=',1)[1]
+            child=['sh','-c','printf %s "$OPENCODE_API_KEY" | sha256sum | cut -c1-16; echo pass=$OPENCODE_CLOUD_PASS_API_KEY']
+            first=subprocess.run(['sh',str(ROOT/'tools/kvm-run/with-cloud-key-guest.sh'),url,*child],capture_output=True,text=True,timeout=15)
+            self.assertEqual(first.returncode,0,first.stderr);self.assertIn(hashlib.sha256(key.encode()).hexdigest()[:16],first.stdout);self.assertNotIn(key,first.stdout+first.stderr)
+            self.assertEqual(server.wait(timeout=10),0)
+            second=subprocess.run(['sh',str(ROOT/'tools/kvm-run/with-cloud-key-guest.sh'),url,'true'],capture_output=True,text=True,timeout=15)
+            self.assertEqual(second.returncode,2);self.assertIn('Could not fetch',second.stderr)
+        finally:
+            if server.poll() is None:server.kill()
+            server.stdout.close();server.stderr.close()
 
 if __name__=='__main__': unittest.main(verbosity=2)

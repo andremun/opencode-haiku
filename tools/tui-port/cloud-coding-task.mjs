@@ -16,6 +16,8 @@ const root = resolve(process.argv[2] ?? '.');
 const launcher = process.env.OPENCODE_TEST_PORT_ROOT;
 const model = process.env.OPENCODE_CLOUD_MODEL;
 if (!launcher || !model || !model.includes('/')) throw new Error('Set OPENCODE_TEST_PORT_ROOT and OPENCODE_CLOUD_MODEL (provider/model, for example opencode/glm-5.3-flash-free)');
+// Cost guard: only free models unless the caller opts in explicitly (free ids end in -free, or big-pickle).
+if (!/(-free|\/big-pickle)$/.test(model) && process.env.OPENCODE_CLOUD_ALLOW_PAID !== '1') throw new Error('Refusing a non-free model (' + model + '). Set OPENCODE_CLOUD_ALLOW_PAID=1 to allow paid models deliberately.');
 const steps = Number(process.env.OPENCODE_TEST_STEPS ?? 20);
 if (!Number.isInteger(steps) || steps < 4 || steps > 32) throw new Error('OPENCODE_TEST_STEPS must be an integer from 4 to 32');
 const runID = 'cloud-' + Date.now();

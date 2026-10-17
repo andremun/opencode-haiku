@@ -47,6 +47,8 @@ A Console API key supplied by the user, never stored in the repository:
    `opencode auth login` using a private `XDG_DATA_HOME` and the runner reads
    `OPENCODE_CLOUD_DATA_HOME` (not used in this run).
 
+For future sessions use the key file, wrapper and one-shot server in [SECRETS.md](SECRETS.md).
+
 Use the official release or the Haiku.5 port (`2.0.29-haiku.5`, above the 1.18.0 minimum).
 
 ## The task
