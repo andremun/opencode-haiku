@@ -1,0 +1,873 @@
+#### /boot/home/bench-exp.log
+/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf: OK
+bench exit=1
+#### /boot/home/bench-exp-base.log
+/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf: OK
+CPU_BENCHMARK_DONE /boot/home/haiku-llm/cpu-benchmark-20261018-111232 (synthetic prompt/decode throughput; not OpenCode latency)
+bench exit=0
+#### DIR /boot/home/haiku-llm/cpu-benchmark-20261018-104900/
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/community-128.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:04:14Z",
+    "avg_ns": 50461632000,
+    "stddev_ns": 333990725,
+    "avg_ts": 10.146618,
+    "stddev_ts": 0.067005,
+    "samples_ns": [ 50379718000, 50828959000, 50176219000 ],
+    "samples_ts": [ 10.1628, 10.073, 10.204 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:07:38Z",
+    "avg_ns": 15484418333,
+    "stddev_ns": 184841588,
+    "avg_ts": 4.133579,
+    "stddev_ts": 0.049242,
+    "samples_ns": [ 15679391000, 15311728000, 15462136000 ],
+    "samples_ts": [ 4.08179, 4.1798, 4.13914 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/community-512.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:08:27Z",
+    "avg_ns": 46614669000,
+    "stddev_ns": 390793315,
+    "avg_ts": 10.984184,
+    "stddev_ts": 0.092531,
+    "samples_ns": [ 46163714000, 46854257000, 46826036000 ],
+    "samples_ts": [ 11.091, 10.9275, 10.9341 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:11:37Z",
+    "avg_ns": 15488789000,
+    "stddev_ns": 120282276,
+    "avg_ts": 4.132186,
+    "stddev_ts": 0.031951,
+    "samples_ns": [ 15409662000, 15627206000, 15429499000 ],
+    "samples_ts": [ 4.15324, 4.09542, 4.1479 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-128.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T10:49:03Z",
+    "avg_ns": 49420940666,
+    "stddev_ns": 482320815,
+    "avg_ts": 10.360637,
+    "stddev_ts": 0.100819,
+    "samples_ns": [ 49946087000, 48997746000, 49318989000 ],
+    "samples_ts": [ 10.2511, 10.4495, 10.3814 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T10:52:24Z",
+    "avg_ns": 9754181000,
+    "stddev_ns": 27735408,
+    "avg_ts": 6.561324,
+    "stddev_ts": 0.018643,
+    "samples_ns": [ 9729308000, 9749146000, 9784089000 ],
+    "samples_ts": [ 6.57806, 6.56468, 6.54123 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-512.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T10:52:56Z",
+    "avg_ns": 45405577000,
+    "stddev_ns": 157266405,
+    "avg_ts": 11.276238,
+    "stddev_ts": 0.039059,
+    "samples_ns": [ 45407563000, 45561841000, 45247327000 ],
+    "samples_ts": [ 11.2757, 11.2375, 11.3156 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T10:56:27Z",
+    "avg_ns": 9265861666,
+    "stddev_ns": 47233933,
+    "avg_ts": 6.907194,
+    "stddev_ts": 0.035171,
+    "samples_ns": [ 9316253000, 9258737000, 9222595000 ],
+    "samples_ts": [ 6.86971, 6.91239, 6.93948 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-mimalloc-128.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T10:56:57Z",
+    "avg_ns": 47070674333,
+    "stddev_ns": 226208131,
+    "avg_ts": 10.877428,
+    "stddev_ts": 0.052174,
+    "samples_ns": [ 47005213000, 46884416000, 47322394000 ],
+    "samples_ts": [ 10.8924, 10.9205, 10.8194 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:00:09Z",
+    "avg_ns": 9365724333,
+    "stddev_ns": 69588522,
+    "avg_ts": 6.833678,
+    "stddev_ts": 0.050564,
+    "samples_ns": [ 9445839000, 9331032000, 9320302000 ],
+    "samples_ts": [ 6.77547, 6.85883, 6.86673 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-mimalloc-512.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:00:39Z",
+    "avg_ns": 45509513666,
+    "stddev_ns": 286453230,
+    "avg_ts": 11.250691,
+    "stddev_ts": 0.070594,
+    "samples_ns": [ 45396412000, 45296878000, 45835251000 ],
+    "samples_ts": [ 11.2784, 11.3032, 11.1704 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:03:44Z",
+    "avg_ns": 9358534000,
+    "stddev_ns": 76447143,
+    "avg_ts": 6.838981,
+    "stddev_ts": 0.055674,
+    "samples_ns": [ 9334684000, 9296855000, 9444063000 ],
+    "samples_ts": [ 6.85615, 6.88405, 6.77674 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/variants-128.json
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/community-128.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/community-512.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-128.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-512.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-mimalloc-128.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/ivybridge-mimalloc-512.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-104900/variants-128.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+#### DIR /boot/home/haiku-llm/cpu-benchmark-20261018-111232/
+== /boot/home/haiku-llm/cpu-benchmark-20261018-111232/baseline-128.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:12:35Z",
+    "avg_ns": 354210617000,
+    "stddev_ns": 0,
+    "avg_ts": 1.445468,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 354210617000 ],
+    "samples_ts": [ 1.44547 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 128,
+    "n_ubatch": 32,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:24:27Z",
+    "avg_ns": 55567242000,
+    "stddev_ns": 0,
+    "avg_ts": 1.151758,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 55567242000 ],
+    "samples_ts": [ 1.15176 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-111232/baseline-512.json
+[
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 512,
+    "n_gen": 0,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:25:26Z",
+    "avg_ns": 357748450000,
+    "stddev_ns": 0,
+    "avg_ts": 1.431173,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 357748450000 ],
+    "samples_ts": [ 1.43117 ]
+  },
+  {
+    "build_commit": "unknown",
+    "build_number": 0,
+    "cpu_info": "CPU",
+    "gpu_info": "",
+    "backends": "CPU",
+    "model_filename": "/boot/home/haiku-llm/models/Qwen3-1.7B-Q4_K_M.gguf",
+    "model_type": "qwen3 1.7B Q4_K - Medium",
+    "model_size": 1276487680,
+    "model_n_params": 2031739904,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "n_threads": 2,
+    "cpu_mask": "0x0",
+    "cpu_strict": false,
+    "poll": 50,
+    "type_k": "f16",
+    "type_v": "f16",
+    "n_gpu_layers": 0,
+    "n_cpu_moe": 0,
+    "split_mode": "layer",
+    "main_gpu": 0,
+    "no_kv_offload": false,
+    "flash_attn": false,
+    "devices": "auto",
+    "tensor_split": "0.00",
+    "tensor_buft_overrides": "none",
+    "use_mmap": true,
+    "use_direct_io": false,
+    "embeddings": false,
+    "no_op_offload": 0,
+    "no_host": false,
+    "fit_target": 0,
+    "fit_min_ctx": 0,
+    "n_prompt": 0,
+    "n_gen": 64,
+    "n_depth": 0,
+    "test_time": "2026-10-18T11:37:33Z",
+    "avg_ns": 55686970000,
+    "stddev_ns": 0,
+    "avg_ts": 1.149281,
+    "stddev_ts": 0.000000,
+    "samples_ns": [ 55686970000 ],
+    "samples_ts": [ 1.14928 ]
+  }
+]
+== /boot/home/haiku-llm/cpu-benchmark-20261018-111232/baseline-128.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+== /boot/home/haiku-llm/cpu-benchmark-20261018-111232/baseline-512.log
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: search path  does not exist
+ggml_backend_load_best: sear
+
+exit=0

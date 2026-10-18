@@ -1,0 +1,53 @@
+diff --git a/common/common.cpp b/common/common.cpp
+index 6c81d18f..5751ad0f 100644
+--- a/common/common.cpp
++++ b/common/common.cpp
+@@ -67,6 +67,8 @@
+ #if defined(LLAMA_USE_CURL)
+ #ifdef __linux__
+ #include <linux/limits.h>
++#elif defined(__HAIKU__)
++#include <limits.h>
+ #elif defined(_WIN32)
+ #   if !defined(PATH_MAX)
+ #   define PATH_MAX MAX_PATH
+diff --git a/examples/server/CMakeLists.txt b/examples/server/CMakeLists.txt
+index 1b7cc8c1..cdaded19 100644
+--- a/examples/server/CMakeLists.txt
++++ b/examples/server/CMakeLists.txt
+@@ -47,4 +47,8 @@ if (WIN32)
+     TARGET_LINK_LIBRARIES(${TARGET} PRIVATE ws2_32)
+ endif()
+ 
++if (HAIKU)
++    TARGET_LINK_LIBRARIES(${TARGET} PRIVATE network)
++endif()
++
+ target_compile_features(${TARGET} PRIVATE cxx_std_17)
+diff --git a/ggml/src/ggml-rpc/CMakeLists.txt b/ggml/src/ggml-rpc/CMakeLists.txt
+index f5acb8ec..3bb90738 100644
+--- a/ggml/src/ggml-rpc/CMakeLists.txt
++++ b/ggml/src/ggml-rpc/CMakeLists.txt
+@@ -7,3 +7,7 @@ ggml_add_backend_library(ggml-rpc
+ if (WIN32)
+     target_link_libraries(ggml-rpc PRIVATE ws2_32)
+ endif()
++
++if (HAIKU)
++    target_link_libraries(ggml-rpc PRIVATE network)
++endif()
+diff --git a/src/llama-mmap.cpp b/src/llama-mmap.cpp
+index b716630a..a1b9c7b5 100644
+--- a/src/llama-mmap.cpp
++++ b/src/llama-mmap.cpp
+@@ -22,6 +22,10 @@
+     #endif
+ #endif
+ 
++#ifdef __HAIKU__
++#undef _POSIX_MEMLOCK_RANGE
++#endif
++
+ #if defined(_WIN32)
+     #define WIN32_LEAN_AND_MEAN
+     #ifndef NOMINMAX

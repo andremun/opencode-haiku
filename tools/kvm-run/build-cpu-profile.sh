@@ -3,7 +3,7 @@
 set -eu
 [ "$(uname -s)" = Haiku ] || { echo "Run this script in the Haiku guest." >&2; exit 2; }
 profile=${1:-baseline}
-case "$profile" in baseline|ivybridge|production|production-noomp) ;; *) echo 'Usage: build-cpu-profile.sh baseline|ivybridge|production|production-noomp' >&2; exit 2;; esac
+case "$profile" in baseline|ivybridge|production|production-noomp|ivybridge-mimalloc|community|variants|haikuports) ;; *) echo 'Usage: build-cpu-profile.sh baseline|ivybridge|production|production-noomp|ivybridge-mimalloc|community|variants|haikuports' >&2; exit 2;; esac
 H=${OPENCODE_LLAMA_WORK:-/boot/home/haiku-llm}
 PORT=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)
 cd "$H"
@@ -14,15 +14,25 @@ done
 build=$H/build-cpu-$profile
 mkdir -p "$build"
 uname -a > "$build/platform.txt"
+extra=
+gate='-DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_BMI2=OFF -DGGML_AVX512=OFF -DGGML_AVX_VNNI=OFF'
+mimalloc=/boot/system/lib/mimalloc-2.1/mimalloc.o
 case "$profile" in
  baseline) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=OFF -DGGML_AVX=OFF -DGGML_F16C=OFF'; omp=OFF;;
+ # Experiments (docs/COMMUNITY-COMPARISON-20261018.md): allocator, HaikuPorts-like flags, runtime CPU variants.
+ ivybridge-mimalloc) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=ON -DGGML_AVX=ON -DGGML_F16C=ON'; omp=OFF; extra="-DCMAKE_EXE_LINKER_FLAGS=$mimalloc";;
+ community) isa='-DGGML_NATIVE=OFF'; omp=ON; extra="-DCMAKE_EXE_LINKER_FLAGS=$mimalloc";;
+ # ggml has no executable-path lookup for Haiku, so runtime backends need an absolute search directory.
+ variants) isa='-DGGML_NATIVE=OFF -DGGML_BACKEND_DL=ON -DGGML_CPU_ALL_VARIANTS=ON'; omp=OFF; extra="-DGGML_BACKEND_DIR=$build/bin";;
+ # Exactly the flags of the HaikuPorts recipe (GGML_NATIVE=OFF only; OpenMP and mimalloc as in the recipe).
+ haikuports) isa='-DGGML_NATIVE=OFF'; omp=ON; extra="-DCMAKE_EXE_LINKER_FLAGS=$mimalloc -DGGML_RPC=ON"; gate=;;
  ivybridge) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=ON -DGGML_AVX=ON -DGGML_F16C=ON'; omp=OFF;;
  # production*: the host llm-server CPU configuration (GGML_NATIVE=ON, OpenMP on), CUDA off.
  production) isa='-DGGML_NATIVE=ON'; omp=ON;;
  production-noomp) isa='-DGGML_NATIVE=ON'; omp=OFF;;
 esac
 uname -a > "$build/platform.txt"
-if [ "$profile" != baseline ]; then
+if [ "$profile" != baseline ] && [ "$profile" != community ] && [ "$profile" != variants ] && [ "$profile" != haikuports ]; then
  cat > "$build/check-avx.c" <<'C'
 #include <stdio.h>
 int main(void) {
@@ -41,8 +51,8 @@ fi
 gcc --version | head -1 >> "$build/platform.txt"
 # shellcheck disable=SC2086
 cmake -S llama -B "$build" -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON $isa \
- -DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_BMI2=OFF -DGGML_AVX512=OFF -DGGML_AVX_VNNI=OFF \
- -DGGML_CUDA=OFF -DGGML_OPENMP="$omp" -DLLAMA_OPENSSL=OFF -DLLAMA_BUILD_WEBUI=OFF -DLLAMA_BUILD_TESTS=ON
+ $gate \
+ $extra -DGGML_CUDA=OFF -DGGML_OPENMP="$omp" -DLLAMA_OPENSSL=OFF -DLLAMA_BUILD_WEBUI=OFF -DLLAMA_BUILD_TESTS=ON
 cmake --build "$build" --parallel 2 --target llama-server llama-bench test-reasoning-budget test-chat-template
 export LIBRARY_PATH="$build/bin:/boot/system/lib"
 "$build/bin/test-reasoning-budget"

@@ -1,0 +1,59 @@
+ivybridge-mimalloc exit=0
+community exit=0
+variants exit=0
+== ivybridge-mimalloc
+OK: All tests passed successfully.
+CPU_PROFILE_PASS ivybridge-mimalloc (performance not yet measured)
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+AVX/F16C/SSE4.2 usable in this guest
+gcc (2023_08_10) 13.3.0
+CMAKE_EXE_LINKER_FLAGS:STRING=/boot/system/lib/mimalloc-2.1/mimalloc.o
+GGML_BACKEND_DL:BOOL=OFF
+GGML_CPU_ALL_VARIANTS:BOOL=OFF
+GGML_NATIVE:BOOL=OFF
+GGML_OPENMP:BOOL=OFF
+3
+libggml-cpu.so
+libggml-cpu.so.0
+libggml-cpu.so.0.9.11
+== community
+OK: All tests passed successfully.
+CPU_PROFILE_PASS community (performance not yet measured)
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+gcc (2023_08_10) 13.3.0
+CMAKE_EXE_LINKER_FLAGS:STRING=/boot/system/lib/mimalloc-2.1/mimalloc.o
+GGML_BACKEND_DL:BOOL=OFF
+GGML_CPU_ALL_VARIANTS:BOOL=OFF
+GGML_NATIVE:BOOL=OFF
+GGML_OPENMP:BOOL=ON
+3
+libggml-cpu.so
+libggml-cpu.so.0
+libggml-cpu.so.0.9.11
+== variants
+OK: All tests passed successfully.
+CPU_PROFILE_PASS variants (performance not yet measured)
+Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku
+gcc (2023_08_10) 13.3.0
+CMAKE_EXE_LINKER_FLAGS:STRING=
+GGML_BACKEND_DL:BOOL=ON
+GGML_CPU_ALL_VARIANTS:BOOL=ON
+GGML_NATIVE:BOOL=OFF
+GGML_OPENMP:BOOL=OFF
+14
+libggml-cpu-alderlake.so
+libggml-cpu-cannonlake.so
+libggml-cpu-cascadelake.so
+libggml-cpu-cooperlake.so
+libggml-cpu-haswell.so
+libggml-cpu-icelake.so
+libggml-cpu-ivybridge.so
+libggml-cpu-piledriver.so
+libggml-cpu-sandybridge.so
+libggml-cpu-sapphirerapids.so
+libggml-cpu-skylakex.so
+libggml-cpu-sse42.so
+libggml-cpu-x64.so
+libggml-cpu-zen4.so
+
+exit=0

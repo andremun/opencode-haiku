@@ -1,0 +1,53 @@
+-rw-r--r-- 1 user root 16061 Oct 18 19:18 /boot/home/Desktop/llama-bench-15471-debug-18-10-2026-19-18-08.report
+-rw-r--r-- 1 user root 16061 Oct 18 19:18 /boot/home/Desktop/llama-bench-15471-debug-18-10-2026-19-18-08.report
+FILE=/boot/home/Desktop/llama-bench-15471-debug-18-10-2026-19-18-08.report
+Debug information for team /boot/home/haiku-llm/build-cpu-haikuports/bin/llama-bench (15471):
+CPU(s): 2x Intel Xeon® E5-2620 v2
+Memory: 7.99 GiB total, 463.60 MiB used
+Haiku revision: hrev60207 Oct  5 2026 07:12:07 (x86_64)
+
+Active Threads:
+	thread 15473: team 15471 debug task 
+	thread 15471: llama-bench (main)
+		state: Exception (Invalid opcode exception)
+
+		Frame		IP			Function Name
+		-----------------------------------------------
+		0x7f9fbdc93190	0x175c3ada3e7	ggml_cpu_init + 0xf7 
+			Disassembly:
+				ggml_cpu_init:
+				0x00000175c3ada2f0:             4155  push %r13
+				0x00000175c3ada2f2:       4c8d6c2410  lea 0x10(%rsp), %r13
+				0x00000175c3ada2f7:         4883e4e0  and $-0x20, %rsp
+				0x00000175c3ada2fb:         41ff75f8  pushq -0x8(%r13)
+				0x00000175c3ada2ff:               55  push %rbp
+				0x00000175c3ada300:           4889e5  mov %rsp, %rbp
+				0x00000175c3ada303:             4156  push %r14
+				0x00000175c3ada305:             4155  push %r13
+				0x00000175c3ada307:             4154  push %r12
+				0x00000175c3ada309:               53  push %rbx
+				0x00000175c3ada30a:   4881ecd0000000  sub $0xd0, %rsp
+				0x00000175c3ada311: 48c745b000000000  movq $0x0, -0x50(%rbp)
+				0x00000175c3ada319: 48c745b800000000  movq $0x0, -0x48(%rbp)
+				0x00000175c3ada321:       c5f96f5db0  vmovdqax -0x50(%rbp), %xmm3
+				0x00000175c3ada326:         c645c000  movb $0x0, -0x40(%rbp)
+				0x00000175c3ada32a:       c5fa7f1c24  vmovdqux %xmm3, (%rsp)
+				0x00000175c3ada32f:         488b45c0  movq -0x40(%rbp), %rax
+				0x00000175c3ada333:       4889442410  movq %rax, 0x10(%rsp)
+				0x00000175c3ada338:       e8b394ffff  call 0x175c3ad37f0
+				0x00000175c3ada33d:         4883c420  add $0x20, %rsp
+				0x00000175c3ada341:           4889c7  mov %rax, %rdi
+				0x00000175c3ada344:       e89783ffff  call 0x175c3ad26e0
+				0x00000175c3ada349:       e8f287ffff  call 0x175c3ad2b40
+				0x00000175c3ada34e:   803d3be50d0000  cmpb $0x0, 0x175c3bb8890
+				0x00000175c3ada355:             7517  jnz 0x175c3ada36e
+
+exit=0
+13:		0x7f9fbdc93190	0x175c3ada3e7	ggml_cpu_init + 0xf7 
+71:				0x00000175c3ada3d1: c5f259157b1c0c00  vmulssl 0x175c3b9c054, %xmm1, %xmm2
+72:				0x00000175c3ada3d9:     898570ffffff  movl %eax, -0x90(%rbp)
+73:				0x00000175c3ada3df: c5f25905691c0c00  vmulssl 0x175c3b9c050, %xmm1, %xmm0
+74:				0x00000175c3ada3e7: c4e271a915681c0c  vfmadd213ssl 0x175c3b9c058, %xmm1, %xmm2 <--
+104:			  rip:	0x00000175c3ada3e7
+
+exit=0

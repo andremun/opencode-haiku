@@ -21,6 +21,16 @@ OpenMP) passes the same builds, benchmark, inference and coding fixture. Without
 OpenMP it passes too and decodes about 40% faster in this 2-vCPU guest. See the
 addendum in [T7610-KVM-HAIKU5-RESULTS-20261016.md](T7610-KVM-HAIKU5-RESULTS-20261016.md).
 
+### 19 October 2026: community comparison and Kepler static study
+
+Compared with the community llama.cpp work on Haiku: our patch is a superset for b8861; the HaikuPorts recipe flags
+(`GGML_NATIVE=OFF`) enable AVX2/FMA/BMI2 and the resulting build crashes on this Ivy Bridge CPU; runtime CPU variants
+work on Haiku once `GGML_BACKEND_DIR` is set (ggml has no Haiku executable-path lookup), reaching near the tuned
+build; OpenMP again cost about 40% decode speed; mimalloc did nothing:
+[COMMUNITY-COMPARISON-20261018.md](COMMUNITY-COMPARISON-20261018.md). Host capabilities and a GPU-free comparison of
+Clang 23 with nvcc 11.4 for Kepler kernels: [HOST-CAPABILITIES-20261018.md](HOST-CAPABILITIES-20261018.md),
+[KEPLER-LLVM-STATIC-20261018.md](KEPLER-LLVM-STATIC-20261018.md).
+
 ### 18 October 2026: phases 1 to 3 of the continuation plan
 
 The driver's native link/load gate (ESC-001) is unblocked and passes on the KVM guest (probes link
