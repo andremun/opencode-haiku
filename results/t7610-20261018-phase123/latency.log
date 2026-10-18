@@ -1,0 +1,24 @@
+#### ivybridge
+exit=0 elapsed_s=40
+[0m
+> probe · haiku-qwen17
+OK
+slot update_slots: id  0 | task 0 | n_tokens = 128, memory_seq_rm [128, end)
+slot update_slots: id  0 | task 0 | prompt processing done, n_tokens = 223, batch.n_tokens = 95
+prompt eval time =   28085.13 ms /   223 tokens (  125.94 ms per token,     7.94 tokens per second)
+       eval time =     207.45 ms /     2 tokens (  103.72 ms per token,     9.64 tokens per second)
+      total time =   28292.58 ms /   225 tokens
+slot      release: id  0 | task 0 | stop processing: n_tokens = 224, truncated = 0
+#### baseline
+exit=0 elapsed_s=165
+[0m
+> probe · haiku-qwen17
+OK
+slot update_slots: id  0 | task 0 | n_tokens = 128, memory_seq_rm [128, end)
+slot update_slots: id  0 | task 0 | prompt processing done, n_tokens = 223, batch.n_tokens = 95
+prompt eval time =  157696.14 ms /   223 tokens (  707.16 ms per token,     1.41 tokens per second)
+       eval time =    1014.40 ms /     2 tokens (  507.20 ms per token,     1.97 tokens per second)
+      total time =  158710.54 ms /   225 tokens
+slot      release: id  0 | task 0 | stop processing: n_tokens = 224, truncated = 0
+
+exit=0

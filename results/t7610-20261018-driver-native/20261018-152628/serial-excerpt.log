@@ -1,0 +1,19 @@
+ps2: devfs_publish_device input/mouse/ps2/intelli_0, status = 0x00000000
+ps2: devfs_publish_device input/keyboard/at/0, status = 0x00000000
+ps2: keyboard found
+slab memory manager: created area 0xffffffffa0001000 (10342)
+driver "k40_cardless_probe" added
+K40-CARDLESS-BEGIN
+k40_os: host allocation bytes 4096, guest physical 0x1f690000; IOVA unverified
+k40_os: emulated VGA read-only MMIO id 0xb0c5
+k40_os: PASS native OS mechanics only
+loaded driver /boot/system/non-packaged/add-ons/kernel/drivers/dev/misc/k40_cardless_probe
+nvmm: init_driver OK
+loaded driver /boot/system/add-ons/kernel/drivers/dev/misc/nvmm
+loaded driver /boot/system/add-ons/kernel/drivers/dev/misc/mem
+loaded driver /boot/system/add-ons/kernel/drivers/dev/misc/poke
+devfs: reload driver "k40_cardless_probe" (3, 3670128)
+k40_os: host allocation bytes 4096, guest physical 0x1fba8000; IOVA unverified
+k40_os: emulated VGA read-only MMIO id 0xb0c5
+k40_os: PASS native OS mechanics only
+K40-CARDLESS-END

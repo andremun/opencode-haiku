@@ -21,6 +21,15 @@ OpenMP) passes the same builds, benchmark, inference and coding fixture. Without
 OpenMP it passes too and decodes about 40% faster in this 2-vCPU guest. See the
 addendum in [T7610-KVM-HAIKU5-RESULTS-20261016.md](T7610-KVM-HAIKU5-RESULTS-20261016.md).
 
+### 18 October 2026: phases 1 to 3 of the continuation plan
+
+The driver's native link/load gate (ESC-001) is unblocked and passes on the KVM guest (probes link
+against the byte-identical guest kernel; cardless load prints `k40_os: PASS`). Ivy Bridge, OpenMP
+off, is now the default Haiku llama.cpp profile (same Stories15M text as Linux; OpenCode exchange
+40 s against 165 s on the baseline). Browser terminal panel, TUI resize and reconnect pass on the
+KVM build; the renderer hash difference is only an embedded cache path. Details:
+[PHASE-1-3-RESULTS-20261018.md](PHASE-1-3-RESULTS-20261018.md).
+
 ### 18 October 2026: audit disposition and cloud task
 
 An external static audit was checked: eight findings were valid and fixed (transfer-server dot

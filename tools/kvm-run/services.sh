@@ -36,12 +36,15 @@ trap 'exit 129' HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
 H=${OPENCODE_LLAMA_WORK:-/boot/home/haiku-llm}
-profile=${OPENCODE_LLAMA_PROFILE:-installed}
+# Default: Ivy Bridge, OpenMP off (adopted 2026-10-18, see docs/KVM-VM.md). Build it with
+# build-cpu-profile.sh ivybridge. Use OPENCODE_LLAMA_PROFILE=installed|baseline for the SSE2 build.
+profile=${OPENCODE_LLAMA_PROFILE:-ivybridge}
 case "$profile" in
  installed) binary=$H/build/bin/llama-server;;
  baseline|ivybridge|production|production-noomp) binary=$H/build-cpu-$profile/bin/llama-server;;
  *) echo 'Unknown CPU profile.' >&2; exit 2;;
 esac
+[ -x "$binary" ] || { echo "llama-server for profile '$profile' not built: $binary (run tools/kvm-run/build-cpu-profile.sh $profile)" >&2; exit 2; }
 batch=${OPENCODE_LLAMA_BATCH:-128}
 ubatch=${OPENCODE_LLAMA_UBATCH:-32}
 for value in "$batch" "$ubatch"; do case "$value" in ''|*[!0-9]*|0) echo 'Batch sizes must be positive integers.' >&2; exit 2;; esac; done

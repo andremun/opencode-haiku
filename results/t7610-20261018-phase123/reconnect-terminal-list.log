@@ -1,0 +1,3 @@
+{"data":[{"id":"pty_persistent_8884814468513883","title":"Terminal","command":"/bin/bash","args":[],"cwd":"/boot/home/opencode-work","status":"running","pid":1449,"sessionID":"ses_eb2acc07fffez6FWFH0PjhVjll","foregroundProcess":null,"size":{"cols":62,"rows":39},"output":{"head":0,"tail":388}}]}
+
+exit=0

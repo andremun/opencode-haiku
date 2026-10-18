@@ -1,0 +1,5 @@
+build1 rc=0
+98c2f0368c9c91cffc03dd9e3df83f556d3069a5b70da16797548894ad135ce1
+build2 rc=0
+98c2f0368c9c91cffc03dd9e3df83f556d3069a5b70da16797548894ad135ce1
+archive libopentui.so sha256 908b03086af9b4b9203b5a5822ea73044b0852773e7d225f7b650ea6974e94ab; same size 22325312; 31 differing bytes, all inside an embedded zig cache path (.zig-cache/o/<32 hex>)

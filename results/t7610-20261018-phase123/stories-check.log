@@ -1,0 +1,15 @@
+/boot/home/haiku-llm/models/stories15M-q4_0.gguf: OK
+== baseline: MATCH
+ girl named Lily. She loved to play outside and explore the world around her. One day, she went on a walk in the forest and saw a big
+--tokens=32 gen_tps=180.15
+== ivybridge: MATCH
+ girl named Lily. She loved to play outside and explore the world around her. One day, she went on a walk in the forest and saw a big
+--tokens=32 gen_tps=361.04
+== production-noomp: MATCH
+ girl named Lily. She loved to play outside and explore the world around her. One day, she went on a walk in the forest and saw a big
+--tokens=32 gen_tps=373.69
+== production: MATCH
+ girl named Lily. She loved to play outside and explore the world around her. One day, she went on a walk in the forest and saw a big
+--tokens=32 gen_tps=51.79
+
+exit=0
