@@ -72,3 +72,23 @@ Static only. Not measured: speed, numerical equality, correct execution, real oc
 which kernels the production run actually launches (inferred from quantisation types), and `ggml-cuda.cu` itself
 (needs cuBLAS and NCCL headers; not compiled). Kernel type 40 is an enum value I did not identify. Compile times were taken
 while a VM benchmark ran. A runtime comparison needs a card, which requires your decision (see the host report).
+
+## Addendum 19 October 2026: full Clang library built; on-card run prepared, not executed
+
+- **The whole `libggml-cuda` builds with Clang.** All 133 sources of the deployed target (61 top-level and 72 template
+  instances) compile as host plus device code for `sm_35` with Clang 23.1.3 (flush-to-zero, approximate transcendentals,
+  approximate divide and square root set to mirror `-use_fast_math`), link with the deployed link line, and the result
+  (`tools/kepler-static/build_clang_ggml_cuda.py`, about four minutes on 10 jobs) is 55.7 MB against 99.0 MB for the
+  nvcc build. Both embed only `sm_35` cubins; the public `ggml_*` API symbols are identical, and the dynamic loader
+  resolves it cleanly in place of the deployed library (all deployed binaries use `RUNPATH`, so a private
+  `LD_LIBRARY_PATH` directory with only `libggml-cuda.so.0` replaced takes precedence). Nothing was executed on a GPU.
+- **On-card comparison: not run.** At your instruction I prepared `tools/kepler-static/run_card_comparison.sh`: it pauses
+  `llama-server-one.service` (user unit; nothing was connected and the slot was idle when I checked), uses only the card
+  named in the unit, runs `test-backend-ops` correctness and performance per operation and `llama-bench` on
+  Qwen3.5-9B Q4_K_XL (fully on the card) for both libraries in A-B-A order, and restarts and health-checks the service
+  via an exit trap and a 150-minute dead-man timer. The auto-mode classifier blocked the step that stops the service and
+  queries the card ("interferes with workloads"), so nothing was paused and no GPU was accessed. See the status notes in
+  the session report for how to proceed.
+- **Risks to accept before running:** a faulty Clang kernel could hang the Kepler card (needs a driver reset or reboot,
+  which cannot be done without root); the production model needs a few minutes to reload after the pause; the test window
+  is roughly 40 to 90 minutes.
