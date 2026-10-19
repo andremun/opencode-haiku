@@ -1,0 +1,3 @@
+temperature.gpu, clocks.current.sm [MHz], utilization.gpu [%], memory.used [MiB]
+73, 745 MHz, 85 %, 77 MiB
+88, 875 MHz, 0 %, 629 MiB

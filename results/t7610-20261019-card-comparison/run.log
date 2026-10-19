@@ -1,0 +1,58 @@
+08:56:06 pausing llama-server-one.service (UUID GPU-fe68b526-b148-5b7b-0fa1-309819b4527e)
+MainPID=3455384
+ActiveState=active
+{"status":"ok"}
+08:56:20 card memory in use after pause: 77 MiB
+08:57:23 test MUL_MAT nvcc rc=0 2/2 backends passed
+08:58:25 test MUL_MAT clang rc=0 2/2 backends passed
+08:59:21 test MUL_MAT_ID nvcc rc=0 2/2 backends passed
+09:00:17 test MUL_MAT_ID clang rc=0 2/2 backends passed
+09:02:21 test FLASH_ATTN_EXT nvcc rc=0 2/2 backends passed
+09:04:27 test FLASH_ATTN_EXT clang rc=1 1/2 backends passed
+09:04:36 test SOFT_MAX nvcc rc=1 1/2 backends passed
+09:04:45 test SOFT_MAX clang rc=1 1/2 backends passed
+09:04:47 test RMS_NORM nvcc rc=0 2/2 backends passed
+09:04:47 test RMS_NORM clang rc=0 2/2 backends passed
+09:05:20 test ROPE nvcc rc=0 2/2 backends passed
+09:05:51 test ROPE clang rc=0 2/2 backends passed
+09:06:10 test GET_ROWS nvcc rc=0 2/2 backends passed
+09:06:28 test GET_ROWS clang rc=0 2/2 backends passed
+09:06:31 test CPY nvcc rc=0 2/2 backends passed
+09:06:34 test CPY clang rc=0 2/2 backends passed
+09:06:35 test SCALE nvcc rc=0 2/2 backends passed
+09:06:35 test SCALE clang rc=0 2/2 backends passed
+09:06:49 test ADD nvcc rc=0 2/2 backends passed
+09:07:03 test ADD clang rc=0 2/2 backends passed
+09:07:12 test MUL nvcc rc=0 2/2 backends passed
+09:07:21 test MUL clang rc=0 2/2 backends passed
+09:07:22 test UNARY nvcc rc=0 2/2 backends passed
+09:07:22 test UNARY clang rc=0 2/2 backends passed
+09:07:23 test GLU nvcc rc=0 2/2 backends passed
+09:07:24 test GLU clang rc=0 2/2 backends passed
+09:07:26 test ARGSORT nvcc rc=0 2/2 backends passed
+09:07:28 test ARGSORT clang rc=0 2/2 backends passed
+09:07:29 test TOP_K nvcc rc=0 2/2 backends passed
+09:07:30 test TOP_K clang rc=0 2/2 backends passed
+09:07:31 test SUM_ROWS nvcc rc=0 2/2 backends passed
+09:07:31 test SUM_ROWS clang rc=0 2/2 backends passed
+09:07:32 test CONCAT nvcc rc=0 2/2 backends passed
+09:07:33 test CONCAT clang rc=0 2/2 backends passed
+09:20:28 perf MUL_MAT nvcc rc=0
+09:33:37 perf MUL_MAT clang rc=0
+09:46:19 perf MUL_MAT nvcc2 rc=0
+10:02:49 perf MUL_MAT_ID nvcc rc=0
+10:19:13 perf MUL_MAT_ID clang rc=0
+10:35:44 perf MUL_MAT_ID nvcc2 rc=0
+10:36:08 perf FLASH_ATTN_EXT nvcc rc=0
+10:36:31 perf FLASH_ATTN_EXT clang rc=0
+10:36:54 perf FLASH_ATTN_EXT nvcc2 rc=0
+10:38:05 llama-bench nvcc rc=0
+10:39:04 llama-bench clang rc=0
+10:40:05 llama-bench nvcc2 rc=0
+10:40:05 tests finished; restoring service via exit trap
+10:40:05 restoring llama-server-one.service
+10:40:48 service healthy after about 50 s
+{"models":[{"name":"qwen3.6-k40b-t1k","model":"qwen3.6-k40b-t1k","modified_at":"","size":"","digest":"","type":"model","description":"","tags":[""],"capabilities":["completion"],"parameters":"","details":{"parent_model":"","format":"gguf","family":"","families":[""],"parameter_size":"","quantization
+MainPID=937821
+ActiveState=active
+10:40:48 restore finished

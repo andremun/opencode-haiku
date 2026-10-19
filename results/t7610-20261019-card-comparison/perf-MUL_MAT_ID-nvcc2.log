@@ -1,0 +1,169 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 11441 MiB):
+  Device 0: Tesla K40c, compute capability 3.5, VMM: yes, VRAM: 11441 MiB
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+Testing 2 devices
+
+Backend 1/2: CUDA0
+  Device description: Tesla K40c
+  Device memory: 11441 MB (11255 MB free)
+
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  3974 runs -   431.73 us/run -  25.17 MFLOP/run - [1;34m 58.29 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  3974 runs -   377.12 us/run -  25.17 MFLOP/run - [1;34m 66.73 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 7948 runs -   129.40 us/run -  25.17 MFLOP/run - [1;34m194.48 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 7948 runs -   170.62 us/run -  25.17 MFLOP/run - [1;34m147.49 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 7948 runs -   177.28 us/run -  25.17 MFLOP/run - [1;34m141.96 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 7948 runs -   227.23 us/run -  25.17 MFLOP/run - [1;34m110.75 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+               7948 runs -   189.54 us/run -  25.17 MFLOP/run - [1;34m132.78 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                   994 runs -  1541.03 us/run - 100.66 MFLOP/run - [1;34m 65.32 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048):                    994 runs -  1274.66 us/run - 100.66 MFLOP/run - [1;34m 78.97 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048):                  3976 runs -   288.66 us/run - 100.66 MFLOP/run - [1;34m348.72 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 2982 runs -   395.13 us/run - 100.66 MFLOP/run - [1;34m254.76 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048):                  2982 runs -   444.79 us/run - 100.66 MFLOP/run - [1;34m226.32 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 1988 runs -   647.87 us/run - 100.66 MFLOP/run - [1;34m155.38 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=4,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+               2982 runs -   465.17 us/run - 100.66 MFLOP/run - [1;34m216.40 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048):                    497 runs -  2877.82 us/run - 201.33 MFLOP/run - [1;34m 69.96 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048):                    497 runs -  2447.05 us/run - 201.33 MFLOP/run - [1;34m 82.27 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048):                   994 runs -  1599.35 us/run - 201.33 MFLOP/run - [1;34m125.88 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048):                   994 runs -  2003.86 us/run - 201.33 MFLOP/run - [1;34m100.47 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  497 runs -  2038.96 us/run - 201.33 MFLOP/run - [1;34m 98.74 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  497 runs -  2134.77 us/run - 201.33 MFLOP/run - [1;34m 94.31 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=8,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                497 runs -  2208.34 us/run - 201.33 MFLOP/run - [1;34m 91.17 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  125 runs -  8396.21 us/run - 805.31 MFLOP/run - [1;34m 95.91 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  250 runs -  7964.50 us/run - 805.31 MFLOP/run - [1;34m101.11 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 250 runs -  4304.15 us/run - 805.31 MFLOP/run - [1;34m187.10 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048):                  250 runs -  4869.91 us/run - 805.31 MFLOP/run - [1;34m165.36 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048):                  250 runs -  6324.31 us/run - 805.31 MFLOP/run - [1;34m127.34 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 250 runs -  6246.20 us/run - 805.31 MFLOP/run - [1;34m128.93 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=32,k=2048):                250 runs -  7257.51 us/run - 805.31 MFLOP/run - [1;34m110.96 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048):                   126 runs - 11434.89 us/run -   1.61 GFLOP/run - [1;34m140.85 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048):                   126 runs - 14998.97 us/run -   1.61 GFLOP/run - [1;34m107.38 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048):                  189 runs -  7348.71 us/run -   1.61 GFLOP/run - [1;34m219.17 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048):                  126 runs -  8177.38 us/run -   1.61 GFLOP/run - [1;34m196.96 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048):                  126 runs - 11599.31 us/run -   1.61 GFLOP/run - [1;34m138.85 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 126 runs - 10081.71 us/run -   1.61 GFLOP/run - [1;34m159.76 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=64,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+               126 runs - 12607.02 us/run -   1.61 GFLOP/run - [1;34m127.76 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  64 runs - 16545.73 us/run -   3.22 GFLOP/run - [1;34m194.69 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048):                   64 runs - 30808.09 us/run -   3.22 GFLOP/run - [1;34m104.56 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 64 runs - 20251.80 us/run -   3.22 GFLOP/run - [1;34m159.06 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 64 runs - 19741.14 us/run -   3.22 GFLOP/run - [1;34m163.17 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 64 runs - 24588.89 us/run -   3.22 GFLOP/run - [1;34m131.00 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 64 runs - 19899.64 us/run -   3.22 GFLOP/run - [1;34m161.87 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=128,k=2048):                64 runs - 26971.59 us/run -   3.22 GFLOP/run - [1;34m119.43 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048):                   48 runs - 22525.38 us/run -   6.44 GFLOP/run - [1;34m286.01 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048):                   32 runs - 38721.53 us/run -   6.44 GFLOP/run - [1;34m166.38 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048):                  32 runs - 33651.44 us/run -   6.44 GFLOP/run - [1;34m191.45 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048):                  32 runs - 32820.88 us/run -   6.44 GFLOP/run - [1;34m196.29 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048):                  32 runs - 35753.19 us/run -   6.44 GFLOP/run - [1;34m180.19 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 48 runs - 29431.33 us/run -   6.44 GFLOP/run - [1;34m218.90 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=256,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+               32 runs - 44760.78 us/run -   6.44 GFLOP/run - [1;34m143.93 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  40 runs - 30682.33 us/run -  12.88 GFLOP/run - [1;34m419.95 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  24 runs - 46817.92 us/run -  12.88 GFLOP/run - [1;34m275.21 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048):                  24 runs - 42001.83 us/run -  12.88 GFLOP/run - [1;34m306.77 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048):                  32 runs - 40930.62 us/run -  12.88 GFLOP/run - [1;34m314.80 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 24 runs - 43755.88 us/run -  12.88 GFLOP/run - [1;34m294.47 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 32 runs - 37854.56 us/run -  12.88 GFLOP/run - [1;34m340.38 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=128,n_used=8,b=0,m=768,n=512,k=2048):                24 runs - 52480.96 us/run -  12.88 GFLOP/run - [1;34m245.52 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048):                   3406 runs -   450.06 us/run -  29.36 MFLOP/run - [1;34m 65.24 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048):                   3406 runs -   391.34 us/run -  29.36 MFLOP/run - [1;34m 75.02 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048):                  6812 runs -   148.42 us/run -  29.36 MFLOP/run - [1;34m197.82 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048):                  6812 runs -   196.23 us/run -  29.36 MFLOP/run - [1;34m149.62 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048):                  6812 runs -   204.43 us/run -  29.36 MFLOP/run - [1;34m143.62 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 6812 runs -   262.65 us/run -  29.36 MFLOP/run - [1;34m111.78 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=1,k=2048):                6812 runs -   218.57 us/run -  29.36 MFLOP/run - [1;34m134.33 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048):                    852 runs -  1555.11 us/run - 117.44 MFLOP/run - [1;34m 75.52 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048):                    852 runs -  1283.73 us/run - 117.44 MFLOP/run - [1;34m 91.48 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048):                  3408 runs -   329.72 us/run - 117.44 MFLOP/run - [1;34m356.18 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048):                  2556 runs -   443.49 us/run - 117.44 MFLOP/run - [1;34m264.81 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048):                  2556 runs -   511.70 us/run - 117.44 MFLOP/run - [1;34m229.51 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 1704 runs -   746.79 us/run - 117.44 MFLOP/run - [1;34m157.26 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=4,k=2048):                2556 runs -   534.35 us/run - 117.44 MFLOP/run - [1;34m219.78 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048):                    426 runs -  2697.86 us/run - 234.88 MFLOP/run - [1;34m 87.06 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048):                    426 runs -  2453.99 us/run - 234.88 MFLOP/run - [1;34m 95.71 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048):                   852 runs -  1173.87 us/run - 234.88 MFLOP/run - [1;34m200.09 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048):                   852 runs -  1485.87 us/run - 234.88 MFLOP/run - [1;34m158.08 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048):                   852 runs -  1782.56 us/run - 234.88 MFLOP/run - [1;34m131.77 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                  852 runs -  1713.60 us/run - 234.88 MFLOP/run - [1;34m137.07 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=8,k=2048):                 852 runs -  2144.73 us/run - 234.88 MFLOP/run - [1;34m109.52 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048):                   214 runs -  5223.95 us/run - 939.52 MFLOP/run - [1;34m179.85 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048):                   214 runs -  8030.56 us/run - 939.52 MFLOP/run - [1;34m116.99 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048):                  321 runs -  3309.30 us/run - 939.52 MFLOP/run - [1;34m283.90 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048):                  321 runs -  3618.72 us/run - 939.52 MFLOP/run - [1;34m259.63 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048):                  214 runs -  5822.44 us/run - 939.52 MFLOP/run - [1;34m161.36 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 214 runs -  5160.40 us/run - 939.52 MFLOP/run - [1;34m182.06 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=32,k=2048):                214 runs -  6119.43 us/run - 939.52 MFLOP/run - [1;34m153.53 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048):                   162 runs -  7282.88 us/run -   1.88 GFLOP/run - [1;34m258.01 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048):                   108 runs - 15105.19 us/run -   1.88 GFLOP/run - [1;34m124.40 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048):                  162 runs -  9036.18 us/run -   1.88 GFLOP/run - [1;34m207.95 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048):                  108 runs -  9501.42 us/run -   1.88 GFLOP/run - [1;34m197.77 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048):                  108 runs - 11447.75 us/run -   1.88 GFLOP/run - [1;34m164.14 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 108 runs -  9646.94 us/run -   1.88 GFLOP/run - [1;34m194.78 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=64,k=2048):                108 runs - 14598.01 us/run -   1.88 GFLOP/run - [1;34m128.72 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048):                  108 runs -  9947.04 us/run -   3.76 GFLOP/run - [1;34m377.81 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048):                   54 runs - 19148.96 us/run -   3.76 GFLOP/run - [1;34m196.26 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048):                  81 runs - 15980.52 us/run -   3.76 GFLOP/run - [1;34m235.17 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048):                  81 runs - 15253.96 us/run -   3.76 GFLOP/run - [1;34m246.37 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048):                  81 runs - 17138.85 us/run -   3.76 GFLOP/run - [1;34m219.27 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 81 runs - 13689.02 us/run -   3.76 GFLOP/run - [1;34m274.53 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=128,k=2048):                54 runs - 22498.70 us/run -   3.76 GFLOP/run - [1;34m167.04 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048):                   84 runs - 14060.11 us/run -   7.52 GFLOP/run - [1;34m534.58 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048):                   56 runs - 22671.59 us/run -   7.52 GFLOP/run - [1;34m331.52 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048):                  56 runs - 20535.71 us/run -   7.52 GFLOP/run - [1;34m366.01 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048):                  56 runs - 19873.96 us/run -   7.52 GFLOP/run - [1;34m378.19 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048):                  56 runs - 21607.09 us/run -   7.52 GFLOP/run - [1;34m347.86 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 70 runs - 17610.60 us/run -   7.52 GFLOP/run - [1;34m426.80 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=256,k=2048):                42 runs - 26672.05 us/run -   7.52 GFLOP/run - [1;34m281.80 GFLOPS[0m
+  MUL_MAT_ID(type_a=f32,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048):                   56 runs - 20327.66 us/run -  15.03 GFLOP/run - [1;34m739.50 GFLOPS[0m
+  MUL_MAT_ID(type_a=f16,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048):                   35 runs - 30491.80 us/run -  15.03 GFLOP/run - [1;34m493.00 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048):                  42 runs - 27150.81 us/run -  15.03 GFLOP/run - [1;34m553.66 GFLOPS[0m
+  MUL_MAT_ID(type_a=q8_0,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048):                  42 runs - 27861.36 us/run -  15.03 GFLOP/run - [1;34m539.54 GFLOPS[0m
+  MUL_MAT_ID(type_a=q4_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048):                  42 runs - 28040.19 us/run -  15.03 GFLOP/run - [1;34m536.10 GFLOPS[0m
+  MUL_MAT_ID(type_a=q6_K,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+                 42 runs - 26580.29 us/run -  15.03 GFLOP/run - [1;34m565.55 GFLOPS[0m
+  MUL_MAT_ID(type_a=iq2_xs,type_b=f32,n_mats=32,n_used=4,b=0,m=1792,n=512,k=2048):                35 runs - 34193.17 us/run -  15.03 GFLOP/run - [1;34m439.63 GFLOPS[0m
+  MUL_MAT_ID(type_a=mxfp4,type_b=f32,n_mats=32,n_used=4,b=0,m=2880,n=1,k=2880):                 3016 runs -   413.17 us/run -  66.36 MFLOP/run - [1;34m160.60 GFLOPS[0m
+  MUL_MAT_ID(type_a=mxfp4,type_b=f32,n_mats=32,n_used=4,b=0,m=2880,n=4,k=2880):                 1131 runs -  1175.60 us/run - 265.42 MFLOP/run - [1;34m225.78 GFLOPS[0m
+  MUL_MAT_ID(type_a=mxfp4,type_b=f32,n_mats=32,n_used=4,b=0,m=2880,n=8,k=2880):                  378 runs -  3111.91 us/run - 530.84 MFLOP/run - [1;34m170.58 GFLOPS[0m
+  MUL_MAT_ID(type_a=mxfp4,type_b=f32,n_mats=32,n_used=4,b=0,m=2880,n=512,k=2880):                 21 runs - 52781.76 us/run -  33.97 GFLOP/run - [1;34m643.67 GFLOPS[0m
+  Backend CUDA0: [1;32mOK[0m
+Backend 2/2: CPU
+  Skipping
+2/2 backends passed
+[1;32mOK[0m

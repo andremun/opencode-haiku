@@ -1,0 +1,38 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 11441 MiB):
+  Device 0: Tesla K40c, compute capability 3.5, VMM: yes, VRAM: 11441 MiB
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+Testing 2 devices
+
+Backend 1/2: CUDA0
+  Device description: Tesla K40c
+  Device memory: 11441 MB (11261 MB free)
+
+  SCALE(type=f32,ne=[10,10,10,10],scale=2.000000,bias=0.000000,inplace=0): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+[1;32mOK[0m
+  SCALE(type=f32,ne=[10,10,10,10],scale=2.000000,bias=1.000000,inplace=0): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+[1;32mOK[0m
+  SCALE(type=f32,ne=[10,10,10,10],scale=2.000000,bias=1.000000,inplace=1): ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+ggml_cuda_graph_set_enabled: disabling CUDA graphs due to GPU architecture
+[1;32mOK[0m
+  SCALE(type=f32,ne=[100,10,10,10],scale=2.000000,bias=1.000000,inplace=0): [1;32mOK[0m
+  4/4 tests passed
+  Backend CUDA0: [1;32mOK[0m
+Backend 2/2: CPU
+  Skipping
+2/2 backends passed
+[1;32mOK[0m

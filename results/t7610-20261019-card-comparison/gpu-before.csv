@@ -1,0 +1,3 @@
+uuid, name, memory.used [MiB], memory.total [MiB], temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.max.sm [MHz]
+GPU-fe68b526-b148-5b7b-0fa1-309819b4527e, Tesla K40c, 77 MiB, 11441 MiB, 62, 0 %, 745 MHz, 875 MHz
+GPU-aa99b21e-607e-e55f-aa9f-f7cf0d9ba204, Quadro K600, 661 MiB, 980 MiB, 83, 39 %, 875 MHz, 875 MHz

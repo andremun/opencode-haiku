@@ -109,3 +109,10 @@ host failure, or an unkillable kernel/GPU task. Those require manual recovery.
 Only fake workers and fake service/GPU commands have tested this revision; no card
 run, production pause or restoration was performed. Invocation remains subject to
 separate user authorisation. See [RUNNER-FIXES-20261019.md](RUNNER-FIXES-20261019.md).
+
+## Update 20 October 2026
+
+The on-card comparison has now run: see [KEPLER-CARD-COMPARISON-20261019.md](KEPLER-CARD-COMPARISON-20261019.md).
+Summary: everything passes except flash attention (417 of 2,832 cases give NaN with the Clang build, probably a
+fast-math setting); production quantisation kernels are about 5 to 15% faster at the median; i-quant kernels are
+about 5 times slower; the static register and spill counts did not predict the ordering.

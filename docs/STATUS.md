@@ -2,6 +2,16 @@
 
 Updated 19 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
 
+## 20 October 2026: card comparison, driver and guest-LLM follow-ups
+
+- The on-card comparison ran (service paused 08:56 to 10:40, restored and healthy): Clang-built `libggml-cuda` passes
+  all tested operations except flash attention (NaN in 417 of 2,832 cases, probably `-ffast-math` assuming finite
+  values); production quantisation kernels about 5 to 15% faster at the median; i-quant kernels about 5x slower.
+  [KEPLER-CARD-COMPARISON-20261019.md](KEPLER-CARD-COMPARISON-20261019.md). The run used the runner as of `784ef26`.
+- Driver repository: ESC-001 resolution committed there (`231b053`, not pushed). Guest-LLM repository: Ivy Bridge
+  profile adopted with a baseline fallback (`e0e38fa`, not pushed). Context for separate sessions:
+  [SESSION-HANDOFF-20261020.md](SESSION-HANDOFF-20261020.md).
+
 ## 19 October 2026: offline review fixes
 
 Fixed cloud acceptance to reject a failed/timed-out client, failed or unknown-status
