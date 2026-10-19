@@ -1,0 +1,33 @@
+test_api_failure_is_not_replaced_by_successful_upload (__main__.RunnerTests.test_api_failure_is_not_replaced_by_successful_upload) ... ok
+test_cargo_test_and_clippy_failures_are_not_hidden_by_tail (__main__.RunnerTests.test_cargo_test_and_clippy_failures_are_not_hidden_by_tail) ... ok
+test_cloud_task_fixture_and_acceptance_controls (__main__.RunnerTests.test_cloud_task_fixture_and_acceptance_controls) ... ok
+test_cloud_task_requires_a_model_and_launcher (__main__.RunnerTests.test_cloud_task_requires_a_model_and_launcher) ... ok
+test_coding_acceptance_requires_agent_test_and_an_unchanged_passing_fixture (__main__.RunnerTests.test_coding_acceptance_requires_agent_test_and_an_unchanged_passing_fixture) ... ok
+test_cpu_experiments_refuse_the_host_platform (__main__.RunnerTests.test_cpu_experiments_refuse_the_host_platform) ... ok
+test_guest_failure_reaches_host_and_missing_status_rejected (__main__.RunnerTests.test_guest_failure_reaches_host_and_missing_status_rejected) ... ok
+test_guest_wrapper_fetches_the_key_into_memory_once (__main__.RunnerTests.test_guest_wrapper_fetches_the_key_into_memory_once) ... ok
+test_http_error_and_invalid_completion_fail_the_inference_runner (__main__.RunnerTests.test_http_error_and_invalid_completion_fail_the_inference_runner) ... ok
+test_key_wrapper_exports_the_key_without_printing_it (__main__.RunnerTests.test_key_wrapper_exports_the_key_without_printing_it) ... ok
+test_missing_coding_launcher_records_a_terminal_error (__main__.RunnerTests.test_missing_coding_launcher_records_a_terminal_error) ... ok
+test_one_shot_key_server_serves_once_to_the_right_token (__main__.RunnerTests.test_one_shot_key_server_serves_once_to_the_right_token) ... /home/unimelb.edu.au/mariom1/miniconda3/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 404: 'Not Found'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+ok
+test_runner_refuses_paid_models_by_default (__main__.RunnerTests.test_runner_refuses_paid_models_by_default) ... ok
+test_secret_scanner_flags_keys_without_printing_them_and_ignores_placeholders (__main__.RunnerTests.test_secret_scanner_flags_keys_without_printing_them_and_ignores_placeholders) ... ok
+test_services_refuse_existing_listener_before_writing_configuration (__main__.RunnerTests.test_services_refuse_existing_listener_before_writing_configuration) ... ok
+test_stage_reports_a_missing_runtime_archive (__main__.RunnerTests.test_stage_reports_a_missing_runtime_archive) ... ok
+test_transfer_publishes_only_complete_results (__main__.RunnerTests.test_transfer_publishes_only_complete_results) ... 16:17:10 "PUT /job1.out HTTP/1.1" 201 -
+ok
+test_transfer_rejects_dot_names (__main__.RunnerTests.test_transfer_rejects_dot_names) ... 16:17:10 code 400, message Bad Request
+16:17:10 "PUT /.. HTTP/1.1" 400 -
+16:17:10 code 400, message Bad Request
+16:17:10 "PUT /. HTTP/1.1" 400 -
+16:17:10 code 400, message Bad Request
+16:17:10 "PUT /.hidden HTTP/1.1" 400 -
+16:17:10 "PUT /ok-name.txt HTTP/1.1" 201 -
+ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 7.244s
+
+OK

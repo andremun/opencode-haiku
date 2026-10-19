@@ -20,6 +20,8 @@ if (!launcher || !model || !model.includes('/')) throw new Error('Set OPENCODE_T
 if (!/(-free|\/big-pickle)$/.test(model) && process.env.OPENCODE_CLOUD_ALLOW_PAID !== '1') throw new Error('Refusing a non-free model (' + model + '). Set OPENCODE_CLOUD_ALLOW_PAID=1 to allow paid models deliberately.');
 const steps = Number(process.env.OPENCODE_TEST_STEPS ?? 20);
 if (!Number.isInteger(steps) || steps < 4 || steps > 32) throw new Error('OPENCODE_TEST_STEPS must be an integer from 4 to 32');
+const timeoutMS = Number(process.env.OPENCODE_TEST_TIMEOUT_MS ?? 1200000);
+if (!Number.isInteger(timeoutMS) || timeoutMS < 1 || timeoutMS > 1200000) throw new Error('OPENCODE_TEST_TIMEOUT_MS must be 1..1200000');
 const runID = 'cloud-' + Date.now();
 const fixture = resolve(root, runID, 'fixture');
 mkdirSync(fixture, { recursive: true });
@@ -63,20 +65,29 @@ const child = spawn(resolve(launcher), ['run', '--agent', 'probe', '--standalone
 let output = '';
 for (const stream of [child.stdout, child.stderr]) stream.on('data', (chunk) => { output += chunk; writeFileSync(log, redact(output)); });
 let expired = false;
-const timer = setTimeout(() => { expired = true; child.kill('SIGTERM'); setTimeout(() => child.kill('SIGKILL'), 5000).unref(); }, Number(process.env.OPENCODE_TEST_TIMEOUT_MS ?? 1200000));
+const timer = setTimeout(() => { expired = true; child.kill('SIGTERM'); setTimeout(() => child.kill('SIGKILL'), 5000).unref(); }, timeoutMS);
 let launchError;
 const code = await new Promise((done) => { child.once('error', (error) => { launchError = String(error); done(127); }); child.once('close', done); });
 clearTimeout(timer);
 const events = output.split('\n').flatMap((line) => { try { return [JSON.parse(line)]; } catch { return []; } });
 const shellRuns = events.filter((e) => e.type === 'tool_use' && e.part?.tool === 'shell' && e.part.state?.status === 'completed' && /node --test/.test(e.part.state.input?.command ?? ''));
+// A completed shell tool may still have failed; a pipe to tail may hide Node's exit.
+// Require the shell status AND the unambiguous Node test summary.
+const successfulTests = shellRuns.filter((event) => {
+  const state = event.part.state;
+  const exit = state.metadata?.metadata?.exit ?? state.metadata?.exit;
+  const text = state.output ?? '';
+  const count = (name) => Number(text.match(new RegExp('(?:ℹ|#) ' + name + ' (\\d+)(?:\\r?\\n|$)'))?.[1] ?? NaN);
+  return exit === 0 && count('tests') > 0 && count('pass') === count('tests') && count('fail') === 0;
+});
 const toolCalls = events.filter((e) => e.type === 'tool_use').map((e) => e.part?.tool);
 const unchanged = testsHash() === before;
 const independent = unchanged ? spawnSync(process.execPath, ['--test'], { cwd: fixture, encoding: 'utf8', timeout: 60000 }) : undefined;
 const summary = Object.fromEntries((independent?.stdout ?? '').split('\n').flatMap((line) => { const m = line.match(/^ℹ (tests|pass|fail) (\d+)/); return m ? [[m[1], Number(m[2])]] : []; }));
 const outcome = {
   model, runID, fixture, exit: expired ? 124 : (code ?? 1), expired, launch_error: launchError, seconds: Math.round((Date.now() - started) / 1000), steps,
-  tests_unchanged: unchanged, agent_ran_tests: shellRuns.length, tool_calls: toolCalls, independent_tests: summary,
-  semantic_pass: unchanged && shellRuns.length > 0 && independent?.status === 0,
+  tests_unchanged: unchanged, agent_ran_tests: shellRuns.length, agent_successful_tests: successfulTests.length, tool_calls: toolCalls, independent_tests: summary,
+  semantic_pass: !expired && !launchError && code === 0 && unchanged && successfulTests.length > 0 && independent?.status === 0,
   independent_test_pass: independent?.status === 0,
   error_text: redact((output.match(/FreeTierError[^"\n]*|UpgradeRequired[^"\n]*|"statusCode":\s*\d+[^\n]{0,160}/) ?? [])[0] ?? ''),
 };

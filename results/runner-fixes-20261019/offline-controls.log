@@ -1,0 +1,12 @@
+test_card_entry_requires_explicit_execution (__main__.ReviewTests.test_card_entry_requires_explicit_execution) ... ok
+test_card_worker_stops_on_correctness_failure_with_only_fake_commands (__main__.ReviewTests.test_card_worker_stops_on_correctness_failure_with_only_fake_commands) ... ok
+test_cloud_rejects_failed_client_shell_unknown_exit_and_timeout (__main__.ReviewTests.test_cloud_rejects_failed_client_shell_unknown_exit_and_timeout) ... ok
+test_cpu_runner_stops_after_refused_startup_and_leaves_pid_files_alone (__main__.ReviewTests.test_cpu_runner_stops_after_refused_startup_and_leaves_pid_files_alone) ... ok
+test_scoped_services_cleanup_both_owned_children_after_check_failure (__main__.ReviewTests.test_scoped_services_cleanup_both_owned_children_after_check_failure) ... ok
+test_supervisor_propagates_worker_and_restore_failures_and_no_pause (__main__.ReviewTests.test_supervisor_propagates_worker_and_restore_failures_and_no_pause) ... ok
+test_supervisor_reaps_background_child_before_restore_on_timeout_and_signal (__main__.ReviewTests.test_supervisor_reaps_background_child_before_restore_on_timeout_and_signal) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 8.518s
+
+OK

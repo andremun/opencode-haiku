@@ -106,3 +106,14 @@ The free model's data terms were not relevant here because the project is synthe
 Runner, task and controls validated; the run succeeded in the Haiku VM with the user-supplied key
 (`results/t7610-20261018-cloud/haiku-vm-run.log`). Not covered: other models, paid models, repeated
 runs for variance, TUI/GUI paths.
+
+## 19 October 2026: stricter offline acceptance
+
+The runner now also requires a clean client exit with no timeout and at least one
+completed agent test with explicit exit 0 and a Node summary showing a positive
+test count, all passed and zero failed. This handles both observed metadata shapes
+and rejects a `tail` pipeline that hides failing tests. Correct edits and independent
+test success after a client failure remain visible in the outcome, but do not pass
+end-to-end acceptance. New offline controls cover failed/unknown shell status,
+failed client exit, timeout and a hidden test failure. No new real-model run was
+made; the earlier measured outcomes above are retained as originally recorded.

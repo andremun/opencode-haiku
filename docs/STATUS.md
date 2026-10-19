@@ -1,6 +1,28 @@
 # Status
 
-Updated 15 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
+Updated 19 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
+
+## 19 October 2026: offline review fixes
+
+Fixed cloud acceptance to reject a failed/timed-out client, failed or unknown-status
+agent tests, and a pipeline hiding test failures. The CPU production runner now
+uses scoped service ownership; startup refusal cannot lead to tests against or
+cleanup of a pre-existing stack. The prepared GPU runner now fails on correctness
+errors and uses one bounded Linux subreaper supervisor, which drains test descendants
+before attempting service restoration. The independent restart timer was removed.
+GPU execution remains pending and requires separate authorisation; SIGKILL of the
+supervisor, a stuck kernel task, or host failure requires manual recovery.
+
+Offline controls pass: 18 existing host tests plus 7 new regression groups.
+No new VM, cloud-model, GPU or production-service run took place. Existing CPU/KVM
+and cloud results remain historical evidence; the stricter cloud acceptance has
+not been re-run with a real model. No push was attempted. Details, commands, limits
+and source hashes: [RUNNER-FIXES-20261019.md](RUNNER-FIXES-20261019.md).
+
+The dated sections below record prior runs. The 15 October snapshots at the bottom
+retain their original pending work and resource state for provenance; they are not
+current operational state or permission to push. The latest saved KVM run records
+clean shutdown; this fix pass did not inspect or change its present state.
 
 ## 16 October 2026: Haiku.5 on the persistent KVM VM (T7610)
 
@@ -52,7 +74,7 @@ tests, 430 s) and through the official client; the key was never stored in the r
 [FREE-MODELS-AND-CLOUD-TASK.md](FREE-MODELS-AND-CLOUD-TASK.md). Key handling for future runs (out-of-repo key file, wrapper, one-shot
 server for the VM, secret scan, free-model guard): [SECRETS.md](SECRETS.md).
 
-## Current result: packaged Haiku.5 terminal acceptance
+## 15 October historical snapshot: packaged Haiku.5 terminal acceptance
 
 **The packaged TUI terminal crash is fixed.** Standard builds now apply the
 Haiku Ghostty VT renderer patch and produce 2.0.29-haiku.5. Fresh installation,
@@ -80,7 +102,7 @@ The runtime manifest includes both terminal backend hashes and the actual SDK/
 addon variants used. Models, archives, source/dependency caches, SDKs and disks
 remain outside Git.
 
-## Manual T7610 work prepared, not measured
+## 15 October historical snapshot: manual T7610 work prepared
 
 The user confirmed that the T7610 can only be accessed manually. Its next step
 is to pull the committed code and follow [T7610-NEXT-RUN.md](T7610-NEXT-RUN.md).
@@ -114,7 +136,7 @@ ab0b9da9e88fcb4b0533a1854e84628f663930af. Reference manifests retain original
 and T7610 rebuilt artifact provenance. Complete installation, llama.cpp patches,
 model download and mixed-platform rebuilding: T7610-HAIKU-SETUP.md / INSTALL.md.
 
-## Boundaries and resources
+## 15 October historical snapshot: boundaries and resources
 
 No host sudo, physical GPU, host driver or existing host LLM-service change.
 This is CPU/cardless evidence and establishes no K40c compute support. The driver
@@ -129,7 +151,7 @@ verification; the browser was closed, its terminal records removed, and the gues
 clipboard restored. The owned guest job agent and host localhost transfer service were stopped. The cardless VM is
 left running for inspection. Push is explicitly requested; it is not yet confirmed.
 
-## Push/handoff blocker
+## 15 October historical snapshot: push/handoff blocker
 
 Implementation and evidence were committed as `27ebd52`. The staged source
 archive and generated deployment script were validated from that committed HEAD.

@@ -2,29 +2,30 @@
 # Start only this test stack; preserve existing configuration and refuse duplicate listeners.
 set -eu
 [ "$(uname -s)" = Haiku ] || { echo "Run this script in the Haiku guest." >&2; exit 2; }
+guest=${OPENCODE_GUEST_HOME:-/boot/home}
 for port in 18081 18083; do
  if curl -s --max-time 2 -o /dev/null "http://127.0.0.1:$port/health"; then
   echo "Port $port already has an HTTP listener; refusing duplicate services." >&2
   exit 1
  fi
 done
-mkdir -p /boot/home/opencode-work /boot/home/opencode-profile/data /boot/home/opencode-profile/config /boot/home/opencode-profile/cache /boot/home/opencode-profile/state
-if [ ! -e /boot/home/opencode-work/opencode.json ]; then
- cp /boot/home/opencode-haiku-src/examples/haiku-local-chat.json /boot/home/opencode-work/opencode.json
+mkdir -p "$guest/opencode-work" "$guest/opencode-profile/data" "$guest/opencode-profile/config" "$guest/opencode-profile/cache" "$guest/opencode-profile/state"
+if [ ! -e "$guest/opencode-work/opencode.json" ]; then
+ cp "$guest/opencode-haiku-src/examples/haiku-local-chat.json" "$guest/opencode-work/opencode.json"
 fi
-if [ ! -e /boot/home/opencode-env.sh ]; then
+if [ ! -e "$guest/opencode-env.sh" ]; then
  umask 077
  password=$(node -e 'console.log(require("node:crypto").randomBytes(24).toString("hex"))')
- cat > /boot/home/opencode-env.sh <<EE
-OC=/boot/home/opencode-haiku-2.0.29-haiku.5
-export XDG_DATA_HOME=/boot/home/opencode-profile/data XDG_CONFIG_HOME=/boot/home/opencode-profile/config XDG_CACHE_HOME=/boot/home/opencode-profile/cache XDG_STATE_HOME=/boot/home/opencode-profile/state
+ cat > "$guest/opencode-env.sh" <<EE
+OC="$guest/opencode-haiku-2.0.29-haiku.5"
+export XDG_DATA_HOME="$guest/opencode-profile/data" XDG_CONFIG_HOME="$guest/opencode-profile/config" XDG_CACHE_HOME="$guest/opencode-profile/cache" XDG_STATE_HOME="$guest/opencode-profile/state"
 export OPENCODE_PASSWORD='$password'
-cd /boot/home/opencode-work
+cd "$guest/opencode-work"
 EE
 fi
-. /boot/home/opencode-env.sh
+. "$guest/opencode-env.sh"
 OC=${OPENCODE_PORT_ROOT:-$OC}
-case "${OPENCODE_PASSWORD:-}" in ''|CHOOSE-A-LOCAL-TEST-PASSWORD) echo 'Set a real local password in /boot/home/opencode-env.sh before starting.' >&2; exit 2;; esac
+case "${OPENCODE_PASSWORD:-}" in ''|CHOOSE-A-LOCAL-TEST-PASSWORD) echo "Set a real local password in $guest/opencode-env.sh before starting." >&2; exit 2;; esac
 model_pid=
 backend_pid=
 cleanup() {
@@ -35,7 +36,7 @@ trap cleanup EXIT
 trap 'exit 129' HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
-H=${OPENCODE_LLAMA_WORK:-/boot/home/haiku-llm}
+H=${OPENCODE_LLAMA_WORK:-${guest}/haiku-llm}
 # Default: Ivy Bridge, OpenMP off (adopted 2026-10-18, see docs/KVM-VM.md). Build it with
 # build-cpu-profile.sh ivybridge. Use OPENCODE_LLAMA_PROFILE=installed|baseline for the SSE2 build.
 profile=${OPENCODE_LLAMA_PROFILE:-ivybridge}
@@ -59,9 +60,9 @@ for attempt in $(seq 1 150); do
  sleep 2
 done
 [ "$ready" -eq 1 ] || { echo 'Model readiness deadline expired.' >&2; exit 1; }
-cd /boot/home/opencode-work
+cd "$guest/opencode-work"
 export LIBRARY_PATH=/boot/system/lib
-nohup "$OC/opencode" serve --hostname 127.0.0.1 --port 18083 > /boot/home/opencode-serve.log 2>&1 &
+nohup "$OC/opencode" serve --hostname 127.0.0.1 --port 18083 > "$guest/opencode-serve.log" 2>&1 &
 backend_pid=$!
 ready=0
 for attempt in $(seq 1 60); do
@@ -71,6 +72,12 @@ for attempt in $(seq 1 60); do
 done
 [ "$ready" -eq 1 ] || { echo 'Backend readiness deadline expired.' >&2; exit 1; }
 printf '%s\n' "$model_pid" > "$H/llama-server.pid"
-printf '%s\n' "$backend_pid" > /boot/home/opencode-serve.pid
+printf '%s\n' "$backend_pid" > "$guest/opencode-serve.pid"
+# Scoped mode: keep the PID ownership and cleanup trap in the shell that launched
+# both children. A failed startup never invokes the checks or reads old PID files.
+if [ "$#" -gt 0 ]; then
+ "$@"
+ exit $?
+fi
 trap - EXIT HUP INT TERM
-echo 'Model and shared OpenCode backend are ready; credentials preserved in /boot/home/opencode-env.sh.'
+echo "Model and shared OpenCode backend are ready; credentials preserved in $guest/opencode-env.sh."

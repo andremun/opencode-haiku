@@ -92,3 +92,20 @@ while a VM benchmark ran. A runtime comparison needs a card, which requires your
 - **Risks to accept before running:** a faulty Clang kernel could hang the Kepler card (needs a driver reset or reboot,
   which cannot be done without root); the production model needs a few minutes to reload after the pause; the test window
   is roughly 40 to 90 minutes.
+
+## 19 October 2026: prepared runner revised after offline review
+
+The original independent 150-minute restart timer was unsafe: test timeouts could
+outlive it. It has been removed. `run_card_comparison.sh --execute NEW_OUTPUT_DIR`
+now delegates to a Linux subreaper supervisor with a global 150-minute test deadline.
+The worker stops at the first correctness failure; operation and benchmark failures
+propagate. On completion, timeout or a handled signal, the supervisor terminates
+and reaps its test descendants before attempting restoration. Restoration start or
+health-check failures return nonzero. It refuses to resume the service when owned
+test processes remain. A service initially inactive is not started by the runner.
+
+This does not promise recovery after the supervisor itself is killed with SIGKILL,
+host failure, or an unkillable kernel/GPU task. Those require manual recovery.
+Only fake workers and fake service/GPU commands have tested this revision; no card
+run, production pause or restoration was performed. Invocation remains subject to
+separate user authorisation. See [RUNNER-FIXES-20261019.md](RUNNER-FIXES-20261019.md).

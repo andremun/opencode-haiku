@@ -1,46 +1,62 @@
 #!/bin/bash
 # ON-CARD comparison: deployed nvcc-built libggml-cuda against the Clang-built one (same source, same test binaries).
-# PAUSES llama-server-one.service (a user unit; no sudo) and ALWAYS restarts it (exit trap plus a dead-man timer).
+# Pauses llama-server-one.service; restoration follows confirmed worker termination.
 # Uses only the K40c named in that unit (never the card at 04:00.0). NOT RUN YET: it needs the user's go-ahead
 # and a permission for the service pause (the agent's auto-mode classifier blocked it on 2026-10-19).
-# Usage: run_card_comparison.sh OUTPUT_DIR
-set -u
-OUT=${1:?output directory}
+# Usage: run_card_comparison.sh --execute NEW_OUTPUT_DIR
+# Explicit invocation is required; preparation/testing does not authorise a card run.
+# The supervisor drains all owned descendants before restoring the service.
+# SIGKILL of the supervisor or an unkillable GPU task requires manual recovery.
+set -euo pipefail
+if [ "${1:-}" = --execute ] && [ "$#" -eq 2 ]; then
+ exec python3 "$(dirname "$0")/card_supervisor.py" "$0" "$2"
+fi
+if [ "${OPENCODE_CARD_WORKER:-}" != 1 ]; then
+ echo 'Usage (requires separate card/service authorisation): run_card_comparison.sh --execute NEW_OUTPUT_DIR' >&2
+ exit 2
+fi
+mode=${1:?worker mode}
+OUT=${2:?output directory}
 SVC=llama-server-one.service
+log() { echo "$(date +%T) $*" | tee -a "$OUT/run.log"; }
+if [ "$mode" = --restore ]; then
+ log "restoring $SVC after test process cleanup"
+ timeout -k 5 60 systemctl --user start "$SVC"
+ for i in $(seq 1 180); do
+  if curl -fs --max-time 3 http://127.0.0.1:8080/health >/dev/null 2>&1; then
+   log 'service healthy; restoration complete'
+   exit 0
+  fi
+  sleep 10
+ done
+ log 'restoration health deadline expired'
+ exit 1
+fi
+[ "$mode" = --worker ] || exit 2
+MARKER=${3:?pause marker}
 D=$HOME/llm-server/llama.cpp/build/bin
 LIB_CLANG=$HOME/kepler-llvm-eval/lib-clang
 UUID=$(sed -n 's/^Environment=CUDA_VISIBLE_DEVICES=//p' "$HOME/.config/systemd/user/$SVC")
 MODEL=$HOME/llm-server/models/Qwen3.5-9B-UD-Q4_K_XL.gguf
 NUMA=$HOME/.local/bin/numactl
-FAILSAFE=k40-restore-failsafe
-mkdir -p "$OUT"
-log() { echo "$(date +%T) $*" | tee -a "$OUT/run.log"; }
-restore() {
-  log "restoring $SVC"
-  systemctl --user start "$SVC"
-  for i in $(seq 1 180); do
-    if curl -fs --max-time 3 http://127.0.0.1:8080/health >/dev/null 2>&1; then log "service healthy after about $((i*10)) s"; break; fi
-    sleep 10
-  done
-  { curl -s --max-time 5 http://127.0.0.1:8080/v1/models | head -c 300; echo; systemctl --user show "$SVC" -p ActiveState -p MainPID; } >> "$OUT/run.log" 2>&1
-  systemctl --user stop "$FAILSAFE.timer" 2>/dev/null
-  log "restore finished"
-}
-[ -n "$UUID" ] || { echo "No CUDA_VISIBLE_DEVICES in the unit"; exit 2; }
-trap restore EXIT
-systemd-run --user --quiet --on-active=150m --unit="$FAILSAFE" systemctl --user start "$SVC" || log "failsafe timer not created"
+# Preflight before any pause. Require exactly one UUID and an initially active
+# service so cleanup cannot accidentally start a deliberately stopped service.
+[[ "$UUID" =~ ^GPU-[a-fA-F0-9-]+$ ]] || { echo 'Expected exactly one GPU UUID' >&2; exit 2; }
+for program in systemctl timeout curl nvidia-smi; do command -v "$program" >/dev/null; done
+for file in "$D/test-backend-ops" "$D/llama-bench" "$NUMA"; do test -x "$file"; done
+for file in "$MODEL" "$LIB_CLANG/libggml-cuda.so.0"; do test -r "$file"; done
+systemctl --user is-active --quiet "$SVC"
+# Write before attempting stop: a partial stop must still trigger restoration.
+: > "$MARKER"
 log "pausing $SVC (UUID $UUID)"
-{ systemctl --user show "$SVC" -p ActiveState -p MainPID; curl -s --max-time 5 http://127.0.0.1:8080/health; echo; } >> "$OUT/run.log" 2>&1
-systemctl --user stop "$SVC"
+timeout -k 5 60 systemctl --user stop "$SVC"
 sleep 8
-nvidia-smi --query-gpu=uuid,name,memory.used,memory.total,temperature.gpu,utilization.gpu,clocks.sm,clocks.max.sm --format=csv > "$OUT/gpu-before.csv" 2>&1
-used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i "$UUID" 2>/dev/null | tr -d ' ')
-log "card memory in use after pause: ${used:-unknown} MiB"
-if [ -z "${used:-}" ] || [ "$used" -gt 1500 ]; then log "card not idle; aborting"; exit 3; fi
+used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i "$UUID" | tr -d ' ')
+[[ "$used" =~ ^[0-9]+$ ]] && [ "$used" -le 1500 ] || { log 'card not idle; aborting'; exit 3; }
 
 run() {  # run NAME LIBDIR TIMEOUT COMMAND...
   local name=$1 libdir=$2 tmo=$3; shift 3
-  env CUDA_VISIBLE_DEVICES="$UUID" LD_LIBRARY_PATH="$libdir" "$NUMA" --cpunodebind=0 --membind=0 timeout "$tmo" "$@"
+  env CUDA_VISIBLE_DEVICES="$UUID" LD_LIBRARY_PATH="$libdir" "$NUMA" --cpunodebind=0 --membind=0 timeout -k 5 "$tmo" "$@"
 }
 telemetry() { nvidia-smi --query-gpu=temperature.gpu,clocks.sm,utilization.gpu,memory.used --format=csv,noheader -i "$UUID" >> "$OUT/telemetry.csv" 2>&1; }
 
@@ -50,7 +66,7 @@ for op in $OPS; do
   for variant in nvcc clang; do
     libdir=$D; [ $variant = clang ] && libdir=$LIB_CLANG
     run $variant "$libdir" 900 "$D/test-backend-ops" test -b CUDA0 -o "$op" > "$OUT/test-$op-$variant.log" 2>&1
-    log "test $op $variant rc=$? $(grep -E 'tests passed|passed' "$OUT/test-$op-$variant.log" | tail -1 | cut -c1-80)"
+    log "test $op $variant passed"
   done
   telemetry
 done
@@ -60,7 +76,7 @@ for op in MUL_MAT MUL_MAT_ID FLASH_ATTN_EXT; do
   for variant in nvcc clang nvcc2; do
     libdir=$D; [ $variant = clang ] && libdir=$LIB_CLANG
     run $variant "$libdir" 1500 "$D/test-backend-ops" perf -b CUDA0 -o "$op" > "$OUT/perf-$op-$variant.log" 2>&1
-    log "perf $op $variant rc=$?"
+    log "perf $op $variant passed"
     telemetry
   done
 done
@@ -69,8 +85,8 @@ done
 for variant in nvcc clang nvcc2; do
   libdir=$D; [ $variant = clang ] && libdir=$LIB_CLANG
   run $variant "$libdir" 1500 "$D/llama-bench" -m "$MODEL" -ngl 99 -fa 1 -p 512 -n 128 -r 3 -o json > "$OUT/bench-$variant.json" 2> "$OUT/bench-$variant.err"
-  log "llama-bench $variant rc=$?"
+  log "llama-bench $variant passed"
   telemetry
 done
-nvidia-smi --query-gpu=temperature.gpu,clocks.sm,utilization.gpu,memory.used --format=csv > "$OUT/gpu-after.csv" 2>&1
-log "tests finished; restoring service via exit trap"
+nvidia-smi --query-gpu=temperature.gpu,clocks.sm,utilization.gpu,memory.used --format=csv -i "$UUID" > "$OUT/gpu-after.csv" 2>&1
+log "tests finished; supervisor will reap workers before restoration"

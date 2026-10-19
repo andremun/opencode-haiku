@@ -172,7 +172,7 @@ exit 0''')
             body=("const fs=require('node:fs');"+
                   ("fs.cpSync(process.env.LC_REF,'src',{recursive:true});" if ran is not None else '')+
                   ("fs.appendFileSync('test/csv.test.mjs','//x');" if tamper else '')+
-                  ("console.log(JSON.stringify({type:'tool_use',part:{tool:'shell',state:{status:'completed',input:{command:'node --test'},output:'ok'}}}));" if ran else ''))
+                  ("console.log(JSON.stringify({type:'tool_use',part:{tool:'shell',state:{status:'completed',input:{command:'node --test'},metadata:{exit:0},output:'ℹ tests 15\\nℹ pass 15\\nℹ fail 0\\n'}}}));" if ran else ''))
             if name=='no-test-run':body=body.replace("console.log","//")
             launcher=self.root/('cloud-launcher-'+name);launcher.write_text('#!'+NODE+'\n'+body);launcher.chmod(0o755)
             result=subprocess.run([NODE,str(ROOT/'tools/tui-port/cloud-coding-task.mjs'),str(out)],env={**os.environ,'LC_REF':str(ref),'OPENCODE_TEST_PORT_ROOT':str(launcher),'OPENCODE_CLOUD_MODEL':'opencode/test-model-free'},capture_output=True,text=True,timeout=60)
