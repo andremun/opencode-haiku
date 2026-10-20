@@ -17,8 +17,14 @@ GPP = Path.home() / '.local/opt/gcc10/root/usr/bin/g++-10'
 DEFS = ['-DGGML_BACKEND_BUILD', '-DGGML_BACKEND_SHARED', '-DGGML_CUDA_PEER_MAX_BATCH_SIZE=128', '-DGGML_CUDA_USE_GRAPHS',
         '-DGGML_SCHED_MAX_COPIES=4', '-DGGML_SHARED', '-D_GNU_SOURCE', '-D_XOPEN_SOURCE=600', '-Dggml_cuda_EXPORTS']
 INC = [f'-I{SRC}/ggml/src', f'-I{SRC}/ggml/include', '-isystem', f'{CUDA}/targets/x86_64-linux/include']
-FASTMATH = ['-ffast-math', '-fcuda-flush-denormals-to-zero', '-fcuda-approx-transcendentals',
-            '-mllvm', '-nvptx-prec-divf32=1', '-mllvm', '-nvptx-prec-sqrtf32=0']   # mirror nvcc -use_fast_math
+_NVCC_FAST = ['-fcuda-flush-denormals-to-zero', '-fcuda-approx-transcendentals',
+              '-mllvm', '-nvptx-prec-divf32=1', '-mllvm', '-nvptx-prec-sqrtf32=0']   # mirror nvcc -use_fast_math
+MATH_PROFILES = {
+    'ffast': ['-ffast-math'] + _NVCC_FAST,                           # first run: attention gave NaN (finite-math-only assumed)
+    'nofinite': ['-ffast-math', '-fno-finite-math-only'] + _NVCC_FAST,  # keep fast-math but allow infinities and NaNs
+    'nofast': list(_NVCC_FAST),                                      # no -ffast-math at all
+}
+FASTMATH = MATH_PROFILES['ffast']
 
 def sources():
     rsp = (BUILD / 'ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/objects1.rsp').read_text()
@@ -41,7 +47,10 @@ def main():
     ap.add_argument('--clang-bin', required=True, type=Path)
     ap.add_argument('--out', required=True, type=Path)
     ap.add_argument('--jobs', type=int, default=10)
+    ap.add_argument('--math', choices=sorted(MATH_PROFILES), default='ffast', help='floating-point flag profile')
     a = ap.parse_args()
+    global FASTMATH
+    FASTMATH = MATH_PROFILES[a.math]
     a.out.mkdir(parents=True, exist_ok=True)
     shim = Path(__file__).with_name('clang_cg_shim.h')
     files = list(sources())
