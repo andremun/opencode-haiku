@@ -23,6 +23,7 @@ MATH_PROFILES = {
     'ffast': ['-ffast-math'] + _NVCC_FAST,                           # first run: attention gave NaN (finite-math-only assumed)
     'nofinite': ['-ffast-math', '-fno-finite-math-only'] + _NVCC_FAST,  # keep fast-math but allow infinities and NaNs
     'nofast': list(_NVCC_FAST),                                      # no -ffast-math at all
+    'ieee': [],                                                      # no fast-math, flush-to-zero or approximations: strict IEEE
 }
 FASTMATH = MATH_PROFILES['ffast']
 
@@ -35,7 +36,7 @@ def sources():
 def compile_one(args):
     rel, clang_bin, out, shim = args
     obj = out / (rel.replace('/', '_') + '.o')
-    cmd = ['nice', '-n', '10', str(clang_bin / 'clang++'), f'--gcc-install-dir={GCC_DIR}', '-x', 'cuda', f'--cuda-path={CUDA}',
+    cmd = ['nice', '-n', '19', str(clang_bin / 'clang++'), f'--gcc-install-dir={GCC_DIR}', '-x', 'cuda', f'--cuda-path={CUDA}',
            '--cuda-gpu-arch=sm_35', '-O3', '-DNDEBUG', '-std=c++17', '-fPIC', *FASTMATH, *DEFS, *INC, '-include', str(shim), '-w',
            '-c', str(SRC / 'ggml/src/ggml-cuda' / rel), '-o', str(obj)]
     p = subprocess.run(cmd, capture_output=True, text=True)

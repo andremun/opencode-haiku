@@ -25,7 +25,7 @@ persistent KVM Haiku VM (54 daemon tests, API probes, TUI terminal pane, clipboa
 review (8 fixes, 2 wrong claims, 4 left unchanged: `docs/AUDIT-2026-10-18-DISPOSITION.md`); a real CSV coding task solved by a free
 cloud model through the port in the VM (`docs/FREE-MODELS-AND-CLOUD-TASK.md`); key-handling tooling (`docs/SECRETS.md`); Ivy Bridge
 (OpenMP off) made the Haiku default profile; host capability report; GPU-free Clang 23 against nvcc 11.4 comparison; community
-llama.cpp comparison; full Clang-built `libggml-cuda`; **the on-card comparison** (section 3, task A).
+llama.cpp comparison; full Clang-built `libggml-cuda`; **two on-card comparisons** (section 3, task A: Clang against nvcc, then the Clang fixes and hybrid libraries).
 
 **Driver:** ESC-001 (native guests stalled) was unblocked: the persistent KVM guest exported its kernel (SHA-256 `2da9a5b9…`,
 byte-identical to `~/haiku-cross/lib/kernel_x86_64`), both probes link, the cardless probe loads with `k40_os: PASS`. Evidence:
@@ -42,22 +42,20 @@ the earlier process predated that rebuild.
 ## 3. Task cards
 
 ### A. Clang against nvcc on the K40c: follow-up (OpenCode repo, needs card authorisation)
-- **Read first:** `docs/KEPLER-CARD-COMPARISON-20261019.md`, `docs/KEPLER-LLVM-STATIC-20261018.md`, `docs/HOST-CAPABILITIES-20261018.md`.
-- **Result so far:** everything passes except flash attention (417 of 2,832 cases NaN); production quantisation kernels 5 to 15% faster
-  (median); i-quant kernels about 5 times slower; end-to-end generation 9.56 against 10.09 tokens/s (not validated: output unchecked).
-- **Workspace (outside git):** `~/kepler-llvm-eval` (14 GB): `llvm/LLVM-23.1.3-Linux-X64/bin` (official release, SHA-256 verified),
-  `clang-ggml-cuda/` (objects and `libggml-cuda.so.0.9.11`), `lib-clang/` (symlink directory used as `LD_LIBRARY_PATH` for the
-  Clang run), `out1..3` (static results). Scripts: `tools/kepler-static/` (`compare_compilers.py`, `analyze.py`, `subset.py`,
-  `build_clang_ggml_cuda.py`, `run_card_comparison.sh`, `card_supervisor.py`, `analyze_card.py`).
-- **Next:** (1) rebuild the Clang library with `-fno-finite-math-only` (edit `FASTMATH` in `build_clang_ggml_cuda.py`; CPU-only, about 4 min; new
-  output directory and symlink directory); (2) run only the `FLASH_ATTN_EXT` and `SOFT_MAX` correctness tests and the end-to-end run with an output check;
-  (3) fix the op filter for `UNARY`/`GLU` (selected 0 cases); (4) decide on IQ types; (5) only then a short production-model run.
-- **How to run on the card:** `bash tools/kepler-static/run_card_comparison.sh --execute NEW_OUTPUT_DIR` (supervised version from `7970e38`: bounded
-  150 min, reaps child processes, then restarts and health-checks the service). It runs the **whole** suite (about 1 h 45 min); for a short run it needs a
-  reduced op list first. The auto-mode classifier blocks stopping the production service unless the user has allowed that exact command; ask the user.
-  Before any run check that nothing is connected (`ss -tn state established '( sport = :8080 )'`) and that the slot is idle. A faulty kernel could hang the card
-  (no root here to reset it). Use only the K40c named in `~/.config/systemd/user/llama-server-one.service` (never `0000:04:00.0`, which is bound for passthrough).
-- Restore by hand if needed: `systemctl --user start llama-server-one.service`, then `curl http://127.0.0.1:8080/health`.
+- **Read first:** `docs/KEPLER-HYBRID-20261020.md` (newest), `docs/KEPLER-CARD-COMPARISON-20261019.md`, `docs/KEPLER-LLVM-STATIC-20261018.md`, `docs/HOST-CAPABILITIES-20261018.md`.
+- **State (20 Oct, second card run done):** a hybrid library (24 files from Clang: `mmvq.cu`, `softmax.cu`, `mmq.cu` plus the 21 MMQ instances; the rest from nvcc)
+  passes all tested operations (flash attention 2832/2832) and gives about +5% token generation on Qwen3.5-9B (9.57 to 10.05 tokens/s), prompt unchanged; matrix kernels
+  about 9% (MUL_MAT) and 4% (MUL_MAT_ID) faster in median. The full Clang build still fails attention (about 360 to 418 of 2,832 cases give NaN; `-fno-finite-math-only` did not help,
+  dropping `-ffast-math` helped slightly). Not deployed; the service uses the nvcc library.
+- **Workspace (outside git, `~/kepler-llvm-eval`, about 20 GB):** `llvm/LLVM-23.1.3-Linux-X64/bin`; Clang libraries `clang-ggml-cuda` (ffast), `-nofinite`, `-nofast`, `-ieee` (each with `libggml-cuda.so.0.9.11` and objects);
+  `hybrid-nofinite`, `hybrid-nofast` (linked hybrids, with `collision-check.json`); `lib-*` directories (symlinks to the deployed libraries with one replaced; used as `LD_LIBRARY_PATH`);
+  `kernel-cache` (cuobjdump results). Scripts in `tools/kepler-static/`: `build_clang_ggml_cuda.py --math {ffast,nofinite,nofast,ieee}`, `link_hybrid.py` (collision check; `--use`, `--use-glob`),
+  `run_card_hybrid.sh --execute NEW_DIR` (supervised; env options `HYBRID_CORR_LIBS`, `HYBRID_OPS`, `HYBRID_PERF`, `HYBRID_E2E`, `HYBRID_TEXT_LIBS`), `analyze_hybrid.py DIR`, plus the first-run tools.
+- **Next:** (1) a short window testing the already built `ieee` library on attention and softmax (command in the report); (2) if it passes, bisect the relaxed settings one at a time (CPU-only builds); (3) a window with the server-based text check and the production 35B model before any deployment decision.
+  Fix known: the first `llama-cli` text step hung for 50 minutes; it is replaced by a `llama-server` step (untested on the card).
+- **How to run on the card:** only with the user allowing the exact command (the auto-mode classifier blocks stopping the production service otherwise). The supervised runners restart and health-check the service; check beforehand that nothing is connected
+  (`ss -tn state established '( sport = :8080 )'`) and that the slot is idle. A faulty kernel could hang the card (no root here to reset it). Use only the card named in `~/.config/systemd/user/llama-server-one.service`, never `0000:04:00.0`.
+  Restore by hand if needed: `systemctl --user start llama-server-one.service`, then `curl http://127.0.0.1:8080/health`.
 
 ### B. Driver (`haiku-k40c`): continue cardless S1 work
 - **Read first:** its `AGENTS.md` (session protocol; **never read `tools/check_repo.py`**), `docs/STATUS.md`, `docs/S1-PLAN.md`, `docs/ABC-CARDLESS-OUTCOME.md`,
@@ -100,5 +98,5 @@ Optional only with explicit approval: test OpenMP against llama.cpp's thread poo
 
 ## 5. Index of this session's documents (OpenCode repo, `docs/`)
 `STATUS.md`; `KVM-VM.md`; `T7610-KVM-HAIKU5-RESULTS-20261016.md`; `PHASE-1-3-RESULTS-20261018.md`; `FREE-MODELS-AND-CLOUD-TASK.md`; `SECRETS.md`; `AUDIT-2026-10-18-DISPOSITION.md`;
-`HOST-CAPABILITIES-20261018.md`; `KEPLER-LLVM-STATIC-20261018.md`; `KEPLER-CARD-COMPARISON-20261019.md`; `COMMUNITY-COMPARISON-20261018.md`; `RUNNER-FIXES-20261019.md` (outside).
+`HOST-CAPABILITIES-20261018.md`; `KEPLER-LLVM-STATIC-20261018.md`; `KEPLER-CARD-COMPARISON-20261019.md`; `KEPLER-HYBRID-20261020.md`; `COMMUNITY-COMPARISON-20261018.md`; `RUNNER-FIXES-20261019.md` (outside).
 Results live under `results/t7610-2026101*/`. Build caches, source archives, models and virtual disks stay outside Git (`cache/`, `source/`, `vm/`, `share/`, `logs/`, `~/kepler-llvm-eval`).

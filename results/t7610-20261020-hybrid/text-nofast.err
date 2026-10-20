@@ -1,0 +1,5 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 11441 MiB):
+  Device 0: Tesla K40c, compute capability 3.5, VMM: yes, VRAM: 11441 MiB
+llama_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |
+llama_memory_breakdown_print: |   - CUDA0 (K40c)       | 11441 = 5301 + (5700 =  5133 +      66 +     501) +         438 |
+llama_memory_breakdown_print: |   - Host               |                  562 =   545 +       0 +      17                |

@@ -2,6 +2,13 @@
 
 Updated 19 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
 
+## 20 October 2026 (later): Clang fixes and hybrid libraries on the card
+
+A hybrid `libggml-cuda` (24 files from Clang: quantised matrix kernels and softmax; attention and the rest from nvcc) passes all tested
+operations and speeds up token generation by about 5% on Qwen3.5-9B; the full Clang build still fails attention (NaN; `-fno-finite-math-only`
+did not fix it). Service paused 12:21 to 14:04, restored and healthy; 50 minutes were lost to a hung `llama-cli` step (fixed in the runner, untested).
+Not deployed. [KEPLER-HYBRID-20261020.md](KEPLER-HYBRID-20261020.md).
+
 ## 20 October 2026: card comparison, driver and guest-LLM follow-ups
 
 - The on-card comparison ran (service paused 08:56 to 10:40, restored and healthy): Clang-built `libggml-cuda` passes
