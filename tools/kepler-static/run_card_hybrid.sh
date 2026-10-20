@@ -113,7 +113,8 @@ fi
 text_check() {  # text_check LIB MODEL TAG WAIT_SECONDS SERVER_ARGS...   (greedy text through a short-lived llama-server; llama-cli hung)
   local lib=$1 model=$2 tag=$3 wait=$4; shift 4
   local ok=0 spid n=0 prompt
-  run "$lib" 900 "$D/llama-server" -m "$model" "$@" --host 127.0.0.1 --port 18181 --no-webui > "$OUT/text-$tag-$lib.server.log" 2>&1 &
+  if curl -fs --max-time 3 http://127.0.0.1:18181/health >/dev/null 2>&1; then log "text $tag $lib: port 18181 busy, skipped"; return; fi
+  setsid bash -c 'exec "$@"' _ env CUDA_VISIBLE_DEVICES="$UUID" LD_LIBRARY_PATH="$(libdir_of "$lib")" "$NUMA" --cpunodebind=0 --membind=0 timeout -k 5 900 "$D/llama-server" -m "$model" "$@" --host 127.0.0.1 --port 18181 --no-webui > "$OUT/text-$tag-$lib.server.log" 2>&1 &
   spid=$!
   for i in $(seq 1 "$((wait / 2))"); do
     if curl -fs --max-time 3 http://127.0.0.1:18181/health >/dev/null 2>&1; then ok=1; break; fi
@@ -125,8 +126,11 @@ text_check() {  # text_check LIB MODEL TAG WAIT_SECONDS SERVER_ARGS...   (greedy
       curl -s --max-time 300 -H 'Content-Type: application/json' -d "{\"prompt\":\"$prompt\",\"n_predict\":64,\"temperature\":0,\"top_k\":1,\"seed\":1,\"cache_prompt\":false}" http://127.0.0.1:18181/completion > "$OUT/text-$tag-$lib-$n.json" || true
     done
   fi
-  kill "$spid" 2>/dev/null || true
+  kill -TERM -- "-$spid" 2>/dev/null || true
+  for i in $(seq 1 30); do curl -fs --max-time 2 http://127.0.0.1:18181/health >/dev/null 2>&1 || break; sleep 2; done
+  kill -KILL -- "-$spid" 2>/dev/null || true
   wait "$spid" 2>/dev/null || true
+  sleep 3
   log "text $tag $lib server_ready=$ok"; telemetry
 }
 for lib in $TEXT_LIBS; do

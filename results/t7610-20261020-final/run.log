@@ -1,0 +1,34 @@
+14:36:41 pausing llama-server-one.service (UUID GPU-fe68b526-b148-5b7b-0fa1-309819b4527e)
+14:38:53 test FLASH_ATTN_EXT nvcc rc=0  2832/2832 tests passed
+14:40:53 test FLASH_ATTN_EXT ieee rc=1  2411/2832 tests passed
+14:42:53 test FLASH_ATTN_EXT hybieee rc=0  2832/2832 tests passed
+14:43:02 test SOFT_MAX nvcc rc=1  192/212 tests passed
+14:43:11 test SOFT_MAX ieee rc=1  210/212 tests passed
+14:43:20 test SOFT_MAX hybieee rc=1  208/212 tests passed
+14:44:21 test MUL_MAT nvcc rc=0  1094/1094 tests passed
+14:45:20 test MUL_MAT ieee rc=0  1094/1094 tests passed
+14:46:20 test MUL_MAT hybieee rc=0  1094/1094 tests passed
+14:47:15 test MUL_MAT_ID nvcc rc=0  764/764 tests passed
+14:48:10 test MUL_MAT_ID ieee rc=0  764/764 tests passed
+14:49:04 test MUL_MAT_ID hybieee rc=0  764/764 tests passed
+14:50:11 llama-bench nvcc rc=0
+14:51:09 llama-bench ieee rc=0
+14:52:08 llama-bench hybieee rc=0
+14:53:06 llama-bench hybnofast rc=0
+14:54:07 llama-bench nvcc2 rc=0
+14:54:27 text 9b nvcc server_ready=1
+14:54:42 text 9b ieee server_ready=1
+14:54:57 text 9b hybieee server_ready=1
+14:55:11 text 9b hybnofast server_ready=1
+14:55:26 text 9b hybnofinite server_ready=1
+14:55:27 prod llama-bench nvcc rc=1
+14:55:29 prod llama-bench hybnofast rc=1
+14:55:31 prod llama-bench hybieee rc=1
+14:55:33 prod llama-bench nvcc2 rc=1
+14:55:47 text prod nvcc server_ready=1
+14:56:02 text prod ieee server_ready=1
+14:56:16 text prod hybnofast server_ready=1
+14:56:31 text prod hybieee server_ready=1
+14:56:31 tests finished; supervisor will reap workers before restoration
+14:56:31 restoring llama-server-one.service after test process cleanup
+14:57:24 service healthy; restoration complete

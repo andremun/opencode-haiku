@@ -100,3 +100,7 @@ Optional only with explicit approval: test OpenMP against llama.cpp's thread poo
 `STATUS.md`; `KVM-VM.md`; `T7610-KVM-HAIKU5-RESULTS-20261016.md`; `PHASE-1-3-RESULTS-20261018.md`; `FREE-MODELS-AND-CLOUD-TASK.md`; `SECRETS.md`; `AUDIT-2026-10-18-DISPOSITION.md`;
 `HOST-CAPABILITIES-20261018.md`; `KEPLER-LLVM-STATIC-20261018.md`; `KEPLER-CARD-COMPARISON-20261019.md`; `KEPLER-HYBRID-20261020.md`; `COMMUNITY-COMPARISON-20261018.md`; `RUNNER-FIXES-20261019.md` (outside).
 Results live under `results/t7610-2026101*/`. Build caches, source archives, models and virtual disks stay outside Git (`cache/`, `source/`, `vm/`, `share/`, `logs/`, `~/kepler-llvm-eval`).
+
+## Addendum: hybrid work completed (20 October, evening)
+
+Task A is closed: IEEE build, greedy text and 35B one-card benchmark are done (see KEPLER-HYBRID-20261020.md, "Final window"). Result: Clang attention failure is a code-generation difference; hybrid gain on 35B is within noise; decision is to keep nvcc. Optional later: diagnose the Clang attention failure.

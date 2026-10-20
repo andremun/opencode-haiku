@@ -2,6 +2,13 @@
 
 Updated 19 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
 
+## 20 October 2026 (final window): IEEE, greedy text, 35B production model
+
+Pure Clang attention still fails with strict IEEE (2411/2832): a code-generation difference, not a math flag; cause not found. Hybrid libraries pass all
+correctness tests and give identical greedy text on 9B; on the 35B production configuration (one card) generation is 13.34 (nvcc), 14.07 (hybrid), 12.60
+(nvcc repeat) tokens/s: within noise. Text is not bit-identical (diverges after ~90 characters on one prompt). Decision: keep nvcc, do not deploy. First-window
+text/35B data were invalid (server not stopped; fixed). Service paused twice, restored healthy both times. [KEPLER-HYBRID-20261020.md](KEPLER-HYBRID-20261020.md).
+
 ## 20 October 2026 (later): Clang fixes and hybrid libraries on the card
 
 A hybrid `libggml-cuda` (24 files from Clang: quantised matrix kernels and softmax; attention and the rest from nvcc) passes all tested

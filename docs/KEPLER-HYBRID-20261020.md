@@ -83,9 +83,45 @@ correctness failure is avoided. Nearly all of the full-Clang generation gain is 
   first run), long runs, and a second repeat of the whole run.
 - The Clang attention failure is a real defect of that build until explained; the hybrid sidesteps it.
 
-## Next steps (each needs the user to allow the exact command)
+## Final window (20 October 2026, 14:36-15:27): IEEE, greedy text, production model
 
-1. Short window: `HYBRID_CORR_LIBS='ieee nvcc' HYBRID_OPS='FLASH_ATTN_EXT SOFT_MAX' HYBRID_PERF=0 HYBRID_E2E=0 HYBRID_TEXT_LIBS='' bash tools/kepler-static/run_card_hybrid.sh --execute NEW_DIR` (about 5 minutes).
-2. If `ieee` passes attention, find which relaxed setting breaks it (build variants one flag at a time, CPU-only) and then
-   consider taking attention from Clang too. If it fails, it is a code-generation difference to investigate or report.
-3. A window with the text check through the server and with the production 35B model, before any decision to deploy.
+Two supervised windows, service restored healthy each time (`results/t7610-20261020-final`, `-final2`). The first
+window's text and 35B results are **invalid**: my `text_check` killed only the `numactl` wrapper, so the first 9B
+server stayed on port 18181 and every later "text" result came from it, and the 35B server could not start. The helper
+now runs the server in its own process group, kills the group and skips a step if the port is busy. Valid data are in
+`-final2` (it also repeated the correctness tests, because an empty `HYBRID_CORR_LIBS` falls back to the default).
+
+**IEEE (strict, no fast-math flags).** Pure Clang still fails attention: FLASH_ATTN_EXT 2411/2832 (nofinite 2419,
+nofast 2471). SOFT_MAX 210/212 (nvcc 192-198/212, so nvcc itself fails 14-20 cases). MUL_MAT 1094/1094 and
+MUL_MAT_ID 764/764 for every Clang and hybrid build. The hybrid IEEE library passes FLASH_ATTN_EXT 2832/2832.
+Conclusion: the attention failure is **not** a math flag; it is a code-generation difference, cause not found.
+
+**Greedy text, 9B** (2 prompts, 64 tokens, temperature 0): hybnofast, hybnofinite and hybieee are identical to nvcc on
+both prompts. Pure-Clang IEEE matches on prompt 1 and differs on prompt 2 (consistent with its attention errors).
+
+**Greedy text, 35B production configuration:** prompt 2 is identical for nvcc, ieee, hybnofast and hybieee. On prompt 1
+hybnofast and hybieee start identically to nvcc and diverge at character 91 (different but sensible continuation);
+pure-Clang ieee diverges earlier. Small floating-point differences flip a near-tie token; this is expected between
+compilers and is not evidence of a defect, but it means the hybrid is not bit-identical.
+
+**35B speed, one card** (`-ncmoe 30 -b 2048 -ub 2048 -t 6 -fa 1`, 2 repeats, tokens/s):
+
+| Library | Prompt (512) | Generation (64) |
+|---|---|---|
+| nvcc | 88.11 | 13.34 |
+| hybnofast | 89.97 (+2.1%) | 14.07 (+5.5%) |
+| hybieee | 89.39 (+1.5%) | 13.54 (+1.5%) |
+| nvcc repeat | 87.77 | 12.60 |
+
+The two nvcc runs differ by 5.5% in generation, as much as the hybrid gain, so on the production model the gain is
+**within noise** (at most about 0-5%). The 9B gain of about 5% stands as measured.
+
+## Decision
+
+Do not deploy a hybrid for production: gain is small and unproven on the 35B model, text is not bit-identical, and it adds
+build and link-collision risk. Keep nvcc. The hybrid remains a documented option.
+
+## Possible further work (not planned)
+
+Find the Clang attention cause (diff the instructions of one failing case; test adding warp barriers). No web source
+describes this failure; the warp-synchronous-code explanation is only a hypothesis.

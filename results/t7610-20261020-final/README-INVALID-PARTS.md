@@ -1,0 +1,1 @@
+The text-*.json files and prod-bench-*.json in this directory are INVALID (helper bug: the first server was never stopped, so later "text" results are the nvcc 9B server and the 35B model failed to load). Valid text and production data are in ../t7610-20261020-final2. Correctness (test-*) and 9B bench-* here are valid.
