@@ -1,0 +1,5 @@
+{"model":"opencode/glm-5.3-flash-free","update":"disable","share":"disabled","snapshots":false,"formatter":false,"lsp":false,
+ "permissions":[{"action":"*","resource":"*","effect":"deny"},{"action":"read","resource":"*","effect":"allow"},
+  {"action":"edit","resource":"src/*","effect":"allow"},{"action":"shell","resource":"node --test*","effect":"allow"},
+  {"action":"shell","resource":"tail *","effect":"allow"},{"action":"shell","resource":"head *","effect":"allow"}],
+ "agents":{"build":{"model":"opencode/glm-5.3-flash-free","steps":20}}}

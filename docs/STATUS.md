@@ -2,6 +2,15 @@
 
 Updated 21 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
 
+## 21 October 2026: interactive use with a cloud model (OpenCode part done until the card is available)
+
+With a free cloud model and the Haiku.5 port in the cardless VM: the CSV/report task passes interactively in
+the TUI (15/15). A second TUI attached to the live session shows the history, and messages from either client
+appear live in the other. The browser (WebPositive) opens the same session and makes a verified edit, which
+appears in the TUI. Found: the TUI ignored the project's `model` and started on a subscription model (Claude Haiku 5.5,
+OpenCode Go), and the picker mixes free and subscription models. Check the footer before prompting. The guest
+env file now names haiku.5. [INTERACTIVE-CLOUD-20261021.md](INTERACTIVE-CLOUD-20261021.md).
+
 ## 21 October 2026: Kepler LLVM workspace removed
 
 The user deleted `~/kepler-llvm-eval` (15 GB: LLVM 23.1.3, Clang and hybrid libraries). Nothing used it; the service runs the

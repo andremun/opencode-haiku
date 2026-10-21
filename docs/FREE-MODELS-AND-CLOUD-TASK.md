@@ -126,4 +126,5 @@ Under the stricter acceptance, through the Haiku.5 port in the KVM Haiku VM, wit
 `deepseek-v4.1-flash-free` and `minimax-m3.1-flash-free` all pass (15/15). `jev-1.13-free` fails with
 `provider.no-route` ("Model unavailable") before any model turn. The catalogue now lists
 `minimax-m3.1-flash-free` and no `space-bunny-free`. One run per model except GLM.
-Details: [TASK-E-20261021.md](TASK-E-20261021.md).
+Details: [TASK-E-20261021.md](TASK-E-20261021.md). Interactive TUI/browser use with a free model:
+[INTERACTIVE-CLOUD-20261021.md](INTERACTIVE-CLOUD-20261021.md).

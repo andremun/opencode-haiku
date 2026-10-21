@@ -115,3 +115,10 @@ Native Haiku rerun of `services.sh`/`prodrun.sh` passes; cloud task passes with 
 stricter acceptance (`jev-1.13-free`: no route). See TASK-E-20261021.md. Next guest job number: 835.
 Remaining: second-client TUI reconnect, vCPU scaling, repeats, a native run of the `coding-workflow.mjs`
 per-run upload names (fixed and host-tested on 21 October).
+
+## Addendum: OpenCode work closed until the card is available (21 October)
+
+Interactive TUI and browser use with a free cloud model, and a second concurrent client, pass
+(INTERACTIVE-CLOUD-20261021.md). Guest `opencode-env.sh` now names haiku.5. The user considers the OpenCode part
+done until the K40c is available. Optional leftovers: vCPU scaling, repeats, Jev retry, a native run of the upload fix.
+Next guest job number: 845.
