@@ -86,6 +86,30 @@ exit 0''')
             self.assertEqual(outcome['test_unchanged'],not tampered)
             self.assertEqual(outcome['steps'],8)
             if not tampered:self.assertTrue(outcome['independent_test_pass'])
+    def test_coding_uploads_use_per_run_names_outside_tracked_results(self):
+        names=[]
+        class Capture(BaseHTTPRequestHandler):
+            def do_PUT(self):
+                self.rfile.read(int(self.headers.get('Content-Length','0')));names.append(self.path.lstrip('/'))
+                self.send_response(204);self.end_headers()
+            def log_message(self,*args):pass
+        server=ThreadingHTTPServer(('127.0.0.1',0),Capture);threading.Thread(target=server.serve_forever,daemon=True).start()
+        try:
+            root=self.root/'coding-upload';root.mkdir()
+            launcher=self.root/'fake-opencode-upload'
+            launcher.write_text('#!'+NODE+'\n'+"require('node:fs').writeFileSync('add.mjs','export const add=(a,b)=>a+b;');")
+            launcher.chmod(0o755)
+            base='http://127.0.0.1:%d/'%server.server_address[1]
+            result=subprocess.run([NODE,str(ROOT/'tools/tui-port/coding-workflow.mjs'),str(root)],env={**os.environ,'OPENCODE_TEST_PORT_ROOT':str(launcher),'OPENCODE_TEST_UPLOAD_BASE':base},capture_output=True,text=True,timeout=15)
+            self.assertEqual(result.returncode,0,result.stderr)
+        finally:server.shutdown();server.server_close()
+        run=json.loads((root/'coding-outcome.json').read_text())['fixture'].split('/')[-2]
+        self.assertRegex(run,r'^coding-[0-9]+$')
+        self.assertEqual(sorted(names),sorted('native-'+run+'-'+n for n in ['agent-model.log','coding-outcome.json']))
+        tracked=set(subprocess.run(['git','-C',str(ROOT),'ls-files','results'],capture_output=True,text=True,check=True).stdout.split())
+        for name in names:
+            self.assertNotIn('results/'+name,tracked)
+            self.assertRegex(name,r'^[A-Za-z0-9_][A-Za-z0-9_.-]*$')  # accepted by transfer_server.py
     def test_cpu_experiments_refuse_the_host_platform(self):
         if os.uname().sysname=='Haiku':self.skipTest('This guard control is intended for the Linux host')
         for name in ['build-cpu-profile.sh','benchmark-cpu.sh','services.sh']:

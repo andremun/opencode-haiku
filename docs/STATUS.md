@@ -16,7 +16,8 @@ scoped mode a duplicate listener is refused and a failing check exit (7) propaga
 stopped. With a user-created no-credit key (served once to the guest, never stored), the cloud
 task passes the stricter acceptance with 9 of the 10 listed free models (15/15 each; GLM twice); `jev-1.13-free`
 fails with client `provider.no-route` before any model turn. Found: `coding-workflow.mjs` uploads to
-fixed `results/` names and overwrote three tracked files (restored). Still pending: second-client TUI reconnect,
+fixed `results/` names and overwrote three tracked files (restored); it now uses per-run names
+(host control added, not yet rerun on Haiku). Still pending: second-client TUI reconnect,
 more than 2 vCPUs, repeats for variance. [TASK-E-20261021.md](TASK-E-20261021.md).
 
 ## 20 October 2026 (final window): IEEE, greedy text, 35B production model

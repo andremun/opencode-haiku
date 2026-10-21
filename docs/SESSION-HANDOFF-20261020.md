@@ -113,4 +113,5 @@ Task A is closed: IEEE build, greedy text and 35B one-card benchmark are done (s
 
 Native Haiku rerun of `services.sh`/`prodrun.sh` passes; cloud task passes with 9 of the 10 free models under the
 stricter acceptance (`jev-1.13-free`: no route). See TASK-E-20261021.md. Next guest job number: 835.
-Remaining: second-client TUI reconnect, vCPU scaling, repeats, per-run upload names in `coding-workflow.mjs`.
+Remaining: second-client TUI reconnect, vCPU scaling, repeats, a native run of the `coding-workflow.mjs`
+per-run upload names (fixed and host-tested on 21 October).

@@ -7,6 +7,10 @@ const root = resolve(process.argv[2] ?? '/boot/home/opencode-acceptance');
 const steps=Number(process.env.OPENCODE_TEST_STEPS??8);
 if(!Number.isInteger(steps)||steps<4||steps>16)throw new Error('OPENCODE_TEST_STEPS must be an integer from 4 to 16');
 const runID='coding-'+Date.now();
+// Guest uploads carry the run id, so they can never replace tracked files under results/.
+// OPENCODE_TEST_UPLOAD_BASE overrides the transfer service (empty disables; default only on Haiku).
+const uploadBase=process.env.OPENCODE_TEST_UPLOAD_BASE??(process.platform==='haiku'?'http://10.0.2.2:18080/':'');
+const upload=(name,body,ms)=>uploadBase?fetch(uploadBase+'native-'+runID+'-'+name,{method:'PUT',body,signal:AbortSignal.timeout(ms)}).catch(()=>{}):Promise.resolve();
 const fixture=resolve(root,runID,'agent-fixture');
 mkdirSync(fixture, {recursive:true});
 writeFileSync(resolve(fixture,'README.md'), '# Synthetic OpenCode connectivity test\nNo private source files.\n');
@@ -30,7 +34,7 @@ const child = spawn(resolve(root,process.env.OPENCODE_TEST_PORT_ROOT||'http-port
  cwd:fixture,env,stdio:['ignore','pipe','pipe']
 });
 let output='';
-const progress=setInterval(()=>{if(process.platform==='haiku')fetch('http://10.0.2.2:18080/native-coding-progress.log',{method:'PUT',body:output,signal:AbortSignal.timeout(5000)}).catch(()=>{});},10000);
+const progress=setInterval(()=>{upload('coding-progress.log',output,5000);},10000);
 for (const stream of [child.stdout,child.stderr]) stream.on('data',chunk=>{output+=chunk;writeFileSync(log,output);});
 let expired=false;
 const timer=setTimeout(()=>{expired=true;child.kill('SIGTERM');setTimeout(()=>child.kill('SIGKILL'),5000).unref();},2700000);
@@ -42,7 +46,7 @@ const unchanged=testHash===createHash('sha256').update(readFileSync(resolve(fixt
 const independent=unchanged?spawnSync(process.execPath,['test.mjs'],{cwd:fixture,encoding:'utf8',timeout:10000}):undefined;
 const result=expired?124:(code??1);
 writeFileSync(resolve(root,'coding-outcome.json'),JSON.stringify({exit:result,semantic_pass:valid&&independent?.status===0,expired,steps,fixture,launch_error:launchError,test_unchanged:unchanged,independent_test_pass:independent?.status===0,independent_test_output:independent?.stdout??'',edited_source:readFileSync(resolve(fixture,'add.mjs'),'utf8')},null,2)+'\n');
-if(process.platform==='haiku')for(const name of ['agent-model.log','coding-outcome.json'])await fetch('http://10.0.2.2:18080/native-'+name,{method:'PUT',body:readFileSync(resolve(root,name)),signal:AbortSignal.timeout(10000)}).catch(()=>{});
+for(const name of ['agent-model.log','coding-outcome.json'])await upload(name,readFileSync(resolve(root,name)),10000);
 writeFileSync(resolve(root,'agent-model.exit'),String(result)+'\n');
 console.log(output);
 process.exitCode=result;
