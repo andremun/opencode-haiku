@@ -76,8 +76,8 @@ correctness failure is avoided. Nearly all of the full-Clang generation gain is 
 ## Reading and limits
 
 - The hybrid is a **working, correct-by-test improvement of about 5% in generation** for this dense model, built only from
-  existing objects. It is not deployed: the service still uses the nvcc library; hybrid libraries are in
-  `~/kepler-llvm-eval/hybrid-*`.
+  existing objects. It is not deployed: the service still uses the nvcc library. The hybrid libraries were in
+  `~/kepler-llvm-eval/hybrid-*`; that workspace was removed on 21 October 2026 (see "Workspace removed" below).
 - **Not verified:** the greedy-text check (the harness step failed, see Run), the 35B production MoE model (the speed-up
   for MoE token generation may differ), kernels other than the tested operations (they come from nvcc or passed the
   first run), long runs, and a second repeat of the whole run.
@@ -125,3 +125,31 @@ build and link-collision risk. Keep nvcc. The hybrid remains a documented option
 
 Find the Clang attention cause (diff the instructions of one failing case; test adding warp barriers). No web source
 describes this failure; the warp-synchronous-code explanation is only a hypothesis.
+
+## Workspace removed (21 October 2026)
+
+The user deleted `~/kepler-llvm-eval` (15 GB) after the decision to keep nvcc. Before deletion: no process, service
+unit, environment file, crontab or symbolic link used it; the service loads only `~/llm-server/llama.cpp/build/bin`
+(`libggml-cuda.so.0.9.11`, SHA-256 `ac270eeb5640cc36...`, the nvcc build) and was healthy before and after.
+
+Removed: the LLVM 23.1.3 toolchain (12 GB unpacked, 1.9 GB archive), the Clang libraries (`clang-ggml-cuda`,
+`-nofinite`, `-nofast`, `-ieee`), the hybrid libraries (`hybrid-*`), the `lib-*` test directories and `kernel-cache`.
+Kept: the text results (`analysis.md`, `subset*.md`, the build and link logs `*.txt`, `out1-3.txt`) are in
+`results/kepler-llvm-eval-summary/`. Card results stay under `results/t7610-2026101*/` and `results/t7610-20261020-*`.
+
+To rebuild (CPU only, no card; needs the deployed nvcc objects in
+`~/llm-server/llama.cpp/build/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir`, which `link_hybrid.py` reads):
+
+1. Download `LLVM-23.1.3-Linux-X64.tar.xz` from the `llvm/llvm-project` GitHub release `llvmorg-23.1.3` and check
+   SHA-256 `ca9fe385a5d9e2d88132dc0e23a00e9f87f38fa75f67207b5e457d208e71d013` (2,016,524,848 bytes). Unpack it to
+   `~/kepler-llvm-eval/llvm/`.
+2. Build a Clang library for each math profile needed (about four minutes each on 10 jobs):
+   `python3 tools/kepler-static/build_clang_ggml_cuda.py --clang-bin ~/kepler-llvm-eval/llvm/LLVM-23.1.3-Linux-X64/bin --math nofast --out ~/kepler-llvm-eval/clang-ggml-cuda-nofast`
+   (profiles: `ffast`, `nofinite`, `nofast`, `ieee`).
+3. Link a hybrid with the tested 24 Clang files:
+   `python3 tools/kepler-static/link_hybrid.py --clang-dir ~/kepler-llvm-eval/clang-ggml-cuda-nofast --out ~/kepler-llvm-eval/hybrid-nofast --use mmvq.cu --use softmax.cu --use mmq.cu --use-glob 'template-instances/mmq-instance-*.cu'`.
+   It must report `"cross_compiler_collisions": 0`. `kernel-cache` is recreated by the script.
+4. Any card test goes through `tools/kepler-static/run_card_hybrid.sh --execute NEW_DIR` (supervised; it pauses and
+   restores the service). Its `lib-*` directories are recreated from the deployed libraries.
+
+The rebuilt files will differ in timestamps; compare kernel counts (5,865 for the hybrid) and test results, not hashes.

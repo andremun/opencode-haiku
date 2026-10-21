@@ -1,6 +1,12 @@
 # Status
 
-Updated 19 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
+Updated 21 October 2026 (Australia/Melbourne). Independent OpenCode Haiku port.
+
+## 21 October 2026: Kepler LLVM workspace removed
+
+The user deleted `~/kepler-llvm-eval` (15 GB: LLVM 23.1.3, Clang and hybrid libraries). Nothing used it; the service runs the
+nvcc library and was healthy before and after. Text results kept in `results/kepler-llvm-eval-summary/`. Rebuild steps:
+[KEPLER-HYBRID-20261020.md](KEPLER-HYBRID-20261020.md), "Workspace removed".
 
 ## 20 October 2026 (final window): IEEE, greedy text, 35B production model
 

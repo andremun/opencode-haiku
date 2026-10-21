@@ -104,3 +104,7 @@ Results live under `results/t7610-2026101*/`. Build caches, source archives, mod
 ## Addendum: hybrid work completed (20 October, evening)
 
 Task A is closed: IEEE build, greedy text and 35B one-card benchmark are done (see KEPLER-HYBRID-20261020.md, "Final window"). Result: Clang attention failure is a code-generation difference; hybrid gain on 35B is within noise; decision is to keep nvcc. Optional later: diagnose the Clang attention failure.
+
+## Addendum: workspace removed (21 October)
+
+`~/kepler-llvm-eval` no longer exists; the paths above under it are gone. Rebuild steps: KEPLER-HYBRID-20261020.md, "Workspace removed".
