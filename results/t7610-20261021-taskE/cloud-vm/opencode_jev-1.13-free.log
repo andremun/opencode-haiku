@@ -1,0 +1,21 @@
+{
+  "model": "opencode/jev-1.13-free",
+  "runID": "cloud-1792548385014",
+  "fixture": "/boot/home/cloud-20261021/opencode_jev-1.13-free/cloud-1792548385014/fixture",
+  "exit": 1,
+  "expired": false,
+  "seconds": 14,
+  "steps": 20,
+  "tests_unchanged": true,
+  "agent_ran_tests": 0,
+  "agent_successful_tests": 0,
+  "tool_calls": [],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 3,
+    "fail": 12
+  },
+  "semantic_pass": false,
+  "independent_test_pass": false,
+  "error_text": ""
+}

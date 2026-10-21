@@ -1,0 +1,12 @@
+opencode/glm-5.3-flash-free rc=0 seconds=156
+opencode/big-pickle rc=0 seconds=210
+opencode/beam-free rc=0 seconds=66
+opencode/mimo-v2.6-flash-free rc=0 seconds=162
+opencode/nemotron-3.5-super-vl-free rc=0 seconds=100
+opencode/nemotron-3.5-lightning-free rc=0 seconds=567
+opencode/jev-1.13-free rc=1 seconds=15
+opencode/longcat-2.5-preview-free rc=0 seconds=79
+opencode/deepseek-v4.1-flash-free rc=0 seconds=77
+opencode/minimax-m3.1-flash-free rc=0 seconds=136
+opencode/glm-5.3-flash-free rc=0 seconds=113
+done

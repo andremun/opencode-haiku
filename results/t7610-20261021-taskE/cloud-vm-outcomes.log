@@ -1,0 +1,59 @@
+opencode/glm-5.3-flash-free rc=0 seconds=156
+opencode/big-pickle rc=0 seconds=210
+opencode/beam-free rc=0 seconds=66
+opencode/mimo-v2.6-flash-free rc=0 seconds=162
+opencode/nemotron-3.5-super-vl-free rc=0 seconds=100
+opencode/nemotron-3.5-lightning-free rc=0 seconds=567
+opencode/jev-1.13-free rc=1 seconds=15
+opencode/longcat-2.5-preview-free rc=0 seconds=79
+opencode/deepseek-v4.1-flash-free rc=0 seconds=77
+opencode/minimax-m3.1-flash-free rc=0 seconds=136
+opencode/glm-5.3-flash-free rc=0 seconds=113
+done
+== loop.log
+== opencode_beam-free/cloud-1792547489531/outcome.json
+{"model":"opencode/beam-free","exit":0,"expired":false,"seconds":66,"unchanged":true,"agent_ran":4,"agent_ok":2,"calls":21,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_big-pickle/cloud-1792547279252/outcome.json
+{"model":"opencode/big-pickle","exit":0,"expired":false,"seconds":210,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":9,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_deepseek-v4.1-flash-free/cloud-1792548478230/outcome.json
+{"model":"opencode/deepseek-v4.1-flash-free","exit":0,"expired":false,"seconds":78,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":10,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_glm-5.3-flash-free/cloud-1792547123386/outcome.json
+{"model":"opencode/glm-5.3-flash-free","exit":0,"expired":false,"seconds":156,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":13,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_glm-5.3-flash-free/cloud-1792548691381/outcome.json
+{"model":"opencode/glm-5.3-flash-free","exit":0,"expired":false,"seconds":113,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":10,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_jev-1.13-free/cloud-1792548385014/outcome.json
+{"model":"opencode/jev-1.13-free","exit":1,"expired":false,"seconds":14,"unchanged":true,"agent_ran":0,"agent_ok":0,"calls":0,"indep":{"tests":15,"pass":3,"fail":12},"semantic_pass":false,"error":""}
+== opencode_longcat-2.5-preview-free/cloud-1792548399308/outcome.json
+{"model":"opencode/longcat-2.5-preview-free","exit":0,"expired":false,"seconds":79,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":12,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_mimo-v2.6-flash-free/cloud-1792547556014/outcome.json
+{"model":"opencode/mimo-v2.6-flash-free","exit":0,"expired":false,"seconds":161,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":9,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_minimax-m3.1-flash-free/cloud-1792548555980/outcome.json
+{"model":"opencode/minimax-m3.1-flash-free","exit":0,"expired":false,"seconds":135,"unchanged":true,"agent_ran":3,"agent_ok":2,"calls":19,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_nemotron-3.5-lightning-free/cloud-1792547817492/outcome.json
+{"model":"opencode/nemotron-3.5-lightning-free","exit":0,"expired":false,"seconds":567,"unchanged":true,"agent_ran":4,"agent_ok":2,"calls":15,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== opencode_nemotron-3.5-super-vl-free/cloud-1792547717225/outcome.json
+{"model":"opencode/nemotron-3.5-super-vl-free","exit":0,"expired":false,"seconds":100,"unchanged":true,"agent_ran":2,"agent_ok":1,"calls":8,"indep":{"tests":15,"pass":15,"fail":0},"semantic_pass":true,"error":""}
+== jev log
+{
+  "model": "opencode/jev-1.13-free",
+  "runID": "cloud-1792548385014",
+  "fixture": "/boot/home/cloud-20261021/opencode_jev-1.13-free/cloud-1792548385014/fixture",
+  "exit": 1,
+  "expired": false,
+  "seconds": 14,
+  "steps": 20,
+  "tests_unchanged": true,
+  "agent_ran_tests": 0,
+  "agent_successful_tests": 0,
+  "tool_calls": [],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 3,
+    "fail": 12
+  },
+  "semantic_pass": false,
+  "independent_test_pass": false,
+  "error_text": ""
+}
+
+exit=0

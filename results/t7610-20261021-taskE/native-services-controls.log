@@ -1,0 +1,57 @@
+sentinel
+Port 18081 already has an HTTP listener; refusing duplicate services.
+services rc=1
+sentinel-alive
+no-new-stack
+control1-done
+
+exit=0
+### control 2 (job 811, invalid rc capture via pipe; superseded by job 812)
+curl: (7) Failed to connect to 127.0.0.1:18081 after 0 ms: Could not connect to server
+curl: (7) Failed to connect to 127.0.0.1:18083 after 0 ms: Could not connect to server
+curl: (7) Failed to connect to 127.0.0.1:18083 after 0 ms: Could not connect to server
+curl: (7) Failed to connect to 127.0.0.1:18083 after 0 ms: Could not connect to server
+model 200
+children-during=1
+services rc=0
+no-stack-after
+
+exit=0
+### control 2 rerun (job 812)
+services rc=7
+model 200
+backend 200
+/bin/sh /boot/home/opencode-haiku-src-b66fa4f/tools/kvm-run/ser  1479        1    0    0 
+/boot/home/haiku-llm/build-cpu-ivybridge/bin/llama-server -m mo  1485        8    0    0 
+/bin/node /boot/home/opencode-haiku-2.0.29-haiku.4/opencode.mjs  1512       11    0    0 
+18081 closed
+18083 closed
+no-stack-after
+
+exit=0
+OC=/boot/home/opencode-haiku-2.0.29-haiku.4
+export XDG_DATA_HOME=/boot/home/opencode-profile/data XDG_CONFIG_HOME=/boot/home/opencode-profile/config XDG_CACHE_HOME=/boot/home/opencode-profile/cache XDG_STATE_HOME=/boot/home/opencode-profile/state
+cd /boot/home/opencode-work
+---
+#!/bin/sh
+set -eu
+root=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export OPENCODE_PTY_BIN="$root/opencode-pty"
+export OPENCODE_NODE_PTY_PATH="$root/node-pty"
+export OPENCODE_HAIKU_CLIPBOARD="$root/haiku-clipboard.cjs"
+export OPENCODE_HAIKU_KOFFI="$root/koffi"
+export NODE_OPTIONS="${NODE_OPTIONS:+$NODE_OPTIONS }--require=$root/haiku-loader.cjs"
+export LIBRARY_PATH="$root/lib:/boot/system/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
+exec node "$root/opencode.mjs" "$@"
+assets
+haiku-clipboard
+haiku-clipboard.cjs
+haiku-ffi.cjs
+haiku-http.cjs
+haiku-loader.cjs
+haiku-watch.cjs
+koffi
+LICENSE
+licenses
+
+exit=0

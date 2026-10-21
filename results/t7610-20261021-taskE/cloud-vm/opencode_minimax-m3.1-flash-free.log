@@ -1,0 +1,41 @@
+{
+  "model": "opencode/minimax-m3.1-flash-free",
+  "runID": "cloud-1792548555980",
+  "fixture": "/boot/home/cloud-20261021/opencode_minimax-m3.1-flash-free/cloud-1792548555980/fixture",
+  "exit": 0,
+  "expired": false,
+  "seconds": 135,
+  "steps": 20,
+  "tests_unchanged": true,
+  "agent_ran_tests": 3,
+  "agent_successful_tests": 2,
+  "tool_calls": [
+    "shell",
+    "shell",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "shell",
+    "write",
+    "write",
+    "shell",
+    "write",
+    "write",
+    "read",
+    "shell"
+  ],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 15,
+    "fail": 0
+  },
+  "semantic_pass": true,
+  "independent_test_pass": true,
+  "error_text": ""
+}

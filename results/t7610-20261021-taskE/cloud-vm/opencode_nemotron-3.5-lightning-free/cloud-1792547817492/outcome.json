@@ -1,0 +1,37 @@
+{
+  "model": "opencode/nemotron-3.5-lightning-free",
+  "runID": "cloud-1792547817492",
+  "fixture": "/boot/home/cloud-20261021/opencode_nemotron-3.5-lightning-free/cloud-1792547817492/fixture",
+  "exit": 0,
+  "expired": false,
+  "seconds": 567,
+  "steps": 20,
+  "tests_unchanged": true,
+  "agent_ran_tests": 4,
+  "agent_successful_tests": 2,
+  "tool_calls": [
+    "shell",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "edit",
+    "shell",
+    "edit",
+    "shell",
+    "shell",
+    "reply",
+    "write"
+  ],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 15,
+    "fail": 0
+  },
+  "semantic_pass": true,
+  "independent_test_pass": true,
+  "error_text": ""
+}

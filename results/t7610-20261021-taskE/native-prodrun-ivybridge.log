@@ -1,0 +1,265 @@
+== prodrun log (67 curl readiness retry lines removed)
+{
+  "exit": 0,
+  "semantic_pass": true,
+  "expired": false,
+  "steps": 8,
+  "fixture": "/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture",
+  "test_unchanged": true,
+  "independent_test_pass": true,
+  "independent_test_output": "AGENT_TEST_PASS\n",
+  "edited_source": "export const add = (a, b) => a + b;"
+}
+rc=0
+== inference-ivybridge.json
+{
+  "platform": "haiku",
+  "endpoint": "http://127.0.0.1:18081",
+  "requests": [
+    {
+      "body": {
+        "model": "haiku-qwen17",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Reply with the single word OK."
+          }
+        ],
+        "max_tokens": 64,
+        "temperature": 0,
+        "seed": 1234,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 13263,
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "OK."
+            }
+          }
+        ],
+        "created": 1792546135,
+        "model": "haiku-qwen17",
+        "system_fingerprint": "b0-unknown",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 19,
+          "total_tokens": 22,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-mnkVDD2tI2Pi0kqGFlTX7w7y0v1GxYUi",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 19,
+          "prompt_ms": 2185.549,
+          "prompt_per_token_ms": 115.0288947368421,
+          "prompt_per_second": 8.693467865511137,
+          "predicted_n": 3,
+          "predicted_ms": 298.364,
+          "predicted_per_token_ms": 99.45466666666665,
+          "predicted_per_second": 10.054832352428578
+        }
+      }
+    },
+    {
+      "body": {
+        "model": "haiku-qwen17",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Write a Python function add(a, b) that returns their sum. Output only the code."
+          }
+        ],
+        "max_tokens": 64,
+        "temperature": 0,
+        "seed": 1234,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 9510,
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "```python\ndef add(a, b):\n    return a + b\n```"
+            }
+          }
+        ],
+        "created": 1792546145,
+        "model": "haiku-qwen17",
+        "system_fingerprint": "b0-unknown",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 17,
+          "prompt_tokens": 31,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 3
+          }
+        },
+        "id": "chatcmpl-f0e8b7mb6HICKu3kHppDxAJj39LmYaU3",
+        "timings": {
+          "cache_n": 3,
+          "prompt_n": 28,
+          "prompt_ms": 2669.292,
+          "prompt_per_token_ms": 95.33185714285715,
+          "prompt_per_second": 10.489672917013202,
+          "predicted_n": 17,
+          "predicted_ms": 6784.137,
+          "predicted_per_token_ms": 399.06688235294115,
+          "predicted_per_second": 2.505845621926562
+        }
+      }
+    },
+    {
+      "body": {
+        "model": "haiku-qwen17",
+        "messages": [
+          {
+            "role": "user",
+            "content": "What is 7 plus 5? Reply with only the number."
+          }
+        ],
+        "max_tokens": 64,
+        "temperature": 0,
+        "seed": 1234,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 2762,
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "12"
+            }
+          }
+        ],
+        "created": 1792546147,
+        "model": "haiku-qwen17",
+        "system_fingerprint": "b0-unknown",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 26,
+          "total_tokens": 29,
+          "prompt_tokens_details": {
+            "cached_tokens": 3
+          }
+        },
+        "id": "chatcmpl-t9roW2rEODb2vnLBST2i5PHL0cwmE0Dz",
+        "timings": {
+          "cache_n": 3,
+          "prompt_n": 23,
+          "prompt_ms": 2402.287,
+          "prompt_per_token_ms": 104.44726086956521,
+          "prompt_per_second": 9.574209909140748,
+          "predicted_n": 3,
+          "predicted_ms": 299.537,
+          "predicted_per_token_ms": 99.84566666666666,
+          "predicted_per_second": 10.015457188928247
+        }
+      }
+    }
+  ]
+}
+== coding run.log
+timestamp=2026-10-21T01:29:42.861Z level=INFO run=2721223f message="cli starting" version=2.0.29-haiku.5 channel=haiku local=false args="[\"run\",\"--agent\",\"probe\",\"--standalone\",\"--model\",\"local/haiku-qwen17\",\"--title\",\"Local CPU model editing test\",\"--format\",\"json\",\"Read add.mjs, fix add to return a + b using write or edit, then run node test.mjs using shell. Do not edit test.mjs. After the test passes, reply OK.\"]" role=cli
+timestamp=2026-10-21T01:29:42.892Z level=INFO run=2721223f message="spawning process" command=/boot/system/bin/node args="[\"/boot/home/opencode-haiku-2.0.29-haiku.5/opencode.mjs\",\"serve\",\"--stdio\",\"--port\",\"0\"]" cwd=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture role=cli
+timestamp=2026-10-21T01:30:14.440Z level=INFO run=5431b8ea message="cli starting" version=2.0.29-haiku.5 channel=haiku local=false args="[\"serve\",\"--stdio\",\"--port\",\"0\"]" role=cli
+timestamp=2026-10-21T01:30:14.518Z level=INFO run=5431b8ea message="database schema bootstrap started" migrations=50 role=server
+timestamp=2026-10-21T01:30:14.561Z level=INFO run=5431b8ea message="database schema bootstrap completed" migrations=50 durationMs=43 role=server
+timestamp=2026-10-21T01:30:15.143Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode type=directory ignores=3 http.span=386 role=server
+timestamp=2026-10-21T01:30:15.175Z level=ERROR run=5431b8ea message="watcher backend not supported" directory=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode platform=haiku http.span=418 role=server
+timestamp=2026-10-21T01:30:15.178Z level=INFO run=5431b8ea message="watcher subscribe" path=/etc type=entries ignores=0 http.span=421 role=server
+timestamp=2026-10-21T01:30:15.183Z level=INFO run=5431b8ea message="watcher started" path=/etc type=entries backend=node ignores=0 http.span=426 role=server
+timestamp=2026-10-21T01:30:15.184Z level=INFO run=5431b8ea message="watcher subscribe" path=/ type=entries ignores=0 http.span=427 role=server
+timestamp=2026-10-21T01:30:15.186Z level=INFO run=5431b8ea message="watcher started" path=/ type=entries backend=node ignores=0 http.span=429 role=server
+timestamp=2026-10-21T01:30:15.187Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot type=entries ignores=0 http.span=430 role=server
+timestamp=2026-10-21T01:30:15.188Z level=INFO run=5431b8ea message="watcher started" path=/boot type=entries backend=node ignores=0 http.span=431 role=server
+timestamp=2026-10-21T01:30:15.188Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home type=entries ignores=0 http.span=431 role=server
+timestamp=2026-10-21T01:30:15.241Z level=INFO run=5431b8ea message="watcher started" path=/boot/home type=entries backend=node ignores=0 http.span=484 role=server
+timestamp=2026-10-21T01:30:15.243Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge type=entries ignores=0 http.span=486 role=server
+timestamp=2026-10-21T01:30:15.244Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge type=entries backend=node ignores=0 http.span=487 role=server
+timestamp=2026-10-21T01:30:15.244Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149 type=entries ignores=0 http.span=487 role=server
+timestamp=2026-10-21T01:30:15.246Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149 type=entries backend=node ignores=0 http.span=489 role=server
+timestamp=2026-10-21T01:30:15.246Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture type=entries ignores=0 http.span=489 role=server
+timestamp=2026-10-21T01:30:15.247Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture type=entries backend=node ignores=0 http.span=490 role=server
+timestamp=2026-10-21T01:30:26.462Z level=INFO run=5431b8ea message="location services booted" directory=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture workspaceID=undefined durationMs=11698 http.span=11705 role=server
+timestamp=2026-10-21T01:30:38.199Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/AGENTS.md type=file ignores=0
+timestamp=2026-10-21T01:30:38.200Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/AGENTS.md type=file backend=node ignores=0 http.span=23443 role=server
+timestamp=2026-10-21T01:30:38.201Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture/AGENTS.md type=file ignores=0
+timestamp=2026-10-21T01:30:38.201Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture/AGENTS.md type=file backend=node ignores=0 http.span=23444 role=server
+timestamp=2026-10-21T01:30:38.202Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/AGENTS.md type=file ignores=0
+timestamp=2026-10-21T01:30:38.202Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149/AGENTS.md type=file backend=node ignores=0 http.span=23445 role=server
+timestamp=2026-10-21T01:30:38.203Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/AGENTS.md type=file ignores=0
+timestamp=2026-10-21T01:30:38.203Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/AGENTS.md type=file backend=node ignores=0 http.span=23446 role=server
+timestamp=2026-10-21T01:30:38.204Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/AGENTS.md type=file ignores=0
+timestamp=2026-10-21T01:30:38.213Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/AGENTS.md type=file backend=node ignores=0 http.span=23456 role=server
+timestamp=2026-10-21T01:30:38.382Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/skill type=file ignores=0
+timestamp=2026-10-21T01:30:38.383Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/skill type=file backend=node ignores=0 http.span=23626 role=server
+timestamp=2026-10-21T01:30:38.394Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/skills type=file ignores=0
+timestamp=2026-10-21T01:30:38.395Z level=INFO run=5431b8ea message="watcher started" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/skills type=file backend=node ignores=0 http.span=23638 role=server
+timestamp=2026-10-21T01:30:38.471Z level=INFO run=5431b8ea message=event event.id=evt_15c14f006001s6wLAdCgLaLyT5 event.created=1792546238471 event.type=provider.updated event.location.directory=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture event.location.workspaceID=undefined event.data={} http.span=23714 role=server
+timestamp=2026-10-21T01:30:38.525Z level=INFO run=5431b8ea message=event event.id=evt_15c14f03d001IcxMH4A8N7BjTK event.created=1792546238525 event.type=model.updated event.location.directory=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture event.location.workspaceID=undefined event.data={} http.span=23768 role=server
+timestamp=2026-10-21T01:30:38.537Z level=INFO run=5431b8ea message=event event.id=evt_15c14f048001x2xuxBB07rTOF3 event.created=1792546238537 event.type=agent.updated event.location.directory=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture event.location.workspaceID=undefined event.data={} http.span=23780 role=server
+timestamp=2026-10-21T01:30:38.541Z level=INFO run=5431b8ea message=event event.id=evt_15c14f04d0018XuoA1abQ5YHPu event.created=1792546238541 event.type=command.updated event.location.directory=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture event.location.workspaceID=undefined event.data={} http.span=23784 role=server
+timestamp=2026-10-21T01:30:44.772Z level=INFO run=5431b8ea message="watcher subscribe" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode type=directory ignores=3 http.span=30015 role=server
+timestamp=2026-10-21T01:30:44.773Z level=ERROR run=5431b8ea message="watcher backend not supported" directory=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode platform=haiku http.span=30016 role=server
+{"type":"step_start","timestamp":1792546417661,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c17abfc001KkeLkJ9Wpz5ApI","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c1507d9001rSxqGtqMb9KqxZ","type":"step-start"}}
+{"type":"tool_use","timestamp":1792546433674,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"partID":"prt_15c17ac1b001JUOAKUauW25Bb5","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c1507d9001rSxqGtqMb9KqxZ","type":"tool","id":"QZ5tZEufzyjcKhM5t9o9pRahpNbLemz9","tool":"read","state":{"status":"completed","input":{"path":"add.mjs"},"output":"Read file add.mjs, lines 1-1\n1: export const add = (a, b) => a - b;","title":"read","metadata":{"metadata":{"truncated":false},"content":[{"type":"text","text":"Read file add.mjs, lines 1-1\n1: export const add = (a, b) => a - b;"}],"providerCall":{"executed":false},"providerResult":{"executed":false},"rawInput":"{\"path\": \"add.mjs\"}"},"time":{"start":1792546417691,"end":1792546433674}}}}
+{"type":"step_finish","timestamp":1792546433684,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c17ea94001HkRpc0RdnSf572","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c1507d9001rSxqGtqMb9KqxZ","type":"step-finish","reason":"tool-calls","cost":0,"tokens":{"input":1457,"output":21,"reasoning":0,"cache":{"read":1,"write":0}}}}
+{"type":"step_start","timestamp":1792546453084,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c18365c001v17EB8cH954tEB","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c17eac9001ctG5FT60VNVlZt","type":"step-start"}}
+{"type":"tool_use","timestamp":1792546462540,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"partID":"prt_15c183669001Bfv0ACzxTtaMus","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c17eac9001ctG5FT60VNVlZt","type":"tool","id":"TTOJVvmzC3dOmTuhGipq7E6qnQxW93CW","tool":"edit","state":{"status":"completed","input":{"path":"add.mjs","oldString":"a - b","newString":"a + b","replaceAll":true},"output":"Edited add.mjs (1 replacement)","title":"edit","metadata":{"metadata":{"files":[{"file":"add.mjs","patch":"Index: add.mjs\n===================================================================\n--- add.mjs\n+++ add.mjs\n@@ -1,1 +1,1 @@\n-export const add = (a, b) => a - b;\n+export const add = (a, b) => a + b;\n","status":"modified","additions":1,"deletions":1}],"truncated":false},"content":[{"type":"text","text":"Edited add.mjs (1 replacement)"}],"providerCall":{"executed":false},"providerResult":{"executed":false},"rawInput":"{\"path\": \"add.mjs\", \"oldString\": \"a - b\", \"newString\": \"a + b\", \"replaceAll\": true}"},"time":{"start":1792546453097,"end":1792546462540}}}}
+{"type":"step_finish","timestamp":1792546462547,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c185b53001u1Gj456uRVydU3","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c17eac9001ctG5FT60VNVlZt","type":"step-finish","reason":"tool-calls","cost":0,"tokens":{"input":65,"output":44,"reasoning":0,"cache":{"read":1454,"write":0}}}}
+{"type":"step_start","timestamp":1792546479171,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c189c43001xRbwzdbZYsetc4","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c185b78001wYTR9iHJlDhb5A","type":"step-start"}}
+{"type":"tool_use","timestamp":1792546487552,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"partID":"prt_15c189c55001f3BJRA69UZZ2Yq","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c185b78001wYTR9iHJlDhb5A","type":"tool","id":"7luFoCZKzp6tlXfFpi1zygRrQcNskLWB","tool":"write","state":{"status":"completed","input":{"path":"add.mjs","content":"export const add = (a, b) => a + b;"},"output":"Wrote file successfully: add.mjs","title":"write","metadata":{"metadata":{"truncated":false},"content":[{"type":"text","text":"Wrote file successfully: add.mjs"}],"providerCall":{"executed":false},"providerResult":{"executed":false},"rawInput":"{\"path\": \"add.mjs\", \"content\": \"export const add = (a, b) => a + b;\"}"},"time":{"start":1792546479190,"end":1792546487552}}}}
+{"type":"step_finish","timestamp":1792546487558,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c18bd06001xKEeTyXTnajEQm","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c185b78001wYTR9iHJlDhb5A","type":"step-finish","reason":"tool-calls","cost":0,"tokens":{"input":68,"output":40,"reasoning":0,"cache":{"read":1515,"write":0}}}}
+{"type":"step_start","timestamp":1792546497580,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c18e42c001kkp7yMk7uTWayY","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c18bd33001ws5mdac78eP6jF","type":"step-start"}}
+timestamp=2026-10-21T01:35:01.808Z level=INFO run=5431b8ea message="spawning process" command=/bin/bash args="[\"-c\",\"node test.mjs\"]" cwd=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture http.span=287051 role=server
+{"type":"tool_use","timestamp":1792546502353,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"partID":"prt_15c18e437001kOyXZUywM7vbYV","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c18bd33001ws5mdac78eP6jF","type":"tool","id":"7RDJ5lYug0SAAMUktGNBRI4qL8Auig2y","tool":"shell","state":{"status":"completed","input":{"command":"node test.mjs"},"output":"AGENT_TEST_PASS\n","title":"shell","metadata":{"metadata":{"status":"completed","truncated":false,"exit":0},"content":[{"type":"text","text":"AGENT_TEST_PASS\n"}],"providerCall":{"executed":false},"providerResult":{"executed":false},"rawInput":"{\"command\": \"node test.mjs\"}"},"time":{"start":1792546497591,"end":1792546502353}}}}
+{"type":"step_finish","timestamp":1792546502364,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c18f6dc001y87YV8wv5Kzx7Q","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c18bd33001ws5mdac78eP6jF","type":"step-finish","reason":"tool-calls","cost":0,"tokens":{"input":65,"output":22,"reasoning":0,"cache":{"read":1579,"write":0}}}}
+{"type":"step_start","timestamp":1792546509135,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c19114e001sGluqr8RTpgRPZ","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c18f727001h3KDmJlnyCsj0p","type":"step-start"}}
+{"type":"text","timestamp":1792546509419,"sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","part":{"id":"prt_15c18f727001h3KDmJlnyCsj0p_text-0","sessionID":"ses_ea3eb12fcffe78P4I4cXVTu8ng","messageID":"msg_15c18f727001h3KDmJlnyCsj0p","type":"text","text":"OK","time":{"start":1792546502503,"end":1792546509419}}}
+timestamp=2026-10-21T01:35:09.486Z level=INFO run=5431b8ea message="Sent HTTP response" http.span=271212 role=server http.method=GET http.url=/api/event http.status=200
+timestamp=2026-10-21T01:35:09.612Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/skill type=file http.span=294855 role=server
+timestamp=2026-10-21T01:35:09.613Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/skills type=file http.span=294856 role=server
+timestamp=2026-10-21T01:35:09.622Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/AGENTS.md type=file http.span=294865 role=server
+timestamp=2026-10-21T01:35:09.623Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/AGENTS.md type=file http.span=294866 role=server
+timestamp=2026-10-21T01:35:09.624Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149/AGENTS.md type=file http.span=294867 role=server
+timestamp=2026-10-21T01:35:09.627Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture/AGENTS.md type=file http.span=294870 role=server
+timestamp=2026-10-21T01:35:09.628Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149/state/config/opencode/AGENTS.md type=file http.span=294871 role=server
+timestamp=2026-10-21T01:35:09.657Z level=INFO run=5431b8ea message="watcher stopped" path=/etc type=entries http.span=294900 role=server
+timestamp=2026-10-21T01:35:09.658Z level=INFO run=5431b8ea message="watcher stopped" path=/ type=entries http.span=294901 role=server
+timestamp=2026-10-21T01:35:09.658Z level=INFO run=5431b8ea message="watcher stopped" path=/boot type=entries http.span=294901 role=server
+timestamp=2026-10-21T01:35:09.659Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home type=entries http.span=294902 role=server
+timestamp=2026-10-21T01:35:09.659Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge type=entries http.span=294902 role=server
+timestamp=2026-10-21T01:35:09.659Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149 type=entries http.span=294902 role=server
+timestamp=2026-10-21T01:35:09.660Z level=INFO run=5431b8ea message="watcher stopped" path=/boot/home/coding-ivybridge/coding-1792546148149/agent-fixture type=entries http.span=294903 role=server
+
+== timestamps
+-rw-r--r-- 1 user root  321 2026-10-21 01:35:09.963117056 +0000 coding-ivybridge/coding-outcome.json
+-rw-r--r-- 1 user root 4574 2026-10-21 01:29:07.939786240 +0000 inference-ivybridge.json
+-rw-r--r-- 1 user root 3989 2026-10-21 01:35:10.765984768 +0000 prodrun-ivybridge-20261021.log
+
+exit=0

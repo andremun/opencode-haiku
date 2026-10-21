@@ -1,0 +1,7 @@
+4a51d840dda75e661a0d5c49b413a7b311b3deeb0f00f4d317a795605c5d8c72  tools/kvm-run/cloud-models.sh
+3255dbc98761ee336d2f613929f062a607c323e5bce2f6418b0ad66f9eaf7377  tools/kvm-run/services.sh
+1e132241479ab985a02044770c7a69f21dcccea677cb48e889d25deb6387e269  tools/kvm-run/prodrun.sh
+25c276aad98ba0cab272a1f0f6dd3287d1373d778e0f7830211257aa95082f35  tools/tui-port/cloud-coding-task.mjs
+24c0b22d3fcab56cd5750b028d594661476e3aba52278efec021993016e85a59  tools/kvm-run/with-cloud-key-guest.sh
+afcfd519eb78c9b49b17ad489637ad1b4192224cd6273c970ec76406c92e2a0c  tools/secrets/serve-key-once.py
+share/src-b66fa4f.tar.gz 5f5daa1ca20a6f52404e9b97d6b23d68e4c59c720fff54e00d82e3e8851f504d (git archive HEAD b66fa4f tools examples)

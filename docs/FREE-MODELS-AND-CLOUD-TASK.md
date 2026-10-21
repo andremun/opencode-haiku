@@ -117,3 +117,13 @@ test success after a client failure remain visible in the outcome, but do not pa
 end-to-end acceptance. New offline controls cover failed/unknown shell status,
 failed client exit, timeout and a hidden test failure. No new real-model run was
 made; the earlier measured outcomes above are retained as originally recorded.
+
+## 21 October 2026: more free models in the Haiku VM
+
+Under the stricter acceptance, through the Haiku.5 port in the KVM Haiku VM, with a new no-credit key:
+`glm-5.3-flash-free` (twice, 156 s and 113 s), `big-pickle`, `beam-free`, `mimo-v2.6-flash-free`,
+`nemotron-3.5-super-vl-free`, `nemotron-3.5-lightning-free`, `longcat-2.5-preview-free`,
+`deepseek-v4.1-flash-free` and `minimax-m3.1-flash-free` all pass (15/15). `jev-1.13-free` fails with
+`provider.no-route` ("Model unavailable") before any model turn. The catalogue now lists
+`minimax-m3.1-flash-free` and no `space-bunny-free`. One run per model except GLM.
+Details: [TASK-E-20261021.md](TASK-E-20261021.md).

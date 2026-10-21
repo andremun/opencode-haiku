@@ -8,6 +8,17 @@ The user deleted `~/kepler-llvm-eval` (15 GB: LLVM 23.1.3, Clang and hybrid libr
 nvcc library and was healthy before and after. Text results kept in `results/kepler-llvm-eval-summary/`. Rebuild steps:
 [KEPLER-HYBRID-20261020.md](KEPLER-HYBRID-20261020.md), "Workspace removed".
 
+## 21 October 2026: Task E, native runner rerun and more free cloud models
+
+The runners changed by `7970e38` pass natively on Haiku (cardless KVM VM, source `b66fa4f`):
+`prodrun.sh ivybridge` exits 0 (8-step coding fixture `semantic_pass`, stack cleaned up). In `services.sh`
+scoped mode a duplicate listener is refused and a failing check exit (7) propagates with both servers
+stopped. With a user-created no-credit key (served once to the guest, never stored), the cloud
+task passes the stricter acceptance with 9 of the 10 listed free models (15/15 each; GLM twice); `jev-1.13-free`
+fails with client `provider.no-route` before any model turn. Found: `coding-workflow.mjs` uploads to
+fixed `results/` names and overwrote three tracked files (restored). Still pending: second-client TUI reconnect,
+more than 2 vCPUs, repeats for variance. [TASK-E-20261021.md](TASK-E-20261021.md).
+
 ## 20 October 2026 (final window): IEEE, greedy text, 35B production model
 
 Pure Clang attention still fails with strict IEEE (2411/2832): a code-generation difference, not a math flag; cause not found. Hybrid libraries pass all

@@ -1,0 +1,32 @@
+{
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "runID": "cloud-1792548478230",
+  "fixture": "/boot/home/cloud-20261021/opencode_deepseek-v4.1-flash-free/cloud-1792548478230/fixture",
+  "exit": 0,
+  "expired": false,
+  "seconds": 78,
+  "steps": 20,
+  "tests_unchanged": true,
+  "agent_ran_tests": 2,
+  "agent_successful_tests": 1,
+  "tool_calls": [
+    "shell",
+    "shell",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "write",
+    "write",
+    "shell"
+  ],
+  "independent_tests": {
+    "tests": 15,
+    "pass": 15,
+    "fail": 0
+  },
+  "semantic_pass": true,
+  "independent_test_pass": true,
+  "error_text": ""
+}

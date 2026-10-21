@@ -108,3 +108,9 @@ Task A is closed: IEEE build, greedy text and 35B one-card benchmark are done (s
 ## Addendum: workspace removed (21 October)
 
 `~/kepler-llvm-eval` no longer exists; the paths above under it are gone. Rebuild steps: KEPLER-HYBRID-20261020.md, "Workspace removed".
+
+## Addendum: Task E partly done (21 October)
+
+Native Haiku rerun of `services.sh`/`prodrun.sh` passes; cloud task passes with 9 of the 10 free models under the
+stricter acceptance (`jev-1.13-free`: no route). See TASK-E-20261021.md. Next guest job number: 835.
+Remaining: second-client TUI reconnect, vCPU scaling, repeats, per-run upload names in `coding-workflow.mjs`.
