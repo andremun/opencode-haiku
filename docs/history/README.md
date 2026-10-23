@@ -32,6 +32,7 @@ so they can name documents and result folders by their old names. Use the tables
 
 | Old name | Now |
 |---|---|
+| `reference/REPOSITORY-SPLIT.json` | `docs/history/provenance/20261014-repository-split.json` |
 | `results/t7610-20261015-kvm-e5-2620v2/` | `results/20261015-t7610-kvm/` |
 | `results/t7610-20261016-haiku5/` | `results/20261016-t7610-haiku5/` |
 | `results/t7610-20261016-haiku5-production/` | `results/20261016-t7610-haiku5-production/` |
