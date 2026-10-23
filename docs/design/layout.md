@@ -1,4 +1,4 @@
-# Target layout and code rules (Phase 2 blueprint)
+# Layout and code rules
 
 This file states what the code of this repository must look like after Phase 2 of the
 alignment plan (`haiku-k40c-llm/docs/refactor-spec.md`). Phase 2 is done when the
@@ -53,8 +53,28 @@ opencode-haiku/
 
 ## 4. Acceptance checks
 
-1. `make check` passes locally and in CI. `tools/test_t7610_runners.py` no longer fails on the empty test summary (H-02), or the failure has a documented cause.
+1. `make check` passes locally and in CI. `tests/unit/test_t7610_runners.py` no longer fails on the empty test summary (H-02), or the failure has a documented cause.
 2. `make dist` from a clean clone after `make fetch` and `make native` gives an archive and a manifest.
 3. The archive installs in the persistent VM and passes the self-test and the checks of [ACCEPTANCE.md](../ACCEPTANCE.md).
 4. The HaikuPorter recipe builds an `.hpkg` that `pkgman` installs.
 5. `git grep -l '/home/unimelb.edu.au'` lists only `docs/history/` and `results/`.
+
+## 5. As built (23 October 2026)
+
+| Item | Result |
+|---|---|
+| Folders | Done: `src/`, `build/` (with `build/guest/`), `packaging/`, `patches/<upstream>/` with `series` files, `tests/unit/`, `tests/acceptance/` (with `vm/`). Guest scripts use the new paths under `$SRC`. |
+| `tools/stage_t7610.py` | Kept, as `tests/acceptance/vm/stage_t7610.py` (`make stage`). It stages the archive and source for the VM. |
+| Headless port | Removed (`tools/opencode-port/`, decision D8). No acceptance check used its probes. |
+| VM tools | Removed. Tests that cover the shared job runner and transfer server load them from `$HAIKU_K40C_ROOT` and skip when that checkout is absent. |
+| llama.cpp scripts | Moved to `haiku-k40c-llm` `results/20261018-community-comparison/scripts/` as records. `services.sh` still starts a guest llama.cpp server for the acceptance runs. |
+| `VERSION` | Done. `build/build_bundle.sh` and `build/package.py` read it. |
+| `reference/INPUTS.json` and `make fetch` | Done for the downloadable inputs. The older input records stay as provenance. In the cloud session, four of nine inputs downloaded and matched their hashes (Bun, Koffi, node-pty, node-addon-api). The proxy blocked the others. |
+| `make native`, `make hpkg` | Not added. The native parts still follow docs/BUILD.md 10.2 to 10.4 in the VM. |
+| `make dist` | Added: bundle, archive, `dist/MANIFEST.json`, `dist/SHA256SUMS`. Not run here (needs the caches and native parts). |
+| Recipe | `packaging/opencode_haiku-2.0.29~haiku5.recipe`. Not built yet. |
+| Defects | (1) The cloud task read the independent test summary only in the `spec` reporter format. Node can print TAP lines. Fixed. (2) A test of the job runner wrote into the repository `share/` folder. Fixed. |
+| `make check` | Passes: lint (syntax of Python, shell, JavaScript), 3 + 19 host tests, install test, secret scan. |
+| JavaScript format | Not changed. Prettier is not applied, to keep the diff of shipped shims small. |
+| CI | `.github/workflows/check.yml` runs `make check` with Node 24. The tests that need `haiku-k40c` skip. |
+

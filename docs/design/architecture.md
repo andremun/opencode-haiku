@@ -25,7 +25,7 @@ rather than inventing a terminal implementation.
 Rebuild from this repository:
 
 ```sh
-sh tools/opencode-port/build.sh
+sh tools/opencode-port/build.sh   # removed on 2026-10-23; see Git history
 ```
 
 This fetches pinned inputs if missing, checks their hashes, applies the patch,
@@ -157,7 +157,7 @@ checks all passed from that extracted package. Evidence:
 `results/20261014-headless-port/opencode-guest-package-check.log` and
 `results/20261014-headless-port/opencode-guest-package-api.log`.
 
-Scripts under `tools/opencode-port/` reproduce the runtime, baseline, patched
+Scripts under `tools/opencode-port/` (removed on 23 October 2026, in Git history) reproduced the runtime, baseline, patched
 launch, API and model probes. They use the repository's localhost transfer
 server and approved cardless VM. Mechanical transfer URL and initial default
 log-directory failures were corrected; the underlying feature failures remain

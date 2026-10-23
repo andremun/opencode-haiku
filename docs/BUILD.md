@@ -25,9 +25,8 @@ builds the renderer/parser. Do not replace these pins with latest versions.
 | Node addon API | 7.1.0 | `https://registry.npmjs.org/node-addon-api/-/node-addon-api-7.1.0.tgz` |
 | Undici | 7.29.0 | Installed by pinned OpenCode `bun.lock`; included by packager |
 
-Download using `curl -fL URL -o PATH` to the paths in
-`reference/TUI-PORT-INPUTS.json`, `reference/PTY-PORT-INPUTS.json`, and
-`tools/opencode-port/build.sh`. Verify SHA-256 **before extracting**. Additional
+Run `make fetch`. It downloads each archive to the path in `reference/INPUTS.json` and
+checks its SHA-256. Verify SHA-256 **before extracting**. Additional
 Node PTY archive hashes: `45a012e37699bb70c9050cbf2e06e71b0b842de4cda58e938e3de973f6d5a36a`
 and Node addon API `8e621f150678b183225c394c0faca7338396eb4fa620b447b88995f8990af522`.
 Bun zip SHA-256 is `36368faef7527875d5ffa52e53cd48021741f2a83eb6208a8dd64068d422a913`.
@@ -35,14 +34,13 @@ Bun zip SHA-256 is `36368faef7527875d5ffa52e53cd48021741f2a83eb6208a8dd64068d422
 Extract OpenCode/OpenTUI/Ghostty archives under `source/`, preserving their
 commit-suffixed top-level names. Extract Bun to `cache/build-tools/bun-1.4.2/`
 and Zig to `cache/build-tools/zig-x86_64-linux-0.16.0/`. Make `bun` executable.
-Extract Koffi to `source/koffi-3.3.3/package/`. The older
-`tools/opencode-port/build.sh` fetches OpenCode/Bun and builds the **headless**
-archive; it does not bootstrap the full TUI dependencies. Use the full build
+Extract Koffi to `source/koffi-3.3.3/package/`. The headless-only build of port
+`haiku.1` was removed on 23 October 2026 (Git history keeps it). Use the full build
 command in 10.5 after preparing all native inputs.
 
 ### 10.2 Export the Haiku SDK and build Koffi/clipboard
 
-Apply `reference/koffi-portability.patch` with `patch -p1` in the extracted
+Apply `patches/koffi/koffi-portability.patch` with `patch -p1` in the extracted
 Koffi `package` directory, then copy that directory into Haiku. **Haiku:**
 
 ```sh
@@ -57,7 +55,7 @@ Copy the resulting `build/koffi/haiku_x64/koffi.node` to the Linux repository's
 Build the clipboard helper from this repo **in Haiku**:
 
 ```sh
-g++ -O2 /boot/home/opencode-haiku-src/tools/tui-port/haiku-clipboard.cpp \
+g++ -O2 /boot/home/opencode-haiku-src/src/haiku-clipboard.cpp \
   -lbe -o /boot/home/native-build/haiku-clipboard
 ```
 
@@ -96,8 +94,8 @@ the original SDK. A newly built addon likewise needs its own provenance/hash.
 **Linux:**
 
 ```sh
-sh tools/tui-port/build_native.sh
-sh tools/tui-port/build_parser.sh
+sh build/build_native.sh
+sh build/build_parser.sh
 ```
 
 The first applies the recorded Haiku Zig I/O changes and OpenTUI native/JS
@@ -110,9 +108,9 @@ Extract the pinned pristine daemon source, and apply **all three** patches in
 order with `patch -p1` from its root:
 
 ```text
-reference/opencode-pty-haiku-build.patch
-reference/opencode-pty-haiku-tests.patch
-reference/opencode-pty-haiku-eof.patch
+patches/opencode-pty/opencode-pty-haiku-build.patch
+patches/opencode-pty/opencode-pty-haiku-tests.patch
+patches/opencode-pty/opencode-pty-haiku-eof.patch
 ```
 
 Copy the patched tree to `/boot/home/native-build/opencode-pty`. Do not use the
@@ -145,7 +143,7 @@ hard-link warnings during Clippy. Downloaded Rust dependencies use `Cargo.lock`.
 
 Extract npm `node-pty` and `node-addon-api` packages, removing their outer
 `package/` component, to `/boot/home/native-build/node-pty` and
-`/boot/home/native-build/node-addon-api`. Apply `reference/node-pty-haiku.patch`
+`/boot/home/native-build/node-addon-api`. Apply `patches/node-pty/node-pty-haiku.patch`
 with `patch -p1` in the Node PTY root. **Haiku:**
 
 ```sh
@@ -172,7 +170,7 @@ Haiku node-pty/         -> cache/pty-runtime/node-pty/
 **Linux repository root:**
 
 ```sh
-sh tools/tui-port/build_bundle.sh > logs/full-build.log 2>&1
+sh build/build_bundle.sh > logs/full-build.log 2>&1
 cat results/opencode-tui-package.json
 sha256sum share/opencode-haiku-tui-2.0.29-haiku.5.tar.gz
 ```

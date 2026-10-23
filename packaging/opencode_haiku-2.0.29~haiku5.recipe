@@ -1,0 +1,46 @@
+SUMMARY="OpenCode coding agent for Haiku (research port)"
+DESCRIPTION="A research port of OpenCode to Haiku: headless CLI, terminal interface \
+(TUI) and browser interface, running on Node 24. It needs an OpenAI-compatible model \
+endpoint. This is research code, not production code, and it is not part of \
+HaikuPorts. See the README of the opencode-haiku repository."
+HOMEPAGE="https://github.com/andremun/opencode-haiku"
+COPYRIGHT="2026 Mario Andres Munoz (port); OpenCode, OpenTUI, Koffi, node-pty, Ghostty and \
+Zig authors (bundled components)"
+LICENSE="MIT"
+REVISION="1"
+# The release archive is the recipe source. Its JavaScript bundle is built on Linux,
+# because Bun does not run on Haiku (docs/design/packaging.md).
+SOURCE_URI="https://github.com/andremun/opencode-haiku/releases/download/v2.0.29-haiku.5/opencode-haiku-tui-2.0.29-haiku.5.tar.gz"
+CHECKSUM_SHA256="SET_FROM_DIST_SHA256SUMS"
+SOURCE_DIR=""
+
+ARCHITECTURES="!x86_gcc2 x86_64"
+
+PROVIDES="
+	opencode_haiku = $portVersion
+	cmd:opencode = $portVersion
+	"
+REQUIRES="
+	haiku
+	cmd:node >= 24
+	"
+BUILD_REQUIRES="
+	haiku_devel
+	"
+BUILD_PREREQUIRES="
+	cmd:node >= 24
+	"
+
+INSTALL()
+{
+	mkdir -p $appsDir/OpenCode $binDir
+	cp -a . $appsDir/OpenCode/
+	# A wrapper, not a link: the launcher finds its files next to itself.
+	printf '#!/bin/sh\nexec %s/OpenCode/opencode "$@"\n' "$appsDir" > $binDir/opencode
+	chmod 755 $binDir/opencode
+}
+
+TEST()
+{
+	node ./selftest.cjs
+}

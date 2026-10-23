@@ -48,8 +48,9 @@ Haiku VMs. They are not GPU evidence.
 
 | ID | Check | Last result | Evidence |
 |---|---|---|---|
-| H-01 | `tools/test_review_runners.py` | Pass, 3 tests, 2026-10-23 (cloud session) | this file |
-| H-02 | `tools/test_t7610_runners.py` | 18 of 19 pass, 2026-10-23 (cloud session). `test_cloud_task_fixture_and_acceptance_controls` fails: the independent test summary is empty in this environment. To be checked in Phase 2. | this file |
+| H-01 | `tests/unit/test_review_runners.py` | Pass, 3 tests, 2026-10-23 (cloud session) | this file |
+| H-02 | `tests/unit/test_t7610_runners.py` | 19 of 19 pass, 2026-10-23 (cloud session, Node 22). Fixed defect: the independent test summary read only the `spec` reporter lines. Node without a TTY can print TAP lines (`# tests 15`). The parser now reads both. | this file |
+| H-03 | `tests/unit/install-test.py` | Pass, 2026-10-23 | this file |
 
 ## Not covered
 

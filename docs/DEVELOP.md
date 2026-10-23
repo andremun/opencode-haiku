@@ -59,7 +59,7 @@ Start your existing cardless VM with `-accel kvm -cpu host` if it can use KVM.
 Do not add those arguments to an already running VM. Preserve its disk and EFI
 settings. An explicitly requested KVM accelerator should fail if unavailable;
 do not count a silent fallback to TCG as an accelerated result. Query `info kvm`
-in the QEMU monitor and save the actual launch command. `tools/app_vm.py` currently
+in the QEMU monitor and save the actual launch command. `haiku-k40c tools/haiku/app_vm.py` currently
 controls the development TCG VM; it is not a ready-made KVM launcher.
 
 For another hypervisor, record its hardware-virtualisation status and CPU
@@ -185,8 +185,8 @@ For an accelerated CPU optimisation experiment, use a different build directory
 and change only flags supported by the CPU exposed to Haiku. Preserve baseline.
 
 **Adopted default (18 October 2026):** after the baseline build above, run
-`sh tools/kvm-run/build-cpu-profile.sh ivybridge` (SSE4.2, AVX, F16C, **OpenMP off**; it checks
-that the guest CPU exposes them and refuses otherwise). `tools/kvm-run/services.sh` now starts this
+`sh haiku-k40c-llm results/20261018-community-comparison/scripts/build-cpu-profile.sh ivybridge` (SSE4.2, AVX, F16C, **OpenMP off**; it checks
+that the guest CPU exposes them and refuses otherwise). `tests/acceptance/vm/services.sh` now starts this
 build by default. Evidence on the KVM guest (E5-2620 v2, 2 vCPU): decode 6.7 tokens/s against 4.1 for
 the production-matching build with OpenMP, and prompt throughput no different; the baseline is much
 slower. Rationale and numbers: `docs/T7610-KVM-HAIKU5-RESULTS-20261016.md` and the 18 October

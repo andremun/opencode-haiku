@@ -1,4 +1,6 @@
 #!/bin/sh
+# Copyright (c) 2026 Mario Andres Munoz
+# Distributed under the terms of the MIT License. See LICENSE.
 # Install a local pre-commit hook that blocks API-key-shaped strings (hooks are not tracked by Git).
 set -eu
 repo=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)

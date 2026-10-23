@@ -4,7 +4,7 @@ Requires x86_64 Haiku and Node >=24. The tested system is hrev60207 with
 Node 24.21.0-1. No Bun or Python runtime is needed to run OpenCode.
 
 Use the archive name and SHA-256 from `results/opencode-tui-package.json`.
-Copy that archive and `tools/tui-port/install.sh` into Haiku, then run:
+Copy that archive and `src/install.sh` into Haiku, then run:
 
 ```sh
 sh install.sh ARCHIVE.tar.gz SHA256 /boot/home/opencode-haiku
@@ -50,7 +50,7 @@ Split from `T7610-HAIKU-SETUP.md` on 23 October 2026. Section numbers are those 
 
 On Linux, locate `share/opencode-haiku-tui-2.0.29-haiku.5.tar.gz` and read
 `results/opencode-tui-package.json`. Transfer the archive, the repository's
-`tools/tui-port/install.sh`, and the example config below to Haiku.
+`src/install.sh`, and the example config below to Haiku.
 
 The current archive is 53,682,981 bytes, SHA-256:
 `b9970cd8592ad48050c9340579c6d3e4d3d7c326e7e603cb921afbea481cf8f2`.
@@ -146,6 +146,6 @@ For a real coding experiment, copy the text-only config, enable the model's
 `capabilities.tools`, select the `build` agent, set output limit/body max_tokens
 to 256, and replace the deny-all rule with narrow read/edit/shell permissions
 for a disposable workspace. Preserve the text-only control config. Inspect
-`tools/tui-port/coding-workflow.mjs` for the measured bounded fixture and its
+`tests/acceptance/coding-workflow.mjs` for the measured bounded fixture and its
 permission syntax. That runner currently assumes the development guest paths
 and transfer service; it is not a portable one-command T7610 installer.

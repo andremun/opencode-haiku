@@ -1,4 +1,6 @@
 #!/bin/sh
+# Copyright (c) 2026 Mario Andres Munoz
+# Distributed under the terms of the MIT License. See LICENSE.
 # Run COMMAND with the cloud API key in its environment, without ever printing the key.
 # Usage: tools/secrets/with-cloud-key.sh COMMAND [ARGS...]
 # The key lives in a file OUTSIDE the repository, mode 600, owned by you:

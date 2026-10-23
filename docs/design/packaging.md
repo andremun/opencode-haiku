@@ -31,7 +31,7 @@ Patches move to `patches/<upstream>/NNNN-title.patch` with a `series` file for e
 | `make hpkg` | Haiku VM | `dist/opencode_haiku-<version>-1-x86_64.hpkg` |
 
 Today the native parts are built in the guest and copied into `cache/` by hand
-(`tools/tui-port/package.py` stops with "Export the final guest-built Koffi addon first").
+(`build/package.py` stops with "Export the final guest-built Koffi addon first").
 `make native` replaces this hand step.
 
 ## 4. Haiku package

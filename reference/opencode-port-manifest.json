@@ -13,7 +13,7 @@
     "cache/opencode-34d8ded0.tar.gz": "bc76cf4bbd70e13027b21e56454364c20bbe183fed2f80ba57f4be1ebe573e59",
     "cache/bun-linux-x64-1.4.2.zip": "36368faef7527875d5ffa52e53cd48021741f2a83eb6208a8dd64068d422a913",
     "source/opencode-34d8ded0c58dd66808c1d60e081e8c66da12a896/bun.lock": "e5df36a416944fd5c249fe2ddfc089f956607ae644244060db98cd714e93c5fa",
-    "reference/opencode-haiku-headless.patch": "cd4ecc78b49396b1ba9197b1e76b27af3456aaaa0b8404d63adb31425b1d340c",
+    "patches/opencode/opencode-haiku-headless.patch": "cd4ecc78b49396b1ba9197b1e76b27af3456aaaa0b8404d63adb31425b1d340c",
     "source/opencode-34d8ded0c58dd66808c1d60e081e8c66da12a896/packages/cli/dist-node/opencode.mjs": "f58b435c23a8c3ca96ac7b55e8e9d4dc992d6ec2ae28192b1884be9305dd6759"
   },
   "official_free_access_control": {

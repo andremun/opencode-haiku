@@ -10,6 +10,7 @@
 
 ## Repository
 
+- 2026-10-23: Alignment Phase 2 (code). New layout (`src/`, `build/`, `packaging/`, `patches/`, `tests/`). `VERSION`, `make check`, `make fetch`, `make dist`, HaikuPorter recipe, CI. Headless port and VM tool copies removed. Two test defects fixed.
 - 2026-10-23: Alignment Phase 1 (documentation). Product README, ACCEPTANCE, KNOWN-LIMITATIONS, BUILD and DEVELOP guides (split from the T7610 setup guide), design folder with the packaging design, ADRs. Dated reports moved to `docs/history/`. Flat results grouped into dated folders. One-byte `.exit` files, empty files and duplicate logs removed. The Kepler compiler study moved to `llm-server`, the community comparison to `haiku-k40c-llm`, the ESC-001 evidence to `haiku-k40c`. LICENSE (MIT) added.
 - 2026-10-21: Interactive TUI, second client and browser with a cloud model. Task E on ten free models. Coding uploads use per-run names.
 - 2026-10-20: Final card window of the Kepler study (now in `llm-server`).

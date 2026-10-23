@@ -9,3 +9,4 @@ __pycache__/
 # Never commit API keys or key files (keep them outside the repository; see docs/SECRETS.md)
 *.env
 cloud.env
+dist/
