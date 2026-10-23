@@ -1,0 +1,369 @@
+{
+  "folder": "20261015-terminals-clipboard",
+  "content": "Native clipboard, HTTP waits, PTY daemon and node-pty builds and tests",
+  "cited_by": "history/20261015-continuation-outcome.md",
+  "files": [
+    {
+      "path": "clipboard-install.log",
+      "bytes": 654,
+      "sha256": "35d97cf7a2dcc5aaf4d3a971d643fc64abf795b44113d7f7a967169e6930cbf3"
+    },
+    {
+      "path": "clipboard-install2.log",
+      "bytes": 395,
+      "sha256": "c4dd790a54236352736676a20bb419e0d7b28ba8c401ab4b2bd34f8cf385c41f"
+    },
+    {
+      "path": "clipboard-integrated.log",
+      "bytes": 59,
+      "sha256": "fd5ee7c92933bf77e95b54b03cef1f74a6d295261800d75d6cab4edd6eaf7909"
+    },
+    {
+      "path": "clipboard-package-build.log",
+      "bytes": 604,
+      "sha256": "68f9ca2750d8f95e51cbc77f64d327e978f76439471410b4c880b17afd732802"
+    },
+    {
+      "path": "clipboard-test.log",
+      "bytes": 79,
+      "sha256": "b74e0ba222bf317245147793d682d756ef993ce904c53b450b3f51eebb874b04"
+    },
+    {
+      "path": "coding-run.log",
+      "bytes": 10349,
+      "sha256": "781f7654ff645b96b290aa696a9c27b1a50b70a8012021d6797af43c19df3087"
+    },
+    {
+      "path": "continuation-ps.log",
+      "bytes": 2283,
+      "sha256": "d5dc93b23e1ece18c2faca7b12c252ba992943f505031d544e11f8e5d8511fa6"
+    },
+    {
+      "path": "final-api-probe.log",
+      "bytes": 1041,
+      "sha256": "8f4212a296192dcaabc3dae78a914978dc3a23f8769964182cbe95c396beca65"
+    },
+    {
+      "path": "history/current-agent-model.log",
+      "bytes": 8312,
+      "sha256": "7a050f87b09116605ee9b005888bac411db985ce3bbebbaba0ca72c8f3f2b596"
+    },
+    {
+      "path": "history/current-coding-outcome.json",
+      "bytes": 122,
+      "sha256": "83a81c1b2e3ab884dbc90692a5d87acfe04870189f54a6c3de7eb20100a92cb4"
+    },
+    {
+      "path": "history/current-owned-ps.log",
+      "bytes": 1696,
+      "sha256": "1b2009964164e28287b0cb3c396e0b716abe0cb4dac691f18abd3f0788710ed4"
+    },
+    {
+      "path": "history/current2-coding-outcome.json",
+      "bytes": 131,
+      "sha256": "62e8c3e3b890ff788c8b92bbd3c7ecc4606b747788e3041c5d85f06618c6c2fd"
+    },
+    {
+      "path": "history/current2-llama-server-small-batch.log",
+      "bytes": 12297,
+      "sha256": "76492482a3ae9cf3fc4b10b1841ca14d3bebebd12dce70c642e82d6de1c626bb"
+    },
+    {
+      "path": "history/current2-pty-build-runner2.log",
+      "bytes": 42,
+      "sha256": "e22149dfcb0f332c147a87c7b68da67db4fbfa119ab233d23bb3264fc9335dc7"
+    },
+    {
+      "path": "history/current2-pty-cargo-check.log",
+      "bytes": 1698,
+      "sha256": "cd7bca9a653d4e25a22dc76d54fb468cfceb16bb36d09e2354abec2d7794c0f8"
+    },
+    {
+      "path": "history/native-coding-attempt1.json",
+      "bytes": 122,
+      "sha256": "83a81c1b2e3ab884dbc90692a5d87acfe04870189f54a6c3de7eb20100a92cb4"
+    },
+    {
+      "path": "history/native-coding-attempt1.log",
+      "bytes": 10348,
+      "sha256": "85235689f84fc0f5556d2a4b5615a75dc56c1eef7f604ba2162012d9bf440f3e"
+    },
+    {
+      "path": "history/native-coding-progress.log",
+      "bytes": 12797,
+      "sha256": "cc69c6488b6568fe90bcd3295e831b0c5993ba3ce1862aa5db1bf3f04ef2fcc6"
+    },
+    {
+      "path": "history/native-llama-continuation-partial.json",
+      "bytes": 216,
+      "sha256": "bdb16eeb3af4765a14e31fe4a62d237c0e943233877d58459691ef09230db5ac"
+    },
+    {
+      "path": "history/probe-coding-outcome.json",
+      "bytes": 131,
+      "sha256": "62e8c3e3b890ff788c8b92bbd3c7ecc4606b747788e3041c5d85f06618c6c2fd"
+    },
+    {
+      "path": "history/probe-llama-server-small-batch.log",
+      "bytes": 12098,
+      "sha256": "6ee7771fe27b3b3e001584b67a0ca2a7698dc3e95973e8d950fbd970d30234ad"
+    },
+    {
+      "path": "history/probe-pty-build-runner.log",
+      "bytes": 20,
+      "sha256": "8650269b5e727b82c10752e5c2ca8a9d7609ab430e938d5c957ffa9010b4a3b2"
+    },
+    {
+      "path": "history/probe-pty-cargo-check.log",
+      "bytes": 70,
+      "sha256": "3b16448bcdc20d8ceeafbcd0128849edbb72260ed3c619197b7bd15a67890456"
+    },
+    {
+      "path": "history/pty-native-tests-attempt1.log",
+      "bytes": 3099,
+      "sha256": "5e83583d8cabdfd4cbef85e86ddad6c982ec0b2f31481869c67a8f20aa073612"
+    },
+    {
+      "path": "history/pty-native-tests-attempt2.log",
+      "bytes": 8815,
+      "sha256": "a703c6039a3499a4b3161f66a81d50801682a835d37224fbcad3cb76b2c56808"
+    },
+    {
+      "path": "history/pty-native-tests-current.log",
+      "bytes": 2242,
+      "sha256": "633925e60ce194757fcca58fc07c94a1ac11fbd9548e3f51d18c74c0039da918"
+    },
+    {
+      "path": "history/small-agent-model.log",
+      "bytes": 8906,
+      "sha256": "ce1922e914983094b9dbea9e2bca3fa1499fe9baf1033f5324f4cd171de676f2"
+    },
+    {
+      "path": "history/small-batch-server-current.log",
+      "bytes": 13189,
+      "sha256": "f49b5158c0bbdb6e509139b355ef3befe8e0c5a9e90e10b3037c9a69bd1f15bf"
+    },
+    {
+      "path": "history/small-batch-start.log",
+      "bytes": 2356,
+      "sha256": "38a544074373cedd81ef7b7b03316d10262ef4d27eb3af17e16f66131ac3e284"
+    },
+    {
+      "path": "history/small-coding-outcome.json",
+      "bytes": 131,
+      "sha256": "62e8c3e3b890ff788c8b92bbd3c7ecc4606b747788e3041c5d85f06618c6c2fd"
+    },
+    {
+      "path": "history/small-llama-server-small-batch.log",
+      "bytes": 11899,
+      "sha256": "71011a92b0343e3c35bcecef0c45be2f4588294d3a0a9185902c2565aaafb017"
+    },
+    {
+      "path": "http-install.log",
+      "bytes": 846,
+      "sha256": "5049046ab67ee52ffa7a9c2a61af19db7df1d2f6d6fef466fd082eb33214569c"
+    },
+    {
+      "path": "http-package-build.log",
+      "bytes": 604,
+      "sha256": "90f8a991db944a7c2016b90e9ee77e3ce947a114ae1c676cd15f85c369d2ff24"
+    },
+    {
+      "path": "http-wait-host-test.log",
+      "bytes": 91,
+      "sha256": "df940e18a5a47003e301c1d154ee67a4c66c598bd01ad3eeedff5ee670c98180"
+    },
+    {
+      "path": "http-wait-native-test.log",
+      "bytes": 91,
+      "sha256": "df940e18a5a47003e301c1d154ee67a4c66c598bd01ad3eeedff5ee670c98180"
+    },
+    {
+      "path": "inference-compare-haiku.json",
+      "bytes": 4557,
+      "sha256": "b11f562812e6dbf4d9c40cc41159cdea713c68e265aa5697e77279d54d45060f"
+    },
+    {
+      "path": "inference-compare-linux.json",
+      "bytes": 4565,
+      "sha256": "f48e0f8d53523bbedbbac6474167a7efc3a2dfbca77421417ed736f1e9fa244e"
+    },
+    {
+      "path": "install-host-test.log",
+      "bytes": 77,
+      "sha256": "bc0bb679f162714ffa745ac44f41c0095430319788514f2551d553e2c1caaaf6"
+    },
+    {
+      "path": "integration-input-hashes.txt",
+      "bytes": 283,
+      "sha256": "6fd80912ea6a34c0003c0d077fe654103044614f3b710512a84e09859ac7570f"
+    },
+    {
+      "path": "legacy-api-probe.log",
+      "bytes": 6726,
+      "sha256": "5b3715f571a6dbb3f4cf4cd080d644e133e1d00c49af69c38e1724ec18487cf2"
+    },
+    {
+      "path": "model-stop.json",
+      "bytes": 159,
+      "sha256": "1d27adb261b8c72c1094e5f5045814d7812d4dfa787654cbab6025c8f32d0a39"
+    },
+    {
+      "path": "native-agent-model.log",
+      "bytes": 15512,
+      "sha256": "6c883ee83a41fa3ede283068fbcd38a35e4c6674064e4d9107ccc98dd2856970"
+    },
+    {
+      "path": "native-coding-outcome.json",
+      "bytes": 123,
+      "sha256": "a38721c7419e104ddd4c89b393e8085c3965cf09ab83c22395e37ece66557bbc"
+    },
+    {
+      "path": "native-integration-survey.log",
+      "bytes": 1719,
+      "sha256": "e5617f7523745362a24d6263b609b748ce5ceb33f28c1af22bb60d9840e15ef3"
+    },
+    {
+      "path": "node-pty-build.log",
+      "bytes": 1695,
+      "sha256": "99daba8c1bb774c8fe798478ec4981d7b3bed187eab0e1a061de045f1545b8ac"
+    },
+    {
+      "path": "node-pty-test.log",
+      "bytes": 122,
+      "sha256": "3251feb3cbddfa6982377344361f64f061d7bdff8727a3869c15ca3740c90adf"
+    },
+    {
+      "path": "pty-cargo-check.log",
+      "bytes": 2878,
+      "sha256": "d4f0f7c02a570a0de167798b670faa137c311b7118ed8dde66711eca2e57ed61"
+    },
+    {
+      "path": "pty-clippy.log",
+      "bytes": 150,
+      "sha256": "e92de99e5b316dd9b268d627be18f18c9ae58a2e42ed5e187226a8a4231ce9eb"
+    },
+    {
+      "path": "pty-eof-probe.log",
+      "bytes": 214,
+      "sha256": "f0e1d5e8a367ba68413b6a4b5952076fa4a15b07792bb635993c6b33c4ed4ad3"
+    },
+    {
+      "path": "pty-fmt-final.log",
+      "bytes": 381,
+      "sha256": "7b15a42b393c6610c6170c0f3e315633db8321e5121e7e872d599d89e282a2ca"
+    },
+    {
+      "path": "pty-native-link.log",
+      "bytes": 2029,
+      "sha256": "1fb18998c109131e0e5c379dcfa58393919c1c91188dc323aa9dc8415ee150a2"
+    },
+    {
+      "path": "pty-native-tests.log",
+      "bytes": 9412,
+      "sha256": "2c13c9e9b8d476dc03dd32f4f5267f6377c67163a689c55e9a2a432a3e9436ea"
+    },
+    {
+      "path": "pty-primitive-host.log",
+      "bytes": 136,
+      "sha256": "d8e16b9c346bee7b773d4b9e42ecfa92272c8037fa42abcdeef9525d14d12622"
+    },
+    {
+      "path": "pty-primitive-native.log",
+      "bytes": 134,
+      "sha256": "a7ad50cd8a83b7efd9d052cbf0d18b4287bc4a10617e8da79910e72162075066"
+    },
+    {
+      "path": "pty-runtime-sha256.log",
+      "bytes": 322,
+      "sha256": "07b497405964776cc403d1c00c11789ea1cc15c098a2fdb2d60b5772fd9b3f27"
+    },
+    {
+      "path": "pty-service-tests.log",
+      "bytes": 3090,
+      "sha256": "b79af660acd5762964433c4e060263649d8cf486f7806f62bb3963b08c8cf1b7"
+    },
+    {
+      "path": "pty-toolchain-survey.log",
+      "bytes": 3775,
+      "sha256": "4db683d8199ba99b1c56a8667092fc6fc49808d483ee5075ee909ae4420878c3"
+    },
+    {
+      "path": "rust-diagnostic.log",
+      "bytes": 532,
+      "sha256": "242788175a1d0cc8a431cbc5b4d2a18fc08c1956e0a002632acdd6fbfb530b2e"
+    },
+    {
+      "path": "rust-install.log",
+      "bytes": 745,
+      "sha256": "939e2dad1d565b55c3d4dfaaa43a01d9172af6c1651d37c2c708bf8073f0eb50"
+    },
+    {
+      "path": "rust-metadata-query-correction.log",
+      "bytes": 223,
+      "sha256": "4d4034eb349922fc0664ad591c828953ee54e0b32a12bd3ab2df60748d000ee6"
+    },
+    {
+      "path": "rust-package-sha256.log",
+      "bytes": 118,
+      "sha256": "bc958933c527df6d80e57b9c7077a55f79cb090e12cc9cb4575c4f82bae453c7"
+    },
+    {
+      "path": "rust-version.log",
+      "bytes": 117,
+      "sha256": "7402437ae846223de5bf31468918ba0627e2fe80cf2a9b23e507d74b7eb205b6"
+    },
+    {
+      "path": "tui-http-exit.log",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "tui-native-clipboard.png",
+      "bytes": 157401,
+      "sha256": "ee65158f8bd616c5dd60e214936dc3b43fd57131139dfc00320efa6e30ba10d6"
+    },
+    {
+      "path": "vm-resource-pressure.json",
+      "bytes": 712,
+      "sha256": "4f410a54e6ff0b6e7caa8ee980111dff241e31cc14ec55276b7d6cb18e984f39"
+    },
+    {
+      "path": "vmstat8.log",
+      "bytes": 173,
+      "sha256": "c5561bf6127d929b2f27e9c0d2afc135145657efccd96a9fe0b29eb97e5d5075"
+    }
+  ],
+  "removed_2026_10_23": {
+    "exit_codes": {
+      "final-api-probe.exit": "0",
+      "legacy-api-probe.exit": "1",
+      "node-pty-build.exit": "1",
+      "node-pty-build2.exit": "0",
+      "pty-cargo-check.exit": "0",
+      "pty-clippy.exit": "0",
+      "pty-fmt.exit": "0",
+      "pty-native-link.exit": "0",
+      "pty-native-tests.exit": "0",
+      "pty-service-tests.exit": "101"
+    },
+    "empty_files": [
+      "clipboard-build.log",
+      "current-api-run3.log",
+      "legacy2-legacy-pty-run2.log",
+      "node-pty-build2.log",
+      "pty-fmt.log"
+    ],
+    "duplicates": {
+      "legacy2-api-probe.exit": "legacy-api-probe.exit",
+      "legacy2-api-probe.log": "legacy-api-probe.log",
+      "native-agent-model-current.log": "native-coding-attempt1.log",
+      "node-pty-build-attempt1.log": "node-pty-build.log",
+      "pty-cargo-check-current.log": "pty-cargo-check.log",
+      "pty-clippy-current.log": "pty-clippy.log",
+      "pty-native-link-current.log": "pty-native-link.log"
+    }
+  },
+  "removed_note": "Exit codes of removed one-byte .exit files, empty files and duplicates (duplicate -> kept file).",
+  "history_note": "history/ holds attempt, progress and superseded logs of this run."
+}

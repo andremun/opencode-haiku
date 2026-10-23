@@ -2,7 +2,7 @@
 
 Built 15 October 2026 on `uld-jvnhw22`, a Dell Precision T7610 (DMI product
 name) with two installed Xeon E5-2620 v2 (Ivy Bridge, AVX, no AVX2). This is
-the T7610 test platform of `docs/T7610-HAIKU-SETUP.md`, with the CPUs that are
+the T7610 test platform of `docs/DEVELOP.md`, with the CPUs that are
 actually installed. No GPU, host driver, host sudo or existing host
 LLM service was touched. A result from this VM is a **CPU** result and says
 nothing about K40c compute support.
@@ -20,7 +20,7 @@ nothing about K40c compute support.
 | Devices | IDE disk, e1000 user-mode network, xHCI + USB tablet, std VGA, no display window |
 | Control | QEMU monitor and QMP on unix sockets under `/tmp` (`tools/app_vm.py`), saved launch command in `vm/launch.json` |
 | Guest CPU as seen by Haiku | `Intel Xeon E5-2620 v2`: SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, AES, PCLMUL, AVX, F16C. **No AVX2, FMA or BMI2** |
-| Guest software | Node 24.21.0-1, GCC 13.3.0, CMake 4.4.4, git 2.54.0, ripgrep 14.0.1, Rust 1.94.1-1 (`rust_bin`), `nodejs24_devel`, `libffi_devel` (`logs/` copy: `results/t7610-20261015-kvm-e5-2620v2/guest-packages.txt`) |
+| Guest software | Node 24.21.0-1, GCC 13.3.0, CMake 4.4.4, git 2.54.0, ripgrep 14.0.1, Rust 1.94.1-1 (`rust_bin`), `nodejs24_devel`, `libffi_devel` (`logs/` copy: `results/20261015-t7610-kvm/guest-packages.txt`) |
 
 The VM uses **explicit KVM**. `tools/app_vm.py start --kvm` fails if KVM is
 unavailable; there is no silent fall back to TCG. The earlier development VM (TCG,

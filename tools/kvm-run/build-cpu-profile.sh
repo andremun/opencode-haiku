@@ -19,7 +19,7 @@ gate='-DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_BMI2=OFF -DGGML_AVX512=OFF -DGGML_AV
 mimalloc=/boot/system/lib/mimalloc-2.1/mimalloc.o
 case "$profile" in
  baseline) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=OFF -DGGML_AVX=OFF -DGGML_F16C=OFF'; omp=OFF;;
- # Experiments (docs/COMMUNITY-COMPARISON-20261018.md): allocator, HaikuPorts-like flags, runtime CPU variants.
+ # Experiments (haiku-k40c-llm docs/history/20261018-community-comparison.md): allocator, HaikuPorts-like flags, runtime CPU variants.
  ivybridge-mimalloc) isa='-DGGML_NATIVE=OFF -DGGML_SSE42=ON -DGGML_AVX=ON -DGGML_F16C=ON'; omp=OFF; extra="-DCMAKE_EXE_LINKER_FLAGS=$mimalloc";;
  community) isa='-DGGML_NATIVE=OFF'; omp=ON; extra="-DCMAKE_EXE_LINKER_FLAGS=$mimalloc";;
  # ggml has no executable-path lookup for Haiku, so runtime backends need an absolute search directory.

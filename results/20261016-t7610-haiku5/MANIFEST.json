@@ -1,0 +1,137 @@
+{
+  "folder": "20261016-t7610-haiku5",
+  "content": "Haiku.5 on the persistent KVM VM, CPU profiles, coding fixture",
+  "cited_by": "history/20261016-t7610-kvm-haiku5-results.md",
+  "files": [
+    {
+      "path": "api-full.log",
+      "bytes": 1635,
+      "sha256": "b7f686103bdf4906d75e110bb50e9078ab25e37aedd37dccd1e27d8a01969c63"
+    },
+    {
+      "path": "bench-3rep.log",
+      "bytes": 19388,
+      "sha256": "496613eae055026e93863570676510a55721915718c49254a364ecaaaa042172"
+    },
+    {
+      "path": "bench-smoke.log",
+      "bytes": 9586,
+      "sha256": "ec123268b777d1b0a34a62d054e38d1458868ab05bd59fc199965129386c9c2b"
+    },
+    {
+      "path": "clipboard-set.log",
+      "bytes": 51,
+      "sha256": "481e176c5bc71585453b99f42e79c8ae10e5beae7196d5abeb9f99cf156aa700"
+    },
+    {
+      "path": "coding-job.log",
+      "bytes": 1838,
+      "sha256": "972aca126047ee613d54f9f10761bed0676e08c1fb4dfff6e6624605920a860e"
+    },
+    {
+      "path": "coding-native-agent-model.log",
+      "bytes": 17805,
+      "sha256": "7959fdcf7aff5ec555c1b987f11cbc905a5372a959038157171f887226ec11c5"
+    },
+    {
+      "path": "coding-native-coding-outcome.json",
+      "bytes": 318,
+      "sha256": "565ad3af6d2371f2c65229d6443fc2c86c69a87fb0f79b6dccda48172ad76850"
+    },
+    {
+      "path": "coding-native-coding-progress.log",
+      "bytes": 14686,
+      "sha256": "0d233d54d3a0c7b55c5a98e39482a25b079c7ea3c0330b217eb97dfa2c56f2be"
+    },
+    {
+      "path": "cpu-builds.log",
+      "bytes": 66285,
+      "sha256": "00f31f127abb7292ca69b5709782c52eac28b45a3b642df914b61d61e8343374"
+    },
+    {
+      "path": "host-build-first-attempt-failed.log",
+      "bytes": 198048,
+      "sha256": "6ecfe1600ce50d9ff781b88799c5e83230d2e4b1de99f8fabb8d229af638e3ad"
+    },
+    {
+      "path": "host-build.log",
+      "bytes": 199875,
+      "sha256": "333bae268db04a2b91005af50eaa68d617fac0188b8c31cd890b027976c8b42b"
+    },
+    {
+      "path": "install.log",
+      "bytes": 469,
+      "sha256": "d4ef274f2e1acd03a4b50665fbd3dd29c272e4d80b4e7626550f6de88a351763"
+    },
+    {
+      "path": "jobinf-haiku5-profile.json",
+      "bytes": 4573,
+      "sha256": "002f0fdc6354257c0f7a2a664a612c1b4e78373c23f7832f8c28d2ede6b2c4b3"
+    },
+    {
+      "path": "native-build-inputs-rebuilt.json",
+      "bytes": 2197,
+      "sha256": "28f421636bcb15795502c08d90e8e85ac490db4bfb4ffd66a0350d53759b7150"
+    },
+    {
+      "path": "package-rebuilt-on-kvm-host.json",
+      "bytes": 3177,
+      "sha256": "7a6b474382facabd6967985e62ebaa1d140970e0661decea0c8305254878f816"
+    },
+    {
+      "path": "profile-inference.log",
+      "bytes": 4587,
+      "sha256": "5dbf7249696bc76a077d0a554c439cc90f47ec2277a018d9ccea9ace4d459eb4"
+    },
+    {
+      "path": "pty-exit.log",
+      "bytes": 319,
+      "sha256": "183632ae1514bd1cecabc0d959f59b3f79acf9525c414e4e517d159b6b4cfb1a"
+    },
+    {
+      "path": "pty-full.log",
+      "bytes": 6572,
+      "sha256": "8f135a0b984e257a60daa5124fedf96c1abb0b7f775b4c578984315492008821"
+    },
+    {
+      "path": "screens/tui-child-exit.png",
+      "bytes": 110354,
+      "sha256": "7cb96cfd7dbf70b1c2a502fb02556c1b3aff7b278a0ddf33232b037b1b68b41c"
+    },
+    {
+      "path": "screens/tui-clipboard-paste.png",
+      "bytes": 113838,
+      "sha256": "e541cfc2ff9af9358affeeb858d5a0796f3cf81c4cf7bf47221aad51faeb1754"
+    },
+    {
+      "path": "screens/tui-exit.png",
+      "bytes": 97820,
+      "sha256": "9c63b835e618fe066f8d30830159230c99f2969280ecc382b37e54a5fa4936ce"
+    },
+    {
+      "path": "screens/tui-terminal-io.png",
+      "bytes": 115202,
+      "sha256": "5266296dbd318204a74a2fade224fc2fa9c5bc2cc3c368c0e88144cbb6e620bd"
+    },
+    {
+      "path": "screens/tui-terminal-open.png",
+      "bytes": 100442,
+      "sha256": "e8af4c49ca458e3a57075138ce1e2b6e68642cd4e71cd134d374ad3a4f6d9be2"
+    },
+    {
+      "path": "selftest.log",
+      "bytes": 74,
+      "sha256": "275cb1cf5bd10fc87631604cd3d9eb6b75bc3a1ff492eaf00cad8fe1633555f9"
+    },
+    {
+      "path": "stop.log",
+      "bytes": 64,
+      "sha256": "36fbe1ac2505cdaf30d60353fa613baa3e6974e2e13eab9e6fc59c476186f4ae"
+    },
+    {
+      "path": "tui-cleanup.log",
+      "bytes": 22,
+      "sha256": "492a3c8b372abed07a57b155ff8d026767b8e4ae52a95630a503d1e6e8bf8fde"
+    }
+  ]
+}

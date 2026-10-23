@@ -1,0 +1,174 @@
+{
+  "folder": "20261014-headless-port",
+  "content": "Headless OpenCode port (haiku.1) in the TCG VM: build, API probes, local and free model runs",
+  "cited_by": "history/20261021-status.md",
+  "files": [
+    {
+      "path": "history/opencode-guest-agent-model-attempt1.log",
+      "bytes": 6421,
+      "sha256": "c486002e37359d740341e1444f79ea4e15eff29d338590dda7b123c88c95e17b"
+    },
+    {
+      "path": "history/opencode-guest-agent-model-progress.log",
+      "bytes": 12417,
+      "sha256": "fb3daaaded209dd4f702854a2080fecaf2d1398f1f4be70c9649fff1d7523eb8"
+    },
+    {
+      "path": "history/opencode-guest-free-model-attempt2.log",
+      "bytes": 7372,
+      "sha256": "c23652de25c27a3f3bec5de6d5d576d53cac2632868b695fa455038ffcca2284"
+    },
+    {
+      "path": "history/opencode-guest-local-model-attempt1.log",
+      "bytes": 5554,
+      "sha256": "7a96d1d6ec11095fc3bf0a031e6420a4661e87e952d496d4f5386723c0e2ed4d"
+    },
+    {
+      "path": "history/opencode-guest-local-model-attempt2.log",
+      "bytes": 5576,
+      "sha256": "9906f26fdaa6a14917ec8f124babcf331258c1b9d6c71d5699ff010c73bc4caf"
+    },
+    {
+      "path": "history/opencode-guest-local-model-attempt3.log",
+      "bytes": 5381,
+      "sha256": "a35f6894d58a069fec92a489b09bbbb633ffbeb53bfbe6b9ab916d7c11c97cbe"
+    },
+    {
+      "path": "history/opencode-host-free-model-attempt1.log",
+      "bytes": 23810,
+      "sha256": "8b197675776ef0622275e7d97252013a9e84f631691a65905a3edc7893cf90a5"
+    },
+    {
+      "path": "history/opencode-host-free-model-attempt2.log",
+      "bytes": 13129,
+      "sha256": "b6ecd08129c677fd91f8c39605776781e08b117b3877cdfa5b5fe7e3cb363e31"
+    },
+    {
+      "path": "history/opencode-host-node24-help-attempt1.log",
+      "bytes": 835,
+      "sha256": "c487f3b84e35f8d837c5cae4a5f7100589b01c878d4670af1956699bbc4933d3"
+    },
+    {
+      "path": "history/opencode-host-node24-help-attempt2.log",
+      "bytes": 2311,
+      "sha256": "49439e682d073aa97be9e094ec3c4fd238ebe4c6fcbb581b6d12d05d818407c0"
+    },
+    {
+      "path": "opencode-after-migration-version.log",
+      "bytes": 31,
+      "sha256": "8d476ca685b57f757a94947333c93474065d1a483d403f13b4fd19828d375d85"
+    },
+    {
+      "path": "opencode-free-access-probe.json",
+      "bytes": 175,
+      "sha256": "0539e65d668bf1822258ea3c625c5ec95d4918c478267b9b90dd596934288ed0"
+    },
+    {
+      "path": "opencode-guest-agent-model.log",
+      "bytes": 12991,
+      "sha256": "463df4c11dbea4adb5e7f148fbed2e8bd8a6be41823f5f6863360b3b5e1abef3"
+    },
+    {
+      "path": "opencode-guest-api-probe.log",
+      "bytes": 982,
+      "sha256": "669f15d0bef82464c923046bc0e3711f892c4ab8fae619b17588b860dd46497f"
+    },
+    {
+      "path": "opencode-guest-baseline.log",
+      "bytes": 1968,
+      "sha256": "118d145ca6b618582d8473779b052d508d306e11a27c881ed10eed9de1e6776c"
+    },
+    {
+      "path": "opencode-guest-free-model.log",
+      "bytes": 7337,
+      "sha256": "8a76b04957083dd90ba65154a4d3e1a23585c559d2e12c1913b63bcdd5a719e5"
+    },
+    {
+      "path": "opencode-guest-local-model.log",
+      "bytes": 5610,
+      "sha256": "7cbbeef7716e3cd4e6c33704c0d990085f34761bfaa7ab42a1d1fade5c77aea6"
+    },
+    {
+      "path": "opencode-guest-package-api.log",
+      "bytes": 1048,
+      "sha256": "d066269db4b814462ed23f633cc879ecb1472d959b266e151afd7e0dbd6a47f4"
+    },
+    {
+      "path": "opencode-guest-package-check.log",
+      "bytes": 3144,
+      "sha256": "1aa5633e9d8e3fc7b24cb9221f0de45dfb82000e270b0781753157ef02c628b5"
+    },
+    {
+      "path": "opencode-guest-port.log",
+      "bytes": 2898,
+      "sha256": "e3a2c67710f4873896ab530e18bd18b7ff7ad0fabfeab5a20640a8d27fd70c2f"
+    },
+    {
+      "path": "opencode-guest-runtime.log",
+      "bytes": 2247,
+      "sha256": "101172d2ecaf8206e121c841b4255bf2f43b10cefbd31ce2d2e03413fe201594"
+    },
+    {
+      "path": "opencode-host-local-model.log",
+      "bytes": 9286,
+      "sha256": "aa2156f8554ee4d357e4de480ef79a4605541e21f9b13cde023b7eb2da87adf2"
+    },
+    {
+      "path": "opencode-local-model-direct.json",
+      "bytes": 614,
+      "sha256": "9b98cc1259f27f3cd51d1b1180d80aa6213910dac4811bab9b2a4a765d1b42b8"
+    },
+    {
+      "path": "opencode-local-wire-request.json",
+      "bytes": 2126,
+      "sha256": "cff2f37385d4831ff641ddb6afd73eae74a630209d5b6629d2d24ddadb3484f8"
+    },
+    {
+      "path": "opencode-local-wire-response.txt",
+      "bytes": 1312,
+      "sha256": "f9358fb4b291a986322105d58f91a76a09a0782b1fe3937f8f5f6328009b3798"
+    },
+    {
+      "path": "opencode-official-free-model.log",
+      "bytes": 880,
+      "sha256": "9a67bd42de08c9b45b7c53195911976517d459d65b4c380190f521f85af167f9"
+    },
+    {
+      "path": "opencode-package.json",
+      "bytes": 253,
+      "sha256": "0c39a4ae70db2f5340de21db3771b5e1b9a6beda9466949cd36a5c2dd56ac651"
+    },
+    {
+      "path": "opencode-run-help.log",
+      "bytes": 1660,
+      "sha256": "b1ce234f929dd1bd5f67f23ee3c1b1095d7c97db444b94b898c6e443cb54ccf2"
+    }
+  ],
+  "removed_2026_10_23": {
+    "exit_codes": {
+      "opencode-guest-agent-model.exit": "2",
+      "opencode-guest-api-probe.exit": "0",
+      "opencode-guest-baseline.exit": "1",
+      "opencode-guest-free-model-attempt2.exit": "1",
+      "opencode-guest-free-model.exit": "1",
+      "opencode-guest-local-model-attempt1.exit": "0",
+      "opencode-guest-local-model-attempt2.exit": "2",
+      "opencode-guest-local-model-attempt3.exit": "2",
+      "opencode-guest-local-model-text.exit": "0",
+      "opencode-guest-local-model.exit": "0",
+      "opencode-guest-package-check.exit": "0",
+      "opencode-guest-port.exit": "0",
+      "opencode-guest-runtime.exit": "0",
+      "opencode-host-free-model-attempt1.exit": "1",
+      "opencode-host-free-model-attempt2.exit": "1",
+      "opencode-host-local-model.exit": "0",
+      "opencode-official-free-model.exit": "1"
+    },
+    "empty_files": [],
+    "duplicates": {
+      "opencode-guest-local-model-text.log": "opencode-guest-local-model.log"
+    }
+  },
+  "removed_note": "Exit codes of removed one-byte .exit files, empty files and duplicates (duplicate -> kept file).",
+  "history_note": "history/ holds attempt, progress and superseded logs of this run."
+}

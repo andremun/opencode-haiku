@@ -1,0 +1,287 @@
+{
+  "folder": "20261021-task-e",
+  "content": "Native runner rerun, ten free cloud models, interactive TUI, second client and browser",
+  "cited_by": "ACCEPTANCE.md, history/20261021-task-e.md, history/20261021-interactive-cloud.md",
+  "files": [
+    {
+      "path": "cloud-vm/loop.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cloud-vm/opencode_beam-free/cloud-1792547489531/agent.log",
+      "bytes": 101377,
+      "sha256": "d8a369d6a966f10b142c6e73a4d6e12f3c76ba929ef47792aefd6fbb91a5bf77"
+    },
+    {
+      "path": "cloud-vm/opencode_beam-free/cloud-1792547489531/outcome.json",
+      "bytes": 747,
+      "sha256": "ed856c5da90c620879cbe1a0b7f4975edb50ba4475fb328f90b7f35cf4aae16a"
+    },
+    {
+      "path": "cloud-vm/opencode_beam-free.log",
+      "bytes": 747,
+      "sha256": "ed856c5da90c620879cbe1a0b7f4975edb50ba4475fb328f90b7f35cf4aae16a"
+    },
+    {
+      "path": "cloud-vm/opencode_big-pickle/cloud-1792547279252/agent.log",
+      "bytes": 52961,
+      "sha256": "3839cb17e36fe9634c486fc41d485fc322e0afcca529fec65f23dd24e49554d3"
+    },
+    {
+      "path": "cloud-vm/opencode_big-pickle/cloud-1792547279252/outcome.json",
+      "bytes": 598,
+      "sha256": "fb83e3b58ed43b52eec973f77826bacc831f2c4c6fa1b913ed661675f0cc2c0b"
+    },
+    {
+      "path": "cloud-vm/opencode_big-pickle.log",
+      "bytes": 598,
+      "sha256": "fb83e3b58ed43b52eec973f77826bacc831f2c4c6fa1b913ed661675f0cc2c0b"
+    },
+    {
+      "path": "cloud-vm/opencode_deepseek-v4.1-flash-free/cloud-1792548478230/agent.log",
+      "bytes": 36509,
+      "sha256": "86b4115f685f5433f96ab6f424a718e242f0d2178c271a25bffd528566b808a8"
+    },
+    {
+      "path": "cloud-vm/opencode_deepseek-v4.1-flash-free/cloud-1792548478230/outcome.json",
+      "bytes": 638,
+      "sha256": "7594292300bd147db2250980d08e21c3fa315c8bbd7d0941bff6967f23fe1763"
+    },
+    {
+      "path": "cloud-vm/opencode_deepseek-v4.1-flash-free.log",
+      "bytes": 638,
+      "sha256": "7594292300bd147db2250980d08e21c3fa315c8bbd7d0941bff6967f23fe1763"
+    },
+    {
+      "path": "cloud-vm/opencode_glm-5.3-flash-free/cloud-1792547123386/agent.log",
+      "bytes": 39992,
+      "sha256": "1da665736ec10a1ebdc089d5d46d83493063c4811fe1cb1838f9691ecdd96f93"
+    },
+    {
+      "path": "cloud-vm/opencode_glm-5.3-flash-free/cloud-1792547123386/outcome.json",
+      "bytes": 664,
+      "sha256": "b845aeab6f125b6e52ec97be9a01bd35ff26d72f183267950b9577335f4709b1"
+    },
+    {
+      "path": "cloud-vm/opencode_glm-5.3-flash-free/cloud-1792548691381/agent.log",
+      "bytes": 34401,
+      "sha256": "bbde5bebda447c510a4cdf268a1e09aba43ce8d3cb3101a61a09e1ec4e3827a0"
+    },
+    {
+      "path": "cloud-vm/opencode_glm-5.3-flash-free/cloud-1792548691381/outcome.json",
+      "bytes": 626,
+      "sha256": "24175442643d09927c1efe4e35508ccf68a18e8f0cccaa9e6d3979d84c33a2a2"
+    },
+    {
+      "path": "cloud-vm/opencode_glm-5.3-flash-free.log",
+      "bytes": 626,
+      "sha256": "24175442643d09927c1efe4e35508ccf68a18e8f0cccaa9e6d3979d84c33a2a2"
+    },
+    {
+      "path": "cloud-vm/opencode_jev-1.13-free/cloud-1792548385014/agent.log",
+      "bytes": 179,
+      "sha256": "c27aa5fa8ab7c44bfe437df589ba3750ace18fb4d4771939e05c960794c623a9"
+    },
+    {
+      "path": "cloud-vm/opencode_jev-1.13-free/cloud-1792548385014/outcome.json",
+      "bytes": 491,
+      "sha256": "738ea269f66b3c06850ec6b808e8333a7b3f33891d5173532f54e321ffc8bf8a"
+    },
+    {
+      "path": "cloud-vm/opencode_jev-1.13-free.log",
+      "bytes": 491,
+      "sha256": "738ea269f66b3c06850ec6b808e8333a7b3f33891d5173532f54e321ffc8bf8a"
+    },
+    {
+      "path": "cloud-vm/opencode_longcat-2.5-preview-free/cloud-1792548399308/agent.log",
+      "bytes": 34243,
+      "sha256": "ec5620a79f66b8186a3432d3fcd286a83f3e8e66fa9629db3be9b818726f5a56"
+    },
+    {
+      "path": "cloud-vm/opencode_longcat-2.5-preview-free/cloud-1792548399308/outcome.json",
+      "bytes": 661,
+      "sha256": "3c3aaaf2a41bbc9ba25035fee90bbfb45fa2d2530fa7f63c81cc394684c245c5"
+    },
+    {
+      "path": "cloud-vm/opencode_longcat-2.5-preview-free.log",
+      "bytes": 661,
+      "sha256": "3c3aaaf2a41bbc9ba25035fee90bbfb45fa2d2530fa7f63c81cc394684c245c5"
+    },
+    {
+      "path": "cloud-vm/opencode_mimo-v2.6-flash-free/cloud-1792547556014/agent.log",
+      "bytes": 32566,
+      "sha256": "cefc27a882b26dedd71faede7088a3b4c0bc61142281f3922df5b243a8d8c9df"
+    },
+    {
+      "path": "cloud-vm/opencode_mimo-v2.6-flash-free/cloud-1792547556014/outcome.json",
+      "bytes": 618,
+      "sha256": "d72e5cae9c6a34e5429bbfe3d8ddc7190b439a1817ae2303ac867c7ae79dd3aa"
+    },
+    {
+      "path": "cloud-vm/opencode_mimo-v2.6-flash-free.log",
+      "bytes": 618,
+      "sha256": "d72e5cae9c6a34e5429bbfe3d8ddc7190b439a1817ae2303ac867c7ae79dd3aa"
+    },
+    {
+      "path": "cloud-vm/opencode_minimax-m3.1-flash-free/cloud-1792548555980/agent.log",
+      "bytes": 97857,
+      "sha256": "0497a2b38cd1a4979bf46ec8c868bf0b7a61945788f8f42858169d891af44d30"
+    },
+    {
+      "path": "cloud-vm/opencode_minimax-m3.1-flash-free/cloud-1792548555980/outcome.json",
+      "bytes": 749,
+      "sha256": "b7125ac31b87812fb5ec18cb20aeb06b16af3d2f0e3248e301d3bbedbd61588b"
+    },
+    {
+      "path": "cloud-vm/opencode_minimax-m3.1-flash-free.log",
+      "bytes": 749,
+      "sha256": "b7125ac31b87812fb5ec18cb20aeb06b16af3d2f0e3248e301d3bbedbd61588b"
+    },
+    {
+      "path": "cloud-vm/opencode_nemotron-3.5-lightning-free/cloud-1792547817492/agent.log",
+      "bytes": 90262,
+      "sha256": "4791563ba1c0e8d6683aa0abdce4eeee2dbe468d52dd21a9325af7406c1bac94"
+    },
+    {
+      "path": "cloud-vm/opencode_nemotron-3.5-lightning-free/cloud-1792547817492/outcome.json",
+      "bytes": 706,
+      "sha256": "b5c1180175bd77ec576186175d436dfc21780c53520fd7aca74f76e2e9df6514"
+    },
+    {
+      "path": "cloud-vm/opencode_nemotron-3.5-lightning-free.log",
+      "bytes": 706,
+      "sha256": "b5c1180175bd77ec576186175d436dfc21780c53520fd7aca74f76e2e9df6514"
+    },
+    {
+      "path": "cloud-vm/opencode_nemotron-3.5-super-vl-free/cloud-1792547717225/agent.log",
+      "bytes": 54082,
+      "sha256": "b310fd32be82b0da8466835f24dd361af5ef7f754e220a153e4d789a4b7e0e54"
+    },
+    {
+      "path": "cloud-vm/opencode_nemotron-3.5-super-vl-free/cloud-1792547717225/outcome.json",
+      "bytes": 618,
+      "sha256": "de4caf76918eda276c737e5d60d8f752903d52f032eb66c1569597d81046b293"
+    },
+    {
+      "path": "cloud-vm/opencode_nemotron-3.5-super-vl-free.log",
+      "bytes": 618,
+      "sha256": "de4caf76918eda276c737e5d60d8f752903d52f032eb66c1569597d81046b293"
+    },
+    {
+      "path": "cloud-vm/summary.txt",
+      "bytes": 510,
+      "sha256": "3042717b63c3ae575ef37a3160a3245e25b894b0effe82e860b401bef9cf487a"
+    },
+    {
+      "path": "cloud-vm-outcomes.log",
+      "bytes": 4023,
+      "sha256": "f21858ae782421eceb49e5c3b0763762cd03a07dd0c66c0c1eda01bd9bd2d354"
+    },
+    {
+      "path": "host-regressions-upload-fix.log",
+      "bytes": 2800,
+      "sha256": "a733f2c5fa862f09ae904a1450a5cd5e824ba8892e9bd8fc242d08704690d511"
+    },
+    {
+      "path": "host-regressions.log",
+      "bytes": 2707,
+      "sha256": "a773cd0f05695dd6fa5f27a34b8f4c6512844f13cc3d32f5e5d79d17e86a2cd6"
+    },
+    {
+      "path": "interactive/fixture/opencode.json",
+      "bytes": 546,
+      "sha256": "0d18fe379c7d172e307ebdc708160d399e26c27e47949dbc86d083a4e91d3845"
+    },
+    {
+      "path": "interactive/fixture/src/csv.mjs",
+      "bytes": 1195,
+      "sha256": "dffcd068a6d04331dece21f198e670ce5acb5cea9a5648212167d11d345ecbd5"
+    },
+    {
+      "path": "interactive/fixture/src/report.mjs",
+      "bytes": 1278,
+      "sha256": "ccfa6aa9bd2189c9dd31054861a562c2b1a3e2c6a04ee18af8b772f4df9958c8"
+    },
+    {
+      "path": "interactive/gui-edit-done.png",
+      "bytes": 68167,
+      "sha256": "a8cf7d4baa5f88fec3779a49502809a205c9d5bc9c004e1fb9af653157304578"
+    },
+    {
+      "path": "interactive/gui-session-history.png",
+      "bytes": 65408,
+      "sha256": "fca28a146abd1098de379f220104650098be109cb294ec29f18d6962e47a883f"
+    },
+    {
+      "path": "interactive/serve.log",
+      "bytes": 43,
+      "sha256": "1829c7f82ccea773f370a495969239b471ae2ba443b3193927c9397eebe3ccaf"
+    },
+    {
+      "path": "interactive/tests.sha256",
+      "bytes": 161,
+      "sha256": "2436789c427f90a928aaeb33da5ed106f749b6cf9a04ee7c78db9bcd5ea2be15"
+    },
+    {
+      "path": "interactive/tui-sees-gui-turn.png",
+      "bytes": 69186,
+      "sha256": "dee3f8222b29acfc1ddd94be6f3b53b46be14b6382e1216753b57acf62d00a6c"
+    },
+    {
+      "path": "interactive/tui1-live-update.png",
+      "bytes": 68698,
+      "sha256": "d173ba028b204751984a4d2ac679491a4eac64c861e9869638a63b50164fffbe"
+    },
+    {
+      "path": "interactive/tui1-task-done.png",
+      "bytes": 63576,
+      "sha256": "dcc87fec6a40c42d5dbcbbaa1cd2df98498595dd8565c4f97c5973666d4ca4ee"
+    },
+    {
+      "path": "interactive/tui2-attached-history.png",
+      "bytes": 65471,
+      "sha256": "0444076f59bc9c46c0e1c38fe114e330843333048855c94658e2ed131078d3f1"
+    },
+    {
+      "path": "interactive/tui2-marker.png",
+      "bytes": 68838,
+      "sha256": "b0ccc66fede94031a8dd37f078d8f2afd2be4c84d043f2b2ffb34f2f16d203f8"
+    },
+    {
+      "path": "interactive/tui2-sees-marker-one.png",
+      "bytes": 69856,
+      "sha256": "8ab54b69b5de5bd6b3a4409eb1679c007ebf90a60c8b1501cee32c8c82187161"
+    },
+    {
+      "path": "native-prodrun-ivybridge.log",
+      "bytes": 23244,
+      "sha256": "3c44386fab60b98251264dea314324e862fb09899d263fc3989ae82bc40a08d8"
+    },
+    {
+      "path": "native-services-controls.log",
+      "bytes": 1896,
+      "sha256": "3065580a5d89087c8b0e00849716056b7f8569ced0e31bb126c008fa5fcbc290"
+    },
+    {
+      "path": "source-sha256.txt",
+      "bytes": 716,
+      "sha256": "84b4dc1cff087d220cebe921b96433061d763a438d0b206d5b7775eabf3ee322"
+    },
+    {
+      "path": "upload-native-agent-model.log",
+      "bytes": 17935,
+      "sha256": "b2110b3609c8ff20ea6cd97f7ef90582c5263ebd928d7c5afe720d3f6c725d81"
+    },
+    {
+      "path": "upload-native-coding-outcome.json",
+      "bytes": 321,
+      "sha256": "660ed63d9bb5fecd520c7fc00271007ad9dd1841cb77dd1ed866e09527369788"
+    },
+    {
+      "path": "upload-native-coding-progress.log",
+      "bytes": 14790,
+      "sha256": "a667a9977eceb5b3c86c6ee6068753c7ca7d2bc0f71b597f0d6c121fe07b6d59"
+    }
+  ]
+}

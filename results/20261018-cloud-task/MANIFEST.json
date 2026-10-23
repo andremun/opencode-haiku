@@ -1,0 +1,72 @@
+{
+  "folder": "20261018-cloud-task",
+  "content": "Cloud coding task through the port and the official client",
+  "cited_by": "history/20261018-free-models-and-cloud-task.md",
+  "files": [
+    {
+      "path": "haiku-vm-run.log",
+      "bytes": 615,
+      "sha256": "4d22a0a8ea221d83f70a3c1c3a1ec344b60bd2c26cbd13980ebe67368c91de7d"
+    },
+    {
+      "path": "haiku5-bundle-host-final/agent.log",
+      "bytes": 40720,
+      "sha256": "a974ddfb302028785ca7089a892551b6cd3855e4bcf283d7fcb8db413fdb1708"
+    },
+    {
+      "path": "haiku5-bundle-host-final/outcome.json",
+      "bytes": 580,
+      "sha256": "9a58e7e3f02f35ef85c903b3ea525e5308a7b5ad8a08223c56b50acc0fffc49a"
+    },
+    {
+      "path": "haiku5-bundle-host-first/agent.log",
+      "bytes": 50426,
+      "sha256": "ad1a68ced88b16d9265a5f4df0a932a87fd19fae501a58b3443ad8f41b1d7e43"
+    },
+    {
+      "path": "haiku5-bundle-host-first/outcome.json",
+      "bytes": 638,
+      "sha256": "66c41bb0155ddaace2fe65d6e8baf720ff466383379e0f37a02e1829edf551a8"
+    },
+    {
+      "path": "official-final/agent.log",
+      "bytes": 45673,
+      "sha256": "34a94b2276b71d828d60e51f155cbec850d1e467060bac3f1b2c4f03dd2ac28d"
+    },
+    {
+      "path": "official-final/outcome.json",
+      "bytes": 594,
+      "sha256": "8e4be3e0106a3e7e7232f0529cff6698035d9e962cebee0536f3570b54768483"
+    },
+    {
+      "path": "official-first/agent.log",
+      "bytes": 50985,
+      "sha256": "05d76d3096f85fe8ceb10224bdf8e718437956cc636ddea2fb032ca451e3f908"
+    },
+    {
+      "path": "official-first/outcome.json",
+      "bytes": 670,
+      "sha256": "fdac8d0c70a771a1d888bc642204df3d08957c1b636e2de6893363087485dff2"
+    },
+    {
+      "path": "official-rerun2/agent.log",
+      "bytes": 43830,
+      "sha256": "062613e7d4339e22bccb6c8127afd10446898d9dd3aecc9405a9f1654ca113b9"
+    },
+    {
+      "path": "official-rerun2/outcome.json",
+      "bytes": 643,
+      "sha256": "3f70d62354ccd1e8513644f93f09652b893ca99f1041a3c4613cc65f65fbf8a7"
+    },
+    {
+      "path": "official-rerun3/agent.log",
+      "bytes": 31118,
+      "sha256": "06694b233894e98683c2de9562235ed9509d0b160a54d33f601c12ceae7ed2a7"
+    },
+    {
+      "path": "official-rerun3/outcome.json",
+      "bytes": 580,
+      "sha256": "583d6c4a034f47f1668d12506fb9c27f790b0e9a7d1d109646cf5e01de0ffbdf"
+    }
+  ]
+}

@@ -1,1 +1,0 @@
-Haiku shredder R1~beta6+development hrev60207 Oct  5 2026 07:12:07 x86_64 x86_64 Haiku

@@ -1,0 +1,134 @@
+{
+  "folder": "20261015-haiku5-renderer",
+  "content": "Haiku.5 with the Ghostty VT renderer: install, native suite, API, TUI and browser terminal checks",
+  "cited_by": "ACCEPTANCE.md, history/20261015-haiku5-acceptance.md",
+  "files": [
+    {
+      "path": "haiku5-api-tests.log",
+      "bytes": 1385,
+      "sha256": "5a7890ba86501bade598d9219b3b440512dedb17363ecb955bf57e69ad714eb8"
+    },
+    {
+      "path": "haiku5-api-workflow-api.log",
+      "bytes": 1038,
+      "sha256": "85b0c2ca7155f2c1f8c702ecef34bb95d1ac31213d0a7ce23e3e787e6865ea17"
+    },
+    {
+      "path": "haiku5-artifact-index.json",
+      "bytes": 4049,
+      "sha256": "c81e2c2bce58f013581a9b513fff8a26eb2d39d9a52ee0f9fc3bb7a7c26896fd"
+    },
+    {
+      "path": "haiku5-browser-child-exit.log",
+      "bytes": 261,
+      "sha256": "04cd220fa984c2999030f34584d2fae44a5d6d30811fdb3fd0f9e50ebf61fa0b"
+    },
+    {
+      "path": "haiku5-browser-cleanup.log",
+      "bytes": 75,
+      "sha256": "44f1b535e4b698616eb89188a0748d3e48c787ab80159454352e74248ca744ee"
+    },
+    {
+      "path": "haiku5-browser-terminal-child-exit.png",
+      "bytes": 133992,
+      "sha256": "a2624b5816043db8f3ef2c1c8fed922056f4c93207e0563d312e837201257334"
+    },
+    {
+      "path": "haiku5-browser-terminal-created.log",
+      "bytes": 238,
+      "sha256": "d1c1ab766dfa506159528e01bf4297d8ac3858309f4c8fcdd7791dbd498fe1b4"
+    },
+    {
+      "path": "haiku5-browser-terminal-io.png",
+      "bytes": 101658,
+      "sha256": "d9412e4f550a3be3f17b86329b78947df586ac2c821b5c3c5d072dc714027c06"
+    },
+    {
+      "path": "haiku5-browser-terminal-reload.png",
+      "bytes": 166106,
+      "sha256": "8c4bd28ad7f5b1d68e37206a6a352fd2e305f7430abcded23109349e43186456"
+    },
+    {
+      "path": "haiku5-browser-terminal-resize.png",
+      "bytes": 151160,
+      "sha256": "6010e04cdea003366ea9b4c393086b3f7bb34e996bf57cc1b2f937c2ca239cd6"
+    },
+    {
+      "path": "haiku5-build.log",
+      "bytes": 199200,
+      "sha256": "78661eca71f749aaf72fa53b475048780d1cf56274ca70d3235b369188b022c0"
+    },
+    {
+      "path": "haiku5-host-regressions.log",
+      "bytes": 1464,
+      "sha256": "bdeba2387e1879be184e9ff103d9df0d6f09b3a0056787f1a1dfdd764839364a"
+    },
+    {
+      "path": "haiku5-install-selftest.log",
+      "bytes": 343,
+      "sha256": "1727e7d84a20009952b3322ec5b38fcf699438bb85525dc0b217b952d4cc2b4e"
+    },
+    {
+      "path": "haiku5-legacy-pty-api-api.log",
+      "bytes": 15087,
+      "sha256": "bb4e8d3603c081c670d6179ff56e928317361158cb331b3f608fd0bc247ded71"
+    },
+    {
+      "path": "haiku5-native-terminal-suite.log",
+      "bytes": 6785,
+      "sha256": "b0b439a178457ae8dd279389d026c57028ba22eed39291ec24b8a05a16bff174"
+    },
+    {
+      "path": "haiku5-owned-cleanup.json",
+      "bytes": 248,
+      "sha256": "3981c74b5eb353253198a87a5361c0df877b3b6b9fe63171fb248fe0467b68b4"
+    },
+    {
+      "path": "haiku5-persistent-terminal-api-run.log",
+      "bytes": 1377,
+      "sha256": "95e220c2cd382a0e36689e026f809db47a5a8bd5c8d7a797fb8652580478faec"
+    },
+    {
+      "path": "haiku5-tui-child-exit-clipboard.png",
+      "bytes": 111804,
+      "sha256": "677ff783037c6b0f3edc6af57f0396e6e301e2bf03b2c5816fb7b886c9573fd8"
+    },
+    {
+      "path": "haiku5-tui-terminal-cleanup.log",
+      "bytes": 38,
+      "sha256": "d67a20b076951c9567e3e667981d26be47fe38c2ab8471ca8f64a35ef8cec322"
+    },
+    {
+      "path": "haiku5-tui-terminal-io.png",
+      "bytes": 127874,
+      "sha256": "054bc45aaf88d8997add77a2ffa8e4051672b70e673e4e5404e4e6f17cce387f"
+    },
+    {
+      "path": "haiku5-tui-terminal-reconnect.png",
+      "bytes": 121673,
+      "sha256": "b5553f2da12452861502002e23ca814c67d1421ca658278167335407d4471a67"
+    },
+    {
+      "path": "haiku5-tui-terminal-resize.png",
+      "bytes": 75167,
+      "sha256": "26ae84966aeeea9a20ddc9905a0d84864e9b6d0ac6b74d5d519b74e3deed884e"
+    },
+    {
+      "path": "t7610-review-runner-tests.log",
+      "bytes": 1022,
+      "sha256": "a0fcdb21cf414908f1a772d4638ed0317ce97a36415ffee93ca070dcb7f4354a"
+    }
+  ],
+  "removed_2026_10_23": {
+    "exit_codes": {
+      "haiku5-tui.exit": "0"
+    },
+    "empty_files": [
+      "haiku5-api-workflow-run.log",
+      "haiku5-legacy-pty-api-run.log",
+      "haiku5-tui.log"
+    ],
+    "duplicates": {}
+  },
+  "removed_note": "Exit codes of removed one-byte .exit files, empty files and duplicates (duplicate -> kept file)."
+}

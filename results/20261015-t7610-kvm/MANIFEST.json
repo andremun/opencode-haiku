@@ -1,0 +1,207 @@
+{
+  "folder": "20261015-t7610-kvm",
+  "content": "First T7610 KVM run (E5-2620 v2)",
+  "cited_by": "history/20261015-t7610-kvm-results.md",
+  "files": [
+    {
+      "path": "api-files-probe-final.log",
+      "bytes": 1043,
+      "sha256": "156d2c78e80badbcffbdee7c5aa30b8f9188feae5a95da7937ec55ef59fdb961"
+    },
+    {
+      "path": "api-tests-final.log",
+      "bytes": 5201,
+      "sha256": "171ceba108e5a4e60f9bb08da2cb70b431d9bea4669d1c9fa6eae3387b22f4a7"
+    },
+    {
+      "path": "api-tests-first-run.log",
+      "bytes": 4405,
+      "sha256": "74385ec2accf9b43a77bd75ed8d86aefaa9af83735f3d4cc34c8d75804ff08f2"
+    },
+    {
+      "path": "artifact-hashes.txt",
+      "bytes": 2232,
+      "sha256": "35573672849ed067dd7ff638a4a92a8a35f82f76d4ca52f004466fcc4ec46e11"
+    },
+    {
+      "path": "coding-agent-model.log",
+      "bytes": 19782,
+      "sha256": "c4e3ecffa5c57d216eee8fda77779a7cbd9ff49a30c65c0aa59a757bade5565f"
+    },
+    {
+      "path": "coding-outcome.json",
+      "bytes": 120,
+      "sha256": "fff2ba2e57fcfc04d9597bfb97a60aee2db4f7194c562d645e179711c1adb5c1"
+    },
+    {
+      "path": "coding-progress.log",
+      "bytes": 17282,
+      "sha256": "0e251b3600a092cf3d3b8e75e339369f92fff10f0dc25437dd9f80a6a44ffa42"
+    },
+    {
+      "path": "exp-ghostty-native-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "guest-env.txt",
+      "bytes": 768,
+      "sha256": "10fc1b421688e92ef7f915af90c310e0cd8bbea87df0e9f45e958fd7060091fc"
+    },
+    {
+      "path": "guest-native-build.log",
+      "bytes": 6370,
+      "sha256": "bd5c895f342e1448dbb275742cb068b44a4117bbf35516e79431f3c90fccbad4"
+    },
+    {
+      "path": "guest-packages.txt",
+      "bytes": 322,
+      "sha256": "4c8b9c618764181cce595f3beaf71d76e7f04c63f235c40e11fb81767e9feaea"
+    },
+    {
+      "path": "host-full-build.log",
+      "bytes": 198438,
+      "sha256": "eac06241da79fc08a7da05ba6b651344c60bec5ebd74d4db1345a7a2d8a625fc"
+    },
+    {
+      "path": "inference-kvm-cold1.json",
+      "bytes": 4568,
+      "sha256": "29a1180bf105c03a9e6373a10dd88baff6c1692ef23cf60ea150fa1810cfa4c6"
+    },
+    {
+      "path": "inference-kvm-cold2.json",
+      "bytes": 4571,
+      "sha256": "da8befa570e52d1f1ddbcd198ea8aef27fc8bd46b2e97c2db6181dc0fd9a4c18"
+    },
+    {
+      "path": "inference-kvm-warm1.json",
+      "bytes": 4539,
+      "sha256": "ecf56b4d659c50e5239aff51145ba923d01f8eb6399b430929f4124a4dc527e8"
+    },
+    {
+      "path": "inference-ok-smoke.json",
+      "bytes": 614,
+      "sha256": "9bf56b3061afe6ddeeabcc1bb53cc9bd74b842e93465236785cf11a4373433e8"
+    },
+    {
+      "path": "inference-run.log",
+      "bytes": 535,
+      "sha256": "c5ba4c2d42ab5590ddb3c0f25c13c4a5f7b49c367573698169ebafc9e45562d3"
+    },
+    {
+      "path": "legacy-browser-pty-api-probe-final.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "legacy-browser-pty-api-probe-final.log",
+      "bytes": 14868,
+      "sha256": "0bcaf9b248f978d340fb09659239d8aa2937bddf79783edb98f1c15f5a6fc3b0"
+    },
+    {
+      "path": "llama-build.log",
+      "bytes": 35964,
+      "sha256": "f2c7e81c51643c55bebe3ddd6ef962d4159562ee558221d3d25724174694bf29"
+    },
+    {
+      "path": "llama-server-cold1.log",
+      "bytes": 23922,
+      "sha256": "f7fad8d58958d8405cec4a9fa690077b0bf17f72538d034a094d0aebdad66e34"
+    },
+    {
+      "path": "llama-server-cold2.log",
+      "bytes": 15696,
+      "sha256": "31a177e44ef2fdf19d0ee85d62ac44bad9d3a00c82cfb042e6ad6d130523773e"
+    },
+    {
+      "path": "llama-server-command.txt",
+      "bytes": 225,
+      "sha256": "b9c853965055f60f360d2d1f7c7776d205f66cbcf869cf87d79beadec9cdc265"
+    },
+    {
+      "path": "persistent-terminal-api.jsonl",
+      "bytes": 1377,
+      "sha256": "17b7dc1a40c1d7c50353a633f98514513c35efe06d05bebe789d464a33b64c47"
+    },
+    {
+      "path": "pty-build-retry.log",
+      "bytes": 1153,
+      "sha256": "9c6db319ccece45037ccbb1aac0f9debd89826c862fa289ca1ae0c26eda120d9"
+    },
+    {
+      "path": "screens/exp-tui-terminal-io.png",
+      "bytes": 93969,
+      "sha256": "ce3c8cf0da12b823e4b09e94ed944027bf5493e8fe735e0ae4f809c061ead852"
+    },
+    {
+      "path": "screens/exp-tui-terminal-pane.png",
+      "bytes": 78429,
+      "sha256": "101914032db5679b193e93c77377abaf329e980d1960e75c056611fc99ce96df"
+    },
+    {
+      "path": "screens/exp2-after-child-exit.png",
+      "bytes": 83488,
+      "sha256": "c5b9e2637d72c75c09db982654446fc633864117230accd8b56da5decb8f5def"
+    },
+    {
+      "path": "screens/exp2-pane-after-restart.png",
+      "bytes": 89479,
+      "sha256": "4af18664776da5f3d6e0b0025a2e3b6a63929d7344fb5dc67ae88c40c461a2ef"
+    },
+    {
+      "path": "screens/exp2-pane-before-restart.png",
+      "bytes": 89781,
+      "sha256": "2e0cdfb9346a8afa6e4045859b14ec9ced24c070b04a78d07172b9f2a862e56d"
+    },
+    {
+      "path": "screens/exp2-pane-child-exit.png",
+      "bytes": 83488,
+      "sha256": "c5b9e2637d72c75c09db982654446fc633864117230accd8b56da5decb8f5def"
+    },
+    {
+      "path": "screens/gui-live-update-1.png",
+      "bytes": 87142,
+      "sha256": "07d852480f671a05870492498ed43df1acfdbae6056042255429f48dc127e59a"
+    },
+    {
+      "path": "screens/gui-live-update-2.png",
+      "bytes": 84685,
+      "sha256": "3b4699e3c3705ae7a315c7ffd12c2f1f08075ffe4d081573eb4a7a5678dec230"
+    },
+    {
+      "path": "screens/gui-paired-1.png",
+      "bytes": 76111,
+      "sha256": "a4910fc1ec5b884fc94ed684f3eab6115e7d8908150f9d7ec02aa337146c989e"
+    },
+    {
+      "path": "screens/gui-session-open.png",
+      "bytes": 86091,
+      "sha256": "333f451b79f744f904fb5c9198a98b6203549ff7a8c437ca5480e87d786292a0"
+    },
+    {
+      "path": "screens/gui-submit-reverse.png",
+      "bytes": 87117,
+      "sha256": "3aa91b93da0036be14c622641c346ffadae9e3519d1ee741534fec72cba403fa"
+    },
+    {
+      "path": "screens/tui-first-exchange.png",
+      "bytes": 66774,
+      "sha256": "e41cab8fb96d1830e381588895100a7763eb10416234e8501886f5856b7b220c"
+    },
+    {
+      "path": "screens/tui-live-from-gui.png",
+      "bytes": 130633,
+      "sha256": "da4665725257296e12da42f7678079ac33bab007c0f99562fa975dfe67e87e52"
+    },
+    {
+      "path": "screens/tui-restored.png",
+      "bytes": 66592,
+      "sha256": "2c90cd35c95301ffffb1f5c4e654e5c4d4bda2970df4d4a470ff074f9bb45c7a"
+    },
+    {
+      "path": "screens/tui-terminal-pane-crash.png",
+      "bytes": 108236,
+      "sha256": "e70d7569003e422935b8dd2bcfddc7fdf3c5d95a9cfa6bba8c0665fe16a73f6f"
+    }
+  ]
+}
