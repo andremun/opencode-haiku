@@ -10,3 +10,8 @@
 8. Read the `AGENTS.md` of a sibling repository before you change it.
 9. Write prose in ASD-STE100 style: short sentences, active voice, no semicolons.
 10. Do not start subagents. Do not push without an instruction from the user.
+
+## Review guidelines
+
+Reviews follow `REVIEW.md`. Report only Important findings (P0, P1) unless the request
+asks for more. In Claude Code, run the review with `/pr-review`.

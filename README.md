@@ -77,6 +77,7 @@ Keep API keys outside the repository ([docs/SECRETS.md](docs/SECRETS.md)).
 
 | Path | Content |
 |---|---|
+| `AGENTS.md`, `CLAUDE.md`, `REVIEW.md`, `.claude/skills/` | Rules for coding agents (`CLAUDE.md` points to `AGENTS.md`), review rules and the `/pr-review` skill |
 | `VERSION` | The port version. Build scripts read it. |
 | `src/` | Shipped files: launcher, installer, self-test, Haiku shims (FFI, watch, HTTP, clipboard) |
 | `build/` | Fetch, native build, bundle and packaging scripts. `build/guest/` runs in the VM. |
@@ -87,7 +88,7 @@ Keep API keys outside the repository ([docs/SECRETS.md](docs/SECRETS.md)).
 | `tools/secrets/` | Key handling and secret scan |
 | `reference/` | Input pins (`INPUTS.json`) and provenance records |
 | `results/` | Evidence, one folder per run (`results/README.md`) |
-| `examples/` | Example configuration and the cloud coding task |
+| `examples/` | Example configuration and the cloud coding task ([examples/README.md](examples/README.md)) |
 
 Not tracked: `cache/`, `source/`, `vm/`, `logs/`, `share/`, `dist/` (archives, sources, VM disks).
 
