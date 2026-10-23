@@ -26,6 +26,7 @@ release manifest ([design/packaging.md](design/packaging.md)).
 | P-04 | Host control H-02 fails in a clean environment | Phase 2: find the cause |
 | P-05 | Second-client TUI reconnect after a backend restart, more than 2 vCPUs, repeated runs | Test runs in the KVM VM |
 | P-06 | Code layout: shipped code, build scripts, tests and VM jobs are mixed in `tools/` | Phase 2 ([design/layout.md](design/layout.md)) |
+| P-07 | Sandbox question: is Haiku a suitable sandbox for an agent that tests scientific software (GNU Octave, scientific Python, R)? Haiku has little user separation, so the VM is the main boundary. | Check which of these packages exist for Haiku. Compare VM-level limits with limits inside Haiku. Research only. |
 
 ## Alignment plan
 
