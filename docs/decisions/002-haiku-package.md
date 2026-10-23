@@ -18,5 +18,5 @@ a release asset and a manual install. npm is not used.
 ## Consequences
 
 Phase 2 adds `VERSION`, `make dist` and `packaging/`. `docs/design/packaging.md` gives the
-design. A submission to HaikuPorts can follow the first release. HaikuPorts may ask for a
-source build of the bundle.
+design. The package is published only with the GitHub releases of this repository. It is not
+submitted to HaikuPorts or any other Haiku project (README, "Disclaimer").

@@ -57,7 +57,8 @@ a PTY spawn, the clipboard helper and the renderer library. Exit 0 means all pas
 
 ## 7. Release
 
-A GitHub release for each version holds the tar.gz, the `.hpkg`, `SHA256SUMS`, `MANIFEST.json`
+A GitHub release of this repository is the only distribution channel. The package is not
+submitted to HaikuPorts (README, "Disclaimer"). A GitHub release for each version holds the tar.gz, the `.hpkg`, `SHA256SUMS`, `MANIFEST.json`
 and the acceptance summary. A release needs a recorded pass of the checks in
 [ACCEPTANCE.md](../ACCEPTANCE.md) in `results/YYYYMMDD-release-<version>/`. Archives never enter Git.
 

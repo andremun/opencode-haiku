@@ -5,6 +5,27 @@ interface (TUI) and the browser interface (WebPositive), with terminal panes, cl
 paste and shared sessions. It runs on Node 24. It needs an OpenAI-compatible model
 endpoint, for example a llama.cpp server or a cloud provider.
 
+## Disclaimer
+
+This is research code. It is not production code.
+
+I made it as part of a project that tests the Tesla K40c hardware under Haiku. I like
+unusual operating systems, and Haiku is an interesting one. That is the main reason this
+project exists.
+
+The code is not meant for inclusion in Haiku, HaikuPorts or any other Haiku project.
+AI coding agents generated most of it ("vibe coding"). I understand that the Haiku
+project does not want such packages, and I do not submit them. If the research is
+useful to someone, I am glad.
+
+A second question drives the work: can Haiku be a suitable sandbox for AI coding
+agents? I do not know of specific vulnerabilities of Haiku for this use. An uncommon
+system can also be a useful barrier. This is a question to test, not a claim of
+security. The target use is agents that test scientific software, such as GNU Octave,
+scientific Python and perhaps R.
+
+Use it at your own risk. The license gives no warranty.
+
 | | |
 |---|---|
 | Port version | `2.0.29-haiku.5` (upstream OpenCode `2.0.29`, commit `34d8ded0`) |
