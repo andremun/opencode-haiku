@@ -1,2 +1,0 @@
-ggml_cuda_init: found 1 CUDA devices (Total VRAM: 11441 MiB):
-  Device 0: Tesla K40c, compute capability 3.5, VMM: yes, VRAM: 11441 MiB

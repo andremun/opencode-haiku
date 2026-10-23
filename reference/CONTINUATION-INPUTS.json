@@ -26,7 +26,7 @@
       "bytes": 6640
     },
     {
-      "path": "reference/opentui-haiku-clipboard.patch",
+      "path": "patches/opentui/opentui-haiku-clipboard.patch",
       "sha256": "fd9cc538751db0f12a1f135823062e9a9439f13671e988465f04860a4e1ee503",
       "bytes": 659
     },

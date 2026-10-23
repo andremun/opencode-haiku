@@ -2,7 +2,7 @@
 
 Built 15 October 2026 on `uld-jvnhw22`, a Dell Precision T7610 (DMI product
 name) with two installed Xeon E5-2620 v2 (Ivy Bridge, AVX, no AVX2). This is
-the T7610 test platform of `docs/T7610-HAIKU-SETUP.md`, with the CPUs that are
+the T7610 test platform of `docs/DEVELOP.md`, with the CPUs that are
 actually installed. No GPU, host driver, host sudo or existing host
 LLM service was touched. A result from this VM is a **CPU** result and says
 nothing about K40c compute support.
@@ -18,24 +18,24 @@ nothing about K40c compute support.
 | Hypervisor | QEMU 6.2.0, `-accel kvm -cpu host`, q35, OVMF UEFI (`vm/vars.fd`) |
 | Resources | 2 vCPU, 8 GiB RAM (host: 2 x 6 cores / 24 threads, 62 GiB, shared with a host LLM service) |
 | Devices | IDE disk, e1000 user-mode network, xHCI + USB tablet, std VGA, no display window |
-| Control | QEMU monitor and QMP on unix sockets under `/tmp` (`tools/app_vm.py`), saved launch command in `vm/launch.json` |
+| Control | QEMU monitor and QMP on unix sockets under `/tmp` (`haiku-k40c tools/haiku/app_vm.py`), saved launch command in `vm/launch.json` |
 | Guest CPU as seen by Haiku | `Intel Xeon E5-2620 v2`: SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, AES, PCLMUL, AVX, F16C. **No AVX2, FMA or BMI2** |
-| Guest software | Node 24.21.0-1, GCC 13.3.0, CMake 4.4.4, git 2.54.0, ripgrep 14.0.1, Rust 1.94.1-1 (`rust_bin`), `nodejs24_devel`, `libffi_devel` (`logs/` copy: `results/t7610-20261015-kvm-e5-2620v2/guest-packages.txt`) |
+| Guest software | Node 24.21.0-1, GCC 13.3.0, CMake 4.4.4, git 2.54.0, ripgrep 14.0.1, Rust 1.94.1-1 (`rust_bin`), `nodejs24_devel`, `libffi_devel` (`logs/` copy: `results/20261015-t7610-kvm/guest-packages.txt`) |
 
-The VM uses **explicit KVM**. `tools/app_vm.py start --kvm` fails if KVM is
+The VM uses **explicit KVM**. `haiku-k40c tools/haiku/app_vm.py start --kvm` fails if KVM is
 unavailable; there is no silent fall back to TCG. The earlier development VM (TCG,
 `qemu64`, 2 vCPU, 4 or 8 GiB) is the baseline in `docs/STATUS.md`.
 
 ## Commands
 
 ```sh
-python3 tools/app_vm.py start --installed --kvm     # boot the installed disk (8 GiB, KVM)
-python3 tools/app_vm.py screen                      # writes vm/screen.png (2048x2048)
-python3 tools/app_vm.py type 'text'                 # type a line (US keymap only)
-python3 tools/app_vm.py key ctrl-x                  # one key or chord
-python3 tools/app_vm.py click X,Y                   # coordinates in vm/screen.ppm pixels
-python3 tools/app_vm.py stop                        # quit QEMU (no ACPI shutdown)
-python3 tools/transfer_server.py                    # localhost transfer service (separate host terminal)
+python3 haiku-k40c tools/haiku/app_vm.py start --installed --kvm     # boot the installed disk (8 GiB, KVM)
+python3 haiku-k40c tools/haiku/app_vm.py screen                      # writes vm/screen.png (2048x2048)
+python3 haiku-k40c tools/haiku/app_vm.py type 'text'                 # type a line (US keymap only)
+python3 haiku-k40c tools/haiku/app_vm.py key ctrl-x                  # one key or chord
+python3 haiku-k40c tools/haiku/app_vm.py click X,Y                   # coordinates in vm/screen.ppm pixels
+python3 haiku-k40c tools/haiku/app_vm.py stop                        # quit QEMU (no ACPI shutdown)
+python3 haiku-k40c tools/haiku/transfer_server.py                    # localhost transfer service (separate host terminal)
 ```
 
 Practical notes:
@@ -52,7 +52,7 @@ Practical notes:
 
 ## How it was installed (reproducible)
 
-1. `python3 tools/app_vm.py start --kvm` (installer boots from the ISO).
+1. `python3 haiku-k40c tools/haiku/app_vm.py start --kvm` (installer boots from the ISO).
 2. Installer, then **Set up partitions**: initialise the 32 GiB disk with the
    **GUID Partition Map**. Create a **256 MiB** partition of type *EFI system
    data* and format it FAT32 (`esp`). Create the rest as *Be File System* and
@@ -71,12 +71,12 @@ Practical notes:
 The guest has no SSH daemon (earlier approval review rejected one). Work is
 driven by a localhost job runner instead:
 
-- `tools/transfer_server.py` serves `share/` on `127.0.0.1:18080`; the guest
+- `haiku-k40c tools/haiku/transfer_server.py` serves `share/` on `127.0.0.1:18080`; the guest
   reaches it at `http://10.0.2.2:18080/`. PUT requests whose name starts
   with `job` are stored under `logs/`; other names still go to `results/`.
-- `tools/kvm-run/agent.sh` (copy it to `share/` to serve it) runs in a guest Terminal (`curl http://10.0.2.2:18080/agent.sh -o /tmp/agent.sh; sh /tmp/agent.sh N &`).
+- `tests/acceptance/vm/agent.sh` (copy it to `share/` to serve it) runs in a guest Terminal (`curl http://10.0.2.2:18080/agent.sh -o /tmp/agent.sh; sh /tmp/agent.sh N &`).
   It fetches `jobN.sh`, runs it and uploads `jobN.out`.
-- `tools/job.sh N 'commands' [timeout_s]` writes `share/jobN.sh` and prints the
+- `haiku-k40c tools/haiku/job.sh N 'commands' [timeout_s]` writes `share/jobN.sh` and prints the
   output, returning the guest exit code. Use a fresh N each time; reused numbers
   are rejected. Request/result publication is atomic. A host wait timeout
   returns 124 and does not cancel guest execution. The agent is **not** started automatically at boot.
@@ -100,7 +100,7 @@ No transfer service or guest process is exposed beyond localhost.
 
 Disk use after the work in `docs/T7610-KVM-RESULTS-20261015.md`: about 3.3 GiB.
 
-## Scripts used for the 2026-10-15 run (`tools/kvm-run/`)
+## Scripts used for the 2026-10-15 run (then `tools/kvm-run/`, now `tests/acceptance/vm/`)
 
 Copy them into `share/` (ignored by Git) to serve them to the guest, then run
 each with a job (the full-log/status corrections added after the original

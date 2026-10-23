@@ -1,5 +1,0 @@
-"GET /job.sh HTTP/1.1" 200 -
-"PUT /environment.txt HTTP/1.1" 201 -
-"PUT /kernel_x86_64 HTTP/1.1" 201 -
-"GET /probe HTTP/1.1" 200 -
-"PUT /job.exit HTTP/1.1" 201 -

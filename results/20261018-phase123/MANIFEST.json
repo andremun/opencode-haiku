@@ -1,0 +1,72 @@
+{
+  "folder": "20261018-phase123",
+  "content": "Continuation phases 1 to 3: browser panel, TUI resize and reconnect on KVM",
+  "cited_by": "history/20261018-phase-1-3-results.md",
+  "files": [
+    {
+      "path": "gui-cleanup.log",
+      "bytes": 45,
+      "sha256": "278b2e39b76677c9e6317d57eb2f243863af5c14d9f4e3116c3f98f00f6d0776"
+    },
+    {
+      "path": "latency.log",
+      "bytes": 1150,
+      "sha256": "e4c44598c5414b48a6548adb5d31fdeb61e5af860642ddd2741b6c92e7132391"
+    },
+    {
+      "path": "reconnect-terminal-list.log",
+      "bytes": 304,
+      "sha256": "dab1dedc9a39e43a51401021ffeb668e9a7c0dfd895fbca482ec113ee6939c80"
+    },
+    {
+      "path": "renderer-reproducibility.txt",
+      "bytes": 351,
+      "sha256": "1e76e8de14063006f5d1f450667285e5de068811b41457846955e74f3245d58a"
+    },
+    {
+      "path": "screens/browser-terminal-after-exit.png",
+      "bytes": 140242,
+      "sha256": "58a9e657d8ef6384df477e9e86b30e5c712c4dc621e32a129765878521fbf2e7"
+    },
+    {
+      "path": "screens/browser-terminal-command.png",
+      "bytes": 138558,
+      "sha256": "cb12ecc97de0827d49f06b6d5b9ddfe0800092a830c9da948003f8c0e02ebe96"
+    },
+    {
+      "path": "screens/browser-terminal-io.png",
+      "bytes": 155920,
+      "sha256": "c1757ad3dc5f7b7cfb20681d6ef16ed9fe026563bece3919bddf561f03d5c58d"
+    },
+    {
+      "path": "screens/tui-after-resize.png",
+      "bytes": 125343,
+      "sha256": "62ca65641ea356b9aa8e53afcef7fdfc61d2100c232d7ddc5ad9fb1147ae2b87"
+    },
+    {
+      "path": "screens/tui-before-resize.png",
+      "bytes": 109960,
+      "sha256": "6b7ac39fa4adc3a96aedd4e87f01d1df6459b376ab81fbad556c8eb080484942"
+    },
+    {
+      "path": "screens/tui-quit-with-live-terminal.png",
+      "bytes": 96373,
+      "sha256": "908e58a7d261b2d49571dfc4138dfbddcf52da28c599d901c1f435c1dc37d4a7"
+    },
+    {
+      "path": "screens/tui-reconnected-2.png",
+      "bytes": 134736,
+      "sha256": "7a3b73a7d198bfefb3216cfc914d1570021249bb3b1c4f0c2fb31037e295b429"
+    },
+    {
+      "path": "screens/tui-reconnected.png",
+      "bytes": 132930,
+      "sha256": "5a789bdacf6c0f791c7b04f173ce01f191c51e8a39f7c67e9546bae151702ea8"
+    },
+    {
+      "path": "stories-check.log",
+      "bytes": 791,
+      "sha256": "2a1980b0e6a52a519ccd0e888a2f353d8af730516eab4a54cacad7fb94c4353f"
+    }
+  ]
+}

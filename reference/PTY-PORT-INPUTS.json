@@ -40,12 +40,12 @@
       }
     },
     {
-      "path": "reference/ghostty-haiku-static.patch",
+      "path": "patches/ghostty/ghostty-haiku-static.patch",
       "sha256": "fd3b4157045642256f20fa0d259507aa061b0e34f1ec7f9b422db9e376d80e9c",
       "bytes": 424
     },
     {
-      "path": "reference/opencode-pty-haiku-build.patch",
+      "path": "patches/opencode-pty/opencode-pty-haiku-build.patch",
       "sha256": "1a4df9f916ea5b7c562a7b01d0e6930724c8b55491de83c2df3a9d492cd701a8",
       "bytes": 926
     },
@@ -55,17 +55,17 @@
       "bytes": 1090
     },
     {
-      "path": "reference/opencode-pty-haiku-tests.patch",
+      "path": "patches/opencode-pty/opencode-pty-haiku-tests.patch",
       "sha256": "99a81f1ac156d74dde1ff84063bc25a8c17cde5bfc3f0269c20c4e0553160bd8",
       "bytes": 518
     },
     {
-      "path": "reference/opencode-pty-haiku-eof.patch",
+      "path": "patches/opencode-pty/opencode-pty-haiku-eof.patch",
       "sha256": "fd1fa6a1b3e13f11d260b734a6b87d7c38c27f8cd0408d10791e9ffcebb65d02",
       "bytes": 1473
     },
     {
-      "path": "reference/node-pty-haiku.patch",
+      "path": "patches/node-pty/node-pty-haiku.patch",
       "sha256": "25c7fae0be3bd2eb3f6c365bd36d0366d0b46c9824deca44e434962790053474",
       "bytes": 1395
     }

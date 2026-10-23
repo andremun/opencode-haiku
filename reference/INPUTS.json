@@ -1,0 +1,123 @@
+{
+  "version_file": "VERSION",
+  "note": "Downloadable upstream inputs of the port. make fetch downloads and checks them. codeload.github.com archives can change bytes when GitHub regenerates them; on a hash mismatch, check the commit and record the new hash.",
+  "download": [
+    {
+      "name": "opencode",
+      "version": "34d8ded0c58dd66808c1d60e081e8c66da12a896",
+      "url": "https://codeload.github.com/anomalyco/opencode/tar.gz/34d8ded0c58dd66808c1d60e081e8c66da12a896",
+      "cache": "cache/opencode-34d8ded0.tar.gz",
+      "sha256": "bc76cf4bbd70e13027b21e56454364c20bbe183fed2f80ba57f4be1ebe573e59",
+      "license": "MIT",
+      "extract_to": "source/opencode-34d8ded0c58dd66808c1d60e081e8c66da12a896"
+    },
+    {
+      "name": "opentui",
+      "version": "6f0efd3330978d696b42db3d7d95d2042008312b (0.5.17)",
+      "url": "https://codeload.github.com/anomalyco/opentui/tar.gz/6f0efd3330978d696b42db3d7d95d2042008312b",
+      "cache": "cache/opentui-0.5.17.tar.gz",
+      "sha256": "11c7e28872950172bf10a74114fefb08acf3246193c3e55adf50d8481998bc01",
+      "license": "MIT",
+      "extract_to": "source/opentui-6f0efd3330978d696b42db3d7d95d2042008312b"
+    },
+    {
+      "name": "opencode-pty",
+      "version": "878aa26ab1916f8d41a0ccb90d55a372d01abf69 (0.2.0)",
+      "url": "https://codeload.github.com/anomalyco/opencode-pty/tar.gz/878aa26ab1916f8d41a0ccb90d55a372d01abf69",
+      "cache": "cache/opencode-pty-0.2.0.tar.gz",
+      "sha256": "9e2dcb00e3fd5eb714f23c73fdb5fc2cdccf9340fd737d4af34da3d363a37dae",
+      "license": "MIT",
+      "extract_to": "source/opencode-pty-878aa26ab1916f8d41a0ccb90d55a372d01abf69"
+    },
+    {
+      "name": "ghostty",
+      "version": "ab0b9da9e88fcb4b0533a1854e84628f663930af",
+      "url": "https://codeload.github.com/ghostty-org/ghostty/tar.gz/ab0b9da9e88fcb4b0533a1854e84628f663930af",
+      "cache": "cache/ghostty-ab0b9da.tar.gz",
+      "sha256": "651ffa67e98060bc41aac04fcab45f71fb9998eb265957d85a89218ecf94d50b",
+      "license": "MIT",
+      "extract_to": "source/ghostty-ab0b9da9e88fcb4b0533a1854e84628f663930af"
+    },
+    {
+      "name": "bun",
+      "version": "1.4.2 Linux x64 (build host only)",
+      "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-linux-x64.zip",
+      "cache": "cache/bun-linux-x64-1.4.2.zip",
+      "sha256": "36368faef7527875d5ffa52e53cd48021741f2a83eb6208a8dd64068d422a913",
+      "license": "MIT",
+      "extract_to": "cache/build-tools/bun-1.4.2"
+    },
+    {
+      "name": "zig",
+      "version": "0.16.0 Linux x64 (build host only)",
+      "url": "https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz",
+      "cache": "cache/zig-0.16.0-linux-x64.tar.xz",
+      "sha256": "70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00",
+      "license": "MIT",
+      "extract_to": "cache/build-tools"
+    },
+    {
+      "name": "koffi",
+      "version": "3.3.3",
+      "url": "https://registry.npmjs.org/koffi/-/koffi-3.3.3.tgz",
+      "cache": "cache/koffi-3.3.3.tgz",
+      "sha256": "c53f8da8e3c916ae8d666256650916768c7c4e8a579f188d794e8371b5773308",
+      "license": "MIT",
+      "extract_to": "source/koffi-3.3.3"
+    },
+    {
+      "name": "node-pty",
+      "version": "1.2.0-beta.12",
+      "url": "https://registry.npmjs.org/node-pty/-/node-pty-1.2.0-beta.12.tgz",
+      "cache": "cache/node-pty-1.2.0-beta.12.tgz",
+      "sha256": "45a012e37699bb70c9050cbf2e06e71b0b842de4cda58e938e3de973f6d5a36a",
+      "license": "MIT"
+    },
+    {
+      "name": "node-addon-api",
+      "version": "7.1.0",
+      "url": "https://registry.npmjs.org/node-addon-api/-/node-addon-api-7.1.0.tgz",
+      "cache": "cache/node-addon-api-7.1.0.tgz",
+      "sha256": "8e621f150678b183225c394c0faca7338396eb4fa620b447b88995f8990af522",
+      "license": "MIT"
+    }
+  ],
+  "built": [
+    {
+      "name": "haiku-sdk",
+      "what": "Haiku SDK export from the guest (docs/BUILD.md 10.2)",
+      "cache": "cache/haiku-sdk.tar.gz"
+    },
+    {
+      "name": "haiku-gcc-sdk",
+      "what": "GCC SDK export from the guest",
+      "cache": "cache/opencode-haiku-gcc-sdk.tar.gz"
+    },
+    {
+      "name": "koffi-addon",
+      "what": "Koffi addon built in the guest",
+      "cache": "cache/opencode-final-koffi.node"
+    },
+    {
+      "name": "opencode-pty-daemon",
+      "what": "PTY daemon built in the guest",
+      "cache": "cache/pty-runtime/opencode-pty"
+    },
+    {
+      "name": "node-pty-addon",
+      "what": "node-pty addon built in the guest",
+      "cache": "cache/pty-runtime/node-pty"
+    },
+    {
+      "name": "haiku-clipboard",
+      "what": "Clipboard helper built in the guest",
+      "cache": "cache/haiku-clipboard"
+    },
+    {
+      "name": "libghostty-vt",
+      "what": "Ghostty VT library cross-built with Zig",
+      "cache": "cache/ghostty-haiku/lib/libghostty-vt.a"
+    }
+  ],
+  "patches": "patches/<upstream>/series lists the order. Hashes: reference/TUI-PORT-INPUTS.json and reference/PTY-PORT-INPUTS.json."
+}

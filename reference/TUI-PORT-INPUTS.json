@@ -34,22 +34,22 @@
       "bytes": 3375742
     },
     {
-      "path": "reference/opentui-haiku-native.patch",
+      "path": "patches/opentui/opentui-haiku-native.patch",
       "sha256": "ef1f6eaa92d6a0b9ff215f3561d58ccb89579c8e02006d2404e116e88c2c93e5",
       "bytes": 8210
     },
     {
-      "path": "reference/opentui-haiku-js.patch",
+      "path": "patches/opentui/opentui-haiku-js.patch",
       "sha256": "518c3c96b253a1a7281a1392c0ed493d94e0817780122d66d4d18acaab6c1613",
       "bytes": 495
     },
     {
-      "path": "reference/zig-haiku-io.patch",
+      "path": "patches/zig/zig-haiku-io.patch",
       "sha256": "c0917111170e4d36a5881120279e9a637a24104ee99291477f08de2813f6cb1f",
       "bytes": 3606
     },
     {
-      "path": "reference/koffi-portability.patch",
+      "path": "patches/koffi/koffi-portability.patch",
       "sha256": "e9145dfcf6e9b09c580f28eb37a96f6c53a085ee72008773ded133409ea8767b",
       "bytes": 3288
     },
@@ -62,12 +62,12 @@
       "previous_bytes": 1212712
     },
     {
-      "path": "reference/opentui-haiku-clipboard.patch",
+      "path": "patches/opentui/opentui-haiku-clipboard.patch",
       "sha256": "fd9cc538751db0f12a1f135823062e9a9439f13671e988465f04860a4e1ee503",
       "bytes": 659
     },
     {
-      "path": "reference/opentui-haiku-ghostty-vt.patch",
+      "path": "patches/opentui/opentui-haiku-ghostty-vt.patch",
       "sha256": "d0c1290f3fe5d8fd2ac11d297c8ec4a23f487fb321e954fa9d2d81fdfe6be264",
       "bytes": 293,
       "purpose": "Enable Ghostty VT in the Haiku renderer; adopted for Haiku.5."

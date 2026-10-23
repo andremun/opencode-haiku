@@ -1,0 +1,67 @@
+{
+  "folder": "20261016-t7610-haiku5-production",
+  "content": "Production-matching CPU build in the KVM VM",
+  "cited_by": "history/20261016-t7610-kvm-haiku5-results.md",
+  "files": [
+    {
+      "path": "bench-prod.log",
+      "bytes": 16439,
+      "sha256": "2574b14a2daa95a6a0ec5e3daaba16b78ad2ecdea4da712a82c1e6a147bbd9bf"
+    },
+    {
+      "path": "bench-start.log",
+      "bytes": 45,
+      "sha256": "57c68a8d106a65aa4208618ce034c87c8d06922fc3dfdaa49933924ca71da61c"
+    },
+    {
+      "path": "inference-both.log",
+      "bytes": 9367,
+      "sha256": "93245261bd7ee2182abf8668d8cd2192a97536e6d1ed013d0598c55d84678cdd"
+    },
+    {
+      "path": "install-scripts.log",
+      "bytes": 516,
+      "sha256": "40d45f23e96631f5322fa897599cbd0bd6aa61cea2b339d616945322d87264df"
+    },
+    {
+      "path": "last-upload-native-agent-model.log",
+      "bytes": 18184,
+      "sha256": "2a21aaad92089391f1f42ea98d66c54b170ce2f1047bf59cfb20a00c450a4198"
+    },
+    {
+      "path": "last-upload-native-coding-outcome.json",
+      "bytes": 328,
+      "sha256": "36f77abc20ee66a427e1bea9b13fc642f1fa1428db6ea78129bd5704d0c57586"
+    },
+    {
+      "path": "last-upload-native-coding-progress.log",
+      "bytes": 15703,
+      "sha256": "7cd14c65651d0026dea60f8138c814dc76c906384a59b5007c408524cd2c5a4a"
+    },
+    {
+      "path": "prod-builds.log",
+      "bytes": 1993,
+      "sha256": "b8cd847a1e7ee71743ba6e988304b72406b7048b64167bca763b376dbd5a1ac9"
+    },
+    {
+      "path": "prod-link-and-march.log",
+      "bytes": 2434,
+      "sha256": "4c7c8dff2746c8895734d50930eb6ec57da6acd2ecc5c76e93b377bdacc05b71"
+    },
+    {
+      "path": "run-production-noomp.log",
+      "bytes": 1438,
+      "sha256": "35e543b031b94c380928a4525bceb94ef29e46d1fe7150978d026b1ddffb712e"
+    },
+    {
+      "path": "run-production.log",
+      "bytes": 1568,
+      "sha256": "d5b1ad4ee7baf5e55fc36a765823384fdaa2f2a74611de918340932c7dcdd586"
+    },
+    {
+      "path": "script-hashes.txt",
+      "bytes": 381,
+      "sha256": "c810f40e5ad17b91b6c91a83b532552fc8ac0dee24f739036637e849f5d9a587"
+    }
+  ]
+}

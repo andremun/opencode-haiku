@@ -1,0 +1,310 @@
+{
+  "folder": "20261015-tui-port",
+  "content": "Full TUI and browser port on Haiku CPU inference: FFI, TUI and GUI runs, native chat",
+  "cited_by": "history/20261015-tui-acceptance.md",
+  "files": [
+    {
+      "path": "ffi-host-test.log",
+      "bytes": 233,
+      "sha256": "d23760e1495e66526595d2c07a343c03f7c1ff5871fc9ddca9e9e7c601c224c9"
+    },
+    {
+      "path": "final-archive-check.log",
+      "bytes": 201,
+      "sha256": "6c96f0b3527bfe22e6c09f77d54406375348fe1b04d1636f15d4e686d4bbdf18"
+    },
+    {
+      "path": "final-bundle-wrapper-check.log",
+      "bytes": 305,
+      "sha256": "f4e4fe1c3b20ef807a5495dd490cab49c825576635d85a627b6cf9c6f3da5860"
+    },
+    {
+      "path": "futex-host-test.log",
+      "bytes": 59,
+      "sha256": "3044ce52e00bf33a3fceb6c6ee34da4cde33a77730d0d2d9e8c0bedd68abf989"
+    },
+    {
+      "path": "gui-native-home.png",
+      "bytes": 125867,
+      "sha256": "e495efb46aaab8a33879e200a47d5a90e3f2dbae59ad5eb5bc6b598a7323b575"
+    },
+    {
+      "path": "gui-native-model-response.png",
+      "bytes": 141647,
+      "sha256": "f614c8320c7be8d39bac64e10c939e2580f41e5f7b2615e876bc919d7fdf270c"
+    },
+    {
+      "path": "gui-native-restored-session.png",
+      "bytes": 137895,
+      "sha256": "b5018ae1fa8ed420818682fca3c5798dc1adcc90727e18b71bfb521ed4cc414d"
+    },
+    {
+      "path": "haiku-asset-target-negative.log",
+      "bytes": 1106,
+      "sha256": "8065ca3a260e4ed4fc361c0aa585869cfec2d9e01fbda01b892da9dd32d46113"
+    },
+    {
+      "path": "haiku-asset-target-positive.log",
+      "bytes": 233,
+      "sha256": "c6a041cd8a0ac7849cbf8055b1c3a9f08c07d65e5a14a2879a0f396983473f16"
+    },
+    {
+      "path": "history/opencode-tui-ffi-build-attempt1.log",
+      "bytes": 5261,
+      "sha256": "b233582ba49bf04bb8bdc86c4a84459c4622026507d4ffbe3ee8da526842e7d3"
+    },
+    {
+      "path": "history/opencode-tui-ffi-build-attempt2.log",
+      "bytes": 5327,
+      "sha256": "68deed0408341ed7a353de37c088d133d25e62ab5e6d65e2220d267b48a95745"
+    },
+    {
+      "path": "history/opencode-tui-ffi-build-attempt3.log",
+      "bytes": 8596,
+      "sha256": "a5a7c9d17470861b213bf34b9e719681952b7c6eb2a84f3d5cfbe3e89af09046"
+    },
+    {
+      "path": "history/opencode-tui-ffi-fixed.log",
+      "bytes": 953,
+      "sha256": "b726b5ac9804e747cc24af6c248dc8d615ecffa8b584c7c807e13578ff59d59e"
+    },
+    {
+      "path": "history/opencode-tui-ffi-progress.log",
+      "bytes": 5305,
+      "sha256": "2ee4a67022490079b914454093a905d424262393c4e0373bf7ebc3846070a581"
+    },
+    {
+      "path": "history/opencode-tui-ffi-rebuild-progress.log",
+      "bytes": 7202,
+      "sha256": "bc95f0521450156c6f54696fd9dfd5d8fd65ae4334b8f7493c67d5464a8ebad0"
+    },
+    {
+      "path": "history/opencode-tui-ffi-stages.log",
+      "bytes": 14,
+      "sha256": "9b1b8ca7b37572faede0b8e46aec39128df6edcc4a314016f385f35fb8363362"
+    },
+    {
+      "path": "history/opencode-tui-final-ffi-build-progress.log",
+      "bytes": 6845,
+      "sha256": "ff7a1bb2cfc7bbc2740732749f01a4123e54b7189bacea5ff877305c9f8bca3a"
+    },
+    {
+      "path": "history/opencode-tui-llama-final-progress.log",
+      "bytes": 22171,
+      "sha256": "f4282c15817ddf2369c7245eaa4f526d23971626f4622c99f03569ee460933f1"
+    },
+    {
+      "path": "history/opencode-tui-llama-latest.log",
+      "bytes": 5067,
+      "sha256": "93690900377320ad428b86325d40877648a657dee77e95600f07d3390f352eae"
+    },
+    {
+      "path": "history/opencode-tui-llama-progress2.log",
+      "bytes": 5667,
+      "sha256": "5681219931a83629c5363835c7295be2e0872bcf1207a0cb3c80d945a9cbcd47"
+    },
+    {
+      "path": "history/opencode-tui-native-chat.invalid-json.txt",
+      "bytes": 619,
+      "sha256": "b1e61a617f4350a9bca20e29bc4ec14d1b07598cd888e09a50a044a69968a045"
+    },
+    {
+      "path": "opencode-browser-capabilities.json",
+      "bytes": 330,
+      "sha256": "6fe7062d670f815cd90ef3674c71ec35b2d07ab87211fb53d5fb6058ab90e184"
+    },
+    {
+      "path": "opencode-browser-diagnostic.json",
+      "bytes": 468,
+      "sha256": "142d6119e272409f1f2ede9fe7d977aef541121102772a628e129eb6b488fe75"
+    },
+    {
+      "path": "opencode-browser-fetch.json",
+      "bytes": 51,
+      "sha256": "f6b7a817210d152b388681332aa780554c449c1d3398bdcf8260d282b5599625"
+    },
+    {
+      "path": "opencode-diagnostic-cleanup.log",
+      "bytes": 57,
+      "sha256": "e3f68ecc1f204ba10b9c54ea35d67f7dfb0de756305a78e338375f922012aa15"
+    },
+    {
+      "path": "opencode-final-deploy.log",
+      "bytes": 46,
+      "sha256": "0b8aa84f9acab1f09f6726b64523f7d4a4d8b187ad75233c45be3e5f8a10de28"
+    },
+    {
+      "path": "opencode-final-reports.log",
+      "bytes": 123,
+      "sha256": "f514834d784d533e9198e64d6827795c7431c6ba4c6806f2061e24f596437255"
+    },
+    {
+      "path": "opencode-final-runtime.log",
+      "bytes": 241,
+      "sha256": "1e46e7497df27273dd7f45310c8453af93db92e37f6330e27502cc5c005da7fc"
+    },
+    {
+      "path": "opencode-futex-native.log",
+      "bytes": 59,
+      "sha256": "3044ce52e00bf33a3fceb6c6ee34da4cde33a77730d0d2d9e8c0bedd68abf989"
+    },
+    {
+      "path": "opencode-gui-server.log",
+      "bytes": 70,
+      "sha256": "1206efc47d986e995c122d0065b921ed96e9925152d930f00b48c3f7cd130a01"
+    },
+    {
+      "path": "opencode-reload.log",
+      "bytes": 23,
+      "sha256": "2822a9fc1f6eb8167a04599900337e042bcb565b058d82fc71a01edf0458b821"
+    },
+    {
+      "path": "opencode-standalone-lazy.log",
+      "bytes": 897,
+      "sha256": "668dac0ae827bce1baa3c7ec88dc7e9b2a6b762a95df36c096b4ec48683fea71"
+    },
+    {
+      "path": "opencode-standalone-private-state.log",
+      "bytes": 536,
+      "sha256": "38dccc491ba7807e8b7863d66cef471ebea1f3404a942542256b6bece3149665"
+    },
+    {
+      "path": "opencode-standalone-probe.log",
+      "bytes": 194,
+      "sha256": "ecd9ded8203a26130761e813a0b89768b8328f40a519c7eda677ab3cf7faabc1"
+    },
+    {
+      "path": "opencode-tui-clean-exit.log",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "opencode-tui-crash-check.log",
+      "bytes": 134,
+      "sha256": "80d8e4b7aea59958a8b2ed48c30d3adf163bdd081ede251cb670fb5e2814d923"
+    },
+    {
+      "path": "opencode-tui-deploy.log",
+      "bytes": 47,
+      "sha256": "91917800601cb03cd70e8645aab795b48ba7e726e7d602ff9c2d98bb3db08dc3"
+    },
+    {
+      "path": "opencode-tui-environment.log",
+      "bytes": 1062,
+      "sha256": "862d724cbe0937255882d1b10e29270f49ae31c52c29d91ffb22109620d0b260"
+    },
+    {
+      "path": "opencode-tui-error.log",
+      "bytes": 120,
+      "sha256": "3c91eb5356ad41ad909ffd95fb4ebae39952316641f0b857c35df54d985273a9"
+    },
+    {
+      "path": "opencode-tui-ffi-build.log",
+      "bytes": 7203,
+      "sha256": "69ee2c472ad0080347f95527a5cc955842bd5042e10852e7eede9418e986052f"
+    },
+    {
+      "path": "opencode-tui-ffi-final.log",
+      "bytes": 233,
+      "sha256": "d23760e1495e66526595d2c07a343c03f7c1ff5871fc9ddca9e9e7c601c224c9"
+    },
+    {
+      "path": "opencode-tui-llama-server.log",
+      "bytes": 2433,
+      "sha256": "3c6641b3065ba54a2523385877dd240e7ac701f7a1f0a50b32979017591e08ba"
+    },
+    {
+      "path": "opencode-tui-native-check.log",
+      "bytes": 2388,
+      "sha256": "4279cfa1d4fa4afc37a88c3de82e95cf73c877596bf5abf699cef5f25f6860b8"
+    },
+    {
+      "path": "opencode-tui-native-clean.json",
+      "bytes": 609,
+      "sha256": "6d71a882aeb39d553434e9141f3f741b303339b3e70761460f3a1e2a6422a9db"
+    },
+    {
+      "path": "opencode-tui-processes.log",
+      "bytes": 2042,
+      "sha256": "eab20d19ec7253151def22c6440e66c551d1e0e5fba0e17e85b679b5263e2a30"
+    },
+    {
+      "path": "opencode-tui-reports.log",
+      "bytes": 61,
+      "sha256": "01eb83c4c38e660d0d817a5b6c198be647a553ee10b4c1b77fc10cdb8ea467b9"
+    },
+    {
+      "path": "opencode-tui-runtime.log",
+      "bytes": 557,
+      "sha256": "ba83be656fa03497f4278fae3c07cc7849fc86559eafe70d087e97a350969345"
+    },
+    {
+      "path": "opencode-tui-setup.log",
+      "bytes": 1203,
+      "sha256": "eee0522449cde1a8d595e72f87533e17e938bd858b4e9d770a89a4d0bf103da0"
+    },
+    {
+      "path": "opencode-watch-native.log",
+      "bytes": 93,
+      "sha256": "8173b8cdd47aa2029be7417f68b3c3bf57e5576bcafe7247b7cd0710a8ab3834"
+    },
+    {
+      "path": "opentui-ffi-regression.log",
+      "bytes": 2163,
+      "sha256": "a26a5cc5a0366bc6eae1a403508e68068c52d63eba133b36c8cac1ffac39f63e"
+    },
+    {
+      "path": "opentui-unresolved-symbols.log",
+      "bytes": 62,
+      "sha256": "b734d5312ccd403c0879711be207eb8441b14e32f93640718143f8ee75318b62"
+    },
+    {
+      "path": "tui-final-package-restored.png",
+      "bytes": 138774,
+      "sha256": "72557969f8df606bd14e4c7e39f79c4e0c0f1ad6a6c6dadbfa7ce91b006d8207"
+    },
+    {
+      "path": "tui-native-home.png",
+      "bytes": 124665,
+      "sha256": "fc876b85ceb2c0ecf00c1fc4c6816167ab510f9413f4bfd1b6b39b220b8e5e2c"
+    },
+    {
+      "path": "tui-native-model-response.png",
+      "bytes": 126031,
+      "sha256": "325ca6c1d2289dfabcae4b1257daf65548c3db92ccdbeac86128f62172d0a12f"
+    },
+    {
+      "path": "tui-native-session-recovery.png",
+      "bytes": 126989,
+      "sha256": "0da711ce65ebe80218944b3f193ac928ae36dcd9b9edd91e9f4d6c2f36150486"
+    },
+    {
+      "path": "watch-host-test.log",
+      "bytes": 93,
+      "sha256": "8173b8cdd47aa2029be7417f68b3c3bf57e5576bcafe7247b7cd0710a8ab3834"
+    }
+  ],
+  "removed_2026_10_23": {
+    "exit_codes": {
+      "opencode-final-runtime.exit": "0",
+      "opencode-tui-ffi-build-attempt1.exit": "22",
+      "opencode-tui-ffi-build-attempt2.exit": "2",
+      "opencode-tui-ffi-build-attempt3.exit": "1",
+      "opencode-tui-ffi-build.exit": "0",
+      "opencode-tui-ffi-final.exit": "0",
+      "opencode-tui-native-check.exit": "0"
+    },
+    "empty_files": [
+      "opencode-browser.log",
+      "opencode-diagnostic.log",
+      "opentui-final-rebuild.log"
+    ],
+    "duplicates": {
+      "opencode-ffi-latest.log": "opencode-tui-ffi-build.log",
+      "opencode-tui-ffi-fixed2.log": "opencode-tui-ffi-fixed.log",
+      "opencode-tui-llama-progress.log": "opencode-tui-llama-server.log"
+    }
+  },
+  "removed_note": "Exit codes of removed one-byte .exit files, empty files and duplicates (duplicate -> kept file).",
+  "history_note": "history/ holds attempt, progress and superseded logs of this run."
+}

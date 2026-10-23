@@ -1,0 +1,22 @@
+{
+  "folder": "20261019-runner-fixes",
+  "content": "Offline runner controls",
+  "cited_by": "history/20261019-runner-fixes.md",
+  "files": [
+    {
+      "path": "host-regressions.log",
+      "bytes": 3101,
+      "sha256": "a6338505825afac247ff5d9295c211684fef09840b284565316c94a3eda6683e"
+    },
+    {
+      "path": "offline-controls.log",
+      "bytes": 1232,
+      "sha256": "72d6802c7abfe6cd157b26f4f86050e729a0ee5031a5785fe7ecce1afd0f89d5"
+    },
+    {
+      "path": "source-sha256.txt",
+      "bytes": 689,
+      "sha256": "51b61e3338bac3f2ba01d66707a9bb9dfa597cb1cf143ffc4dcba8eed8a99038"
+    }
+  ]
+}
