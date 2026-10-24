@@ -2,7 +2,7 @@
 // Distributed under the terms of the MIT License. See LICENSE.
 // Real multi-file coding task for a cloud model through the port (or any OpenCode launcher).
 // The fixture is synthetic (examples/cloud-task/start); never point this at private code,
-// because free models may use prompts to improve the model (see docs/CLOUD-CODING-TASK.md).
+// because free models may use prompts to improve the model (see docs/SECRETS.md).
 // Usage: OPENCODE_TEST_PORT_ROOT=/path/to/opencode OPENCODE_CLOUD_MODEL=opencode/glm-5.3-flash-free \
 //        node cloud-coding-task.mjs OUTPUT_DIR
 // Authentication is the caller's: set OPENCODE_CLOUD_DATA_HOME to an XDG data directory in which

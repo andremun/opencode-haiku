@@ -9,7 +9,7 @@ Updated: 23 October 2026.
 | Version | `2.0.29-haiku.5` |
 | Recorded archive | `opencode-haiku-tui-2.0.29-haiku.5.tar.gz`, 53,682,981 bytes, SHA-256 `b9970cd8...f2` (`results/opencode-tui-package.json`) |
 | T7610 rebuild | SHA-256 `9cbd07c5...`, not byte-identical: different SDK, Koffi and renderer inputs (`history/20261016-t7610-kvm-haiku5-results.md`) |
-| Acceptance | Every check in [ACCEPTANCE.md](ACCEPTANCE.md) passed at least once. One host control fails in the cloud session (H-02). |
+| Acceptance | Every check in [ACCEPTANCE.md](ACCEPTANCE.md) passed at least once. The host controls H-01 to H-03 pass (23 October 2026, after the H-02 fix). |
 | Release | None published. No `.hpkg` yet. |
 
 The field `acceptance` in `results/opencode-tui-package.json` still says "pending". The
