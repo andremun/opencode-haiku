@@ -14,8 +14,8 @@ PY
 source="$root/source/ghostty-ab0b9da9e88fcb4b0533a1854e84628f663930af"
 export PATH="$root/cache/build-tools/zig-x86_64-linux-0.16.0:$PATH"
 cd "$source"
-if ! patch --dry-run --reverse -p1 < "$root/reference/ghostty-haiku-static.patch" >/dev/null 2>&1; then
- patch -p1 < "$root/reference/ghostty-haiku-static.patch"
+if ! patch --dry-run --reverse -p1 < "$root/patches/ghostty/ghostty-haiku-static.patch" >/dev/null 2>&1; then
+ patch -p1 < "$root/patches/ghostty/ghostty-haiku-static.patch"
 fi
 zig build -Demit-lib-vt=true -Demit-xcframework=false -Dapp-runtime=none -Dtarget=x86_64-haiku -Dsimd=false -Doptimize=ReleaseFast --global-cache-dir "$root/cache/zig" --prefix "$root/cache/ghostty-haiku"
 sha256sum "$root/cache/ghostty-haiku/lib/libghostty-vt.a"

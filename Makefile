@@ -25,6 +25,7 @@ test:
 	HAIKU_K40C_ROOT=$(HAIKU_K40C_ROOT) python3 tests/unit/test_review_runners.py
 	HAIKU_K40C_ROOT=$(HAIKU_K40C_ROOT) python3 tests/unit/test_t7610_runners.py
 	python3 tests/unit/install-test.py
+	python3 tests/unit/test_build_paths.py
 
 fetch:
 	python3 build/fetch.py

@@ -17,8 +17,8 @@ fi
 sh "$root/build/build_native.sh"
 cd "$opentui"
 "$bun" install --frozen-lockfile --ignore-scripts
-if ! patch --dry-run --reverse -p1 < "$root/reference/opentui-haiku-clipboard.patch" >/dev/null 2>&1; then
-    patch -p1 < "$root/reference/opentui-haiku-clipboard.patch"
+if ! patch --dry-run --reverse -p1 < "$root/patches/opentui/opentui-haiku-clipboard.patch" >/dev/null 2>&1; then
+    patch -p1 < "$root/patches/opentui/opentui-haiku-clipboard.patch"
 fi
 cd packages/core
 "$bun" scripts/build.ts --lib
@@ -36,8 +36,8 @@ with tarfile.open(archive) as tar:
  for relative in ['packages/core/src/pty/pty.node.ts','packages/core/src/persistent-pty/binary.node.ts','packages/cli/vite.node.config.ts']:
   (source/relative).write_bytes(tar.extractfile(prefix+'/'+relative).read())
 RESTORE
-patch --batch -p1 < "$root/reference/opencode-haiku-headless.patch"
-patch --batch -p1 < "$root/reference/opencode-haiku-terminals.patch"
+patch --batch -p1 < "$root/patches/opencode/opencode-haiku-headless.patch"
+patch --batch -p1 < "$root/patches/opencode/opencode-haiku-terminals.patch"
 python3 - "$opentui" "$opencode" <<'PY'
 from pathlib import Path
 import sys,shutil
