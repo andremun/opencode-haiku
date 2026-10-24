@@ -23,10 +23,10 @@ source_dir="$root/source/opentui-6f0efd3330978d696b42db3d7d95d2042008312b"
 apply_patch() {
  if ! patch --dry-run --reverse -d "$1" -p1 < "$2" >/dev/null 2>&1; then patch -d "$1" -p1 < "$2"; fi
 }
-apply_patch "$zig_dir" "$root/reference/zig-haiku-io.patch"
-apply_patch "$source_dir" "$root/reference/opentui-haiku-native.patch"
-apply_patch "$source_dir" "$root/reference/opentui-haiku-js.patch"
-apply_patch "$source_dir" "$root/reference/opentui-haiku-ghostty-vt.patch"
+apply_patch "$zig_dir" "$root/patches/zig/zig-haiku-io.patch"
+apply_patch "$source_dir" "$root/patches/opentui/opentui-haiku-native.patch"
+apply_patch "$source_dir" "$root/patches/opentui/opentui-haiku-js.patch"
+apply_patch "$source_dir" "$root/patches/opentui/opentui-haiku-ghostty-vt.patch"
 cd "$source_dir/packages/native"
 sh scripts/prepare-zig-deps.sh
 export OPENTUI_HAIKU_SDK="$root/cache/haiku-sdk"

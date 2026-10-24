@@ -293,8 +293,10 @@ exit 0""",
             module.Handler, root=self.root, results=self.root / "results"
         )
         (self.root / "share").mkdir()
-        (self.root / "logs").mkdir()
-        destination = self.root / "logs/job1.out"
+        (self.root / "results").mkdir()
+        # A result file is replaced atomically. Job logs in logs/ are written once
+        # (haiku-k40c transfer_server.py), so they cannot show the replacement.
+        destination = self.root / "results/guest-run.log"
         destination.write_bytes(b"old complete output")
         payload = b"x" * 200000 + b"\nexit=7\n"
         observations = []
@@ -310,7 +312,7 @@ exit 0""",
         try:
             with patch.object(module.os, "replace", side_effect=replace):
                 conn = http.client.HTTPConnection(*server.server_address, timeout=3)
-                conn.request("PUT", "/job1.out", body=payload)
+                conn.request("PUT", "/guest-run.log", body=payload)
                 response = conn.getresponse()
                 response.read()
                 self.assertEqual(response.status, 201)

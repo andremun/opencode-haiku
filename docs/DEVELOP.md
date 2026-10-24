@@ -2,7 +2,7 @@
 
 Split from `T7610-HAIKU-SETUP.md` on 23 October 2026. Section numbers are those of that guide. "Section N" refers to them: sections 1 to 7, 11 and 12 are in [DEVELOP.md](DEVELOP.md), sections 8 and 9 in [INSTALL.md](INSTALL.md), section 10 in [BUILD.md](BUILD.md).
 
-The llama.cpp sections (4 to 7) describe a local model endpoint for tests. The Haiku llama.cpp build moves to the `haiku-k40c-llm` repository in Phase 2 of the alignment plan. The VM tools move to `haiku-k40c` (decision D4).
+The llama.cpp sections (4 to 7) describe a local model endpoint for tests. The patched llama.cpp source comes from the `haiku-k40c-llm` repository (section 4). The VM tools are in `haiku-k40c` (decision D4).
 
 Prepared 15 October 2026. Commands labelled **Haiku** run in the guest;
 commands labelled **Linux build host** run in the OpenCode repository on Linux.
@@ -33,8 +33,9 @@ This guide provides two routes:
    resulting OpenCode runtime. Building the whole upstream application with
    Bun directly in Haiku is not the tested route.
 
-The patch files needed for llama.cpp are preserved in this repository under
-`reference/llama-cpu/`; the sibling LLM/server repositories are not needed.
+The patched llama.cpp source for the local model endpoint comes from the
+`haiku-k40c-llm` repository (section 4). The OpenCode patches are in
+`patches/<component>/`.
 Source archives, models, SDKs and generated runtime archives are ignored and
 are not included by a Git clone. Transfer or regenerate them as described here.
 
@@ -130,32 +131,32 @@ the associated code. Save the installed package/version list for reproduction.
 
 ## 4. Obtain and patch llama.cpp
 
-You can perform this source preparation in either guest or build host. The
-example assumes the repository is available in Haiku. Use a fresh directory:
+The `haiku-k40c-llm` repository prepares the patched llama.cpp source. Its
+inputs are pinned in its `reference/LLAMA-INPUTS.json`: base commit
+`cf8b0dbda9ac0eac30ee33f87bc6702ead1c4664`, the `llm-server` patch set and
+`reference/haiku-portability.patch`, each with a SHA-256.
+
+**Linux build host** (in the `haiku-k40c-llm` checkout):
+
+```sh
+make bootstrap    # verified pinned archives, unpacked source
+make prepare      # applies the patches, writes share/llama-haiku.tar.gz
+make transfer     # file service for the guest on 127.0.0.1:18080
+```
+
+**Haiku:**
 
 ```sh
 mkdir -p /boot/home/haiku-llm
 cd /boot/home/haiku-llm
-curl -fL --retry 3 \
-  https://codeload.github.com/ggml-org/llama.cpp/tar.gz/cf8b0dbda9ac0eac30ee33f87bc6702ead1c4664 \
-  -o llama-source.tar.gz
-echo '6980c77f4ad311bca845848f5b899d1a68b35dec94de849ca1b2ce4bc3ca0a3a  llama-source.tar.gz' | sha256sum -c
-tar -xzf llama-source.tar.gz
-mv llama.cpp-cf8b0dbda9ac0eac30ee33f87bc6702ead1c4664 llama
-cd llama
-PORT=/boot/home/opencode-haiku-src
-git apply --check "$PORT/reference/llama-cpu/kepler-sm35-ggml-cuda.patch"
-git apply "$PORT/reference/llama-cpu/kepler-sm35-ggml-cuda.patch"
-git apply --check "$PORT/reference/llama-cpu/reasoning-budget-rearm.patch"
-git apply "$PORT/reference/llama-cpu/reasoning-budget-rearm.patch"
-git apply --check "$PORT/reference/llama-cpu/haiku-portability.patch"
-git apply "$PORT/reference/llama-cpu/haiku-portability.patch"
+curl -fS -o llama-haiku.tar.gz http://10.0.2.2:18080/llama-haiku.tar.gz
+tar -xzf llama-haiku.tar.gz       # creates llama/
 ```
 
-These commands reproduce the recorded patched source. The Kepler patch is
-included to match that source, but CUDA is disabled and none of its GPU code is
-exercised. See `reference/llama-cpu/INPUTS.json` for patch hashes. Do not apply
-these patches twice or to an arbitrary newer llama.cpp checkout.
+The bundle is already patched. Do not apply the patches again. The current
+`llm-server` patch set also contains `security-backports-b11393.patch`, which
+the source recorded on 15 October 2026 did not have. The Kepler patch is in
+the set, but CUDA is disabled and none of its GPU code is exercised.
 
 ## 5. Build and verify native CPU llama.cpp
 
