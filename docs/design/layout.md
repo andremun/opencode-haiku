@@ -13,7 +13,7 @@ opencode-haiku/
 |                     #          haiku-clipboard.cpp, haiku-futex.c
 |-- build/            # build_bundle.sh, build_native.sh, build_parser.sh, package.py, guest build jobs
 |-- packaging/        # HaikuPorter recipe
-|-- patches/<upstream>/NNNN-*.patch + series
+|-- patches/<upstream>/<name>.patch + series
 |-- reference/INPUTS.json
 |-- tests/
 |   |-- unit/         # host tests: test_review_runners.py, test_t7610_runners.py, *-test.cjs, *.test.ts, C fixtures

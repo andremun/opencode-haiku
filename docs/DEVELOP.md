@@ -60,8 +60,8 @@ Start your existing cardless VM with `-accel kvm -cpu host` if it can use KVM.
 Do not add those arguments to an already running VM. Preserve its disk and EFI
 settings. An explicitly requested KVM accelerator should fail if unavailable;
 do not count a silent fallback to TCG as an accelerated result. Query `info kvm`
-in the QEMU monitor and save the actual launch command. `haiku-k40c tools/haiku/app_vm.py` currently
-controls the development TCG VM; it is not a ready-made KVM launcher.
+in the QEMU monitor and save the actual launch command. `tools/haiku/app_vm.py` in the `haiku-k40c`
+repository starts the persistent VM with `--kvm` and records the launch command (`docs/KVM-VM.md`).
 
 For another hypervisor, record its hardware-virtualisation status and CPU
 exposure settings. The present development host has no `/dev/kvm` and exposes
@@ -186,12 +186,12 @@ For an accelerated CPU optimisation experiment, use a different build directory
 and change only flags supported by the CPU exposed to Haiku. Preserve baseline.
 
 **Adopted default (18 October 2026):** after the baseline build above, run
-`sh haiku-k40c-llm results/20261018-community-comparison/scripts/build-cpu-profile.sh ivybridge` (SSE4.2, AVX, F16C, **OpenMP off**; it checks
+`sh build-cpu-profile.sh ivybridge` in the guest (the script is in the `haiku-k40c-llm` repository, `results/20261018-community-comparison/scripts/`) (SSE4.2, AVX, F16C, **OpenMP off**; it checks
 that the guest CPU exposes them and refuses otherwise). `tests/acceptance/vm/services.sh` now starts this
 build by default. Evidence on the KVM guest (E5-2620 v2, 2 vCPU): decode 6.7 tokens/s against 4.1 for
 the production-matching build with OpenMP, and prompt throughput no different; the baseline is much
-slower. Rationale and numbers: `docs/T7610-KVM-HAIKU5-RESULTS-20261016.md` and the 18 October
-addendum in `docs/PHASE-1-3-RESULTS-20261018.md`. The SSE2 build stays available
+slower. Rationale and numbers: `docs/history/20261016-t7610-kvm-haiku5-results.md` and the 18 October
+addendum in `docs/history/20261018-phase-1-3-results.md`. The SSE2 build stays available
 (`OPENCODE_LLAMA_PROFILE=installed`). This default assumes a guest that exposes AVX and F16C; on a
 different CPU re-check with `build-cpu-profile.sh` first.
 Do not carry this global `LIBRARY_PATH` override into Cargo; see section 10.
@@ -260,7 +260,7 @@ Run sequentially, with compilation and other inference jobs stopped:
 3. Pass native llama tests and model health; pass the OpenCode self-test.
 4. Submit the same three fresh inference controls: OK-only; Python `add(a,b)`
    returning their sum, code only; `7 + 5`, number only. Use the same request
-   bodies as `results/inference-compare-haiku.json` and seed 1234.
+   bodies as `results/20261015-terminals-clipboard/inference-compare-haiku.json` and seed 1234.
 5. Repeat with fixed prompts after restarting the model for a cold comparison,
    then record a warm run separately. Save prompt/decode timings, generated
    token count and wall time. Earlier Linux/Haiku controls had different cache

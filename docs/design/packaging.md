@@ -17,7 +17,7 @@ Bun (Linux build only), the Haiku SDK export and Node on Haiku. It replaces
 `TUI-PORT-INPUTS.json`, `PTY-PORT-INPUTS.json`, `CONTINUATION-INPUTS.json`,
 `opencode-port-manifest.json` and `TUI-MODEL.json`.
 
-Patches move to `patches/<upstream>/NNNN-title.patch` with a `series` file for each upstream.
+Patches are in `patches/<upstream>/<name>.patch`. The `series` file of each upstream lists its patches in the order of application. The names keep the paths that `reference/*-INPUTS.json` records with their hashes.
 
 ## 3. Build stages
 
