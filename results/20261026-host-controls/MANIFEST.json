@@ -1,0 +1,22 @@
+{
+  "folder": "20261026-host-controls",
+  "content": "Host controls H-01 to H-04: make check on commit 80c49b2, and make test without a haiku-k40c checkout",
+  "cited_by": "ACCEPTANCE.md, STATUS.md",
+  "files": [
+    {
+      "path": "environment.txt",
+      "bytes": 351,
+      "sha256": "fbcb953b58a298b9830f5c3096f7ff78d9b889cecdb2a5cedc19cd88fa571181"
+    },
+    {
+      "path": "make-check.log",
+      "bytes": 4584,
+      "sha256": "c7674db1e26852b10c8c8929f43472b6f8441f78c911a972c8a6accc864cb800"
+    },
+    {
+      "path": "make-test-without-haiku-k40c.log",
+      "bytes": 2886,
+      "sha256": "376745b9558889062bc312246c3be1680adcccb87f4fe8dc653c825e455789e7"
+    }
+  ]
+}

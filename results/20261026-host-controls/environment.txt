@@ -1,0 +1,8 @@
+commit: 80c49b297106d2bca9881b22e0756a0806d42afe
+haiku-k40c: 2d6951c651150a0fe8b9443f89839ca9b5c1e007
+date: 2026-10-26T16:31:55+11:00
+python: Python 3.10.12
+node: v24.19.0
+ruff: ruff 0.17.2
+command: PYTHONDONTWRITEBYTECODE=1 make check  (HAIKU_K40C_ROOT default ../haiku-k40c)
+command: HAIKU_K40C_ROOT=/nonexistent PYTHONDONTWRITEBYTECODE=1 make test
