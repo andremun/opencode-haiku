@@ -501,6 +501,26 @@ exit 0""",
                 )
             if name == "unsolved":
                 self.assertEqual(outcome["independent_tests"]["fail"], 12)
+        # Node 22 without a TTY prints TAP ("# tests 15"). Force TAP so that the
+        # parser branch for it runs on every Node version.
+        out = self.root / "cloud-solved-tap"
+        out.mkdir()
+        subprocess.run(
+            [NODE, str(ROOT / "tests/acceptance/cloud-coding-task.mjs"), str(out)],
+            env={
+                **os.environ,
+                "LC_REF": str(ref),
+                "NODE_OPTIONS": "--test-reporter=tap",
+                "OPENCODE_TEST_PORT_ROOT": str(self.root / "cloud-launcher-solved"),
+                "OPENCODE_CLOUD_MODEL": "opencode/test-model-free",
+            },
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        outcome = json.loads(next((out / d / "outcome.json" for d in os.listdir(out))).read_text())
+        self.assertEqual(outcome["independent_tests"], {"tests": 15, "pass": 15, "fail": 0})
+        self.assertTrue(outcome["semantic_pass"])
 
     def test_cloud_task_requires_a_model_and_launcher(self):
         result = subprocess.run(
