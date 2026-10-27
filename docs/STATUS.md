@@ -1,6 +1,6 @@
 # Status
 
-Updated: 23 October 2026.
+Updated: 26 October 2026.
 
 ## Current release candidate
 
@@ -9,7 +9,7 @@ Updated: 23 October 2026.
 | Version | `2.0.29-haiku.5` |
 | Recorded archive | `opencode-haiku-tui-2.0.29-haiku.5.tar.gz`, 53,682,981 bytes, SHA-256 `b9970cd8...f2` (`results/opencode-tui-package.json`) |
 | T7610 rebuild | SHA-256 `9cbd07c5...`, not byte-identical: different SDK, Koffi and renderer inputs (`history/20261016-t7610-kvm-haiku5-results.md`) |
-| Acceptance | Every check in [ACCEPTANCE.md](ACCEPTANCE.md) passed at least once. The host controls H-01 to H-03 pass (23 October 2026, after the H-02 fix). |
+| Acceptance | Every check in [ACCEPTANCE.md](ACCEPTANCE.md) passed at least once. The host controls H-01 to H-04 pass (26 October 2026, `results/20261026-host-controls/`). |
 | Release | None published. No `.hpkg` yet. |
 
 The field `acceptance` in `results/opencode-tui-package.json` still says "pending". The
@@ -29,5 +29,5 @@ release manifest ([design/packaging.md](design/packaging.md)).
 ## Alignment plan
 
 The four-repository plan is in `haiku-k40c-llm/docs/refactor-spec.md`. Phase 1
-(documentation) and Phase 2 (code) are done here. Steps for the VM: move the VM disk to
-`~/haiku-vm` (or set `HAIKU_PERSISTENT_VM_DIR`), and give the guest a new source copy (`make stage`). Older status text: `history/20261021-status.md`.
+(documentation) and Phase 2 (code) are done here. The VM disk moved to `~/haiku-vm` on 26 October 2026
+([KVM-VM.md](KVM-VM.md)). Before the next guest run, give the guest a new source copy (`make stage`). Older status text: `history/20261021-status.md`.

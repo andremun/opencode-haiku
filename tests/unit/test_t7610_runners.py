@@ -501,6 +501,26 @@ exit 0""",
                 )
             if name == "unsolved":
                 self.assertEqual(outcome["independent_tests"]["fail"], 12)
+        # Node 22 without a TTY prints TAP ("# tests 15"). Force TAP so that the
+        # parser branch for it runs on every Node version.
+        out = self.root / "cloud-solved-tap"
+        out.mkdir()
+        subprocess.run(
+            [NODE, str(ROOT / "tests/acceptance/cloud-coding-task.mjs"), str(out)],
+            env={
+                **os.environ,
+                "LC_REF": str(ref),
+                "NODE_OPTIONS": "--test-reporter=tap",
+                "OPENCODE_TEST_PORT_ROOT": str(self.root / "cloud-launcher-solved"),
+                "OPENCODE_CLOUD_MODEL": "opencode/test-model-free",
+            },
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        outcome = json.loads(next((out / d / "outcome.json" for d in os.listdir(out))).read_text())
+        self.assertEqual(outcome["independent_tests"], {"tests": 15, "pass": 15, "fail": 0})
+        self.assertTrue(outcome["semantic_pass"])
 
     def test_cloud_task_requires_a_model_and_launcher(self):
         result = subprocess.run(
@@ -641,6 +661,42 @@ exit 0""",
         self.assertNotIn(key, r.stdout + r.stderr)
         self.assertIn("leak.log:2", r.stdout)
         self.assertIn("bearer.txt:1", r.stdout)
+
+    def test_secret_scanner_reads_nested_vm_folders_and_skips_only_the_top_one(self):
+        scan = ROOT / "tools/secrets/scan_secrets.py"
+        key = self.fake_key()
+        d = self.root / "scan-vm"
+        (d / "vm").mkdir(parents=True)
+        (d / "tests/acceptance/vm").mkdir(parents=True)
+        (d / "vm/serial.log").write_text("OPENCODE_API_KEY=" + key + "\n")
+        r = subprocess.run(["python3", str(scan), str(d)], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout)
+        (d / "tests/acceptance/vm/job.sh").write_text("x\nOPENCODE_API_KEY=" + key + "\n")
+        r = subprocess.run(["python3", str(scan), str(d)], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("tests/acceptance/vm/job.sh:2", r.stdout)
+        self.assertNotIn(key, r.stdout + r.stderr)
+
+    def test_secret_scanner_staged_mode_finds_a_key_in_a_renamed_file(self):
+        repo = self.root / "staged-repo"
+        (repo / "tools/secrets").mkdir(parents=True)
+        shutil.copy(ROOT / "tools/secrets/scan_secrets.py", repo / "tools/secrets/scan_secrets.py")
+        git = ["git", "-C", str(repo), "-c", "user.name=t", "-c", "user.email=t@example.invalid"]
+        subprocess.run(git[:3] + ["init", "-q"], check=True)
+        body = "".join(f"line {n} of a long enough file to stay similar\n" for n in range(40))
+        (repo / "notes.txt").write_text(body)
+        subprocess.run(git + ["add", "-A"], check=True)
+        subprocess.run(git + ["commit", "-q", "-m", "start"], check=True)
+        subprocess.run(git + ["mv", "notes.txt", "moved.txt"], check=True)
+        (repo / "moved.txt").write_text(body + "OPENCODE_API_KEY=" + self.fake_key() + "\n")
+        subprocess.run(git + ["add", "moved.txt"], check=True)
+        status = subprocess.run(git + ["diff", "--cached", "--name-status", "-M"], capture_output=True, text=True).stdout
+        self.assertTrue(status.startswith("R"), status)  # the control really is a rename
+        r = subprocess.run(
+            ["python3", str(repo / "tools/secrets/scan_secrets.py"), "--staged"], capture_output=True, text=True
+        )
+        self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
+        self.assertIn("moved.txt:41", r.stdout)
 
     def test_runner_refuses_paid_models_by_default(self):
         env = {k: v for k, v in os.environ.items() if not k.startswith("OPENCODE_")}

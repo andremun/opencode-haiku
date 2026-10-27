@@ -1,0 +1,45 @@
+HAIKU_K40C_ROOT=/nonexistent python3 tests/unit/test_review_runners.py
+test_cloud_rejects_failed_client_shell_unknown_exit_and_timeout (__main__.ReviewTests) ... ok
+test_cpu_runner_stops_after_refused_startup_and_leaves_pid_files_alone (__main__.ReviewTests) ... ok
+test_scoped_services_cleanup_both_owned_children_after_check_failure (__main__.ReviewTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 7.435s
+
+OK
+HAIKU_K40C_ROOT=/nonexistent python3 tests/unit/test_t7610_runners.py
+test_api_failure_is_not_replaced_by_successful_upload (__main__.RunnerTests) ... ok
+test_cargo_test_and_clippy_failures_are_not_hidden_by_tail (__main__.RunnerTests) ... ok
+test_cloud_task_fixture_and_acceptance_controls (__main__.RunnerTests) ... ok
+test_cloud_task_requires_a_model_and_launcher (__main__.RunnerTests) ... ok
+test_coding_acceptance_requires_agent_test_and_an_unchanged_passing_fixture (__main__.RunnerTests) ... ok
+test_coding_uploads_use_per_run_names_outside_tracked_results (__main__.RunnerTests) ... ok
+test_cpu_experiments_refuse_the_host_platform (__main__.RunnerTests) ... ok
+test_guest_failure_reaches_host_and_missing_status_rejected (__main__.RunnerTests) ... skipped 'haiku-k40c checkout not found (set HAIKU_K40C_ROOT)'
+test_guest_wrapper_fetches_the_key_into_memory_once (__main__.RunnerTests) ... ok
+test_http_error_and_invalid_completion_fail_the_inference_runner (__main__.RunnerTests) ... ok
+test_key_wrapper_exports_the_key_without_printing_it (__main__.RunnerTests) ... ok
+test_missing_coding_launcher_records_a_terminal_error (__main__.RunnerTests) ... ok
+test_one_shot_key_server_serves_once_to_the_right_token (__main__.RunnerTests) ... ok
+test_runner_refuses_paid_models_by_default (__main__.RunnerTests) ... ok
+test_secret_scanner_flags_keys_without_printing_them_and_ignores_placeholders (__main__.RunnerTests) ... ok
+test_secret_scanner_reads_nested_vm_folders_and_skips_only_the_top_one (__main__.RunnerTests) ... ok
+test_secret_scanner_staged_mode_finds_a_key_in_a_renamed_file (__main__.RunnerTests) ... ok
+test_services_refuse_existing_listener_before_writing_configuration (__main__.RunnerTests) ... ok
+test_stage_reports_a_missing_runtime_archive (__main__.RunnerTests) ... ok
+test_transfer_publishes_only_complete_results (__main__.RunnerTests) ... skipped 'haiku-k40c checkout not found (set HAIKU_K40C_ROOT)'
+test_transfer_rejects_dot_names (__main__.RunnerTests) ... skipped 'haiku-k40c checkout not found (set HAIKU_K40C_ROOT)'
+
+----------------------------------------------------------------------
+Ran 21 tests in 5.325s
+
+OK (skipped=3)
+python3 tests/unit/install-test.py
+INSTALL_TEST_PASS: checksum, success, existing preservation, partial cleanup
+python3 tests/unit/test_build_paths.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.012s
+
+OK
+exit=0

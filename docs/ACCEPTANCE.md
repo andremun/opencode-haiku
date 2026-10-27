@@ -48,9 +48,10 @@ Haiku VMs. They are not GPU evidence.
 
 | ID | Check | Last result | Evidence |
 |---|---|---|---|
-| H-01 | `tests/unit/test_review_runners.py` | Pass, 3 tests, 2026-10-23 (cloud session) | this file |
-| H-02 | `tests/unit/test_t7610_runners.py` | 19 of 19 pass, 2026-10-23 (cloud session, Node 22). Fixed defect: the independent test summary read only the `spec` reporter lines. Node without a TTY can print TAP lines (`# tests 15`). The parser now reads both. | this file |
-| H-03 | `tests/unit/install-test.py` | Pass, 2026-10-23 | this file |
+| H-01 | `tests/unit/test_review_runners.py` | Pass, 3 tests, 2026-10-26 | `20261026-host-controls/` |
+| H-02 | `tests/unit/test_t7610_runners.py` | 21 of 21 pass, 2026-10-26 (Node 24). Without a `haiku-k40c` checkout, 18 pass and 3 skip. One control forces the TAP reporter (`# tests 15`, the form Node 22 prints without a TTY), so the 2026-10-23 parser fix is tested on every Node version. | `20261026-host-controls/` |
+| H-03 | `tests/unit/install-test.py` | Pass, 2026-10-26 | `20261026-host-controls/` |
+| H-04 | `tests/unit/test_build_paths.py`: script and manifest paths, `series` files | Pass, 3 tests, 2026-10-26 | `20261026-host-controls/` |
 
 ## Not covered
 

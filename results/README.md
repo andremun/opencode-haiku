@@ -17,6 +17,7 @@ All runs used cardless Haiku VMs. They are not GPU evidence.
 | `20261018-cloud-task/` | Cloud coding task through the port and the official client | history/20261018-free-models-and-cloud-task.md |
 | `20261019-runner-fixes/` | Offline runner controls | history/20261019-runner-fixes.md |
 | `20261021-task-e/` | Native runner rerun, ten free cloud models, interactive TUI, second client and browser | ACCEPTANCE.md, history/20261021-task-e.md, history/20261021-interactive-cloud.md |
+| `20261026-host-controls/` | `make check` on commit `80c49b2` (host controls H-01 to H-04, lint, secret scan), and `make test` without a `haiku-k40c` checkout | ACCEPTANCE.md, STATUS.md |
 
 Two files stay at the top because the build scripts read and write them:
 `native-build-inputs.json` and `opencode-tui-package.json`. Phase 2 replaces them with
