@@ -14,9 +14,7 @@ unusual operating systems, and Haiku is an interesting one. That is the main rea
 project exists.
 
 The code is not meant for inclusion in Haiku, HaikuPorts or any other Haiku project.
-AI coding agents generated most of it ("vibe coding"). I understand that the Haiku
-project does not want such packages, and I do not submit them. If the research is
-useful to someone, I am glad.
+AI coding agents generated most of it ("vibe coding"). I publish the code and the records so that others can use what the project found.
 
 A second question drives the work: can Haiku be a suitable sandbox for AI coding
 agents? I do not know of specific vulnerabilities of Haiku for this use. An uncommon
